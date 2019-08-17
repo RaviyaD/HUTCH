@@ -1,0 +1,16 @@
+@import "~bootstrap/dist/css/bootstrap.css";
+
+.body { padding: 30px }
+
+.form-control.ng-touched.ng-invalid {
+  border: 2px solid red;
+}
+.example-form {
+  min-width: 150px;
+  max-width: 500px;
+  width: 100%;
+}
+
+.example-full-width {
+  width: 100%;
+}

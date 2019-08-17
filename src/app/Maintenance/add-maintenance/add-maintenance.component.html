@@ -1,0 +1,77 @@
+
+
+<p class="h1" style="margin-left: 200px">Add-Maintenance</p>
+
+<div class="body" style="margin-left: 100px">
+  <form xmlns="http://www.w3.org/1999/html" class="form-control-static">
+
+    <div class="row">
+      <div class="form-group col-md-2" >
+        <mat-form-field >
+          <label for="siteName">Site Name</label>
+          <input type="text" required ngModel
+                 id="siteName"   aria-label="Number" matInput [formControl]="myControl" [matAutocomplete]="auto" class="form-control">
+          <mat-autocomplete #auto="matAutocomplete">
+            <mat-option *ngFor="let option of filteredOptions | async" [value]="option" class="row">
+              {{option}}
+            </mat-option>
+          </mat-autocomplete>
+        </mat-form-field>
+      </div>
+    </div>
+
+    <div class="row ">
+      <div class="form-group col-md-2">
+        <label for="category">
+          Category
+        </label>
+        <select id="category" name="category"
+                [(ngModel)]="category" class="form-control">
+          <option value="security">Security</option>
+          <option value="tech">Technical</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="form-group col-md-5">
+        <label for="civilIssue">Civil Issue</label>
+        <textarea id="civilIssue" cols="10" rows="5" class="form-control"></textarea>
+      </div>
+    </div>
+
+
+    <div class="row">
+      <div class="form-group col-md-2">
+        <label for="piority">
+          Piority
+        </label>
+        <select id="piority" name="piority"
+                [(ngModel)]="piority" class="form-control">
+          <option value="security">Emergeny</option>
+          <option value="tech">Normal</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="form-group col-md-2">
+        <label for="InformDate">Inform Date</label>
+        <input id="InformDate" name="InformDate" [(ngModel)]="InformDate" type="text"
+               bsDatepicker class="form-control">
+      </div>
+    </div>
+
+    <div class="panel">
+      <button class="btn btn-group-sm">Submit</button>
+    </div>
+
+
+  </form>
+
+
+
+</div>
+
+
+
