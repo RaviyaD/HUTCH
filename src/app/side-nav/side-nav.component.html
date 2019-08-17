@@ -1,0 +1,108 @@
+<div class="wrapper">
+  <!-- Sidebar Holder -->
+  <nav id="sidebar" style="box-shadow: 4px 4px 5px lightgrey">
+    <div class="sidebar-header">
+      <h3>HUTCH</h3>
+    </div>
+
+    <ul class="list-unstyled components">
+      <p style="font-family: 'Orbitron', sans-serif; font-size: 1.4rem">Civil Department</p>
+      <hr>
+      <li>
+        <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Region</a>
+        <ul class="collapse list-unstyled" id="homeSubmenu">
+          <li>
+            <a href="#">View Region</a>
+          </li>
+          <li>
+            <a href="#">View Zone</a>
+          </li>
+          <li>
+            <a href="#">Edit Zone</a>
+          </li>
+        </ul>
+      </li>
+      <hr>
+      <li>
+        <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Site Management</a>
+        <ul class="collapse list-unstyled" id="pageSubmenu">
+          <li>
+            <a href="#">P1</a>
+          </li>
+          <li>
+            <a href="#">P2</a>
+          </li>
+          <li>
+            <a href="#">P3</a>
+          </li>
+        </ul>
+      </li>
+      <hr>
+      <li>
+        <a href="#">Site Mapping</a>
+      </li>
+      <hr>
+      <li>
+        <a href="#">Towers & Tower Loading</a>
+      </li>
+      <hr>
+      <li>
+        <a href="#">Maintenance & Repair</a>
+      </li>
+      <hr>
+
+      <li>
+        <a href="#">Security Details</a>
+      </li>
+      <hr>
+
+      <li>
+        <a [routerLink]="['/specification']" routerLinkActive="active">Specifications</a>
+
+      </li>
+      <hr>
+
+      <li>
+        <a href="#">On going Projects</a>
+      </li>
+      <hr>
+    </ul>
+
+  </nav>
+
+  <router-outlet></router-outlet>
+
+  <!-- Page Content Holder -->
+  <div id="content">
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <div class="container-fluid">
+
+        <button type="button" id="sidebarCollapse" class="navbar-btn">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+        <button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <i class="fas fa-align-justify"></i>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="nav navbar-nav ml-auto">
+            <li class="nav-item active">
+              <button style="background-color: transparent; border: none" onclick="myFunction()" class="dropbtn">
+                <img src="assets/img/avatar.png" width="50" height="50" alt="">
+                Deepaal Perera
+              </button>
+              <div id="myDropdown" class="dropdown-content">
+                <a href="#home">Profile</a>
+                <hr>
+                <button style="background-color: transparent; border: none; padding-left: 17px">Log Out</button>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </div>
+</div>
