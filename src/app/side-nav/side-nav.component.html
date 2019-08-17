@@ -47,7 +47,7 @@
       </li>
       <hr>
       <li>
-        <a href="#">Maintenance & Repair</a>
+        <a [routerLink]="['/add-maintenance']" routerLinkActive="active">Maintenance & Repair</a>
       </li>
       <hr>
 
@@ -70,12 +70,13 @@
 
   </nav>
 
-  <router-outlet></router-outlet>
+ <!-- <router-outlet></router-outlet>-->
 
   <!-- Page Content Holder -->
   <div id="content">
 
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
+
       <div class="container-fluid">
 
         <button type="button" id="sidebarCollapse" class="navbar-btn">
@@ -104,5 +105,6 @@
         </div>
       </div>
     </nav>
+    <router-outlet></router-outlet>
   </div>
 </div>
