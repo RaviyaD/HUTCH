@@ -14,6 +14,7 @@ import { SpecNavComponent } from './Specification/spec-nav/spec-nav.component';
 import { SpecComponent } from './Specification/spec/spec.component';
 import { SpecLogTableComponent } from './Specification/spec-log-table/spec-log-table.component';
 import { SpecViewComComponent } from './Specification/spec-view-com/spec-view-com.component';
+import { ViewMaintenanceComponent } from './Maintenance/view-maintenance/view-maintenance.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { SpecViewComComponent } from './Specification/spec-view-com/spec-view-co
     SpecNavComponent,
     SpecComponent,
     SpecLogTableComponent,
-    SpecViewComComponent
+    SpecViewComComponent,
+    ViewMaintenanceComponent
   ],
   imports: [
     BrowserModule,

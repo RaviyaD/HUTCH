@@ -47,7 +47,18 @@
       </li>
       <hr>
       <li>
-        <a [routerLink]="['/add-maintenance']" routerLinkActive="active">Maintenance & Repair</a>
+        <a href="#MaintenanceSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Maintenance & Repair</a>
+        <ul class="collapse list-unstyled" id="MaintenanceSubmenu">
+          <li>
+            <a [routerLink]="['/add-maintenance']" routerLinkActive="active">Add Maintenance</a>
+          </li>
+          <li>
+            <a [routerLink]="['/view-maintenance']" routerLinkActive="active">View Maintenance</a>
+          </li>
+          <li>
+            <a href="#">Remark Maintenance</a>
+          </li>
+        </ul>
       </li>
       <hr>
 
