@@ -1,0 +1,104 @@
+<h3>Upload specification</h3>
+<form>
+  <li><a class="">Specification Id </a><input type="text" ngModel="#" /></li>
+
+  <label>Category</label>
+  <div class="dropdown show float-right" >
+    <a
+      class="btn btn-secondary dropdown-toggle"
+      href="#"
+      role="button"
+      id="specLinks"
+      data-toggle="dropdown"
+      aria-haspopup="true"
+      aria-expanded="false"
+    >
+      Category
+    </a>
+
+    <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+      <a class="dropdown-item" href="#">Tower</a>
+      <a class="dropdown-item" href="#">Fencing</a>
+      <a class="dropdown-item" href="#">Grounding</a>
+    </div>
+  </div>
+
+  <li><a class="clearfix">Name </a><input type="text" ngModel="#" /></li>
+  <li><a>Description </a><input type="text" ngModel="#" /></li>
+
+  <h3>Additional details</h3>
+
+  <li>
+    <label>Select Site </label>
+    <div class="dropdown show float-right d-inline-block">
+      <a
+        class="btn btn-secondary dropdown-toggle"
+        href="#"
+        role="button"
+        id="dropdownMenuLink"
+        data-toggle="dropdown"
+        aria-haspopup="true"
+        aria-expanded="false"
+      >
+        Site ID
+      </a>
+
+      <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+        <a class="dropdown-item" href="#">s1</a>
+        <a class="dropdown-item" href="#">s2</a>
+        <a class="dropdown-item" href="#">s3</a>
+      </div>
+    </div>
+  </li>
+
+  <li>
+    <label>Select project </label>
+
+    <div class="dropdown show float-right btn-primary">
+      <a
+        class="btn btn-secondary dropdown-toggle"
+        href="#"
+        role="button"
+        id="projectLinksS"
+        data-toggle="dropdown"
+        aria-haspopup="true"
+        aria-expanded="false"
+      >
+        Project
+      </a>
+
+      <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+        <a class="dropdown-item" href="#">p1</a>
+        <a class="dropdown-item" href="#">p2</a>
+        <a class="dropdown-item" href="#">p3</a>
+      </div>
+    </div>
+  </li>
+
+  <div class="h3 justify-content-center"  id="search-by-specid">
+
+  </div>
+  <img src="#" />
+  <button type="button" class="btn btn-primary btn-sm">
+    Upload document/Image
+  </button>
+  <div class="text-center">
+    <button class="btn btn-success " type="submit">Submit</button>
+  </div>
+</form>
+
+<div class="card">
+  <ul class="ul1">
+    <li class="spec_id">Specification ID : SP001</li>
+    <li class="spec_name">Name : For cabin</li>
+  </ul>
+
+  <ul class="ul2">
+    <li>
+      <button class="btn btn-outline-primary float-right">See details</button>
+    </li>
+    <li>
+      <button class="btn btn-outline-secondary float-right">Download</button>
+    </li>
+  </ul>
+</div>

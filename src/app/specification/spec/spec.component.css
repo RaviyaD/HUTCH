@@ -1,0 +1,42 @@
+li {
+  list-style-type: none;
+  padding: 20px;
+}
+input {
+  float: right;
+  width: 200px;
+}
+label {
+  padding-left: 20px;
+}
+
+button {
+  float: right;
+  border: 20px;
+}
+.example-form {
+  min-width: 150px;
+  max-width: 500px;
+  width: 100%;
+}
+
+.example-full-width {
+  width: 100%;
+}
+
+li {
+  list-style: none;
+  border: 10px;
+}
+
+button {
+  border: 4px;
+}
+
+div.card{
+  margin: 10px;
+}
+input{
+  width: 70%;
+}
+
