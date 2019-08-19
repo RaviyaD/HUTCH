@@ -1,12 +1,14 @@
 import { BrowserModule } from '@angular/platform-browser';
 import {Component, NgModule} from '@angular/core';
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import {RouterModule} from '@angular/router';
 import { SideNavComponent } from './side-nav/side-nav.component';
 import { AddMaintenanceComponent } from './Maintenance/add-maintenance/add-maintenance.component';
-import {MatAutocompleteModule, MatInputModule, MatSelectModule, MatTableModule, MatPaginatorModule} from '@angular/material';
+import {MatAutocompleteModule, MatInputModule, MatSelectModule} from '@angular/material';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {HttpClientModule} from '@angular/common/http';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { SpecNavComponent } from './Specification/spec-nav/spec-nav.component';
 import { SpecComponent } from './Specification/spec/spec.component';
@@ -36,8 +38,6 @@ import { ViewMaintenanceComponent } from './Maintenance/view-maintenance/view-ma
     MatAutocompleteModule,
     MatInputModule,
     BrowserAnimationsModule,
-    MatTableModule,
-    MatPaginatorModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

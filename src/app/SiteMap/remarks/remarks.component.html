@@ -1,0 +1,40 @@
+<table><tr>
+  <th class="the">    <app-map></app-map></th>
+
+
+
+  <th class="the">
+
+    <div class="col-md-6 user-container" align="bottom"><table class="table1"><tr><th class="th">
+      <h3 > Site-Map Remarks</h3></th></tr></table>
+      <br>
+      <textarea rows="4" cols="72" name="comment"  style="font-size: 15px;width: 500px">Add a remark here...
+</textarea>
+      <button class="btn btn-danger" style="width:100px" class="button1"> Add Remark</button>
+      <table class="table table-striped" class="table3" >
+        <thead>
+        <tr>
+
+          <th margin="0px 0px">Remarks</th>
+
+        </tr>
+        </thead>
+        <tbody>
+        <tr >
+          <td class="hidden"></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td padding="4px 2px"><button class="btn btn-success" class="button2"> Delete</button>
+            <button class="btn btn-success"  style="margin-left: 20px;" class="button2"> Edit</button></td>
+        </tr>
+        </tbody>
+      </table>
+      <a [routerLink]="['/map-main']" routerLinkActive="active"> <button class="btn btn-danger" style="width:100px" class="button1"> Back</button></a>
+    </div>
+  </th>
+</tr>
+</table>
+

@@ -1,0 +1,58 @@
+<table><tr>
+  <th class="the">    <app-map></app-map></th>
+
+
+
+  <th class="the">
+
+    <h3 > Search for a Site</h3>
+    <div class="col-md-6 user-container" align="bottom" ><table class="table1"><tr><th class="th">
+
+
+      <div class="container">
+        <div class="row custom-wrapper">
+          <div class="col-md-12">
+            <div class="di">
+              <!-- Form starts -->
+              <form [formGroup]="searchForm" (ngSubmit)="onSubmit()">
+                <div class="group-gap">
+                  <div class="d-block my-3" >
+
+
+                    <h4> Select site name here</h4>
+                    <div class="mb-3" >
+
+                      <select class="custom-select" (change)="changeSite($event)" formControlName="siteName"  class="dropbtn">
+
+                        <option value="" >Select</option>
+                        <option *ngFor="let site of Site" [ngValue]="site">{{site}}</option>
+                      </select>
+
+
+
+                      <!-- error block -->
+                      <div class="invalid-feedback" *ngIf="isSubmitted && siteName.errors?.required">
+                        <sup>*</sup><h6>Please select searching site</h6>
+                      </div>
+                    </div>
+
+                  </div>
+                </div>
+
+                <!-- Submit Button -->
+                <button type="submit" class="btn btn-danger btn-lg btn-block" class="buttonM">Search</button>
+              </form><!-- Form ends -->
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </th></tr></table>
+
+
+    </div>
+  </th>
+</tr>
+</table>
+
+
