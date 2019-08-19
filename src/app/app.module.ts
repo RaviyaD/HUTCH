@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import {Component, NgModule} from '@angular/core';
-import { MapMainComponent} from './SiteMap/map-main/map-main.component';
+import {MapMainComponent} from './SiteMap/map-main/map-main.component';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import {RouterModule} from '@angular/router';

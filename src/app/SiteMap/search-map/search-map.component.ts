@@ -11,7 +11,7 @@ export class SearchMapComponent implements OnInit {
   isSubmitted = false;
 
   // Site Names
-  Site: any = ['Colombo', 'Kalutara', 'Anuradhapura', 'Jaffna'];
+  Site: any = ['Colombo', 'Kalutara', 'Anuradhapura', 'Jaffna', 'Kalawana'];
 
   constructor(public fb: FormBuilder) { }
 

@@ -10,8 +10,8 @@
         <mat-form-field class="example-full-width">
           <label for="siteName">Site Name</label>
           <input type="text" required ngModel
-                 id="siteName"  [(ngModel)]="siteName" aria-label="Number" matInput [formControl]="myControl" [matAutocomplete]="auto" class="form-control">
-          <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
+                 id="siteName"  [(ngModel)]="siteName" aria-label="Number" matInput  [formControl]="myControl" [matAutocomplete]="auto" class="form-control">
+          <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete" >
             <mat-option *ngFor="let option of filteredOptions | async" [value]="option" class="row">
               {{option}}
             </mat-option>
