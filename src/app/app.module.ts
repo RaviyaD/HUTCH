@@ -21,6 +21,8 @@ import {SearchMapComponent} from './SiteMap/search-map/search-map.component';
 import {SiteStatusComponent} from './SiteMap/site-status/site-status.component';
 import {StatusReportComponent} from './SiteMap/status-report/status-report.component';
 import { AgmCoreModule } from '@agm/core';
+import { ViewSiteComponent } from './Site Management/view-site/view-site.component';
+import {MaterialModule} from './material.module';
 @NgModule({
   declarations: [
     AppComponent,
@@ -37,6 +39,7 @@ import { AgmCoreModule } from '@agm/core';
     SearchMapComponent,
     SiteStatusComponent,
     StatusReportComponent,
+    ViewSiteComponent,
   ],
   imports: [
     BrowserModule,
@@ -51,7 +54,8 @@ import { AgmCoreModule } from '@agm/core';
     BrowserAnimationsModule,
     MatTableModule,
     MatPaginatorModule,
-    AgmCoreModule.forRoot({apiKey: 'AIzaSyAQicz7zm0Cri2pfDdgkh801ae)puYzmuE'}),
+    AgmCoreModule.forRoot({apiKey: 'AIzaSyCkBk3eKkKjRgv25gFD9YuOF59Fwijt3wk'}),
+    MaterialModule
   ],
   providers: [],
   bootstrap: [AppComponent]
