@@ -15,9 +15,12 @@ import { SpecComponent } from './Specification/spec/spec.component';
 import { SpecLogTableComponent } from './Specification/spec-log-table/spec-log-table.component';
 import { SpecViewComComponent } from './Specification/spec-view-com/spec-view-com.component';
 import { ViewMaintenanceComponent } from './Maintenance/view-maintenance/view-maintenance.component';
-import {AddVisitorsComponent} from './Security_Details/add-visitors/add-visitors.component';
-
-
+import {MapComponent} from './SiteMap/map/map.component';
+import {RemarksComponent} from './SiteMap/remarks/remarks.component';
+import {SearchMapComponent} from './SiteMap/search-map/search-map.component';
+import {SiteStatusComponent} from './SiteMap/site-status/site-status.component';
+import {StatusReportComponent} from './SiteMap/status-report/status-report.component';
+import { AgmCoreModule } from '@agm/core';
 @NgModule({
   declarations: [
     AppComponent,
@@ -28,7 +31,12 @@ import {AddVisitorsComponent} from './Security_Details/add-visitors/add-visitors
     SpecLogTableComponent,
     SpecViewComComponent,
     ViewMaintenanceComponent,
-    AddVisitorsComponent
+    MapMainComponent,
+    MapComponent,
+    RemarksComponent,
+    SearchMapComponent,
+    SiteStatusComponent,
+    StatusReportComponent,
   ],
   imports: [
     BrowserModule,
@@ -41,6 +49,9 @@ import {AddVisitorsComponent} from './Security_Details/add-visitors/add-visitors
     MatAutocompleteModule,
     MatInputModule,
     BrowserAnimationsModule,
+    MatTableModule,
+    MatPaginatorModule,
+    AgmCoreModule.forRoot({apiKey: 'AIzaSyAQicz7zm0Cri2pfDdgkh801ae)puYzmuE'}),
   ],
   providers: [],
   bootstrap: [AppComponent]

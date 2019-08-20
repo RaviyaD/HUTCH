@@ -1,3 +1,8 @@
+/*
+ This is a copy of the indigo-pink.css in @~angular\material\prebuilt-themes with color for mat-chip changed
+ */
+@import "app/theme.css";
+
 body {
   font-family: 'Blinker', sans-serif;
   background: #fafafa;

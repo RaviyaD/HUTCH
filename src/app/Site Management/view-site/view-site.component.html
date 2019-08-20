@@ -1,0 +1,40 @@
+<div class="container-fluid">
+
+  <div class="row">
+    <div class="col-12">
+      <h3 class="text-center">View Site</h3>
+    </div>
+  </div>
+
+  <div class="row mt-4">
+    <div class="col parent">
+      <form class="example-form text-center">
+        <mat-form-field class="example-full-width">
+          <input type="text" matInput [formControl]="myControl" [matAutocomplete]="auto">
+          <mat-placeholder>Enter Site ID</mat-placeholder>
+          <mat-autocomplete #auto="matAutocomplete">
+            <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+              {{option}}
+            </mat-option>
+          </mat-autocomplete>
+        </mat-form-field>
+      </form>
+    </div>
+  </div>
+
+  <div class="row mt-3 pt-3 mb-3 pt-3">
+    <div class="col parent">
+      <mat-chip-list class="mat-chip-list-stacked" aria-orientation="vertical">
+        <mat-chip>View Site Details</mat-chip>
+        <mat-chip>View Region Details</mat-chip>
+        <mat-chip><a [routerLink]="['/add-maintenance']">View Maintenance Log</a></mat-chip>
+        <mat-chip>View Tower Loading</mat-chip>
+        <mat-chip><a [routerLink]="['/map-main']">View On Map</a></mat-chip>
+        <mat-chip>View Security Details</mat-chip>
+        <mat-chip><a [routerLink]="['/spec-nav']">View Specifications</a></mat-chip>
+        <mat-chip>View Ongoing Projects</mat-chip>
+      </mat-chip-list>
+    </div>
+  </div>
+
+</div>
