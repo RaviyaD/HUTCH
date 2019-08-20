@@ -9,6 +9,8 @@ import {SearchMapComponent} from './SiteMap/search-map/search-map.component';
 import {SiteStatusComponent} from './SiteMap/site-status/site-status.component';
 import {StatusReportComponent} from './SiteMap/status-report/status-report.component';
 import {ViewSiteComponent} from './Site Management/view-site/view-site.component';
+import {AddVisitorsComponent} from './Security_Details/add-visitors/add-visitors.component';
+import {ViewVisitorsComponent} from './Security_Details/view-visitors/view-visitors.component';
 
 const routes: Routes = [
   {path: 'spec-nav', component: SpecNavComponent},
@@ -19,7 +21,9 @@ const routes: Routes = [
   {path: 'search-map', component: SearchMapComponent},
   {path: 'site-status', component: SiteStatusComponent},
   {path: 'status-report', component: StatusReportComponent},
-  {path: 'view-site', component: ViewSiteComponent}];
+  {path: 'view-site', component: ViewSiteComponent},
+  {path: 'add-visitors', component: AddVisitorsComponent},
+  {path: 'view-visitors', component: ViewVisitorsComponent}];
 
 
 @NgModule({

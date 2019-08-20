@@ -1,15 +1,16 @@
 import { BrowserModule } from '@angular/platform-browser';
 import {Component, NgModule} from '@angular/core';
-
+import { MapMainComponent} from './SiteMap/map-main/map-main.component';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import {RouterModule} from '@angular/router';
 import { SideNavComponent } from './side-nav/side-nav.component';
 import { AddMaintenanceComponent } from './Maintenance/add-maintenance/add-maintenance.component';
-import {MatAutocompleteModule, MatInputModule, MatSelectModule} from '@angular/material';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {MaterialModule} from './Site Management/material.module';
+import { ViewSiteComponent} from './Site Management/view-site/view-site.component';
+import { AddVisitorsComponent} from './Security_Details/add-visitors/add-visitors.component';
+import { ViewVisitorsComponent} from './Security_Details/view-visitors/view-visitors.component';
 import { SpecNavComponent } from './Specification/spec-nav/spec-nav.component';
 import { SpecComponent } from './Specification/spec/spec.component';
 import { SpecLogTableComponent } from './Specification/spec-log-table/spec-log-table.component';
@@ -37,6 +38,9 @@ import { AgmCoreModule } from '@agm/core';
     SearchMapComponent,
     SiteStatusComponent,
     StatusReportComponent,
+    ViewSiteComponent,
+    AddVisitorsComponent,
+    ViewVisitorsComponent,
   ],
   imports: [
     BrowserModule,
@@ -45,13 +49,8 @@ import { AgmCoreModule } from '@agm/core';
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
-    MatSelectModule,
-    MatAutocompleteModule,
-    MatInputModule,
-    BrowserAnimationsModule,
-    MatTableModule,
-    MatPaginatorModule,
-    AgmCoreModule.forRoot({apiKey: 'AIzaSyAQicz7zm0Cri2pfDdgkh801ae)puYzmuE'}),
+    MaterialModule,
+    AgmCoreModule.forRoot({apiKey: 'AIzaSyCkBk3eKkKjRgv25gFD9YuOF59Fwijt3wk'}),
   ],
   providers: [],
   bootstrap: [AppComponent]
