@@ -22,6 +22,11 @@ import {SearchMapComponent} from './SiteMap/search-map/search-map.component';
 import {SiteStatusComponent} from './SiteMap/site-status/site-status.component';
 import {StatusReportComponent} from './SiteMap/status-report/status-report.component';
 import { AgmCoreModule } from '@agm/core';
+import { ViewSiteComponent} from './Site Management/view-site/view-site.component';
+import { MaterialModule } from './material.module';
+import { MatDatepickerModule} from '@angular/material';
+import { MatNativeDateModule} from '@angular/material';
+
 @NgModule({
   declarations: [
     AppComponent,
