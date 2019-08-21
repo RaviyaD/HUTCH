@@ -11,12 +11,8 @@ import {StatusReportComponent} from './SiteMap/status-report/status-report.compo
 import {ViewSiteComponent} from './Site Management/view-site/view-site.component';
 import {AddVisitorsComponent} from './Security_Details/add-visitors/add-visitors.component';
 import {ViewVisitorsComponent} from './Security_Details/view-visitors/view-visitors.component';
-import {CalculationComponent} from './TowerLoading/calculation/calculation.component';
-import {OwnedTowersComponent} from './TowerLoading/owned-towers/owned-towers.component';
-import {PhyscialMeasurementComponent} from './TowerLoading/physcial-measurement/physcial-measurement.component';
-import { AddRegionComponent } from './Region-Management/add-region/add-region.component';
-import {AddNewProjectComponent} from './OngoingProject/add-new-project/add-new-project.component';
-import {ViewOngoingProjectComponent} from './OngoingProject/view-ongoing-project/view-ongoing-project.component';
+import {ViewIncidentsComponent} from './Security_Details/view-incidents/view-incidents.component';
+import {AddIncidentsComponent} from './Security_Details/add-incidents/add-incidents.component';
 
 const routes: Routes = [
   {path: 'spec-nav', component: SpecNavComponent},
@@ -28,16 +24,11 @@ const routes: Routes = [
   {path: 'site-status', component: SiteStatusComponent},
   {path: 'status-report', component: StatusReportComponent},
   {path: 'view-site', component: ViewSiteComponent},
-  {path: 'add-region', component: AddRegionComponent},
-  {path: 'view-site', component: ViewSiteComponent},
   {path: 'add-visitors', component: AddVisitorsComponent},
   {path: 'view-visitors', component: ViewVisitorsComponent},
-  {path: 'owned-towers', component: OwnedTowersComponent},
-  {path: 'physical-measurment', component: PhyscialMeasurementComponent},
-  {path: 'calculation', component: CalculationComponent},
-  {path: 'add-new-project', component: AddNewProjectComponent },
-  {path: 'view-ongoing-project', component: ViewOngoingProjectComponent}
-  ];
+  {path: 'view-incidents', component: ViewIncidentsComponent},
+  {path: 'add-incidents', component: AddIncidentsComponent}];
+
 
 
 @NgModule({
