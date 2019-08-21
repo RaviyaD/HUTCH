@@ -43,7 +43,18 @@
       </li>
       <hr>
       <li>
-        <a href="#">Towers & Tower Loading</a>
+        <a href="#TowerSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Tower & Tower Loading</a>
+        <ul class="collapse list-unstyled" id="TowerSubmenu">
+          <li>
+            <a [routerLink]="['/owned-towers']" routerLinkActive="active">Owned Tower</a>
+          </li>
+          <li>
+            <a [routerLink]="['/physical-measurment']" routerLinkActive="active">Physical Measurment</a>
+          </li>
+          <li>
+            <a [routerLink]="['/calculation']" routerLinkActive="active">Calculation</a>
+          </li>
+        </ul>
       </li>
       <hr>
       <li>
@@ -61,9 +72,19 @@
         </ul>
       </li>
       <hr>
-
       <li>
-        <a href="#">Security Details</a>
+        <a href="#SecuritySubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Security Details</a>
+        <ul class="collapse list-unstyled" id="SecuritySubmenu">
+          <li>
+            <a [routerLink]="['/view-visitors']" routerLinkActive="active">View Visitors</a>
+          </li>
+          <li>
+            <a [routerLink]="['/add-visitors']" routerLinkActive="active">Add Visitors</a>
+          </li>
+          <li>
+            <a href="#">Remark Maintenance</a>
+          </li>
+        </ul>
       </li>
       <hr>
 

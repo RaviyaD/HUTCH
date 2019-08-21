@@ -6,10 +6,11 @@ import { AppComponent } from './app.component';
 import {RouterModule} from '@angular/router';
 import { SideNavComponent } from './side-nav/side-nav.component';
 import { AddMaintenanceComponent } from './Maintenance/add-maintenance/add-maintenance.component';
-import {MatAutocompleteModule, MatInputModule, MatSelectModule, MatTableModule, MatPaginatorModule} from '@angular/material';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-import {HttpClientModule} from '@angular/common/http';
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {MaterialModule} from './Site Management/material.module';
+import { ViewSiteComponent} from './Site Management/view-site/view-site.component';
+import { AddVisitorsComponent} from './Security_Details/add-visitors/add-visitors.component';
+import { ViewVisitorsComponent} from './Security_Details/view-visitors/view-visitors.component';
 import { SpecNavComponent } from './Specification/spec-nav/spec-nav.component';
 import { SpecComponent } from './Specification/spec/spec.component';
 import { SpecLogTableComponent } from './Specification/spec-log-table/spec-log-table.component';
@@ -21,6 +22,9 @@ import {SearchMapComponent} from './SiteMap/search-map/search-map.component';
 import {SiteStatusComponent} from './SiteMap/site-status/site-status.component';
 import {StatusReportComponent} from './SiteMap/status-report/status-report.component';
 import { AgmCoreModule } from '@agm/core';
+import { OwnedTowersComponent } from './TowerLoading/owned-towers/owned-towers.component';
+import { PhyscialMeasurementComponent } from './TowerLoading/physcial-measurement/physcial-measurement.component';
+import { CalculationComponent } from './TowerLoading/calculation/calculation.component';
 import { ViewSiteComponent } from './Site Management/view-site/view-site.component';
 import {MaterialModule} from './Site Management/material.module';
 import { AddRegionComponent } from './Region-Management/add-region/add-region.component';
@@ -41,6 +45,11 @@ import { AddRegionComponent } from './Region-Management/add-region/add-region.co
     SiteStatusComponent,
     StatusReportComponent,
     ViewSiteComponent,
+    AddVisitorsComponent,
+    ViewVisitorsComponent,
+    OwnedTowersComponent,
+    PhyscialMeasurementComponent,
+    CalculationComponent,
     AddRegionComponent,
   ],
   imports: [
@@ -50,12 +59,7 @@ import { AddRegionComponent } from './Region-Management/add-region/add-region.co
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
-    MatSelectModule,
-    MatAutocompleteModule,
-    MatInputModule,
-    BrowserAnimationsModule,
-    MatTableModule,
-    MatPaginatorModule,
+    MaterialModule,
     AgmCoreModule.forRoot({apiKey: 'AIzaSyCkBk3eKkKjRgv25gFD9YuOF59Fwijt3wk'}),
     MaterialModule
   ],

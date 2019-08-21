@@ -1,0 +1,76 @@
+<p class="h1" style="margin-left: 200px">Add-Maintenance</p>
+
+<form xmlns="http://www.w3.org/1999/html" class="form-control-static">
+<--siteName>
+  <div class="row">
+    <div class="form-group col-md-2" >
+
+        <label for="siteName">Site Name</label>
+        <input type="text" required ngModel
+               id="siteName"  aria-label="Number" matInput [formControl]="myControl" [matAutocomplete]="auto" class="form-control">
+
+    </div>
+  </div>
+
+  <--date-->
+  <div class="row">
+    <div class="form-group col-md-2" >
+
+      <label for="visit_date">Date</label>
+      <input id="visit_date" name="visit_date" type="date" class="form-control">
+
+    </div>
+  </div>
+
+  <--start time-->
+  <div class="row">
+    <div class="form-group col-md-2" >
+
+      <label for="startTime">Visit Time</label>
+      <input type="text" required ngModel
+             id="startTime"   aria-label="Number" matInput [formControl]="myControl" [matAutocomplete]="auto" class="form-control">
+
+    </div>
+  </div>
+<--end time-->
+  <div class="row">
+    <div class="form-group col-md-2" >
+
+      <label for="endTime">Exit Time</label>
+      <input type="text" required ngModel
+             id="endTime"   aria-label="Number" matInput [formControl]="myControl" [matAutocomplete]="auto" class="form-control">
+
+    </div>
+  </div>
+
+
+
+  <--vistor Name-->
+  <div class="row">
+    <div class="form-group col-md-2" >
+
+      <label for="vName">Visitor Name</label>
+      <input type="text" required ngModel
+             id="vName"   aria-label="Number" matInput [formControl]="myControl" [matAutocomplete]="auto" class="form-control">
+
+    </div>
+  </div>
+
+
+  <--description-->
+  <div class="row">
+    <div class="form-group col-md-2" >
+
+      <label for="description">Description</label>
+      <input type="text" required ngModel
+             id="Description"   aria-label="Number" matInput [formControl]="myControl" [matAutocomplete]="auto" class="form-control">
+
+    </div>
+  </div>
+
+
+
+
+
+
+</form>

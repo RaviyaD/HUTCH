@@ -1,4 +1,4 @@
-import {Component, NgModule, OnInit, CUSTOM_ELEMENTS_SCHEMA} from '@angular/core';
+import { Component, NgModule, OnInit, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import {MatAutocompleteModule, MatFormFieldModule, MatInputModule, MatSelectModule} from '@angular/material';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -9,16 +9,18 @@ import {map, startWith} from 'rxjs/operators';
 import {AppComponent} from '../../app.component';
 
 @Component({
-  selector: 'app-add-maintenance',
-  templateUrl: './add-maintenance.component.html',
-  styleUrls: ['./add-maintenance.component.css']
+  selector: 'app-add-visitors',
+  templateUrl: './add-visitors.component.html',
+  styleUrls: ['./add-visitors.component.css']
 })
 @NgModule({
-  declarations: [
-    AppComponent,
-    AddMaintenanceComponent,
-  ],
-  imports: [BrowserModule,
+    declarations: [
+      AppComponent,
+      AddVisitorsComponent
+    ],
+  imports: [
+
+    BrowserModule,
     FormsModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
@@ -30,12 +32,13 @@ import {AppComponent} from '../../app.component';
   ],
   schemas: [
     CUSTOM_ELEMENTS_SCHEMA,
-  ],
+  ]
+
 })
 
-export class AddMaintenanceComponent implements OnInit {
-  date = new FormControl(new Date());
-  serializedDate = new FormControl((new Date()).toISOString());
+
+export class AddVisitorsComponent implements OnInit {
+
   myControl = new FormControl();
   options: string[] = ['One', 'Two', 'Three'];
   filteredOptions: Observable<string[]>;
@@ -56,3 +59,4 @@ export class AddMaintenanceComponent implements OnInit {
   log(x) { console.log(x); }
 
 }
+
