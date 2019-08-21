@@ -25,7 +25,8 @@ import { AgmCoreModule } from '@agm/core';
 import { OwnedTowersComponent } from './TowerLoading/owned-towers/owned-towers.component';
 import { PhyscialMeasurementComponent } from './TowerLoading/physcial-measurement/physcial-measurement.component';
 import { CalculationComponent } from './TowerLoading/calculation/calculation.component';
-
+import { AddNewProjectComponent} from './OngoingProject/add-new-project/add-new-project.component';
+import { ViewOngoingProjectComponent} from './OngoingProject/view-ongoing-project/view-ongoing-project.component';
 
 @NgModule({
   declarations: [
@@ -48,7 +49,9 @@ import { CalculationComponent } from './TowerLoading/calculation/calculation.com
     ViewVisitorsComponent,
     OwnedTowersComponent,
     PhyscialMeasurementComponent,
-    CalculationComponent
+    CalculationComponent,
+    ViewOngoingProjectComponent,
+    AddNewProjectComponent
   ],
   imports: [
     BrowserModule,

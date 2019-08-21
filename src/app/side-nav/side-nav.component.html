@@ -93,9 +93,19 @@
 
       </li>
       <hr>
-
       <li>
-        <a href="#">On going Projects</a>
+        <a href="#projectSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Ongoing Project</a>
+        <ul class="collapse list-unstyled" id="projectSubmenu">
+          <li>
+            <a [routerLink]="['/view-ongoing-project']" routerLinkActive="active">View Ongoing Project</a>
+          </li>
+          <li>
+            <a [routerLink]="['/add-new-project']" routerLinkActive="active">Add New Project</a>
+          </li>
+          <li>
+            <a href="#">Remark Maintenance</a>
+          </li>
+        </ul>
       </li>
       <hr>
     </ul>

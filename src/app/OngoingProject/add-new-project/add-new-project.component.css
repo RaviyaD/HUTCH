@@ -1,0 +1,28 @@
+.example-form {
+  min-width: 150px;
+  max-width: 400px;
+  width: 100%;
+}
+
+.example-full-width {
+  width: 100%;
+}
+
+mat-placeholder {
+  color: #ffa726;
+}
+
+::ng-deep.mat-form-field-underline {
+  /*change color of underline*/
+  background-color: #EC6708 !important;
+}
+
+.parent {
+  min-width: 150px;
+  max-width: 400px;
+  width: 100%;
+}
+.mybtn {
+  float: left;
+  margin-left: 40%;
+}

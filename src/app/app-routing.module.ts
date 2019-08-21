@@ -14,6 +14,8 @@ import {ViewVisitorsComponent} from './Security_Details/view-visitors/view-visit
 import {CalculationComponent} from './TowerLoading/calculation/calculation.component';
 import {OwnedTowersComponent} from './TowerLoading/owned-towers/owned-towers.component';
 import {PhyscialMeasurementComponent} from './TowerLoading/physcial-measurement/physcial-measurement.component';
+import {AddNewProjectComponent} from './OngoingProject/add-new-project/add-new-project.component';
+import {ViewOngoingProjectComponent} from './OngoingProject/view-ongoing-project/view-ongoing-project.component';
 
 const routes: Routes = [
   {path: 'spec-nav', component: SpecNavComponent},
@@ -29,7 +31,10 @@ const routes: Routes = [
   {path: 'view-visitors', component: ViewVisitorsComponent},
   {path: 'owned-towers', component: OwnedTowersComponent},
   {path: 'physical-measurment', component: PhyscialMeasurementComponent},
-  {path: 'calculation', component: CalculationComponent}];
+  {path: 'calculation', component: CalculationComponent},
+  {path: 'add-new-project', component: AddNewProjectComponent },
+  {path: 'view-ongoing-project', component: ViewOngoingProjectComponent}
+  ];
 
 
 @NgModule({

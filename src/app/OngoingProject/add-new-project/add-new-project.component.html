@@ -1,0 +1,131 @@
+<div class="container">
+
+
+
+  <div class="row">
+    <div class="col-12">
+      <h3 class="text-left">Add New Project</h3>
+    </div>
+  </div>
+  <br>
+
+  <form style="margin: auto">
+
+    <div class="row">
+      <div class="col-lg-6">
+
+          <div class="row">
+            <div class="col-lg-2">
+                <label for="projectID"> ProjectID </label>
+            </div>
+            <div class="col-lg-4">
+                <input type="text" name="projectID" id="projectID" class="form-control" required>
+            </div>
+          </div>
+          <br><br>
+          <div class="row">
+            <div class="col-lg-2">
+                <label for="projectname">Project Name</label>
+            </div>
+            <div class="col-lg-7">
+                <input type="text" name="projectname" id="projectname" class="form-control" required>
+            </div>
+          </div>
+          <br>
+          <div class="row">
+            <div class="col-lg-2">
+              <label for="projecttype">Project Type</label>
+            </div>
+            <div class="col-lg-6">
+              <div class="form-group">
+                <select class="form-control" id="projecttype" required>
+                  <option>--select--</option>
+                  <option>SiteRelated</option>
+                  <option>CabinRelated</option>
+                  <option>BuildingRelated</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+      </div>
+      <div class="col-lg-6">
+        <div class="row">
+          <div class="col-lg-3">
+            <label for="projectpriority"> Project Priority </label>
+          </div>
+          <div class="col-lg-5">
+            <div class="form-group">
+              <select class="form-control" id="projectpriority">
+                <option>--select--</option>
+                <option>Normal</option>
+                <option>Severe</option>
+                <option>None</option>
+              </select>
+            </div>
+          </div>
+        </div>
+        <br>
+        <div class="row">
+          <div class="col-lg-3">
+            <label for="startingdate">Starting Date</label>
+          </div>
+          <div class="col-lg-5">
+            <div class='input-group date' id='datetimepicker1'>
+              <input type='text' class="form-control" id="startingdate">
+              <div class="input-group-addon">
+                <span class="glyphicon glyphicon-calendar"></span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <br><br>
+        <div class="row">
+          <div class="col-lg-3">
+            <label for="completionperiod">Completion Period</label>
+          </div>
+          <div class="col-lg-5">
+            <input type="text" class="form-control" id="completionperiod">
+          </div>
+        </div>
+
+      </div>
+    </div>
+    <br>
+    <div class="row">
+      <div class="col-lg-6">
+        <div class="row">
+          <div class="col-lg-2">
+            <label for="teamid">Working TeamID</label>
+          </div>
+          <div class="col-lg-5">
+            <div class="form-group">
+              <select class="form-control" id="teamid">
+                <option>--select--</option>
+                <option>T1230</option>
+                <option>T0125</option>
+                <option>T0028</option>
+              </select>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-6">
+        <div class="row">
+          <div class="col-lg-3">
+            <label for="details">Details</label>
+          </div>
+          <div class="col-lg-6">
+            <textarea class="form-control" rows="5" id="details"></textarea>
+          </div>
+        </div>
+      </div>
+    </div>
+    <br>
+    <div class="mybtn">
+      <button type="button" class="btn btn-warning">Send</button>
+    </div>
+
+  </form>
+
+</div>
