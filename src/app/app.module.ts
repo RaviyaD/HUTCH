@@ -22,7 +22,8 @@ import {SiteStatusComponent} from './SiteMap/site-status/site-status.component';
 import {StatusReportComponent} from './SiteMap/status-report/status-report.component';
 import { AgmCoreModule } from '@agm/core';
 import { ViewSiteComponent } from './Site Management/view-site/view-site.component';
-import {MaterialModule} from './material.module';
+import {MaterialModule} from './Site Management/material.module';
+import { AddRegionComponent } from './Region-Management/add-region/add-region.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -40,6 +41,7 @@ import {MaterialModule} from './material.module';
     SiteStatusComponent,
     StatusReportComponent,
     ViewSiteComponent,
+    AddRegionComponent,
   ],
   imports: [
     BrowserModule,
