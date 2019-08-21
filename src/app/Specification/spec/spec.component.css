@@ -1,3 +1,5 @@
+body {
+  padding: 30px ;}
 li {
   list-style-type: none;
   padding: 20px;
@@ -34,9 +36,16 @@ button {
 }
 
 div.card{
-  margin: 10px;
+  margin: 20px;
 }
 input{
   width: 70%;
 }
 
+div.spec-item{
+  outline: 2px orange;
+}
+
+button{
+  justify-content: center;
+}

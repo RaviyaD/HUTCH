@@ -1,0 +1,164 @@
+<p class="h1" style="margin-left: 200px">Add-INCIDENTS</p>
+
+<form xmlns="http://www.w3.org/1999/html" class="form-control-static">
+
+  <div class="row">
+    <div class="form-group col-md-2" >
+
+      <label for="siteName">Site Name</label>
+      <input type="text" required ngModel
+             id="siteName"  aria-label="Number" matInput [formControl]="myControl" [matAutocomplete]="auto" class="form-control">
+
+    </div>
+  </div>
+
+
+  <div class="row">
+    <div class="form-group col-md-2" >
+
+      <label for="incident_date">Date</label>
+      <input id="incident_date" name="visit_date" type="date" class="form-control">
+
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="form-group col-md-2" >
+
+      <label for="inform_date">Date</label>
+      <input id="inform_date" name="visit_date" type="date" class="form-control">
+
+
+    </div>
+
+
+
+    <div class="form-group col-md-2" >
+
+      <label for="Inform Name">Inform Name</label>
+      <input type="text" required ngModel
+             id="Inform Name"   aria-label="Number" matInput [formControl]="myControl" [matAutocomplete]="auto" class="form-control">
+
+    </div>
+  </div>
+
+<!--incident_summery-->
+<div class="row">
+    <div class="form-group col-md-5">
+      <label for="incident_summery">Summmery of Icident</label>
+      <textarea id="incident_summery" cols="10" rows="5" class="form-control"></textarea>
+    </div>
+  </div>
+
+  <!--Stolen property-->
+
+  <div class="row">
+    <div class="form-group col-md-5">
+      <label for="stolen_property">Description Of Property</label>
+      <textarea id="stolen_property" cols="10" rows="5" class="form-control"></textarea>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="form-group col-md-5">
+      <label>Provide Abans Security</label>
+      <div >
+        <label class="radio-inline">
+        <input type="radio" value="yes" name="yes">
+          YES
+        </label>
+      </div>
+      <div >
+        <label class="radio-inline">
+          <input type="radio" value="NO" name="yes">
+        NO
+        </label>
+    </div>
+  </div>
+  </div>
+
+<!--Complant Name And Rank-->
+
+  <div class="row">
+    <div class="form-group col-md-2" >
+
+      <label for="Rank">Complaint Rank</label>
+      <input type="text" required ngModel
+             id="Rank"  aria-label="Number" matInput [formControl]="myControl" [matAutocomplete]="auto" class="form-control">
+
+
+    </div>
+
+
+
+    <div class="form-group col-md-2" >
+
+      <label for="Complaint Name">Inform Name</label>
+      <input type="text" required ngModel
+             id="Complaint Name"  aria-label="Number" matInput [formControl]="myControl" [matAutocomplete]="auto" class="form-control">
+
+    </div>
+  </div>
+
+
+  <!--Name of the police Station and date-->
+
+  <div class="row">
+    <div class="form-group col-md-2" >
+
+      <label for="police_date">Date</label>
+      <input id="police_date" name="visit_date" type="date" class="form-control">
+
+
+    </div>
+
+
+
+    <div class="form-group col-md-2" >
+
+      <label for="police station">Police Station</label>
+      <input type="text" required ngModel
+             id="police station" aria-label="Number" matInput [formControl]="myControl" [matAutocomplete]="auto" class="form-control">
+
+    </div>
+  </div>
+
+<!--obtain police report-->
+
+  <div class="row">
+    <div class="form-group col-md-5">
+      <label>Obtain Police Report</label>
+      <div >
+        <label class="radio-inline">
+          <input type="radio" value="yes" name="yes">
+          YES
+        </label>
+      </div>
+      <div>
+        <label class="radio-inline">
+          <input type="radio" value="NO" name="yes">
+          NO
+        </label>
+      </div>
+    </div>
+  </div>
+
+<!--Remarks-->
+
+  <div class="row">
+    <div class="form-group col-md-5">
+      <label for="Remarks">Remarks</label>
+      <textarea id="Remarks" cols="10" rows="5" class="form-control"></textarea>
+    </div>
+  </div>
+
+
+  <div class="panel">
+    <button md-button color="primary" >Submit</button>
+  </div>
+
+
+
+
+
+</form>

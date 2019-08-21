@@ -1,7 +1,7 @@
-<p class="h1" style="margin-left: 200px">Add-Maintenance</p>
+<p class="h1" style="margin-left: 200px">Add-Visitors</p>
 
 <form xmlns="http://www.w3.org/1999/html" class="form-control-static">
-<--siteName>
+
   <div class="row">
     <div class="form-group col-md-2" >
 
@@ -12,7 +12,7 @@
     </div>
   </div>
 
-  <--date-->
+
   <div class="row">
     <div class="form-group col-md-2" >
 
@@ -22,7 +22,7 @@
     </div>
   </div>
 
-  <--start time-->
+
   <div class="row">
     <div class="form-group col-md-2" >
 
@@ -31,9 +31,9 @@
              id="startTime"   aria-label="Number" matInput [formControl]="myControl" [matAutocomplete]="auto" class="form-control">
 
     </div>
-  </div>
-<--end time-->
-  <div class="row">
+
+
+
     <div class="form-group col-md-2" >
 
       <label for="endTime">Exit Time</label>
@@ -45,7 +45,7 @@
 
 
 
-  <--vistor Name-->
+
   <div class="row">
     <div class="form-group col-md-2" >
 
@@ -57,18 +57,18 @@
   </div>
 
 
-  <--description-->
+
   <div class="row">
-    <div class="form-group col-md-2" >
-
+    <div class="form-group col-md-5">
       <label for="description">Description</label>
-      <input type="text" required ngModel
-             id="Description"   aria-label="Number" matInput [formControl]="myControl" [matAutocomplete]="auto" class="form-control">
-
+      <textarea id="description" cols="10" rows="5" class="form-control"></textarea>
     </div>
   </div>
 
 
+  <div class="panel">
+    <button md-button color="primary" >Submit</button>
+  </div>
 
 
 

@@ -1,27 +1,22 @@
-<h3>Upload specification</h3>
+<h3 class="display-5 justify-content-center">Upload specification</h3>
+<div>
 <form>
   <li><a class="">Specification Id </a><input type="text" /></li>
 
-  <label>Category</label>
-  <div class="dropdown show float-right" >
-    <a
-      class="btn btn-secondary dropdown-toggle"
-      href="#"
-      role="button"
-      id="specLinks"
-      data-toggle="dropdown"
-      aria-haspopup="true"
-      aria-expanded="false"
-    >
-      Category
-    </a>
-
-    <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-      <a class="dropdown-item" href="#">Tower</a>
-      <a class="dropdown-item" href="#">Fencing</a>
-      <a class="dropdown-item" href="#">Grounding</a>
+    <div class="row ">
+    <div class="form-group col-md-2">
+      <label for="category">
+        Category
+      </label>
+      <select id="category" name="category"
+              [(ngModel)]="category" class="form-control">
+        <option value="security">Tower</option>
+        <option value="tech">Fencing</option>
+        <option value="tech">Grounding</option>
+      </select>
     </div>
   </div>
+
 
   <li><a class="clearfix">Name </a><input type="text"/></li>
   <li><a>Description </a><input type="text" /></li>
@@ -29,76 +24,60 @@
   <h3>Additional details</h3>
 
   <li>
-    <label>Select Site </label>
-    <div class="dropdown show float-right d-inline-block">
-      <a
-        class="btn btn-secondary dropdown-toggle"
-        href="#"
-        role="button"
-        id="dropdownMenuLink"
-        data-toggle="dropdown"
-        aria-haspopup="true"
-        aria-expanded="false"
-      >
-        Site ID
-      </a>
 
-      <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-        <a class="dropdown-item" href="#">s1</a>
-        <a class="dropdown-item" href="#">s2</a>
-        <a class="dropdown-item" href="#">s3</a>
+    <div class="row ">
+      <div class="form-group col-md-2">
+        <label for="category">
+          Select site
+        </label>
+        <select id="specSite" name="category"
+                [(ngModel)]="category" class="form-control">
+          <option value="security">COL001</option>
+          <option value="tech">COL002</option>
+          <option value="tech">COL003</option>
+        </select>
       </div>
     </div>
+
   </li>
 
   <li>
-    <label>Select project </label>
 
-    <div class="dropdown show float-right btn-primary">
-      <a
-        class="btn btn-secondary dropdown-toggle"
-        href="#"
-        role="button"
-        id="projectLinksS"
-        data-toggle="dropdown"
-        aria-haspopup="true"
-        aria-expanded="false"
-      >
-        Project
-      </a>
-
-      <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-        <a class="dropdown-item" href="#">p1</a>
-        <a class="dropdown-item" href="#">p2</a>
-        <a class="dropdown-item" href="#">p3</a>
+    <div class="row ">
+      <div class="form-group col-md-2">
+        <label for="category">
+          Select project
+        </label>
+        <select id="SpecProject" name="category"
+                [(ngModel)]="category" class="form-control">
+          <option value="security">P001</option>
+          <option value="tech">P002</option>
+          <option value="tech">P003</option>
+        </select>
       </div>
     </div>
   </li>
 
-  <div class="h3 justify-content-center"  id="search-by-specid">
 
-  </div>
-  <img src="#" />
-  <button type="button" class="btn btn-primary btn-sm">
-    Upload document/Image
-  </button>
-  <div class="text-center">
-    <button class="btn btn-success " type="submit">Submit</button>
-  </div>
+  <mat-chip>Upload document/ Image</mat-chip>
+  <li><button mat-raised-button	>Submit</button></li>
+
 </form>
+</div>
 
-<div class="card">
-  <ul class="ul1">
-    <li class="spec_id">Specification ID : SP001</li>
-    <li class="spec_name">Name : For cabin</li>
-  </ul>
-
-  <ul class="ul2">
-    <li>
-      <button class="btn btn-outline-primary float-right">See details</button>
-    </li>
-    <li>
-      <button class="btn btn-outline-secondary float-right">Download</button>
-    </li>
-  </ul>
+<div class="spec-item">
+<mat-card-content>
+  <li class="spec_id">Specification ID</li>
+  <li class="spec_name">Name </li>
+  <button mat-button (click)="openDialog()">See details</button>
+  <button mat-button="">Download</button>
+</mat-card-content>
+</div>
+<div class="spec-item">
+<mat-card-content>
+  <li class="spec_id">Specification ID</li>
+  <li class="spec_name">Name </li>
+  <button mat-button="">See Details</button>
+  <button mat-button="">Download</button>
+</mat-card-content>
 </div>
