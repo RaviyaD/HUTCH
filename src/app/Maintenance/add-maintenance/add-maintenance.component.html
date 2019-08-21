@@ -1,6 +1,6 @@
 
 
-<p class="h1" style="margin-left: 200px">Add-Maintenance</p>
+<p class="h1 " style="margin-left: 200px">Add-Maintenance</p>
 
 <div class="body" style="margin-left: 100px">
   <form xmlns="http://www.w3.org/1999/html" class="form-control-static">
@@ -18,6 +18,7 @@
           </mat-autocomplete>
         </mat-form-field>
       </div>
+
     </div>
 
     <div class="row ">
@@ -36,7 +37,7 @@
     <div class="row">
       <div class="form-group col-md-5">
         <label for="civilIssue">Civil Issue</label>
-        <textarea id="civilIssue" cols="10" rows="5" class="form-control"></textarea>
+        <textarea id="civilIssue" cols="10" rows="5" class="form-control" required></textarea>
       </div>
     </div>
 
@@ -54,17 +55,19 @@
       </div>
     </div>
 
+
     <div class="row">
       <div class="form-group col-md-2">
-        <label for="InformDate">Inform Date</label>
-        <input id="InformDate" name="InformDate" [(ngModel)]="InformDate" type="text"
-               bsDatepicker class="form-control">
+    <mat-form-field>
+      <label for="InformDate">Inform Date</label>
+      <input type="text" matInput="date" [matDatepicker]="picker1" id="InformDate" [formControl]="date"  class="form-control">
+      <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+      <mat-datepicker #picker1></mat-datepicker>
+    </mat-form-field>
       </div>
     </div>
-
-
     <div class="panel">
-      <button class="btn btn-group-sm">Submit</button>
+      <button class="btn-success">Submit</button>
     </div>
 
 

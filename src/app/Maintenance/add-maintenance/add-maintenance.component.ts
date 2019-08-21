@@ -34,7 +34,8 @@ import {AppComponent} from '../../app.component';
 })
 
 export class AddMaintenanceComponent implements OnInit {
-
+  date = new FormControl(new Date());
+  serializedDate = new FormControl((new Date()).toISOString());
   myControl = new FormControl();
   options: string[] = ['One', 'Two', 'Three'];
   filteredOptions: Observable<string[]>;

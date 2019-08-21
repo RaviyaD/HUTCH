@@ -43,7 +43,18 @@
       </li>
       <hr>
       <li>
-        <a href="#">Towers & Tower Loading</a>
+        <a href="#TowerSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Tower & Tower Loading</a>
+        <ul class="collapse list-unstyled" id="TowerSubmenu">
+          <li>
+            <a [routerLink]="['/owned-towers']" routerLinkActive="active">Owned Tower</a>
+          </li>
+          <li>
+            <a [routerLink]="['/physical-measurment']" routerLinkActive="active">Physical Measurment</a>
+          </li>
+          <li>
+            <a [routerLink]="['/calculation']" routerLinkActive="active">Calculation</a>
+          </li>
+        </ul>
       </li>
       <hr>
       <li>
