@@ -14,6 +14,7 @@ import {ViewVisitorsComponent} from './Security_Details/view-visitors/view-visit
 import {CalculationComponent} from './TowerLoading/calculation/calculation.component';
 import {OwnedTowersComponent} from './TowerLoading/owned-towers/owned-towers.component';
 import {PhyscialMeasurementComponent} from './TowerLoading/physcial-measurement/physcial-measurement.component';
+import { AddRegionComponent } from './Region-Management/add-region/add-region.component';
 import {AddNewProjectComponent} from './OngoingProject/add-new-project/add-new-project.component';
 import {ViewOngoingProjectComponent} from './OngoingProject/view-ongoing-project/view-ongoing-project.component';
 
@@ -26,6 +27,8 @@ const routes: Routes = [
   {path: 'search-map', component: SearchMapComponent},
   {path: 'site-status', component: SiteStatusComponent},
   {path: 'status-report', component: StatusReportComponent},
+  {path: 'view-site', component: ViewSiteComponent},
+  {path: 'add-region', component: AddRegionComponent},
   {path: 'view-site', component: ViewSiteComponent},
   {path: 'add-visitors', component: AddVisitorsComponent},
   {path: 'view-visitors', component: ViewVisitorsComponent},

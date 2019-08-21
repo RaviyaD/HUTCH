@@ -27,7 +27,7 @@ import { PhyscialMeasurementComponent } from './TowerLoading/physcial-measuremen
 import { CalculationComponent } from './TowerLoading/calculation/calculation.component';
 import { AddNewProjectComponent} from './OngoingProject/add-new-project/add-new-project.component';
 import { ViewOngoingProjectComponent} from './OngoingProject/view-ongoing-project/view-ongoing-project.component';
-
+import { AddRegionComponent } from './Region-Management/add-region/add-region.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -51,7 +51,9 @@ import { ViewOngoingProjectComponent} from './OngoingProject/view-ongoing-projec
     PhyscialMeasurementComponent,
     CalculationComponent,
     ViewOngoingProjectComponent,
-    AddNewProjectComponent
+    AddNewProjectComponent,
+    CalculationComponent,
+    AddRegionComponent,
   ],
   imports: [
     BrowserModule,
