@@ -1,57 +1,60 @@
-<h3 class="display-4 text-center">ADD NEW LOG</h3>
+<h3 class="display-5 text-center">Add new log</h3>
 
-<li><label>Specification ID </label>
-  <div class="dropdown show float-right">
-
-    <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="d3" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-      Site ID
-    </a>
-
-    <div class="dropdown-menu" aria-labelledby="d3">
-      <a class="dropdown-item" href="#">s1</a>
-      <a class="dropdown-item" href="#">s2</a>
-      <a class="dropdown-item" href="#">s3</a>
+<li>
+  <div class="row ">
+    <div class="form-group col-md-2">
+      <label for="category">
+        Select Specification ID
+      </label>
+      <select id="Speclog" name="category"
+              [(ngModel)]="category" class="form-control">
+        <option value="security">S001</option>
+        <option value="tech">S002</option>
+        <option value="tech">S003</option>
+      </select>
+    </div>
+  </div>
+</li>
+<li>
+  <div class="row ">
+    <div class="form-group col-md-2">
+      <label for="category">
+        Select Site ID
+      </label>
+      <select id="SpecSiteLog" name="category"
+              [(ngModel)]="category" class="form-control">
+        <option value="security">COL001</option>
+        <option value="tech">COL002</option>
+        <option value="tech">COL003</option>
+      </select>
     </div>
   </div>
 </li>
 
-<li><label>Site ID </label>
-  <div class="dropdown show float-right">
 
-    <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="d2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-      Site ID
-    </a>
-
-    <div class="dropdown-menu" aria-labelledby="d2">
-      <a class="dropdown-item" href="#">s1</a>
-      <a class="dropdown-item" href="#">s2</a>
-      <a class="dropdown-item" href="#">s3</a>
+<li>
+  <div class="row ">
+    <div class="form-group col-md-2">
+      <label for="category">
+        Select project
+      </label>
+      <select id="SpecProject" name="category"
+              [(ngModel)]="category" class="form-control">
+        <option value="security">P001</option>
+        <option value="tech">P002</option>
+        <option value="tech">P003</option>
+      </select>
     </div>
   </div>
 </li>
 
-<li><label>Project  </label>
-  <div class="dropdown show float-right">
+<form>
+  <mat-form-field class="example-full-width">
+    <textarea matInput placeholder="Add Remark"> </textarea>
+  </mat-form-field>
+</form>
 
-    <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="d1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-      Site ID
-    </a>
-
-    <div class="dropdown-menu" aria-labelledby="d1">
-      <a class="dropdown-item" href="#">s1</a>
-      <a class="dropdown-item" href="#">s2</a>
-      <a class="dropdown-item" href="#">s3</a>
-    </div>
-  </div>
-</li>
-
-<label> Remark </label>
-<input type="text" class="float-right">
-<button class="btn btn-secondary float-right">ADD</button>
-
-
-
-<h3 class="display-4 text-center">Specification log</h3>
+<h3 class="display-5 text-center">Specification log</h3>
 
 <table class="table table-bordered">
   <thead>

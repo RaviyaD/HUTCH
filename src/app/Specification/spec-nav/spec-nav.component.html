@@ -1,4 +1,4 @@
-<!--<mat-tab-group>
+<mat-tab-group mat-stretch-tabs>
   <mat-tab label=" Upload Specification">
     <app-spec></app-spec>
   </mat-tab>
@@ -6,38 +6,5 @@
    <app-spec-log-table></app-spec-log-table>
   </mat-tab>
   <mat-tab label="View Specification">
-    <app-user-upload></app-user-upload></mat-tab>
-</mat-tab-group>-->
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <h3 class="display-4">Specification</h3>
-</head>
-<body>
-
-<div class="container">
-
-  <ul class="nav nav-tabs justify-content-center">
-    <li class="active">
-
-    <li><a class="nav-link" data-toggle="tab" href="#menu1">Upload Specification</a></li>
-    <li><a class="nav-link" data-toggle="tab" href="#menu2">Specification log </a></li>
-    <li><a class="nav-link" data-toggle="tab" href="#menu3">View uploads</a></li>
-  </ul>
-
-  <div class="tab-content">
-
-    <div id="menu1" class="tab-pane fade">
-      <app-spec></app-spec>
-    </div>
-    <div id="menu2" class="tab-pane fade">
-      <app-spec-log-table></app-spec-log-table>
-    </div>
-    <div id="menu3" class="tab-pane fade flex-lg-fill">
-      <app-spec-view-com></app-spec-view-com>
-    </div>
-
-  </div>
-</div>
-
-</body>
+    <app-spec-view-com></app-spec-view-com></mat-tab>
+</mat-tab-group>
