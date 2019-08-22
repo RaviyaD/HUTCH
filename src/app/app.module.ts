@@ -28,10 +28,12 @@ import { ViewSiteSecurityPersonComponent } from './Security_Details/view-site-se
 import { AddSiteSecurityPersonComponent } from './Security_Details/add-site-security-person/add-site-security-person.component';
 import {CalculationComponent} from './TowerLoading/calculation/calculation.component';
 import {OwnedTowersComponent} from './TowerLoading/owned-towers/owned-towers.component';
+import {AddAntennaComponent} from './TowerLoading/add-antenna/add-antenna.component';
 import {PhyscialMeasurementComponent} from './TowerLoading/physcial-measurement/physcial-measurement.component';
 import {AddNewProjectComponent} from './OngoingProject/add-new-project/add-new-project.component';
 import {ViewOngoingProjectComponent} from './OngoingProject/view-ongoing-project/view-ongoing-project.component';
 import {AddRegionComponent} from './Region-Management/add-region/add-region.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -60,7 +62,8 @@ import {AddRegionComponent} from './Region-Management/add-region/add-region.comp
     PhyscialMeasurementComponent,
     AddNewProjectComponent,
     ViewOngoingProjectComponent,
-    AddRegionComponent
+    AddRegionComponent,
+    AddAntennaComponent
   ],
   imports: [
     BrowserModule,
