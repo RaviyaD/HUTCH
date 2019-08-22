@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import {Component, NgModule} from '@angular/core';
-import { MapMainComponent} from './SiteMap/map-main/map-main.component';
+import {MapMainComponent} from './SiteMap/map-main/map-main.component';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import {RouterModule} from '@angular/router';
@@ -22,17 +22,14 @@ import {SearchMapComponent} from './SiteMap/search-map/search-map.component';
 import {SiteStatusComponent} from './SiteMap/site-status/site-status.component';
 import {StatusReportComponent} from './SiteMap/status-report/status-report.component';
 import { AgmCoreModule } from '@agm/core';
-import { AddIncidentsComponent } from './Security_Details/add-incidents/add-incidents.component';
-import { ViewIncidentsComponent } from './Security_Details/view-incidents/view-incidents.component';
-import { ViewSiteSecurityPersonComponent } from './Security_Details/view-site-security-person/view-site-security-person.component';
-import { AddSiteSecurityPersonComponent } from './Security_Details/add-site-security-person/add-site-security-person.component';
-import {CalculationComponent} from './TowerLoading/calculation/calculation.component';
-import {OwnedTowersComponent} from './TowerLoading/owned-towers/owned-towers.component';
-import {AddAntennaComponent} from './TowerLoading/add-antenna/add-antenna.component';
-import {PhyscialMeasurementComponent} from './TowerLoading/physcial-measurement/physcial-measurement.component';
-import {AddNewProjectComponent} from './OngoingProject/add-new-project/add-new-project.component';
-import {ViewOngoingProjectComponent} from './OngoingProject/view-ongoing-project/view-ongoing-project.component';
-import {AddRegionComponent} from './Region-Management/add-region/add-region.component';
+import { OwnedTowersComponent } from './TowerLoading/owned-towers/owned-towers.component';
+import { PhyscialMeasurementComponent } from './TowerLoading/physcial-measurement/physcial-measurement.component';
+import { CalculationComponent } from './TowerLoading/calculation/calculation.component';
+import { AddNewProjectComponent} from './OngoingProject/add-new-project/add-new-project.component';
+import { ViewOngoingProjectComponent} from './OngoingProject/view-ongoing-project/view-ongoing-project.component';
+import { AddRegionComponent } from './Region-Management/add-region/add-region.component';
+import { HttpClientModule} from '@angular/common/http';
+import { MaintenanceServicesService} from './Maintenance/view-maintenance/MaintenanceServices';
 
 @NgModule({
   declarations: [
@@ -53,17 +50,13 @@ import {AddRegionComponent} from './Region-Management/add-region/add-region.comp
     ViewSiteComponent,
     AddVisitorsComponent,
     ViewVisitorsComponent,
-    AddIncidentsComponent,
-    ViewIncidentsComponent,
-    ViewSiteSecurityPersonComponent,
-    AddSiteSecurityPersonComponent,
-    CalculationComponent,
     OwnedTowersComponent,
     PhyscialMeasurementComponent,
-    AddNewProjectComponent,
+    CalculationComponent,
     ViewOngoingProjectComponent,
+    AddNewProjectComponent,
+    CalculationComponent,
     AddRegionComponent,
-    AddAntennaComponent
   ],
   imports: [
     BrowserModule,
@@ -73,9 +66,10 @@ import {AddRegionComponent} from './Region-Management/add-region/add-region.comp
     FormsModule,
     ReactiveFormsModule,
     MaterialModule,
+    HttpClientModule,
     AgmCoreModule.forRoot({apiKey: 'AIzaSyCkBk3eKkKjRgv25gFD9YuOF59Fwijt3wk'}),
   ],
-  providers: [],
+  providers: [MaintenanceServicesService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
