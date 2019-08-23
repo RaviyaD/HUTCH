@@ -7,7 +7,6 @@ import { Observable} from 'rxjs';
 export class MaintenanceServicesService {
 
   private url: string;
-
   constructor(private http: HttpClient) {
     this.url = 'http://localhost:8080/Maintenance';
   }
@@ -16,4 +15,7 @@ export class MaintenanceServicesService {
     return this.http.get<IMaintenance[]>(this.url);
 }
 
+public addMaintenance(im: IMaintenance) {
+    return this.http.post<IMaintenance>(this.url, im);
+}
 }

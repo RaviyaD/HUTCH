@@ -1,67 +1,48 @@
 <p class="h2" style="margin-left: 200px">View-Maintenance </p>
 
-<!--<table class="table table-bordered">
-  <thead>
-  <tr>
-    <th scope="col">#</th>
-    <th scope="col">Site Name</th>
-    <th scope="col">Category</th>
-    <th scope="col">Civil Issue</th>
-    <th scope="col">Inform Date</th>
-    <th scope="col">Status</th>
-    <th scope="col">Edit/Delete</th>
-  </tr>
-  </thead>
-  <tbody>
-  <tr>
-    <th scope="row">1</th>
-    <td>Mark</td>
-    <td>Otto</td>
-    <td>@mdo</td>
-    <td>test</td>
-    <td>ok</td>
-    <td><button class="btn btn-outline-dark">Edit</button><button class="btn btn-outline-danger">Delete</button> </td>
-  </tr>
-  <tr>
-    <th scope="row">2</th>
-    <td>Jacob</td>
-    <td>Thornton</td>
-    <td>@fat</td>
-    <td>test</td>
-    <td>ok</td>
-    <td><button class="btn btn-outline-dark">Edit</button><button class="btn btn-outline-danger">Delete</button> </td>
-  </tr>
-  <tr>
-    <th scope="row">3</th>
-    <td>Larry the Bird</td>
-    <td>nkkk</td>
-    <td>@twitter</td>
-    <td>test</td>
-    <td>ok</td>
-    <td><button class="btn btn-outline-dark">Edit</button><button class="btn btn-outline-danger">Delete</button> </td>
-  </tr>
-  </tbody>
-</table>-->
 
 <mat-form-field>
   <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
 </mat-form-field>
 
 <div class="mat-elevation-z8">
-<table mat-table [dataSource]="dataSource1" class="mat-elevation-z8">
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
 
   <!-- Position Column -->
   <ng-container matColumnDef="ids">
-    <th  mat-header-cell *matHeaderCellDef> No. </th>
-    <td mat-cell *matCellDef="let m"> {{m.ids}} </td>
+    <th mat-header-cell *matHeaderCellDef> No. </th>
+    <td mat-cell *matCellDef="let m"> {{m.id}}</td>
   </ng-container>
 
   <ng-container matColumnDef="sname">
-    <th  mat-header-cell *matHeaderCellDef> Name </th>
+    <th mat-header-cell *matHeaderCellDef>Site Name </th>
     <td mat-cell *matCellDef="let m"> {{m.sname}} </td>
   </ng-container>
 
+  <ng-container matColumnDef="category">
+    <th mat-header-cell *matHeaderCellDef> Category </th>
+    <td mat-cell *matCellDef="let m"> {{m.category}} </td>
+  </ng-container>
 
+  <ng-container matColumnDef="issue">
+    <th mat-header-cell *matHeaderCellDef> Civil Issue </th>
+    <td mat-cell *matCellDef="let m"> {{m.issue}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="piority">
+    <th mat-header-cell *matHeaderCellDef> Piority </th>
+    <td mat-cell *matCellDef="let m"> {{m.piority}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="status">
+    <th mat-header-cell *matHeaderCellDef> Status </th>
+    <td mat-cell *matCellDef="let m"> {{m.status}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="idate">
+    <th mat-header-cell *matHeaderCellDef> Inform Date </th>
+    <td mat-cell *matCellDef="let m"> {{m.idate}} </td>
+  </ng-container>
   <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
   <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
 </table>
@@ -71,7 +52,3 @@
   </mat-paginator>
 </div>
 
-<h2>Mainte</h2>
-<ul *ngFor="let m of maintenance1">
-  <li>{{m.id}}</li>
-</ul>

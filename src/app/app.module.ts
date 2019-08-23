@@ -30,6 +30,10 @@ import { ViewOngoingProjectComponent} from './OngoingProject/view-ongoing-projec
 import { AddRegionComponent } from './Region-Management/add-region/add-region.component';
 import { HttpClientModule} from '@angular/common/http';
 import { MaintenanceServicesService} from './Maintenance/view-maintenance/MaintenanceServices';
+import { AddAntennaComponent} from './TowerLoading/add-antenna/add-antenna.component';
+import { ViewIncidentsComponent} from './Security_Details/view-incidents/view-incidents.component';
+import { AddIncidentsComponent} from './Security_Details/add-incidents/add-incidents.component';
+import { MatDialogRef} from '@angular/material';
 
 @NgModule({
   declarations: [
@@ -57,6 +61,9 @@ import { MaintenanceServicesService} from './Maintenance/view-maintenance/Mainte
     AddNewProjectComponent,
     CalculationComponent,
     AddRegionComponent,
+    AddAntennaComponent,
+    ViewIncidentsComponent,
+    AddIncidentsComponent
   ],
   imports: [
     BrowserModule,
