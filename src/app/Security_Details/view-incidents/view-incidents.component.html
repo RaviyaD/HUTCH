@@ -1,99 +1,81 @@
 <p class="h2" style="margin-left: 200px">VIEW-INCIDENT </p>
 
-<table class="table-bordered"  striped="trng ">
-  <thead>
-  <tr>
-    <th scope="col">#</th>
-    <th scope="col">Site Name</th>
-    <th scope="col">Incident Date</th>
-    <th scope="col">Summery Of the Incident</th>
-    <th scope="col">Date of inform</th>
-    <th scope="col">Descriptoin Stolen Property</th>
-    <th scope="col">Provide Abans Security</th>
-    <th scope="col">Complanat name</th>
-    <th scope="col">Name of police station</th>
-    <th scope="col">Obtain police Report</th>
-    <th scope="col">Remarks</th>
-  </tr>
-  </thead>
-
-  <tbody>
-
-  <tr>
-    <th scope="row">1</th>
-    <td>Panadura</td>
-    <td>2019/3/1</td>
-    <td>pm</td>
-    <td>am</td>
-    <td>dialog</td>
-    <td>dish service</td>
-    <td>Panadura</td>
-    <td>Panadura</td>
-    <td>Panadura</td>
-    <td>Panadura</td>
-    <td><button class="btn btn-outline-dark">Edit</button><button class="btn btn-outline-danger">Delete</button> </td>
-  </tr>
-  <tr>
-    <th scope="row">2</th>
-    <td>Panadura</td>
-    <td>2019/3/1</td>
-    <td>pm</td>
-    <td>am</td>
-    <td>dialog</td>
-    <td>dish service</td>
-    <td>Panadura</td>
-    <td>Panadura</td>
-    <td>Panadura</td>
-    <td>Panadura</td>
-    <td><button class="btn btn-outline-dark">Edit</button><button class="btn btn-outline-danger">Delete</button> </td>
-  </tr>
-  <tr>
-    <th scope="row">3</th>
-    <td>Panadura</td>
-    <td>2019/3/1</td>
-    <td>pm</td>
-    <td>am</td>
-    <td>dialog</td>
-    <td>dish service</td>
-    <td>Panadura</td>
-    <td>Panadura</td>
-    <td>Panadura</td>
-    <td>Panadura</td>
-    <td><button class="btn btn-outline-dark">Edit</button><button class="btn btn-outline-danger">Delete</button> </td>
-  </tr>
-  </tbody>
-</table>-->
-
 <mat-form-field>
   <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
 </mat-form-field>
+
 
 <div class="mat-elevation-z8">
   <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
 
     <!-- Position Column -->
-    <ng-container matColumnDef="position">
-      <th  mat-header-cell *matHeaderCellDef> No. </th>
-      <td mat-cell *matCellDef="let element"> {{element.position}} </td>
+    <ng-container matColumnDef="incidentId">
+      <th mat-header-cell *matHeaderCellDef> IncidentId </th>
+      <td mat-cell *matCellDef="let m"> {{m.incidentId}}</td>
     </ng-container>
 
-    <!-- Name Column -->
-    <ng-container matColumnDef="name">
-      <th mat-header-cell *matHeaderCellDef> Name </th>
-      <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+    <ng-container matColumnDef="SiteName">
+      <th mat-header-cell *matHeaderCellDef>Site Name </th>
+      <td mat-cell *matCellDef="let m"> {{m.siteName}} </td>
     </ng-container>
 
-    <!-- Weight Column -->
-    <ng-container matColumnDef="weight">
-      <th mat-header-cell *matHeaderCellDef> Weight </th>
-      <td mat-cell *matCellDef="let element"> {{element.weight}} </td>
+    <!--Incidet date-->
+    <ng-container matColumnDef="IncidentDate">
+      <th mat-header-cell *matHeaderCellDef> IncidentDate </th>
+      <td mat-cell *matCellDef="let m"> {{m.incidentDate}} </td>
     </ng-container>
 
-    <!-- Symbol Column -->
-    <ng-container matColumnDef="symbol">
-      <th mat-header-cell *matHeaderCellDef> Symbol </th>
-      <td mat-cell *matCellDef="let element"> {{element.symbol}} </td>
+    <!--Summery Incident-->
+    <ng-container matColumnDef="SummeryOfTheIncident">
+      <th mat-header-cell *matHeaderCellDef> SummeryOfTheIncident</th>
+      <td mat-cell *matCellDef="let m"> {{m.summeryOfTheIncident}} </td>
     </ng-container>
+
+    <!--InformDate-->
+    <ng-container matColumnDef="DateOfInform">
+      <th mat-header-cell *matHeaderCellDef> DateOfInform </th>
+      <td mat-cell *matCellDef="let m"> {{m.dateOfInform}} </td>
+    </ng-container>
+
+
+    <!--Propety-->
+    <ng-container matColumnDef="DescriptionStolenProperty">
+      <th mat-header-cell *matHeaderCellDef> DescriptionStolenProperty </th>
+      <td mat-cell *matCellDef="let m"> {{m.descriptionStolenProperty}} </td>
+    </ng-container>
+
+    <!--Abans Security-->
+    <ng-container matColumnDef="ProvideAbansSecurity">
+      <th mat-header-cell *matHeaderCellDef> Provide Abans Security</th>
+      <td mat-cell *matCellDef="let m"> {{m.provideAbansSecurity}} </td>
+    </ng-container>
+
+    <!--Complaint name-->
+    <ng-container matColumnDef="ComlaintName">
+      <th mat-header-cell *matHeaderCellDef> Comlaint Name</th>
+      <td mat-cell *matCellDef="let m"> {{m.comlaintName}} </td>
+    </ng-container>
+
+
+    <!--Name Of The Polic station-->
+    <ng-container matColumnDef="NameOfThePoliceStation">
+      <th mat-header-cell *matHeaderCellDef> Name Of The Police Station</th>
+      <td mat-cell *matCellDef="let m"> {{m.nameOfThePoliceStation}} </td>
+    </ng-container>
+
+
+    <!--Police Report-->
+    <ng-container matColumnDef="ObtainPoliceReport">
+      <th mat-header-cell *matHeaderCellDef> Obtain Police Report</th>
+      <td mat-cell *matCellDef="let m"> {{m.obtainPoliceReport}} </td>
+    </ng-container>
+
+    <!--Remarks-->
+    <ng-container matColumnDef="Remarks">
+      <th mat-header-cell *matHeaderCellDef> Remarks</th>
+      <td mat-cell *matCellDef="let m"> {{m.remarks}} </td>
+    </ng-container>
+
 
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
     <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
@@ -103,5 +85,4 @@
                  [pageSizeOptions]="[5, 10, 25, 100]">
   </mat-paginator>
 </div>
-
 
