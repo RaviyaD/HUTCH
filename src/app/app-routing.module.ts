@@ -20,6 +20,7 @@ import {AddNewProjectComponent} from './OngoingProject/add-new-project/add-new-p
 import {PhyscialMeasurementComponent} from './TowerLoading/physcial-measurement/physcial-measurement.component';
 import {AddRegionComponent} from './Region-Management/add-region/add-region.component';
 import {ViewSiteDetailsComponent} from './Site Management/view-site-details/view-site-details.component';
+import {AddAntennaComponent} from './TowerLoading/add-antenna/add-antenna.component';
 
 const routes: Routes = [
   {path: 'spec-nav', component: SpecNavComponent},
@@ -41,8 +42,9 @@ const routes: Routes = [
   {path: 'add-new-project', component: AddNewProjectComponent },
   {path: 'view-ongoing-project', component: ViewOngoingProjectComponent},
   {path: 'add-region', component: AddRegionComponent},
-  {path: 'view-site-details', component: ViewSiteDetailsComponent}
-  ];
+  {path: 'view-site-details', component: ViewSiteDetailsComponent},
+  {path: 'add-region', component: AddRegionComponent},
+  {path: 'add-antenna', component: AddAntennaComponent}];
 
 
 
