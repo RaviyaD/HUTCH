@@ -35,16 +35,11 @@ import { ViewIncidentsComponent} from './Security_Details/view-incidents/view-in
 import { AddIncidentsComponent} from './Security_Details/add-incidents/add-incidents.component';
 import { MatDialogRef} from '@angular/material';
 import { ResolveMaintenanceComponent } from './Maintenance/resolve-maintenance/resolve-maintenance.component';
-
-import { AddIncidentsComponent } from './Security_Details/add-incidents/add-incidents.component';
 import { ViewSiteSecurityPersonComponent } from './Security_Details/view-site-security-person/view-site-security-person.component';
 import { AddSiteSecurityPersonComponent } from './Security_Details/add-site-security-person/add-site-security-person.component';
-import {OwnedTowersComponent} from './TowerLoading/owned-towers/owned-towers.component';
-import {PhyscialMeasurementComponent} from './TowerLoading/physcial-measurement/physcial-measurement.component';
 import { ViewSiteDetailsComponent } from './Site Management/view-site-details/view-site-details.component';
 import {SiteServiceService} from './Site Management/site-service.service';
 import {SiteDetailsService} from './Site Management/site-details.service';
-import {HttpClientModule} from "@angular/common/http";
 
 @NgModule({
   declarations: [
@@ -98,7 +93,6 @@ import {HttpClientModule} from "@angular/common/http";
     SiteDetailsService
   ],
   entryComponents: [ResolveMaintenanceComponent],
-  providers: [MaintenanceServicesService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
