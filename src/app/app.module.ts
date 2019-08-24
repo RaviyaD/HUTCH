@@ -30,6 +30,7 @@ import { ViewOngoingProjectComponent} from './OngoingProject/view-ongoing-projec
 import { AddRegionComponent } from './Region-Management/add-region/add-region.component';
 import { HttpClientModule} from '@angular/common/http';
 import { MaintenanceServicesService} from './Maintenance/view-maintenance/MaintenanceServices';
+import { ProjectServicesService} from './OngoingProject/view-ongoing-project/ProjectServices';
 import { AddAntennaComponent} from './TowerLoading/add-antenna/add-antenna.component';
 import { ViewIncidentsComponent} from './Security_Details/view-incidents/view-incidents.component';
 import { AddIncidentsComponent} from './Security_Details/add-incidents/add-incidents.component';
@@ -76,7 +77,7 @@ import { MatDialogRef} from '@angular/material';
     HttpClientModule,
     AgmCoreModule.forRoot({apiKey: 'AIzaSyCkBk3eKkKjRgv25gFD9YuOF59Fwijt3wk'}),
   ],
-  providers: [MaintenanceServicesService],
+  providers: [MaintenanceServicesService, ProjectServicesService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
