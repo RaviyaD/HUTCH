@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {FormControl, Validators} from '@angular/forms';
 
 @Component({
   selector: 'app-physcial-measurement',
@@ -7,6 +8,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PhyscialMeasurementComponent implements OnInit {
 
+  formControl = new FormControl('', [
+    Validators.required
+    // Validators.email,
+  ]);
+
+  getErrorMessage() {
+    return this.formControl.hasError('required') ? 'Required field' :
+      this.formControl.hasError('email') ? 'Not a valid email' :
+        '';
+  }
   constructor() { }
 
   ngOnInit() {

@@ -16,23 +16,27 @@
               {{option}}
             </mat-option>
           </mat-autocomplete>
+       <!--   <mat-error *ngIf="formControl.invalid">{{getErrorMessage()}}</mat-error> -->
         </mat-form-field>
       </div>
 
     </div>
 
-    <div class="row ">
+
+    <div class="row">
       <div class="form-group col-md-2">
-        <label for="category">
-          Category
-        </label>
-        <select id="category" name="category"
-                [(ngModel)]="im.category" class="form-control">
-          <option value="security">Security</option>
-          <option value="tech">Technical</option>
-        </select>
-      </div>
+        <mat-form-field class="example-full-width">
+          <label for="category">Category</label>
+          <mat-select [(ngModel)]="im.category" name="category" id="category" class="form-control">
+            <mat-option *ngFor="let cate of cat" [value]="cate">
+              {{cate}}
+            </mat-option>
+          </mat-select>
+       <!--   <mat-error *ngIf="formControl.invalid">{{getErrorMessage()}}</mat-error> -->
+        </mat-form-field>
     </div>
+    </div>
+
 
     <div class="row">
       <div class="form-group col-md-5">
@@ -44,14 +48,15 @@
 
     <div class="row">
       <div class="form-group col-md-2">
-        <label for="piority">
-          Piority
-        </label>
-        <select id="piority" name="piority"
-                [(ngModel)]="im.piority" class="form-control">
-          <option value="security">Emergeny</option>
-          <option value="tech">Normal</option>
-        </select>
+        <mat-form-field class="example-full-width">
+          <label for="piority">Piority Level</label>
+          <mat-select [(ngModel)]="im.piority" name="piority" id="piority" class="form-control">
+            <mat-option *ngFor="let p of pio" [value]="p">
+              {{p}}
+            </mat-option>
+          </mat-select>
+    <!--      <mat-error *ngIf="formControl.invalid">{{getErrorMessage()}}</mat-error> -->
+        </mat-form-field>
       </div>
     </div>
 
@@ -63,12 +68,15 @@
       <input [(ngModel)]="im.idate" type="text" matInput="date" [matDatepicker]="picker1" id="InformDate" [formControl]="date"  class="form-control">
       <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
       <mat-datepicker #picker1></mat-datepicker>
+   <!--   <mat-error *ngIf="formControl.invalid">{{getErrorMessage()}}</mat-error> -->
     </mat-form-field>
       </div>
     </div>
-    <div class="panel">
-      <button type="submit"  class="btn-success">Submit</button>
+
+   <div class="panel">
+      <button type="submit"   class="btn-success">Submit</button>
     </div>
+
 
 
   </form>

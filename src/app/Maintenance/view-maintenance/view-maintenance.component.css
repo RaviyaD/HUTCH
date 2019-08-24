@@ -6,3 +6,41 @@ table {
   font-size: 14px;
   width: 100%;
 }
+
+
+.Emg{
+  background: red; /* green */
+}
+
+.Nor{
+  background: gold; /* green */
+}
+
+.status{
+  background: greenyellow;
+}
+
+.Low{
+  background: #3f51b5;
+}
+
+
+.foo {
+  float: left;
+  width: 20px;
+  height: 20px;
+  margin: 5px;
+  border: 1px solid rgba(0, 0, 0, .2);
+}
+
+.blue {
+  background: #13b4ff;
+}
+
+.purple {
+  background: #ab3fdd;
+}
+
+.wine {
+  background: #ae163e;
+}
