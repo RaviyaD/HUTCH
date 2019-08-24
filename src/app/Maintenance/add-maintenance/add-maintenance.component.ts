@@ -37,21 +37,29 @@ import {ActivatedRoute, Router} from '@angular/router';
 })
 
 export class AddMaintenanceComponent implements OnInit {
-  im: IMaintenance;
   constructor(private route: ActivatedRoute, private router: Router, private ms: MaintenanceServicesService) {
     this.im = new IMaintenance();
   }
+  im: IMaintenance;
   date = new FormControl(new Date());
   serializedDate = new FormControl((new Date()).toISOString());
   myControl = new FormControl();
   options: string[] = ['One', 'Two', 'Three'];
   filteredOptions: Observable<string[]>;
 
-
   formControl = new FormControl('', [
     Validators.required
     // Validators.email,
   ]);
+
+  cat: string[] = ['Secutiry', 'Technical'];
+  pio: string[] = ['High', 'Normal', 'Low'];
+
+  getErrorMessage() {
+    return this.formControl.hasError('required') ? 'Required field' :
+      this.formControl.hasError('email') ? 'Not a valid email' :
+        '';
+  }
   ngOnInit() {
     this.filteredOptions = this.myControl.valueChanges.pipe(
       startWith(''),
@@ -75,5 +83,4 @@ export class AddMaintenanceComponent implements OnInit {
   }
 
   log(x) { console.log(x); }
-
 }

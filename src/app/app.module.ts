@@ -37,6 +37,17 @@ import { MatDialogRef} from '@angular/material';
 import {ViewSiteSecurityPersonComponent} from './Security_Details/view-site-security-person/view-site-security-person.component';
 import {AddSiteSecurityPersonComponent} from './Security_Details/add-site-security-person/add-site-security-person.component';
 import {IncidentService} from './Security_Details/IncidentService';
+import { ResolveMaintenanceComponent } from './Maintenance/resolve-maintenance/resolve-maintenance.component';
+
+import { AddIncidentsComponent } from './Security_Details/add-incidents/add-incidents.component';
+import { ViewSiteSecurityPersonComponent } from './Security_Details/view-site-security-person/view-site-security-person.component';
+import { AddSiteSecurityPersonComponent } from './Security_Details/add-site-security-person/add-site-security-person.component';
+import {OwnedTowersComponent} from './TowerLoading/owned-towers/owned-towers.component';
+import {PhyscialMeasurementComponent} from './TowerLoading/physcial-measurement/physcial-measurement.component';
+import { ViewSiteDetailsComponent } from './Site Management/view-site-details/view-site-details.component';
+import {SiteServiceService} from './Site Management/site-service.service';
+import {SiteDetailsService} from './Site Management/site-details.service';
+import {HttpClientModule} from "@angular/common/http";
 
 @NgModule({
   declarations: [
@@ -69,6 +80,12 @@ import {IncidentService} from './Security_Details/IncidentService';
     AddIncidentsComponent,
     ViewSiteSecurityPersonComponent,
     AddSiteSecurityPersonComponent
+    AddIncidentsComponent,
+    ResolveMaintenanceComponent,
+    AddRegionComponent,
+    ViewSiteDetailsComponent,
+    ViewSiteSecurityPersonComponent,
+    AddSiteSecurityPersonComponent
   ],
   imports: [
     BrowserModule,
@@ -81,6 +98,13 @@ import {IncidentService} from './Security_Details/IncidentService';
     HttpClientModule,
     AgmCoreModule.forRoot({apiKey: 'AIzaSyCkBk3eKkKjRgv25gFD9YuOF59Fwijt3wk'}),
   ],
+  providers: [
+    MaintenanceServicesService,
+    SiteServiceService,
+    SiteDetailsService
+  ],
+  entryComponents: [ResolveMaintenanceComponent],
+  providers: [MaintenanceServicesService],
   providers: [MaintenanceServicesService, IncidentService],
   bootstrap: [AppComponent]
 })

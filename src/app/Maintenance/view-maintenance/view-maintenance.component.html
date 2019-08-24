@@ -1,5 +1,9 @@
 <p class="h2" style="margin-left: 200px">View-Maintenance </p>
 
+<div class="foo status"><p style="margin-left: 20px">Completed</p></div><br>
+<div class="foo Emg" style="margin-left: 20px"><p style="margin-left: 20px">High</p></div>
+<div class="foo Nor" style="margin-left: 40px"><p style="margin-left: 20px">Normal</p></div>
+<div class="foo Low" style="margin-left: 60px"><p style="margin-left: 20px">Low</p></div>
 
 <mat-form-field>
   <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
@@ -31,7 +35,9 @@
 
   <ng-container matColumnDef="piority">
     <th mat-header-cell *matHeaderCellDef> Piority </th>
+    <div  style="background-color: #3f51b5">
     <td mat-cell *matCellDef="let m"> {{m.piority}} </td>
+    </div>
   </ng-container>
 
   <ng-container matColumnDef="status">
@@ -43,8 +49,32 @@
     <th mat-header-cell *matHeaderCellDef> Inform Date </th>
     <td mat-cell *matCellDef="let m"> {{m.idate}} </td>
   </ng-container>
+
+  <ng-container matColumnDef="actions">
+    <mat-header-cell *matHeaderCellDef>
+      <button mat-icon-button color="primary" (click)="gotoadd()">
+        <mat-icon aria-label="Example icon-button with a heart icon">add</mat-icon>
+      </button>
+    </mat-header-cell>
+
+    <mat-cell *matCellDef="let m; let i=index;">
+      <button mat-icon-button color="accent" (click)="startEdit(m.id, m.sname, m.category, m.issue, m.piority, m.idate)">
+        <mat-icon aria-label="Edit">edit</mat-icon>
+      </button>
+
+
+      <button mat-icon-button color="accent" (click)="delete(m.id)">
+        <mat-icon aria-label="Delete">delete</mat-icon>
+      </button>
+
+    </mat-cell>
+  </ng-container>
+
+
+
   <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  <tr mat-row *matRowDef="let m; columns: displayedColumns; "[ngClass]="{ 'Emg': m.piority == 'High', 'Nor': m.piority == 'Normal',
+   'Low': m.piority == 'Low', 'status': m.status == 'Complete' }"></tr>
 </table>
   <mat-paginator [length]="100"
                  [pageSize]="10"
