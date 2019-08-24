@@ -22,32 +22,24 @@ import {SearchMapComponent} from './SiteMap/search-map/search-map.component';
 import {SiteStatusComponent} from './SiteMap/site-status/site-status.component';
 import {StatusReportComponent} from './SiteMap/status-report/status-report.component';
 import { AgmCoreModule } from '@agm/core';
-import { OwnedTowersComponent } from './TowerLoading/owned-towers/owned-towers.component';
-import { PhyscialMeasurementComponent } from './TowerLoading/physcial-measurement/physcial-measurement.component';
 import { CalculationComponent } from './TowerLoading/calculation/calculation.component';
 import { AddNewProjectComponent} from './OngoingProject/add-new-project/add-new-project.component';
 import { ViewOngoingProjectComponent} from './OngoingProject/view-ongoing-project/view-ongoing-project.component';
 import { AddRegionComponent } from './Region-Management/add-region/add-region.component';
-import { HttpClientModule} from '@angular/common/http';
 import { MaintenanceServicesService} from './Maintenance/view-maintenance/MaintenanceServices';
 import { AddAntennaComponent} from './TowerLoading/add-antenna/add-antenna.component';
 import { ViewIncidentsComponent} from './Security_Details/view-incidents/view-incidents.component';
-import { AddIncidentsComponent} from './Security_Details/add-incidents/add-incidents.component';
 import { MatDialogRef} from '@angular/material';
-
 import { AddIncidentsComponent } from './Security_Details/add-incidents/add-incidents.component';
-import { ViewIncidentsComponent } from './Security_Details/view-incidents/view-incidents.component';
 import { ViewSiteSecurityPersonComponent } from './Security_Details/view-site-security-person/view-site-security-person.component';
 import { AddSiteSecurityPersonComponent } from './Security_Details/add-site-security-person/add-site-security-person.component';
-import {CalculationComponent} from './TowerLoading/calculation/calculation.component';
 import {OwnedTowersComponent} from './TowerLoading/owned-towers/owned-towers.component';
 import {PhyscialMeasurementComponent} from './TowerLoading/physcial-measurement/physcial-measurement.component';
-import {AddNewProjectComponent} from './OngoingProject/add-new-project/add-new-project.component';
-import {ViewOngoingProjectComponent} from './OngoingProject/view-ongoing-project/view-ongoing-project.component';
-import {AddRegionComponent} from './Region-Management/add-region/add-region.component';
 import { ViewSiteDetailsComponent } from './Site Management/view-site-details/view-site-details.component';
 import {SiteServiceService} from './Site Management/site-service.service';
-import {HttpClientModule} from '@angular/common/http';
+import {SiteDetailsService} from './Site Management/site-details.service';
+import {HttpClientModule} from "@angular/common/http";
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -76,9 +68,11 @@ import {HttpClientModule} from '@angular/common/http';
     AddRegionComponent,
     AddAntennaComponent,
     ViewIncidentsComponent,
-    AddIncidentsComponent
+    AddIncidentsComponent,
     AddRegionComponent,
-    ViewSiteDetailsComponent
+    ViewSiteDetailsComponent,
+    ViewSiteSecurityPersonComponent,
+    AddSiteSecurityPersonComponent
   ],
   imports: [
     BrowserModule,
@@ -89,9 +83,13 @@ import {HttpClientModule} from '@angular/common/http';
     ReactiveFormsModule,
     MaterialModule,
     AgmCoreModule.forRoot({apiKey: 'AIzaSyCkBk3eKkKjRgv25gFD9YuOF59Fwijt3wk'}),
+    HttpClientModule
   ],
-  providers: [MaintenanceServicesService],
-  providers: [SiteServiceService],
+  providers: [
+    MaintenanceServicesService,
+    SiteServiceService,
+    SiteDetailsService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
