@@ -27,10 +27,10 @@
         <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Site Management</a>
         <ul class="collapse list-unstyled" id="pageSubmenu">
           <li>
-            <a href="#">P1</a>
+            <a [routerLink]="['/view-site']" routerLinkActive="active">View Site</a>
           </li>
           <li>
-            <a [routerLink]="['/view-site']" routerLinkActive="active">View Site</a>
+            <a [routerLink]="['/view-site-details']" routerLinkActive="active">View Site Details</a>
           </li>
           <li>
             <a href="#">P3</a>

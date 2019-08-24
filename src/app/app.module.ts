@@ -32,6 +32,9 @@ import {PhyscialMeasurementComponent} from './TowerLoading/physcial-measurement/
 import {AddNewProjectComponent} from './OngoingProject/add-new-project/add-new-project.component';
 import {ViewOngoingProjectComponent} from './OngoingProject/view-ongoing-project/view-ongoing-project.component';
 import {AddRegionComponent} from './Region-Management/add-region/add-region.component';
+import { ViewSiteDetailsComponent } from './Site Management/view-site-details/view-site-details.component';
+import {SiteServiceService} from './Site Management/site-service.service';
+import {HttpClientModule} from '@angular/common/http';
 @NgModule({
   declarations: [
     AppComponent,
@@ -60,7 +63,8 @@ import {AddRegionComponent} from './Region-Management/add-region/add-region.comp
     PhyscialMeasurementComponent,
     AddNewProjectComponent,
     ViewOngoingProjectComponent,
-    AddRegionComponent
+    AddRegionComponent,
+    ViewSiteDetailsComponent
   ],
   imports: [
     BrowserModule,
@@ -71,8 +75,9 @@ import {AddRegionComponent} from './Region-Management/add-region/add-region.comp
     ReactiveFormsModule,
     MaterialModule,
     AgmCoreModule.forRoot({apiKey: 'AIzaSyCkBk3eKkKjRgv25gFD9YuOF59Fwijt3wk'}),
+    HttpClientModule
   ],
-  providers: [],
+  providers: [SiteServiceService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import {FormControl} from '@angular/forms';
 import {Observable} from 'rxjs';
 import {map, startWith} from 'rxjs/operators';
+import {SiteDetailsService} from '../site-details.service';
+import {SiteDetails} from '../site-details';
 
 @Component({
   selector: 'app-view-site',
@@ -10,9 +12,20 @@ import {map, startWith} from 'rxjs/operators';
 })
 export class ViewSiteComponent implements OnInit {
   myControl = new FormControl();
-  options: string[] = ['COL001', 'COL002', 'COL003'];
+  options: string[] = [];
   filteredOptions: Observable<string[]>;
-  constructor() { }
+  sites: SiteDetails[];
+
+  constructor(private siteDetailsService: SiteDetailsService) {
+    this.siteDetailsService.findAll().subscribe(data => {
+      this.sites = data;
+      for (let counter = 0; counter < this.sites.length; counter++) {
+        this.options[counter] = this.sites[counter].siteID;
+        console.log(this.options[counter]);
+      }
+      console.log(this.options[3]);
+    });
+  }
 
   ngOnInit() {
     this.filteredOptions = this.myControl.valueChanges
@@ -26,5 +39,6 @@ export class ViewSiteComponent implements OnInit {
     const filterValue = value.toLowerCase();
 
     return this.options.filter(option => option.toLowerCase().includes(filterValue));
+   // return this.options;
   }
 }

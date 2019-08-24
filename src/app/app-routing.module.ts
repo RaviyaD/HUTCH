@@ -19,6 +19,7 @@ import {ViewOngoingProjectComponent} from './OngoingProject/view-ongoing-project
 import {AddNewProjectComponent} from './OngoingProject/add-new-project/add-new-project.component';
 import {PhyscialMeasurementComponent} from './TowerLoading/physcial-measurement/physcial-measurement.component';
 import {AddRegionComponent} from './Region-Management/add-region/add-region.component';
+import {ViewSiteDetailsComponent} from './Site Management/view-site-details/view-site-details.component';
 
 const routes: Routes = [
   {path: 'spec-nav', component: SpecNavComponent},
@@ -39,7 +40,9 @@ const routes: Routes = [
   {path: 'calculation', component: CalculationComponent},
   {path: 'add-new-project', component: AddNewProjectComponent },
   {path: 'view-ongoing-project', component: ViewOngoingProjectComponent},
-  {path: 'add-region', component: AddRegionComponent}];
+  {path: 'add-region', component: AddRegionComponent},
+  {path: 'view-site-details', component: ViewSiteDetailsComponent}
+  ];
 
 
 
