@@ -20,14 +20,14 @@ td{
 
 .the{
   height: 750px;
-  width: 50%;
+  width: 100%;
 
   z-index: 1;
   top: 0;
   overflow-x: hidden;
   padding-top: 2px;
   left: auto;
-  background-color: lightgray;
+  background-color: whitesmoke;
 }
 
 .centereds {
@@ -47,7 +47,7 @@ td{
 
 
 .buttonM {
-  background-color: darkolivegreen; /* Green */
+  background-color: darkorange; /* Green */
   border: none;
   color: white;
   padding: 15px 10px;
@@ -68,7 +68,7 @@ td{
 
 
 .dropbtn {
-  background-color: lightslategray;
+  background-color: whitesmoke;
   color: Black;
   padding: 16px;
   font-size: 17px;
@@ -79,7 +79,7 @@ td{
 
 
 .di {
-  background-color: darkkhaki;
+  background-color: lightgray;
   color: Black;
   width: 470px;
   height: 300px;

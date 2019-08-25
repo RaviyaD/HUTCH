@@ -1,0 +1,23 @@
+<p> Edit Remark!</p>
+
+<p>Remark: {{data.remark}}</p>
+
+<form>
+  <div class="row">
+    <div class="form-group col-md-6" >
+      <label for="Uremark">Edit </label>
+      <input name="Uremark"
+             [(ngModel)]="data.remark"
+             id="Uremark"
+             type="textarea"
+             class="form-control" >
+    </div>
+  </div>
+
+
+
+  <div class="panel">
+    <button type="submit"   class="btn-success">Submit</button>
+  </div>
+</form>
+

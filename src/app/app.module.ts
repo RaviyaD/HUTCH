@@ -1,6 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
 import {Component, NgModule} from '@angular/core';
-import {MapMainComponent} from './SiteMap/map-main/map-main.component';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import {RouterModule} from '@angular/router';
@@ -40,6 +39,10 @@ import { AddSiteSecurityPersonComponent } from './Security_Details/add-site-secu
 import { ViewSiteDetailsComponent } from './Site Management/view-site-details/view-site-details.component';
 import {SiteServiceService} from './Site Management/site-service.service';
 import {SiteDetailsService} from './Site Management/site-details.service';
+import { AddremarkComponent } from './SiteMap/addremark/addremark.component';
+import {RemarkServiceService} from './SiteMap/service/remark-service.service';
+import { RemarkDialogComponent } from './SiteMap/remark-dialog/remark-dialog.component';
+
 
 @NgModule({
   declarations: [
@@ -51,7 +54,6 @@ import {SiteDetailsService} from './Site Management/site-details.service';
     SpecLogTableComponent,
     SpecViewComComponent,
     ViewMaintenanceComponent,
-    MapMainComponent,
     MapComponent,
     RemarksComponent,
     SearchMapComponent,
@@ -74,7 +76,9 @@ import {SiteDetailsService} from './Site Management/site-details.service';
     AddRegionComponent,
     ViewSiteDetailsComponent,
     ViewSiteSecurityPersonComponent,
-    AddSiteSecurityPersonComponent
+    AddSiteSecurityPersonComponent,
+    AddremarkComponent,
+    RemarkDialogComponent,
   ],
   imports: [
     BrowserModule,
@@ -90,9 +94,10 @@ import {SiteDetailsService} from './Site Management/site-details.service';
   providers: [
     MaintenanceServicesService,
     SiteServiceService,
-    SiteDetailsService
+    SiteDetailsService,
+    RemarkServiceService
   ],
-  entryComponents: [ResolveMaintenanceComponent],
+  entryComponents: [ResolveMaintenanceComponent, RemarkDialogComponent ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { SearchMapComponent } from './search-map.component';
+import { AddremarkComponent } from './addremark.component';
 
-describe('SearchMapComponent', () => {
-  let component: SearchMapComponent;
-  let fixture: ComponentFixture<SearchMapComponent>;
+describe('AddremarkComponent', () => {
+  let component: AddremarkComponent;
+  let fixture: ComponentFixture<AddremarkComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ SearchMapComponent ]
+      declarations: [ AddremarkComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(SearchMapComponent);
+    fixture = TestBed.createComponent(AddremarkComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

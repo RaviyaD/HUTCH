@@ -19,14 +19,14 @@ td{
 
 .the{
   height: 750px;
-  width: 50%;
+  width: 100%;
 
   z-index: 1;
   top: 0;
   overflow-x: hidden;
   padding-top: 2px;
   left: auto;
-  background-color: lightgray;
+  background-color: whitesmoke;
 }
 
 .centereds {
@@ -48,7 +48,7 @@ td{
 
 
 .di {
-  background-color: darkkhaki;
+  background-color: lightgray;
   color: Black;
   width: 500px;
   height: 300px;
@@ -68,5 +68,5 @@ td{
 
   width: 480px;
   height: 250px;
-  background-color: lightcyan;
+  background-color: whitesmoke;
 }

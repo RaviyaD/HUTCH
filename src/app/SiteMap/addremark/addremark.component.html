@@ -1,0 +1,26 @@
+<table><tr>
+  <th class="the">    <app-map></app-map></th>
+
+
+
+  <th class="the">
+
+    <div class="col-md-6 user-container" align="bottom"><table class="table1"><tr><th class="th">
+      <h3 align="center"> Site-Map Remarks</h3></th></tr></table>
+      <br>
+      <form (ngSubmit)="onSubmit()" #remarkForm="ngForm">
+        <label [hidden] for="remark"></label>
+        <input type="textarea" rows="4" cols="72"  style="font-size: 15px;width: 500px" [(ngModel)]="remarks.remark"
+               class="form-control" id="remark" name="remark" placeholder="Please add a remark"
+               required #remark="ngModel" style="height: 100px;width: 500px">
+        <div [hidden]="!remark.pristine" class="alert alert-danger" style="margin-top:7px; ">Adding a remark is required</div>
+        <button type="submit" [disabled]="!remarkForm.form.valid" class="btn btn-info" style="background-color: #EC6708;margin-top: 20px;align-content: center;width: 100px;margin-left: 200px">Add</button>
+      </form>
+
+      <a [routerLink]="['/remarks']" routerLinkActive="active"> <button class="btn btn-danger" style="background-color: #EC6708;margin-top: 20px;align-content: center;width: 100px;margin-left: 200px"> Back</button></a>
+    </div>
+  </th>
+</tr>
+</table>
+
+
