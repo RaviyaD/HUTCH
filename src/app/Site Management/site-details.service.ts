@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {HttpClient} from '@angular/common/http';
+import {HttpClient, HttpErrorResponse} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {SiteDetails} from './site-details';
 
@@ -26,4 +26,18 @@ export class SiteDetailsService {
     return this.http.post<SiteDetails>(this.sitesUrl, site);
   }
 
+   updateSite(siteID: string, site: SiteDetails): Observable<SiteDetails> {
+    console.log(siteID);
+    console.log(site.commissionedDate);
+    return this.http.put<SiteDetails>(this.sitesUrl + '/' + siteID, site);
+  }
+
+  public deleteSite(siteID: string) {
+    console.log('inside service' + siteID);
+    return this.http.delete(this.sitesUrl + '/' + siteID).subscribe( data => { console.log('deleted');
+    },
+      (err: HttpErrorResponse) => {
+      console.log('error' + err );
+    });
+  }
 }

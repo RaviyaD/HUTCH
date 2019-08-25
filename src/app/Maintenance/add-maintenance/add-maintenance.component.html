@@ -3,13 +3,13 @@
 <p class="h1 " style="margin-left: 200px">Add-Maintenance</p>
 
 <div class="body" style="margin-left: 100px">
-  <form xmlns="http://www.w3.org/1999/html" class="form-control-static" (ngSubmit)="onSubmit()" >
+  <form xmlns="http://www.w3.org/1999/html" class="form-control-static" (ngSubmit)="onSubmit(f)" #f = "ngForm"  >
 
     <div class="row">
       <div class="form-group col-md-2" >
         <mat-form-field class="example-full-width">
           <label for="siteName">Site Name</label>
-          <input type="text" required ngModel
+          <input type="text" required
           name="sname"   id="siteName"  [(ngModel)]="im.sname" aria-label="Number" matInput  [formControl]="myControl" [matAutocomplete]="auto" class="form-control">
           <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete" >
             <mat-option *ngFor="let option of filteredOptions | async" [value]="option" class="row">
@@ -27,7 +27,7 @@
       <div class="form-group col-md-2">
         <mat-form-field class="example-full-width">
           <label for="category">Category</label>
-          <mat-select [(ngModel)]="im.category" name="category" id="category" class="form-control">
+          <mat-select [(ngModel)]="im.category" name="category" id="category" class="form-control" required="">
             <mat-option *ngFor="let cate of cat" [value]="cate">
               {{cate}}
             </mat-option>
@@ -74,7 +74,7 @@
     </div>
 
    <div class="panel">
-      <button type="submit"   class="btn-success">Submit</button>
+      <button type="submit"    class="btn btn-primary mt-2 ml-1 mb-2" [disabled]="!f.valid">Submit</button>
     </div>
 
 

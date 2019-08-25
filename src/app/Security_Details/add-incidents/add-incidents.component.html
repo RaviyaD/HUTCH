@@ -1,13 +1,14 @@
 <p class="h1" style="margin-left: 200px">Add-INCIDENTS</p>
 
-<form xmlns="http://www.w3.org/1999/html" class="form-control-static">
+<form xmlns="http://www.w3.org/1999/html" class="form-control-static" (ngSubmit)="OnSubmit()">
 
   <div class="row">
     <div class="form-group col-md-2" >
+
 
       <label for="siteName">Site Name</label>
-      <input type="text" required ngModel
-             id="siteName"  aria-label="Number" matInput [formControl]="myControl" [matAutocomplete]="auto" class="form-control">
+      <input type="text" required [(ngModel)]="inn.siteName"
+             id="siteName"  name="siteName" aria-label="Number"  class="form-control">
 
     </div>
   </div>
@@ -16,8 +17,9 @@
   <div class="row">
     <div class="form-group col-md-2" >
 
-      <label for="incident_date">Date</label>
-      <input id="incident_date" name="visit_date" type="date" class="form-control">
+      <label for="incident_date">Incideant Date</label>
+      <input [(ngModel)]="inn.incidentDate"
+        id="incident_date" name="visit_date" type="date" class="form-control">
 
     </div>
   </div>
@@ -25,8 +27,8 @@
   <div class="row">
     <div class="form-group col-md-2" >
 
-      <label for="inform_date">Date</label>
-      <input id="inform_date" name="visit_date" type="date" class="form-control">
+      <label for="inform_date">Inform Date</label>
+      <input  [(ngModel)]="inn.dateOfInform" id="inform_date" name="visit_date" type="date" class="form-control">
 
 
     </div>
@@ -35,10 +37,8 @@
 
     <div class="form-group col-md-2" >
 
-      <label for="Inform Name">Inform Name</label>
-      <input type="text" required ngModel
-             id="Inform Name"   aria-label="Number" matInput [formControl]="myControl" [matAutocomplete]="auto" class="form-control">
-
+      <label for="InformName">Inform Name</label>
+      <input type="text" required [(ngModel)]="inn.informerName" id="InformName"  name="InformName" class="form-control">
     </div>
   </div>
 
@@ -46,7 +46,7 @@
 <div class="row">
     <div class="form-group col-md-5">
       <label for="incident_summery">Summmery of Icident</label>
-      <textarea id="incident_summery" cols="10" rows="5" class="form-control"></textarea>
+      <textarea id="incident_summery" name="incident_summery" cols="10" rows="5" [(ngModel)]="inn.summeryOfTheIncident" class="form-control"></textarea>
     </div>
   </div>
 
@@ -55,7 +55,7 @@
   <div class="row">
     <div class="form-group col-md-5">
       <label for="stolen_property">Description Of Property</label>
-      <textarea id="stolen_property" cols="10" rows="5" class="form-control"></textarea>
+      <textarea [(ngModel)]="inn.descriptionStolenProperty" name="stolen_property" id="stolen_property" cols="10" rows="5" class="form-control"></textarea>
     </div>
   </div>
 
@@ -64,13 +64,13 @@
       <label>Provide Abans Security</label>
       <div >
         <label class="radio-inline">
-        <input type="radio" value="yes" name="yes">
+        <input [(ngModel)]="inn.provideAbansSecurity" type="radio" value="Yes" name="yes1">
           YES
         </label>
       </div>
       <div >
         <label class="radio-inline">
-          <input type="radio" value="NO" name="yes">
+          <input [(ngModel)]="inn.provideAbansSecurity" type="radio" value="NO" name="yes1">
         NO
         </label>
     </div>
@@ -79,26 +79,6 @@
 
 <!--Complant Name And Rank-->
 
-  <div class="row">
-    <div class="form-group col-md-2" >
-
-      <label for="Rank">Complaint Rank</label>
-      <input type="text" required ngModel
-             id="Rank"  aria-label="Number" matInput [formControl]="myControl" [matAutocomplete]="auto" class="form-control">
-
-
-    </div>
-
-
-
-    <div class="form-group col-md-2" >
-
-      <label for="Complaint Name">Inform Name</label>
-      <input type="text" required ngModel
-             id="Complaint Name"  aria-label="Number" matInput [formControl]="myControl" [matAutocomplete]="auto" class="form-control">
-
-    </div>
-  </div>
 
 
   <!--Name of the police Station and date-->
@@ -106,8 +86,8 @@
   <div class="row">
     <div class="form-group col-md-2" >
 
-      <label for="police_date">Date</label>
-      <input id="police_date" name="visit_date" type="date" class="form-control">
+      <label for="police_date">Date Entry</label>
+      <input id="police_date" name="visit_date" [(ngModel)]="inn.dateOfEntry " type="date" class="form-control">
 
 
     </div>
@@ -117,8 +97,8 @@
     <div class="form-group col-md-2" >
 
       <label for="police station">Police Station</label>
-      <input type="text" required ngModel
-             id="police station" aria-label="Number" matInput [formControl]="myControl" [matAutocomplete]="auto" class="form-control">
+      <input type="text" required [(ngModel)]="inn.nameOfThePoliceStation"
+             id="police station" name="policeStation" class="form-control">
 
     </div>
   </div>
@@ -130,13 +110,13 @@
       <label>Obtain Police Report</label>
       <div >
         <label class="radio-inline">
-          <input type="radio" value="yes" name="yes">
+          <input type="radio" [(ngModel)]="inn.ObtainPoliceReport" value="yes" name="yes">
           YES
         </label>
       </div>
       <div>
         <label class="radio-inline">
-          <input type="radio" value="NO" name="yes">
+          <input type="radio" [(ngModel)]="inn.ObtainPoliceReport" value="nO" name="yes">
           NO
         </label>
       </div>
@@ -148,7 +128,7 @@
   <div class="row">
     <div class="form-group col-md-5">
       <label for="Remarks">Remarks</label>
-      <textarea id="Remarks" cols="10" rows="5" class="form-control"></textarea>
+      <textarea [(ngModel)]="inn.Remarks" id="Remarks" cols="10" rows="5" name="Remark"  class="form-control"></textarea>
     </div>
   </div>
 

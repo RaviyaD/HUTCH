@@ -8,11 +8,12 @@
 
   <div class="row mt-4">
     <div class="col parent">
-      <form class="example-form text-center">
+      <form class="example-form text-center" (ngSubmit)="onSubmit()">
         <mat-form-field class="example-full-width">
-          <input type="text" matInput [formControl]="myControl" [matAutocomplete]="auto">
+          <button type="submit" style="display:none">hidden submit</button>
+          <input type="text" matInput [formControl]="myControl" [matAutocomplete]="auto" [(ngModel)]="siteID">
           <mat-placeholder>Enter Site ID</mat-placeholder>
-          <mat-autocomplete #auto="matAutocomplete">
+          <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
             <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
               {{option}}
             </mat-option>
@@ -25,21 +26,21 @@
   <div class="row mt-3 pt-3 mb-3 pt-3">
     <div class="col parent">
       <mat-chip-list class="mat-chip-list-stacked" aria-orientation="vertical">
-        <mat-chip><a [routerLink]="['/view-site-details']">View Site Details</a></mat-chip>
-        <mat-chip>View Region Details</mat-chip>
-        <mat-chip><a [routerLink]="['/add-maintenance']">View Maintenance Log</a></mat-chip>
-        <mat-chip>View Tower Loading</mat-chip>
-        <mat-chip><a [routerLink]="['/map-main']">View On Map</a></mat-chip>
-        <mat-chip>View Security Details</mat-chip>
-        <mat-chip><a [routerLink]="['/spec-nav']">View Specifications</a></mat-chip>
-        <mat-chip>View Ongoing Projects</mat-chip>
+        <mat-chip><a (click)="validateRedirect('/view-site-details')" id="xxx">View Site Details</a></mat-chip>
+        <mat-chip><a (click)="validateRedirect('/add-region')">View Region Details</a></mat-chip>
+        <mat-chip><a (click)="validateRedirect('/add-maintenance')">View Maintenance Log</a></mat-chip>
+        <mat-chip><a (click)="validateRedirect('/owned-towers')">View Tower Loading</a></mat-chip>
+        <mat-chip><a (click)="validateRedirect('/map-main')">View On Map</a></mat-chip>
+        <mat-chip><a (click)="validateRedirect('/view-incident')">View Security Details</a></mat-chip>
+        <mat-chip><a (click)="validateRedirect('/spec-nav')">View Specifications</a></mat-chip>
+        <mat-chip><a (click)="validateRedirect('/view-ongoing-project')">View Ongoing Projects</a></mat-chip>
       </mat-chip-list>
     </div>
   </div>
 
-  <tr *ngFor="let site of sites">
+  <!--tr *ngFor="let site of sites">
     <td><input value="{{ site.siteID }}"></td>
     <td>{{ site.siteName }}</td>
-  </tr>
+  </tr-->
 
 </div>

@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import {Component, NgModule} from '@angular/core';
+import { MapMainComponent} from './SiteMap/map-main/map-main.component';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import {RouterModule} from '@angular/router';
@@ -39,6 +40,11 @@ import { AddSiteSecurityPersonComponent } from './Security_Details/add-site-secu
 import { ViewSiteDetailsComponent } from './Site Management/view-site-details/view-site-details.component';
 import {SiteServiceService} from './Site Management/site-service.service';
 import {SiteDetailsService} from './Site Management/site-details.service';
+import {HttpClientModule} from '@angular/common/http';
+import { AddSiteDetailsComponent } from './Site Management/add-site-details/add-site-details.component';
+import { ViewAllSitesComponent } from './Site Management/view-all-sites/view-all-sites.component';
+
+
 import { AddremarkComponent } from './SiteMap/addremark/addremark.component';
 import {RemarkServiceService} from './SiteMap/service/remark-service.service';
 import { RemarkDialogComponent } from './SiteMap/remark-dialog/remark-dialog.component';
@@ -54,6 +60,7 @@ import { RemarkDialogComponent } from './SiteMap/remark-dialog/remark-dialog.com
     SpecLogTableComponent,
     SpecViewComComponent,
     ViewMaintenanceComponent,
+    MapMainComponent,
     MapComponent,
     RemarksComponent,
     SearchMapComponent,
@@ -77,6 +84,10 @@ import { RemarkDialogComponent } from './SiteMap/remark-dialog/remark-dialog.com
     ViewSiteDetailsComponent,
     ViewSiteSecurityPersonComponent,
     AddSiteSecurityPersonComponent,
+    AddSiteDetailsComponent,
+    ViewAllSitesComponent
+    ResolveMaintenanceComponent
+    AddSiteSecurityPersonComponent,
     AddremarkComponent,
     RemarkDialogComponent,
   ],
@@ -96,7 +107,10 @@ import { RemarkDialogComponent } from './SiteMap/remark-dialog/remark-dialog.com
     SiteServiceService,
     SiteDetailsService,
     RemarkServiceService
+    SiteDetailsService,
   ],
+  entryComponents: [ResolveMaintenanceComponent],
+
   entryComponents: [ResolveMaintenanceComponent, RemarkDialogComponent ],
   bootstrap: [AppComponent]
 })

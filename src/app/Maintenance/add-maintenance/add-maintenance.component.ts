@@ -10,6 +10,8 @@ import { MaintenanceServicesService} from '../view-maintenance/MaintenanceServic
 import {IMaintenance} from '../Maintenance';
 import { MatDialogRef} from '@angular/material';
 import {ActivatedRoute, Router} from '@angular/router';
+import {SiteDetailsService} from '../../Site Management/site-details.service';
+import {SiteDetails} from '../../Site Management/site-details';
 
 @Component({
   selector: 'app-add-maintenance',
@@ -37,15 +39,34 @@ import {ActivatedRoute, Router} from '@angular/router';
 })
 
 export class AddMaintenanceComponent implements OnInit {
-  constructor(private route: ActivatedRoute, private router: Router, private ms: MaintenanceServicesService) {
-    this.im = new IMaintenance();
-  }
+
+  options: string[] = [];
+  filteredOptions: Observable<string[]>;
+  sites: SiteDetails[];
+
   im: IMaintenance;
+
+  constructor(private route: ActivatedRoute, private router: Router, private ms: MaintenanceServicesService,
+              private siteDetailsService: SiteDetailsService) {
+    this.im = new IMaintenance();
+    this.siteDetailsService.findAll().subscribe(data => {
+      this.sites = data;
+      for (let counter = 0; counter < this.sites.length; counter++) {
+        this.options[counter] = this.sites[counter].siteName;
+        console.log(this.options[counter]);
+      }
+      console.log(this.options[3]);
+    });
+  }
+
+
+
+
   date = new FormControl(new Date());
   serializedDate = new FormControl((new Date()).toISOString());
   myControl = new FormControl();
-  options: string[] = ['One', 'Two', 'Three'];
-  filteredOptions: Observable<string[]>;
+ // options: string[] = ['One', 'Two', 'Three'];
+ // filteredOptions: Observable<string[]>;
 
   formControl = new FormControl('', [
     Validators.required

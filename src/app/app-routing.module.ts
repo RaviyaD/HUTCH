@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import {SpecNavComponent} from './Specification/spec-nav/spec-nav.component';
 import { AddMaintenanceComponent} from './Maintenance/add-maintenance/add-maintenance.component';
 import { ViewMaintenanceComponent} from './Maintenance/view-maintenance/view-maintenance.component';
+import {MapMainComponent} from './SiteMap/map-main/map-main.component';
 import {RemarksComponent} from './SiteMap/remarks/remarks.component';
 import {SearchMapComponent} from './SiteMap/search-map/search-map.component';
 import {SiteStatusComponent} from './SiteMap/site-status/site-status.component';
@@ -20,12 +21,17 @@ import {PhyscialMeasurementComponent} from './TowerLoading/physcial-measurement/
 import {AddRegionComponent} from './Region-Management/add-region/add-region.component';
 import {ViewSiteDetailsComponent} from './Site Management/view-site-details/view-site-details.component';
 import {AddAntennaComponent} from './TowerLoading/add-antenna/add-antenna.component';
+import {ViewSiteSecurityPersonComponent} from './Security_Details/view-site-security-person/view-site-security-person.component';
+import {AddSiteSecurityPersonComponent} from './Security_Details/add-site-security-person/add-site-security-person.component';
+import {AddSiteDetailsComponent} from './Site Management/add-site-details/add-site-details.component';
+import {ViewAllSitesComponent} from './Site Management/view-all-sites/view-all-sites.component';
 import {AddremarkComponent} from './SiteMap/addremark/addremark.component';
 
 const routes: Routes = [
   {path: 'spec-nav', component: SpecNavComponent},
   {path: 'add-maintenance', component: AddMaintenanceComponent},
   {path: 'view-maintenance', component: ViewMaintenanceComponent },
+  {path: 'map-main', component: MapMainComponent},
   {path: 'remarks', component: RemarksComponent},
   {path: 'search-map', component: SearchMapComponent},
   {path: 'site-status', component: SiteStatusComponent},
@@ -46,7 +52,9 @@ const routes: Routes = [
   {path: 'add-antenna', component: AddAntennaComponent},
   { path: 'MapRemark', component: RemarksComponent },
   { path: 'createRemark', component: AddremarkComponent }
-];
+
+  {path: 'view-site-security-person', component: ViewSiteSecurityPersonComponent},
+  {path: 'add-site-security-person', component: AddSiteSecurityPersonComponent}];
 
 
 
