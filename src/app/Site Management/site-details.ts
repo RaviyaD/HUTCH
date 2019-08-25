@@ -4,6 +4,6 @@ export class SiteDetails {
   ownership: string;
   ownerSiteName: string;
   frequencyBand: string;
-  commissionedDate: Date;
-  commissionedDate3G: Date;
+  commissionedDate: string;
+  commissionedDate3G: string;
 }
