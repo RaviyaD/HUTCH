@@ -1,20 +1,26 @@
 <p class="h2" style="margin-left: 200px">View-Maintenance </p>
-
-<div class="foo status"><p style="margin-left: 20px">Completed</p></div><br>
-<div class="foo Emg" style="margin-left: 20px"><p style="margin-left: 20px">High</p></div>
-<div class="foo Nor" style="margin-left: 40px"><p style="margin-left: 20px">Normal</p></div>
+<div>
+<div style="margin-left:1050px; margin-bottom:60px;" class="foo status"><p style="margin-left: 20px">Completed</p></div><br>
+<div style="margin-top:20px">
+<div class="foo Emg" style="margin-left: -50px"><p style="margin-left: 20px">High</p></div>
+<div class="foo Nor" style="margin-left: 15px"><p style="margin-left: 20px">Normal</p></div>
 <div class="foo Low" style="margin-left: 60px"><p style="margin-left: 20px">Low</p></div>
-
-<mat-form-field>
-  <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
-</mat-form-field>
+</div>
+</div>
+<div style="position: relative; margin-left:350px">
+<div  fxLayout fxLayoutAlign="center center">
+  <mat-form-field fxFlex="40%" class="example-form ">
+    <input matInput type="text" (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+  </mat-form-field>
+</div>
+</div>
 
 <div class="mat-elevation-z8">
-<table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+<table mat-table [dataSource]="dataSource1" matSort  class="mat-elevation-z8">
 
   <!-- Position Column -->
   <ng-container matColumnDef="ids">
-    <th mat-header-cell *matHeaderCellDef> No. </th>
+    <th mat-header-cell *matHeaderCellDef mat-sort-header> No. </th>
     <td mat-cell *matCellDef="let m"> {{m.id}}</td>
   </ng-container>
 
@@ -46,8 +52,18 @@
   </ng-container>
 
   <ng-container matColumnDef="idate">
-    <th mat-header-cell *matHeaderCellDef> Inform Date </th>
+    <th mat-header-cell *matHeaderCellDef mat-sort-header> Inform Date </th>
     <td mat-cell *matCellDef="let m"> {{m.idate}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="cost">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header> Cost </th>
+    <td mat-cell *matCellDef="let m"> {{m.cost}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="rdate">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header> Refactor Date </th>
+    <td mat-cell *matCellDef="let m"> {{m.rdate}} </td>
   </ng-container>
 
   <ng-container matColumnDef="actions">
@@ -58,12 +74,12 @@
     </mat-header-cell>
 
     <mat-cell *matCellDef="let m; let i=index;">
-      <button mat-icon-button color="accent" (click)="startEdit(m.id, m.sname, m.category, m.issue, m.piority, m.idate)">
+      <button mat-icon-button color="accent" (click)="startEdit(m.id, m.sname, m.category, m.issue, m.piority, m.idate)" [hidden]="(m.status != 'pending')? true:false" >
         <mat-icon aria-label="Edit">edit</mat-icon>
       </button>
 
 
-      <button mat-icon-button color="accent" (click)="delete(m.id)">
+      <button mat-icon-button color="accent" (click)="delete(m.id)" [hidden]="(m.status != 'Complete')? true:false">
         <mat-icon aria-label="Delete">delete</mat-icon>
       </button>
 
@@ -73,8 +89,8 @@
 
 
   <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-  <tr mat-row *matRowDef="let m; columns: displayedColumns; "[ngClass]="{ 'Emg': m.piority == 'High', 'Nor': m.piority == 'Normal',
-   'Low': m.piority == 'Low', 'status': m.status == 'Complete' }"></tr>
+  <tr mat-row *matRowDef="let m; columns: displayedColumns; "[ngClass]="{'status': m.status == 'Complete', 'Emg': m.piority == 'High', 'Nor': m.piority == 'Normal',
+   'Low': m.piority == 'Low'  }"></tr>
 </table>
   <mat-paginator [length]="100"
                  [pageSize]="10"

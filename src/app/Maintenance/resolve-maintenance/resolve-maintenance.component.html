@@ -1,15 +1,15 @@
 <p>resolve-maintenance works!</p>
 
-<p>Maintenance ID: {{data.id}}</p>
+<p [(ngModel)]="data.ids" ngDefaultControl>Maintenance ID: {{data.ids}}</p>
 
-<p>Site Name : {{data.sname}}</p>
-<p>Category : {{data.category}}</p>
-<p>Issue: {{data.issue}}</p>
-<p>Informed Date:  {{data.idate}}</p>
-<p>Piority: {{data.piority}}</p>
+<p [(ngModel)]="data.sname" ngDefaultControl>Site Name : {{data.sname}}</p>
+<p [(ngModel)]="data.category" ngDefaultControl>Category : {{data.category}}</p>
+<p [(ngModel)]="data.issue" ngDefaultControl>Issue: {{data.issue}}</p>
+<p [(ngModel)]="data.idate" ngDefaultControl>Informed Date:  {{data.idate}}</p>
+<p [(ngModel)]="data.piority" ngDefaultControl>Piority: {{data.piority}}</p>
 
 
-<form>
+<form (ngSubmit)="submitUpdate()" >
 <div class="row">
   <div class="form-group col-md-6" >
     <label for="Rcost">Refactor Cost</label>
