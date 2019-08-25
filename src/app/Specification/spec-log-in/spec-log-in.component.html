@@ -1,0 +1,29 @@
+
+<h3 class="display-5 text-center">Specification log</h3>
+
+<table class="table table-bordered">
+
+  <thead>
+
+  <tr>
+
+    <th scope="col">Spec ID</th>
+    <!-- <th scope="col">Site ID</th>
+     <th scope="col">Project</th>-->
+    <th scope="col">Remark</th>
+    <th scope="col">Edit/Delete</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor = "let specl of specs">
+
+    <td>SP{{specl.specId}}</td>
+    <!-- <td>{{SpecLog.siteId}}</td>
+     <td>{{SpecLog.pid}}</td>-->
+    <td>{{specl.remark}}</td>
+    <td><button class="btn">Edit</button>
+      <button class="btn" (click)="delete(specl.specId)"> Delete</button> </td>
+  </tr>
+
+  </tbody>
+</table>

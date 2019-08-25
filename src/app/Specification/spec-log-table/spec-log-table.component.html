@@ -1,44 +1,63 @@
 <h3 class="display-5 text-center">Add new log</h3>
 
-<li>
-  <div class="row ">
-    <div class="form-group col-md-2">
-      <label for="category">
-        Select Specification ID
-      </label>
-      <select id="Speclog" name="category"
-              [(ngModel)]="category" class="form-control">
-        <option value="security">S001</option>
-        <option value="tech">S002</option>
-        <option value="tech">S003</option>
-      </select>
-    </div>
-  </div>
-</li>
-<li>
-  <div class="row ">
-    <div class="form-group col-md-2">
-      <label for="category">
-        Select Site ID
-      </label>
-      <select id="SpecSiteLog" name="category"
-              [(ngModel)]="category" class="form-control">
-        <option value="security">COL001</option>
-        <option value="tech">COL002</option>
-        <option value="tech">COL003</option>
-      </select>
-    </div>
-  </div>
-</li>
+  <div>
+    <form (ngSubmit)="onSubmit(SlogForm)" #SlogForm="ngForm">
+
+       <div class="form-group">
+        <label for="specID">Enter Specification ID</label>
+         <input type="text" [(ngModel)]="specl.specId"
+                class="form-control" id="specID" name="specID"
+                placeholder="Enter spec id "
+                required #name="ngModel">
+       </div>
+      <li>
+        <div class="row ">
+          <div class="form-group">
+            <label for="remark">
+              Enter remark
+            </label>
+            <input type="text" [(ngModel)]="specl.remark"
+                   class="form-control" id="remark" name="remark"
+                   placeholder="Enter remark "
+                   required #name="ngModel">
+          </div>
+         <!-- <p>***{{ temp.specId}}</p>-->
+        </div>
+      </li>
 
 
+      <button class="form-control" [disabled]="!SlogForm.form.valid">Submit </button>
+      <!--<p>{{ specl.remark }}</p>
+      <p>{{ specl.specId}}</p>-->
+
+       </form>
+  </div>
+
+    <!--select id="Speclog" name="category  "
+            [(ngModel)]="category" class="form-control">
+      <option value="security">S001</option>
+      <option value="tech">S002</option>
+      <option value="tech">S003</option>
+    </select>
 <li>
-  <div class="row ">
-    <div class="form-group col-md-2">
-      <label for="category">
-        Select project
-      </label>
-      <select id="SpecProject" name="category"
+<div class="row ">
+  <div class="form-group col-md-2">
+    <label for="siteId" >Select Site ID</label>
+    <input type="text" [(ngModel)]="SpecLog.siteId"
+           class="form-control" id="siteId" name="siteId"
+           placeholder="Enter site id "
+           required #name="ngModel">
+    <!--<select id="SpecSiteLog" name="category"
+            [(ngModel)]="SpecLog.siteId" class="form-control">
+      <option value="security">COL001</option>
+      <option value="tech">COL002</option>
+      <option value="tech">COL003</option>
+    </select>
+  </div>
+</div>
+</li>-->
+
+     <!-- <select id="SpecProject" name="category"
               [(ngModel)]="category" class="form-control">
         <option value="security">P001</option>
         <option value="tech">P002</option>
@@ -48,54 +67,16 @@
   </div>
 </li>
 
-<form>
-  <mat-form-field class="example-full-width">
-    <textarea matInput placeholder="Add Remark"> </textarea>
-  </mat-form-field>
-</form>
+  <div class="form-group col-md-2">
+  <label for="remark">
 
-<h3 class="display-5 text-center">Specification log</h3>
+  </label>
+  <input type="text" [(ngModel)]="specs.r"
+         class="form-control" id="remark" name="remark"
+         placeholder="Enter project id "
+         required #name="ngModel">
+  </div>
 
-<table class="table table-bordered">
-  <thead>
-  <tr>
-    <th scope="col">#</th>
-    <th scope="col">Spec ID</th>
-    <th scope="col">Site ID</th>
-    <th scope="col">Project</th>
-    <th scope="col">Remark</th>
-    <th scope="col">Status</th>
-    <th scope="col">Edit/Delete</th>
-  </tr>
-  </thead>
-  <tbody>
-  <tr>
-    <th scope="row">1</th>
-    <td>Mark</td>
-    <td>Otto</td>
-    <td>@mdo</td>
-    <td>test</td>
-    <td>ok</td>
-    <td><button class="btn btn-outline-dark">Edit</button><button class="btn btn-outline-danger">Delete</button> </td>
-  </tr>
-  <tr>
-    <th scope="row">2</th>
-    <td>Jacob</td>
-    <td>Thornton</td>
-    <td>@fat</td>
-    <td>test</td>
-    <td>ok</td>
-    <td><button class="btn btn-outline-dark">Edit</button><button class="btn btn-outline-danger">Delete</button> </td>
-  </tr>
-  <tr>
-    <th scope="row">3</th>
-    <td>Larry the Bird</td>
-    <td>nkkk</td>
-    <td>@twitter</td>
-    <td>test</td>
-    <td>ok</td>
-    <td><button class="btn btn-outline-dark">Edit</button><button class="btn btn-outline-danger">Delete</button> </td>
-  </tr>
-  </tbody>
-</table>
+    </div>-->
+
 

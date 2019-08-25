@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {MatDialog} from '@angular/material';
+import {Spec} from '../model/spec';
+import {UserServiceService} from '../service/user-service.service';
+import {Observable} from 'rxjs';
 
 @Component({
   selector: 'app-spec',
@@ -8,9 +11,14 @@ import {MatDialog} from '@angular/material';
 })
 export class SpecComponent implements OnInit {
 
-  constructor(public dialog: MatDialog) { }
+  uploadRes: Spec[];
+
+  fileUploads: Observable<string[]>;
+
+  constructor(public dialog: MatDialog, private upl1: UserServiceService) { }
 
   ngOnInit() {
+    this.upl1.findAll().subscribe(data => {this.uploadRes = data; });
   }
 
   openDialog() {
@@ -20,4 +28,5 @@ export class SpecComponent implements OnInit {
       console.log(`Dialog result: ${result}`);
     });
   }
+
 }

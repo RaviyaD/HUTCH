@@ -1,0 +1,116 @@
+<h3 class="display-5 justify-content-center">Upload specification</h3>
+<div>
+  <form (ngSubmit) ="onSubmitUpload(UploadSpecForm)" #UploadSpecForm = "ngForm" >
+    <li> <div class="form-group">
+      <label for="specID">Select Specification ID</label>
+      <input type="text" [(ngModel)]="specUp.specId"
+             class="form-control" id="specID" name="specID"
+             placeholder="Enter spec id "
+             required #id="ngModel"
+            required>
+    </div></li>
+
+      <li> <div class="form-group">
+        <label for="category">Category</label>
+        <input type="text" [(ngModel)]="specUp.category"
+               class="form-control" id="category" name="category"
+               placeholder="Enter category "
+               required #cat="ngModel">
+      </div></li>
+    <li> <div class="form-group">
+      <label for="name">Enter name</label>
+      <input type="text" [(ngModel)]="specUp.name"
+             class="form-control" id="name" name="name"
+             placeholder="Enter name "
+             required #name="ngModel">
+    </div></li>
+
+    <li> <div class="form-group">
+      <label for="desc">Description</label>
+      <input type="text" [(ngModel)]="specUp.description"
+             class="form-control" id="desc" name="desc"
+             placeholder="Enter description "
+             required #desc="ngModel">
+    </div></li>
+
+    <!--li> <div class="form-group">
+      <label for="desc">Upload Document</label>
+      <input type="doc" [(ngModel)]="specUp.url"
+             class="form-control" id="doc" name="doc"
+             placeholder="replaced later "
+             required #name="ngModel">
+    </div></li-->
+    <li><div> <button class="uploadbtn" >Upload document</button></div></li><br>
+   <li><div>
+    <button class="form-control justify-content-center" [disabled]="!UploadSpecForm.form.valid">Submit </button>
+   </div></li>
+  </form>
+</div>
+
+<!--<select id="category" name="category"
+            [(ngModel)]="category" class="form-control">
+      <option value="security">Tower</option>
+      <option value="tech">Fencing</option>
+      <option value="tech">Grounding</option>
+    </select>-->
+
+
+
+  <!-- added after site and project integrated
+  <h3>Additional details</h3>
+
+    <li> <div class="form-group">
+      <input type="site" [(ngModel)]="specUp."
+             class="form-control" id="site" name="site"
+             placeholder="Enter description "
+             required #name="ngModel">
+    </div></li>
+
+    <!--<select id="specSite" name="category"
+            [(ngModel)]="category" class="form-control">
+      <option value="security">COL001</option>
+      <option value="tech">COL002</option>
+      <option value="tech">COL003</option>
+    </select>
+
+
+    <li>
+
+      <div class="row ">
+        <div class="form-group col-md-2">
+          <label for="category">
+            Select project
+          </label>
+          <select id="SpecProject" name="category"
+                  [(ngModel)]="category" class="form-control">
+            <option value="security">P001</option>
+            <option value="tech">P002</option>
+            <option value="tech">P003</option>
+          </select>
+        </div>
+      </div>
+    </li>-->
+
+
+
+    <!-- <mat-chip>Upload document/ Image</mat-chip>-->
+
+
+
+    <!--button class="button btn-info" *ngIf='showFile'
+            (click)='showFiles(false)'>Hide Files</button>
+
+    <button class="button btn-info" *ngIf='!showFile'
+            (click)='showFiles(true)'>Show Files</button>
+
+    <div [hidden]="!showFile">
+      <div class="panel panel-primary">
+        <div class="panel-heading">List of Files</div>
+        <div *ngFor="let file of fileUploads | async">
+          <div class="panel-body">
+            <app-spec-upload-form [fileUpload]='file'></app-spec-upload-form>
+          </div>
+        </div>
+      </div>
+    </div-->
+

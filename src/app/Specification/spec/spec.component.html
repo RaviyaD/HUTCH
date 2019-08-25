@@ -1,83 +1,26 @@
-<h3 class="display-5 justify-content-center">Upload specification</h3>
-<div>
-<form>
-  <li><a class="">Specification Id </a><input type="text" /></li>
 
-    <div class="row ">
-    <div class="form-group col-md-2">
-      <label for="category">
-        Category
-      </label>
-      <select id="category" name="category"
-              [(ngModel)]="category" class="form-control">
-        <option value="security">Tower</option>
-        <option value="tech">Fencing</option>
-        <option value="tech">Grounding</option>
-      </select>
-    </div>
+<!--<mat-card class="spec-card"*ngFor="let specUp of uploadRes">
+ <mat-card-content>
+  <li> <label class="spec_id">ID</label><label>{{specUp.specId}}</label></li>
+  <li> <label class="spec_name">Name</label>  <label>{{specUp.name}}</label></li>
+  <li> <label class="desc_s">Description </label> <label>{{specUp.description}}</label></li>
+  <li > <label class="spec_name">Category </label> <label>{{specUp.category}}</label></li>
+    <li><button mat-button class="btn btn-warning justify-content-center">Further Details</button></li>
+   <li> <button mat-button class="btn btn-info">Download</button></li>
+ </mat-card-content>
+</mat-card>-->
+<h3 class="justify-content-center">View specifications</h3>
+<div class="card text-center" *ngFor="let specUp of uploadRes">
+
+  <div class="card-body">
+    <h5 class="card-title"><label>SP0{{specUp.specId}} | {{specUp.name}}</label></h5>
+    <p class="card-text"> <label>{{specUp.description}}</label></p>
+    <p class="card-text"><label>{{specUp.category}} type</label></p>
+    <a href="#" class="btn">Further Details</a>
+    <a href="#" class="btn">Download</a>
   </div>
-
-
-  <li><a class="clearfix">Name </a><input type="text"/></li>
-  <li><a>Description </a><input type="text" /></li>
-
-  <h3>Additional details</h3>
-
-  <li>
-
-    <div class="row ">
-      <div class="form-group col-md-2">
-        <label for="category">
-          Select site
-        </label>
-        <select id="specSite" name="category"
-                [(ngModel)]="category" class="form-control">
-          <option value="security">COL001</option>
-          <option value="tech">COL002</option>
-          <option value="tech">COL003</option>
-        </select>
-      </div>
-    </div>
-
-  </li>
-
-  <li>
-
-    <div class="row ">
-      <div class="form-group col-md-2">
-        <label for="category">
-          Select project
-        </label>
-        <select id="SpecProject" name="category"
-                [(ngModel)]="category" class="form-control">
-          <option value="security">P001</option>
-          <option value="tech">P002</option>
-          <option value="tech">P003</option>
-        </select>
-      </div>
-    </div>
-  </li>
-
-
-  <mat-chip>Upload document/ Image</mat-chip>
-  <li><button mat-raised-button	>Submit</button></li>
-
-</form>
+  <div class="card-footer text-muted">
+    project id and site id
+  </div>
 </div>
 
-<div class="spec-item">
-<mat-card-content>
-  <li class="spec_id">Specification ID</li>
-  <li class="spec_name">Name </li>
-  <button mat-button (click)="openDialog()">See details</button>
-  <button mat-button="">Download</button>
-</mat-card-content>
-</div>
-<div class="spec-item">
-<mat-card-content>
-  <li class="spec_id">Specification ID</li>
-  <li class="spec_name">Name </li>
-  <button mat-button="">See Details</button>
-  <button mat-button="">Download</button>
-</mat-card-content>
-</div>

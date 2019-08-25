@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import {Spec} from '../model/spec';
+import {UserServiceService} from '../service/user-service.service';
+import {ActivatedRoute, Router} from '@angular/router';
+
 
 @Component({
   selector: 'app-spec-view-com',
@@ -7,9 +11,24 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SpecViewComComponent implements OnInit {
 
-  constructor() { }
+  specs: Spec[];
+  spec: Spec;
 
-  ngOnInit() {
+  constructor(private userService: UserServiceService, private route: ActivatedRoute, private router: Router) {
+      this.spec = new Spec();
   }
 
+  ngOnInit() {
+    this.userService.findAll().subscribe(data => {
+      this.specs = data;
+    });
+  }
+
+  onSubmit() {
+    this.userService.save(this.spec).subscribe(result => this.toList());
+  }
+
+  toList() {
+    this.router.navigate(['/Site']);
+  }
 }

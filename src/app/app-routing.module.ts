@@ -26,6 +26,7 @@ import {AddSiteSecurityPersonComponent} from './Security_Details/add-site-securi
 import {AddSiteDetailsComponent} from './Site Management/add-site-details/add-site-details.component';
 import {ViewAllSitesComponent} from './Site Management/view-all-sites/view-all-sites.component';
 import {AddremarkComponent} from './SiteMap/addremark/addremark.component';
+import {SpecLogTableComponent} from './Specification/spec-log-table/spec-log-table.component';
 
 const routes: Routes = [
   {path: 'spec-nav', component: SpecNavComponent},
@@ -47,6 +48,8 @@ const routes: Routes = [
   {path: 'add-new-project', component: AddNewProjectComponent },
   {path: 'view-ongoing-project', component: ViewOngoingProjectComponent},
   {path: 'add-region', component: AddRegionComponent},
+  {path: 'add-antenna', component: AddAntennaComponent},
+  {path: 'addSpec', component: SpecLogTableComponent}];
   {path: 'view-site-details', component: ViewSiteDetailsComponent},
   {path: 'add-region', component: AddRegionComponent},
   {path: 'add-antenna', component: AddAntennaComponent},
