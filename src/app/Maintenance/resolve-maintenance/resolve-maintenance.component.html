@@ -1,0 +1,54 @@
+<p>resolve-maintenance works!</p>
+
+<p>Maintenance ID: {{data.id}}</p>
+
+<p>Site Name : {{data.sname}}</p>
+<p>Category : {{data.category}}</p>
+<p>Issue: {{data.issue}}</p>
+<p>Informed Date:  {{data.idate}}</p>
+<p>Piority: {{data.piority}}</p>
+
+
+<form>
+<div class="row">
+  <div class="form-group col-md-6" >
+    <label for="Rcost">Refactor Cost</label>
+    <input name="Rcost"
+           [(ngModel)]="data.cost"
+           id="Rcost"
+           type="text"
+           class="form-control" >
+  </div>
+  </div>
+
+  <div class="row">
+    <div class="form-group col-md-4">
+      <mat-form-field class="example-full-width">
+        <label for="method">Method</label>
+        <mat-select [(ngModel)]="data.method" name="method" id="method" class="form-control">
+          <mat-option *ngFor="let cate of method" [value]="cate">
+            {{cate}}
+          </mat-option>
+        </mat-select>
+        <!--   <mat-error *ngIf="formControl.invalid">{{getErrorMessage()}}</mat-error> -->
+      </mat-form-field>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="form-group col-md-7">
+      <label for="rdate">Refactor Date</label>
+      <input required ngModel
+             name="rdate"
+             [(ngModel)]="data.rdate"
+             id="rdate"
+             type="date"
+             class="form-control" >
+
+    </div>
+  </div>
+
+  <div class="panel">
+    <button type="submit"   class="btn-success">Submit</button>
+  </div>
+</form>
