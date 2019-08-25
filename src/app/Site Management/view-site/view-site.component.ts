@@ -4,6 +4,8 @@ import {Observable} from 'rxjs';
 import {map, startWith} from 'rxjs/operators';
 import {SiteDetailsService} from '../site-details.service';
 import {SiteDetails} from '../site-details';
+import {Router} from '@angular/router';
+import {MatSnackBar} from '@angular/material';
 
 @Component({
   selector: 'app-view-site',
@@ -15,15 +17,16 @@ export class ViewSiteComponent implements OnInit {
   options: string[] = [];
   filteredOptions: Observable<string[]>;
   sites: SiteDetails[];
+  siteID: string;
 
-  constructor(private siteDetailsService: SiteDetailsService) {
+  constructor(private siteDetailsService: SiteDetailsService, private router: Router, private snackBar: MatSnackBar) {
     this.siteDetailsService.findAll().subscribe(data => {
       this.sites = data;
       for (let counter = 0; counter < this.sites.length; counter++) {
         this.options[counter] = this.sites[counter].siteID;
-        console.log(this.options[counter]);
+        // console.log(this.options[counter]);
       }
-      console.log(this.options[3]);
+      // console.log(this.options[3]);
     });
   }
 
@@ -39,6 +42,32 @@ export class ViewSiteComponent implements OnInit {
     const filterValue = value.toLowerCase();
 
     return this.options.filter(option => option.toLowerCase().includes(filterValue));
-   // return this.options;
+  }
+
+  onSubmit() {
+    if (this.validate()) {
+      this.router.navigate(['/view-site-details', this.siteID]);
+    } else {
+      this.openSnackBar('Invalid Site ID');
+    }
+  }
+
+  openSnackBar(message: string) {
+    this.snackBar.open(message, undefined, {
+      duration: 3000,
+    });
+  }
+
+  validate() {
+    return (this.sites.some((el) =>  el.siteID === this.siteID ));
+  }
+
+  validateRedirect(value: string) {
+    // console.log(value);
+    if (this.validate()) {
+      this.router.navigate([value, this.siteID]);
+    } else {
+      this.openSnackBar('Invalid Site ID');
+    }
   }
 }

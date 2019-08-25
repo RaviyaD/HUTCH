@@ -17,7 +17,7 @@ export class MaintenanceServicesService {
 
   public getMaintenance(): Observable<IMaintenance[]> {
     return this.http.get<IMaintenance[]>(this.url);
-}
+  }
 
 public addMaintenance(im: IMaintenance) {
     return this.http.post<IMaintenance>(this.url, im);

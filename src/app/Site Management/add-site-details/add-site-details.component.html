@@ -2,7 +2,7 @@
 
   <div class="row">
     <div class="col-12">
-      <h3 class="text-center">Site Details</h3>
+      <h3 class="text-center">Add Site Details</h3>
     </div>
   </div>
 
@@ -22,38 +22,35 @@
             </mat-expansion-panel-header>
 
             <mat-form-field style="width: 25%">
-              <input matInput placeholder="Site ID" [(ngModel)]="siteWithId.siteID" name="id" id="id" disabled >
+              <input matInput placeholder="Site ID" ngModel name="id" id="id" required >
             </mat-form-field>
             <br>
             <mat-form-field style="width: 25%">
-              <input matInput placeholder="Site Name" [(ngModel)]="siteWithId.siteName" name="name" id="name" >
+              <input matInput placeholder="Site Name" ngModel name="name" id="name" >
             </mat-form-field>
             <br>
             <mat-form-field style="width: 25%">
-              <input matInput placeholder="Ownership" [(ngModel)]="siteWithId.ownership" name="ownership" id="Ownership">
+              <input matInput placeholder="Ownership" ngModel name="ownership" id="ownership">
             </mat-form-field>
             <br>
             <mat-form-field style="width: 25%">
-              <input matInput placeholder="Owner's Site Name" [(ngModel)]="siteWithId.ownerSiteName" name="osn" id="Owner's Site Name" >
+              <input matInput placeholder="Owner's Site Name" ngModel name="osn" id="osn" >
             </mat-form-field>
             <br>
             <mat-form-field style="width: 25%">
-              <input matInput placeholder="Frequency Band" [(ngModel)]="siteWithId.frequencyBand" name="fb" id="Frequency Band">
+              <input matInput placeholder="Frequency Band" ngModel name="fb" id="fb">
             </mat-form-field>
             <br>
             <mat-form-field style="width: 25%">
-                <input type="date" matInput placeholder="Commissioned Date" [(ngModel)]="siteWithId.commissionedDate" name="cd" id="Commissioned Date">
+              <input type="date" matInput placeholder="Commissioned Date" ngModel name="cd" id="cd">
             </mat-form-field>
             <br>
             <mat-form-field style="width: 25%">
-              <input type="date" matInput [(ngModel)]="siteWithId.commissionedDate3G" placeholder="Commissioned Date 3G"  name="cd3G" id="Commissioned Date 3G">
+              <input type="date" matInput ngModel placeholder="Commissioned Date 3G"  name="cd3G" id="cd3G">
             </mat-form-field>
             <br>
-            <button class="btn btn-primary mt-2 ml-4 mb-2" (click)="onSubmit('update')" type="submit" [disabled]="!f.valid" >
-              Update
-            </button>
-            <button class="btn btn-primary mt-2 ml-4 mb-2" (click)="onSubmit('delete')" type="submit" [disabled]="!f.valid" >
-              Delete
+            <button class="btn btn-primary mt-2 ml-4 mb-2" type="submit" [disabled]="!f.valid" >
+              Submit
             </button>
             <mat-action-row>
               <button mat-button color="primary" (click)="nextStep()">Next</button>

@@ -65,7 +65,7 @@ export class ViewMaintenanceComponent implements OnInit {
     // this.index = i;
     console.log(this.index);
     const dialogRef = this.dialog.open(ResolveMaintenanceComponent, {
-      data: {id: id, sname: sname, category: category, issue: issue, piority: piority, idate: idate }
+      data: {id, sname, category, issue, piority, idate }
     });
     dialogRef.afterClosed().subscribe(result => {
       if (result === 1) {
@@ -74,7 +74,7 @@ export class ViewMaintenanceComponent implements OnInit {
         // Then you update that record using data from dialogData (values you enetered)
         this.exampleDatabase.dataChange.value[foundIndex] = this.maintenanceservice.getDialogData();
         // And lastly refresh table
-        //this.refreshTable();
+        // this.refreshTable();
       }
     });
   }

@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import {Component, NgModule} from '@angular/core';
-import {MapMainComponent} from './SiteMap/map-main/map-main.component';
+import { MapMainComponent} from './SiteMap/map-main/map-main.component';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import {RouterModule} from '@angular/router';
@@ -28,8 +28,8 @@ import { CalculationComponent } from './TowerLoading/calculation/calculation.com
 import { AddNewProjectComponent} from './OngoingProject/add-new-project/add-new-project.component';
 import { ViewOngoingProjectComponent} from './OngoingProject/view-ongoing-project/view-ongoing-project.component';
 import { AddRegionComponent } from './Region-Management/add-region/add-region.component';
-import { HttpClientModule} from '@angular/common/http';
 import { MaintenanceServicesService} from './Maintenance/view-maintenance/MaintenanceServices';
+import { ProjectServicesService} from './OngoingProject/view-ongoing-project/ProjectServices';
 import { AddAntennaComponent} from './TowerLoading/add-antenna/add-antenna.component';
 import { ViewIncidentsComponent} from './Security_Details/view-incidents/view-incidents.component';
 import { AddIncidentsComponent} from './Security_Details/add-incidents/add-incidents.component';
@@ -41,6 +41,9 @@ import { ResolveMaintenanceComponent } from './Maintenance/resolve-maintenance/r
 import { ViewSiteDetailsComponent } from './Site Management/view-site-details/view-site-details.component';
 import {SiteServiceService} from './Site Management/site-service.service';
 import {SiteDetailsService} from './Site Management/site-details.service';
+import {HttpClientModule} from '@angular/common/http';
+import { AddSiteDetailsComponent } from './Site Management/add-site-details/add-site-details.component';
+import { ViewAllSitesComponent } from './Site Management/view-all-sites/view-all-sites.component';
 
 
 
@@ -79,6 +82,9 @@ import {SiteDetailsService} from './Site Management/site-details.service';
     AddRegionComponent,
     ViewSiteDetailsComponent,
     ViewSiteSecurityPersonComponent,
+    AddSiteSecurityPersonComponent,
+    AddSiteDetailsComponent,
+    ViewAllSitesComponent
     ResolveMaintenanceComponent
   ],
   imports: [
@@ -89,14 +95,15 @@ import {SiteDetailsService} from './Site Management/site-details.service';
     FormsModule,
     ReactiveFormsModule,
     MaterialModule,
-    HttpClientModule,
     AgmCoreModule.forRoot({apiKey: 'AIzaSyCkBk3eKkKjRgv25gFD9YuOF59Fwijt3wk'}),
+    HttpClientModule
   ],
   providers: [
+    ProjectServicesService,
     IncidentService,
     MaintenanceServicesService,
     SiteServiceService,
-    SiteDetailsService
+    SiteDetailsService,
   ],
   entryComponents: [ResolveMaintenanceComponent],
 

@@ -23,6 +23,8 @@ import {ViewSiteDetailsComponent} from './Site Management/view-site-details/view
 import {AddAntennaComponent} from './TowerLoading/add-antenna/add-antenna.component';
 import {ViewSiteSecurityPersonComponent} from './Security_Details/view-site-security-person/view-site-security-person.component';
 import {AddSiteSecurityPersonComponent} from './Security_Details/add-site-security-person/add-site-security-person.component';
+import {AddSiteDetailsComponent} from './Site Management/add-site-details/add-site-details.component';
+import {ViewAllSitesComponent} from './Site Management/view-all-sites/view-all-sites.component';
 
 const routes: Routes = [
   {path: 'spec-nav', component: SpecNavComponent},
@@ -49,10 +51,12 @@ const routes: Routes = [
   {path: 'view-site-security-person', component: ViewSiteSecurityPersonComponent},
   {path: 'add-site-security-person', component: AddSiteSecurityPersonComponent},
 
+  {path: 'view-site-details/:siteID', component: ViewSiteDetailsComponent},
   {path: 'add-region', component: AddRegionComponent},
-  {path: 'add-antenna', component: AddAntennaComponent}];
-
-
+  {path: 'add-antenna', component: AddAntennaComponent},
+  {path: 'add-site-details', component: AddSiteDetailsComponent},
+  {path: 'view-all-sites', component: ViewAllSitesComponent}
+  ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

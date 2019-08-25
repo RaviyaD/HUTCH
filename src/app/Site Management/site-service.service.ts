@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import {Site} from './site';
 import {Observable} from 'rxjs';
 
@@ -25,4 +25,5 @@ export class SiteServiceService {
   public save(site: Site) {
     return this.http.post<Site>(this.sitesUrl, site);
   }
+
 }
