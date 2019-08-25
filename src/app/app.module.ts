@@ -1,6 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
 import {Component, NgModule} from '@angular/core';
-import { MapMainComponent} from './SiteMap/map-main/map-main.component';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import {RouterModule} from '@angular/router';
@@ -44,12 +43,11 @@ import { SpecUploadFormComponent } from './Specification/spec-upload-form/spec-u
 import { EditSpecComponent } from './Specification/dialog/edit-spec/edit-spec.component';
 
 import { ResolveMaintenanceComponent } from './Maintenance/resolve-maintenance/resolve-maintenance.component';
-import { ViewSiteSecurityPersonComponent } from './Security_Details/view-site-security-person/view-site-security-person.component';
-import { AddSiteSecurityPersonComponent } from './Security_Details/add-site-security-person/add-site-security-person.component';
+
+
 import { ViewSiteDetailsComponent } from './Site Management/view-site-details/view-site-details.component';
 import {SiteServiceService} from './Site Management/site-service.service';
 import {SiteDetailsService} from './Site Management/site-details.service';
-import {HttpClientModule} from '@angular/common/http';
 import { AddSiteDetailsComponent } from './Site Management/add-site-details/add-site-details.component';
 import { ViewAllSitesComponent } from './Site Management/view-all-sites/view-all-sites.component';
 
@@ -69,7 +67,6 @@ import { RemarkDialogComponent } from './SiteMap/remark-dialog/remark-dialog.com
     SpecLogTableComponent,
     SpecViewComComponent,
     ViewMaintenanceComponent,
-    MapMainComponent,
     MapComponent,
     RemarksComponent,
     SearchMapComponent,
@@ -94,8 +91,8 @@ import { RemarkDialogComponent } from './SiteMap/remark-dialog/remark-dialog.com
     ViewSiteSecurityPersonComponent,
     AddSiteSecurityPersonComponent,
     AddSiteDetailsComponent,
-    ViewAllSitesComponent
-    ResolveMaintenanceComponent
+    ViewAllSitesComponent,
+    ResolveMaintenanceComponent,
     AddSiteSecurityPersonComponent,
     AddremarkComponent,
     RemarkDialogComponent,
@@ -115,15 +112,14 @@ import { RemarkDialogComponent } from './SiteMap/remark-dialog/remark-dialog.com
     HttpClientModule,
     AgmCoreModule.forRoot({apiKey: 'AIzaSyCkBk3eKkKjRgv25gFD9YuOF59Fwijt3wk'}),
   ],
-  providers: [MaintenanceServicesService, UserServiceService, SpLogService],
   providers: [
     MaintenanceServicesService,
     SiteServiceService,
     SiteDetailsService,
-    RemarkServiceService
+    RemarkServiceService,
     SiteDetailsService,
+    UserServiceService, SpLogService
   ],
-  entryComponents: [ResolveMaintenanceComponent],
 
   entryComponents: [ResolveMaintenanceComponent, RemarkDialogComponent ],
   bootstrap: [AppComponent]

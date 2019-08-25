@@ -4,7 +4,6 @@ import {IncidentService} from '../IncidentService';
 import {MatPaginator, MatTableDataSource} from '@angular/material';
 import {DataSource} from '@angular/cdk/table';
 import {Observable} from 'rxjs';
-import {MaintenaceDataSource} from '../../Maintenance/view-maintenance/view-maintenance.component';
 
 
 @Component({
