@@ -43,6 +43,7 @@ export class ViewMaintenanceComponent implements OnInit, AfterViewInit {
   }
 
   ngOnInit() {
+
    // this.dataSource = new MaintenaceDataSource(this.maintenanceservice);
     this.dataSource1.paginator = this.paginator;
     this.dataSource1.sort = this.sort;
@@ -52,6 +53,7 @@ export class ViewMaintenanceComponent implements OnInit, AfterViewInit {
   }
   ngAfterViewInit(): void {
     this.dataSource1.sort = this.sort;
+
   }
 
   delete(id: number) {
@@ -82,7 +84,7 @@ export class ViewMaintenanceComponent implements OnInit, AfterViewInit {
         // Then you update that record using data from dialogData (values you enetered)
         this.exampleDatabase.dataChange.value[foundIndex] = this.maintenanceservice.getDialogData();
         // And lastly refresh table
-        //this.refreshTable();
+        // this.refreshTable();
       }
     });
   }
