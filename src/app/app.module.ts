@@ -35,6 +35,12 @@ import { AddAntennaComponent} from './TowerLoading/add-antenna/add-antenna.compo
 import { ViewIncidentsComponent} from './Security_Details/view-incidents/view-incidents.component';
 import { AddIncidentsComponent} from './Security_Details/add-incidents/add-incidents.component';
 import { MatDialogRef} from '@angular/material';
+import { ResolveMaintenanceComponent } from './Maintenance/resolve-maintenance/resolve-maintenance.component';
+import { ViewSiteSecurityPersonComponent } from './Security_Details/view-site-security-person/view-site-security-person.component';
+import { AddSiteSecurityPersonComponent } from './Security_Details/add-site-security-person/add-site-security-person.component';
+import { ViewSiteDetailsComponent } from './Site Management/view-site-details/view-site-details.component';
+import {SiteServiceService} from './Site Management/site-service.service';
+import {SiteDetailsService} from './Site Management/site-details.service';
 
 @NgModule({
   declarations: [
@@ -64,7 +70,12 @@ import { MatDialogRef} from '@angular/material';
     AddRegionComponent,
     AddAntennaComponent,
     ViewIncidentsComponent,
-    AddIncidentsComponent
+    AddIncidentsComponent,
+    ResolveMaintenanceComponent,
+    AddRegionComponent,
+    ViewSiteDetailsComponent,
+    ViewSiteSecurityPersonComponent,
+    AddSiteSecurityPersonComponent
   ],
   imports: [
     BrowserModule,
@@ -77,7 +88,12 @@ import { MatDialogRef} from '@angular/material';
     HttpClientModule,
     AgmCoreModule.forRoot({apiKey: 'AIzaSyCkBk3eKkKjRgv25gFD9YuOF59Fwijt3wk'}),
   ],
-  providers: [MaintenanceServicesService, ProjectServicesService],
+  providers: [ProjectServicesService,
+    MaintenanceServicesService,
+    SiteServiceService,
+    SiteDetailsService
+  ],
+  entryComponents: [ResolveMaintenanceComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
