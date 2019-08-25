@@ -1,14 +1,15 @@
 export class Incident {
 
   incidentId: number;
-  SiteName: string;
-  IncidentDate: string;
-  SummeryOfTheIncident: string;
-  DateOfInform: string;
-  DescriptionStolenProperty: string;
-  ProvideAbansSecurity: string;
-  ComlaintName: string;
-  NameOfThePoliceStation: string;
+  siteName: string;
+  incidentDate: string;
+  summeryOfTheIncident: string;
+  dateOfInform: string;
+  informerName: string;
+  descriptionStolenProperty: string;
+  provideAbansSecurity: string;
+  dateOfEntry: string;
+  nameOfThePoliceStation: string;
   ObtainPoliceReport: string;
   Remarks: string;
 

@@ -37,14 +37,12 @@ import { MatDialogRef} from '@angular/material';
 import {ViewSiteSecurityPersonComponent} from './Security_Details/view-site-security-person/view-site-security-person.component';
 import {AddSiteSecurityPersonComponent} from './Security_Details/add-site-security-person/add-site-security-person.component';
 import {IncidentService} from './Security_Details/IncidentService';
-import { AddIncidentsComponent } from './Security_Details/add-incidents/add-incidents.component';
 import { ResolveMaintenanceComponent } from './Maintenance/resolve-maintenance/resolve-maintenance.component';
-import { ViewSiteSecurityPersonComponent } from './Security_Details/view-site-security-person/view-site-security-person.component';
-import { AddSiteSecurityPersonComponent } from './Security_Details/add-site-security-person/add-site-security-person.component';
 import { ViewSiteDetailsComponent } from './Site Management/view-site-details/view-site-details.component';
 import {SiteServiceService} from './Site Management/site-service.service';
 import {SiteDetailsService} from './Site Management/site-details.service';
-import {HttpClientModule} from '@angular/common/http';
+
+
 
 @NgModule({
   declarations: [
@@ -81,6 +79,7 @@ import {HttpClientModule} from '@angular/common/http';
     AddRegionComponent,
     ViewSiteDetailsComponent,
     ViewSiteSecurityPersonComponent,
+    ResolveMaintenanceComponent
   ],
   imports: [
     BrowserModule,
@@ -94,13 +93,13 @@ import {HttpClientModule} from '@angular/common/http';
     AgmCoreModule.forRoot({apiKey: 'AIzaSyCkBk3eKkKjRgv25gFD9YuOF59Fwijt3wk'}),
   ],
   providers: [
+    IncidentService,
     MaintenanceServicesService,
     SiteServiceService,
     SiteDetailsService
   ],
   entryComponents: [ResolveMaintenanceComponent],
-  providers: [MaintenanceServicesService],
-  providers: [MaintenanceServicesService, IncidentService],
+
   bootstrap: [AppComponent]
 })
 export class AppModule { }

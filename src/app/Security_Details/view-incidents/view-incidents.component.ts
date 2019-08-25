@@ -19,10 +19,10 @@ export class ViewIncidentsComponent implements OnInit {
 
   incident1: Incident;
   dataSource: IncidentDataSourse;
-  displayedColumns: string[] = ['incidentId', 'SiteName', 'IncidentDate',
-    'SummeryOfTheIncident', 'DateOfInform', 'DescriptionStolenProperty',
-    'ProvideAbansSecurity', 'ComlaintName', 'NameOfThePoliceStation',
-    'ObtainPoliceReport', 'Remarks'];
+  displayedColumns: string[] = ['incidentId', 'siteName', 'incidentDate',
+    'summeryOfTheIncident', 'dateOfInform', 'informerName' , 'descriptionStolenProperty',
+    'provideAbansSecurity', 'dateOfEntry', 'nameOfThePoliceStation',
+    'obtainPoliceReport', 'remarks'];
   public dataSource1 = new MatTableDataSource(this.incident);
 
   @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
