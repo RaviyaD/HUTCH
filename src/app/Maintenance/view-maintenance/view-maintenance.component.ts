@@ -41,11 +41,7 @@ export class ViewMaintenanceComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.dataSource = new MaintenaceDataSource(this.maintenanceservice);
-    this.dataSource1.paginator = this.paginator;
-    this.maintenanceservice.getMaintenance()
-      .subscribe(data => this.maintenance1 = data);
-    //  this.dataSource1.data = Object.values(this.maintenance1);
+
   }
 
   delete(id: number) {

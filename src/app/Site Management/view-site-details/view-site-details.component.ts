@@ -46,6 +46,7 @@ export class ViewSiteDetailsComponent implements OnInit {
       console.log(this.siteForm.value.cd3G);
       console.log(this.routerParam); */
       this.siteService.updateSite(this.routerParam, this.update).subscribe();
+      // this.router.navigate(['view-site']);
     } else if (buttonType === 'delete') {
       console.log('delete');
       console.log(this.routerParam);

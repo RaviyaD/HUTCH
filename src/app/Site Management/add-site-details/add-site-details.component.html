@@ -22,7 +22,7 @@
             </mat-expansion-panel-header>
 
             <mat-form-field style="width: 25%">
-              <input matInput placeholder="Site ID" ngModel name="id" id="id" required >
+              <input matInput placeholder="Site ID (should be 6 characters)" ngModel name="id" id="id" required minlength="6" maxlength="6">
             </mat-form-field>
             <br>
             <mat-form-field style="width: 25%">
