@@ -1,10 +1,10 @@
 <br>
-<p class="h1" style="margin-left: 30px">Add-Region Zones</p>
+<p class="h1" style="margin-left: 30px">Add-Region Zone</p>
 <br>
 <br>
-<form>
+<form (ngSubmit)="onSubmit(f)" #f="ngForm">
 <div class="row">
-  Region Zone <input type="text" class="form-control col-md-3" required=""/> <button type="submit"> Add  </button></div>
+  Region Zone <input matInput placeholder="Zone Name" ngModel name="zonename" id="zonename" required> <button type="submit"> Add  </button></div>
   <br>
 <br>
 <br>
@@ -12,20 +12,19 @@
 
   <tr>
     <td>Senior Engineer</td>
-    <td><input type="text" class="form-control" required/>
+    <td><input matInput placeholder="Se Eng Name" ngModel name="seniorengineer" id="seniorengineer" required></td>
     <td>Mobile Number:</td>
-    <td><input type="text" class="form-control" required/>
+    <td><input matInput placeholder="Se Eng Mobile no" ngModel name="semobno" id="semobno" required></td>
     <td>Email:</td>
-    <td><input type="text" class="form-control" required/>
-    </td>
+    <td><input matInput placeholder="Se Eng email" ngModel name="seemail" id="seemail" required></td>
   </tr>
   <tr>
     <td>Engineer</td>
-    <td><input type="text" class="form-control"/>
+    <td><input matInput placeholder="Eng Name" ngModel name="engineer" id="engineer" required></td>
     <td>Mobile Number:</td>
-    <td><input type="text" class="form-control"/>
+    <td><input matInput placeholder="Eng Mobile no" ngModel name="emobno" id="emobno" required></td>
     <td>Email:</td>
-    <td><input type="text" class="form-control"/>
+    <td><input matInput placeholder="Eng email" ngModel name="eemail" id="eemail" required></td>
   </tr>
 
 
@@ -33,62 +32,5 @@
 <br>
 <br>
 <br>
-<table>
 
-  <tr>
-
-
-    <th>Sub-Regions	</th>
-
-
-    <th>Technical Officer	</th>
-
-
-    <th>Mobile Number	</th>
-
-
-    <th>Email		</th>
-
-
-  </tr>
-
-  <tr>
-    <td><input type="text" class="form-control"/></td>
-    <td><input type="text" class="form-control"/></td>
-    <td><input type="text" class="form-control"/></td>
-    <td><input type="text" class="form-control"/></td>
-
-  </tr>
-
-  <tr>
-    <td><input type="text" class="form-control"/></td>
-    <td><input type="text" class="form-control"/></td>
-    <td><input type="text" class="form-control"/></td>
-    <td><input type="text" class="form-control"/></td>
-
-  </tr>
-
-  <tr>
-    <td><input type="text" class="form-control"/></td>
-    <td><input type="text" class="form-control"/></td>
-    <td><input type="text" class="form-control"/></td>
-    <td><input type="text" class="form-control"/></td>
-
-  </tr>
-
-  <tr>
-    <td><input type="text" class="form-control"/></td>
-    <td><input type="text" class="form-control"/></td>
-    <td><input type="text" class="form-control"/></td>
-    <td><input type="text" class="form-control"/></td>
-  </tr>
-
-  <tr>
-    <td><input type="text" class="form-control"/></td>
-    <td><input type="text" class="form-control"/></td>
-    <td><input type="text" class="form-control"/></td>
-    <td><input type="text" class="form-control"/></td>
-  </tr>
-
-</table>
 </form>

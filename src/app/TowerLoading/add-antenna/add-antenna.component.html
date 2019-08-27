@@ -1,1 +1,30 @@
-<p>add-antenna works!</p>
+<h3>|  Add Antenna Dimensions  |</h3>
+<form (ngSubmit)="onSubmit()">
+  <div class="form-group">
+    <label >Site ID:</label>
+    <input type="text" class="form-control" name="siteID"  placeholder="Site ID" required ngModel
+           [(ngModel)]="at.siteID" >
+    <small class="form-text text-muted">Enter Valid SiteID</small>
+  </div>
+  <div class="form-group">
+    <label >Height of Antenna:</label>
+    <input type="number" class="form-control" name="height"  placeholder="Height" required ngModel
+           [(ngModel)]="at.height">
+  </div>
+  <div class="form-group">
+    <label >Diameter of Antenna:</label>
+    <input type="number" class="form-control" name="diameter"  placeholder="Diameter" required ngModel
+           [(ngModel)]="at.diameter">
+  </div>
+  <div class="form-group">
+    <label >Azimuth of Antenna:</label>
+    <input type="number" class="form-control" name="azimuth"  placeholder="Azimuth" required ngModel
+           [(ngModel)]="at.azimuth">
+  </div>
+  <div class="form-group">
+    <label >Opposite Site:</label>
+    <input type="text" class="form-control" name="oppositeSite"  placeholder="Opposite Site" required ngModel
+           [(ngModel)]="at.oppositeSite" >
+  </div>
+  <button type="submit" class="btn btn-primary btn-lg btn-block">Submit</button>
+</form>

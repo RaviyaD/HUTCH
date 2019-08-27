@@ -1,4 +1,4 @@
-import {Component, NgModule, OnInit, CUSTOM_ELEMENTS_SCHEMA, Inject} from '@angular/core';
+import {Component, NgModule, OnInit, CUSTOM_ELEMENTS_SCHEMA} from '@angular/core';
 import {MatAutocompleteModule, MatFormFieldModule, MatInputModule, MatSelectModule} from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {BrowserModule} from '@angular/platform-browser';
@@ -8,10 +8,9 @@ import {map, startWith} from 'rxjs/operators';
 import {AppComponent} from '../../app.component';
 import { MaintenanceServicesService} from '../view-maintenance/MaintenanceServices';
 import {IMaintenance} from '../Maintenance';
-import { MatDialogRef} from '@angular/material';
 import {ActivatedRoute, Router} from '@angular/router';
-import {SiteDetailsService} from '../../Site Management/site-details.service';
-import {SiteDetails} from '../../Site Management/site-details';
+import {SiteDetailsService} from '../../site-management/site-details.service';
+import {SiteDetails} from '../../site-management/site-details';
 
 @Component({
   selector: 'app-add-maintenance',
@@ -55,7 +54,7 @@ export class AddMaintenanceComponent implements OnInit {
         this.options[counter] = this.sites[counter].siteName;
         console.log(this.options[counter]);
       }
-      console.log(this.options[3]);
+      // console.log(this.options[3]);
     });
   }
 
@@ -73,7 +72,7 @@ export class AddMaintenanceComponent implements OnInit {
     // Validators.email,
   ]);
 
-  cat: string[] = ['Secutiry', 'Technical'];
+  cat: string[] = ['Security', 'Technical'];
   pio: string[] = ['High', 'Normal', 'Low'];
 
   getErrorMessage() {

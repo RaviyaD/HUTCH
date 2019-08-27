@@ -20,7 +20,7 @@ export class ResolveMaintenanceComponent implements OnInit {
 
   gotoViewMaintenance() {
    this.router.navigate(['/add-maintenance']);
-    window.location.reload();
+   window.location.reload();
   }
 
   submitUpdate(): void {

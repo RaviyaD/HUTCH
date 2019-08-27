@@ -7,7 +7,6 @@ import {MatAutocompleteModule, MatFormFieldModule, MatInputModule, MatSelectModu
 import {ActivatedRoute, Router} from '@angular/router';
 import {IncidentService} from '../IncidentService';
 import {Incident} from '../Incident';
-import {exitCodeFromResult} from '@angular/compiler-cli';
 
 @Component({
   selector: 'app-add-incidents',
@@ -53,7 +52,7 @@ export class AddIncidentsComponent implements OnInit {
   }
 
   gotoViewIncident() {
-    this.router.navigate(['/view-incident']);
+    this.router.navigate(['/view-incidents']);
   }
 
 }

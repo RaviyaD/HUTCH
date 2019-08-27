@@ -11,7 +11,7 @@
     <li class="active"><a data-toggle="pill" href="#ongoing">Ongoing</a></li>
     <li><a data-toggle="pill" href="#completed">Completed</a></li>
   </ul>
-    <br><br>
+  <br><br>
   <div class="tab-content">
     <div id="ongoing" class="tab-pane fade in active">
 
@@ -64,8 +64,27 @@
             <td mat-cell *matCellDef="let m"> {{m.teamId}} </td>
           </ng-container>
 
+          <ng-container matColumnDef="actions">
+            <mat-header-cell *matHeaderCellDef>
+              <button mat-icon-button color="primary" (click)="gotoadd()">
+                <mat-icon aria-label="Example icon-button with a heart icon">add</mat-icon>
+              </button>
+            </mat-header-cell>
+
+            <mat-cell *matCellDef="let m; let i=index;">
+
+
+
+              <button mat-icon-button color="accent" (click)="delete(m.projectId)">
+                <mat-icon aria-label="Delete">delete</mat-icon>
+              </button>
+
+            </mat-cell>
+          </ng-container>
+
           <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
           <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
         </table>
         <mat-paginator [length]="100"
                        [pageSize]="10"

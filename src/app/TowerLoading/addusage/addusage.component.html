@@ -1,0 +1,45 @@
+<h2>| Usage of Antenna's Area |</h2>
+<form (ngSubmit)="onSubmit()">
+  <div class="form-group">
+    <label >Site ID:</label>
+    <input type="text" class="form-control" name="siteID"  placeholder="Site ID" required ngModel
+           [(ngModel)]="ot.siteID">
+    <small class="form-text text-muted">Enter Valid SiteID</small>
+  </div>
+  <div class="form-group">
+    <label >Total Area on Tower (m^2) :</label>
+    <input type="text" class="form-control" name="totalArea"  placeholder="Total Area: m^2" required ngModel
+           [(ngModel)]="ot.totalArea">
+  </div>
+  <div class="form-group">
+    <label >Wind sheild Area:</label>
+    <input type="text" class="form-control" name="windSheildArea"  placeholder="Area: m^2" required ngModel
+           [(ngModel)]="ot.windSheildArea">
+  </div>
+  <div class="form-group">
+    <label >Own GSM antenna covered Area:</label>
+    <input type="text" class="form-control" name="ownGSM"  placeholder="Area: m^2" required ngModel
+           [(ngModel)]="ot.ownGSM">
+  </div>
+  <div class="form-group">
+    <label >Own Micro wave antenna covered Area:</label>
+    <input type="text" class="form-control" name="ownMicro"  placeholder="Area: m^2" required ngModel
+           [(ngModel)]="ot.ownMicro">
+  </div>
+  <div class="form-group">
+    <label >Total Shared Area with Networkers for GSM :</label>
+    <input type="text" class="form-control" name="totalSharedGSM"  placeholder="Area: m^2" required ngModel
+           [(ngModel)]="ot.totalSharedGSM">
+  </div>
+  <div class="form-group">
+    <label >Total Shared Area with Networkers for GSM :</label>
+    <input type="text" class="form-control" name="totalSharedMicro"  placeholder="Area: m^2" required ngModel
+           [(ngModel)]="ot.totalSharedGSM">
+  </div>
+  <div class="form-group">
+    <label >Remaining area on the Tower:</label>
+    <input type="text" class="form-control" name="remaining"  placeholder="Area: m^2" required ngModel
+           [(ngModel)]="ot.remaining">
+  </div>
+  <button type="submit" class="btn btn-primary btn-lg btn-block">Submit</button>
+</form>

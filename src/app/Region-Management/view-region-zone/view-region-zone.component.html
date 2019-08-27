@@ -1,0 +1,67 @@
+<div class="mat-elevation-z8">
+  <table mat-table [dataSource]="dataSource1" class="mat-elevation-z8">
+
+    <!-- Position Column -->
+    <ng-container matColumnDef="zonename">
+      <th mat-header-cell *matHeaderCellDef> Zone Name:  </th>
+      <td mat-cell *matCellDef="let m"> {{m.zonename}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="seengname">
+      <th mat-header-cell *matHeaderCellDef> senior eng name: </th>
+      <td mat-cell *matCellDef="let m"> {{m.seniorengineer}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="seengmobno">
+      <th mat-header-cell *matHeaderCellDef> senior eng mob no: </th>
+      <td mat-cell *matCellDef="let m"> {{m.semobno}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="seengemail">
+      <th mat-header-cell *matHeaderCellDef> senior eng email:</th>
+      <td mat-cell *matCellDef="let m"> {{m.seemail}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="engname">
+      <th mat-header-cell *matHeaderCellDef> eng name: </th>
+      <td mat-cell *matCellDef="let m"> {{m.engineer}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="engmobno">
+      <th mat-header-cell *matHeaderCellDef> eng mob no: </th>
+      <td mat-cell *matCellDef="let m"> {{m.emobno}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="engemail">
+      <th mat-header-cell *matHeaderCellDef> eng email </th>
+      <td mat-cell *matCellDef="let m"> {{m.eemail}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="action">
+      <mat-header-cell *matHeaderCellDef>
+        <button mat-icon-button color="primary">
+          <a [routerLink]="['/add-region']">
+            <mat-icon aria-label="Example icon-button with a heart icon">add</mat-icon>
+          </a>
+        </button>
+      </mat-header-cell>
+
+      <mat-cell *matCellDef="let m; let i=index;">
+
+        <button mat-icon-button color="accent" (click)="delete(m.zonename)">
+          <mat-icon aria-label="Delete">delete</mat-icon>
+        </button>
+
+      </mat-cell>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+  <mat-paginator [length]="100"
+                 [pageSize]="10"
+                 [pageSizeOptions]="[5, 10, 25, 100]">
+  </mat-paginator>
+
+
+</div>

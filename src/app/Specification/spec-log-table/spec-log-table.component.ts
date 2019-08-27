@@ -1,4 +1,4 @@
-import {Component, OnInit, AfterViewInit, ViewChild} from '@angular/core';
+import {Component, OnInit, ViewChild} from '@angular/core';
 import {SpecLog} from '../model/spec-log';
 import {SpLogService} from '../service/sp-log.service';
 import {ActivatedRoute, Router} from '@angular/router';
@@ -25,7 +25,7 @@ export class SpecLogTableComponent implements OnInit {
 
   }
 
-  onSubmit(buttonType) {
+  onSubmit() {
     this.spl.save(this.specl).subscribe(result => this.gotoSLogList());
     window.location.reload();
   }

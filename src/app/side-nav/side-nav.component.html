@@ -12,10 +12,10 @@
         <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Region</a>
         <ul class="collapse list-unstyled" id="homeSubmenu">
           <li>
-            <a href="#">View Region</a>
+            <a href="#" [routerLink]="['view-region']" routerLinkActive="active">View Region</a>
           </li>
           <li>
-            <a href="#">View Zone</a>
+            <a href="#" [routerLink]="['view-region-zone']" routerLinkActive="active">View Zone</a>
           </li>
           <li>
             <a href="#"  [routerLink]="['/add-region']" routerLinkActive="active">Add Zone</a>
@@ -27,16 +27,16 @@
         <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Site Management</a>
         <ul class="collapse list-unstyled" id="pageSubmenu">
           <li>
-            <a [routerLink]="['/view-site']" routerLinkActive="active">View Site</a>
+            <a [routerLink]="['/Site/view-site']" routerLinkActive="active">View Site</a>
           </li>
           <li>
-            <a [routerLink]="['/view-site-details']" routerLinkActive="active">View Site Details</a>
+            <a [routerLink]="['/Site/view-site-details']" routerLinkActive="active">View Site Details</a>
           </li>
           <li>
-            <a [routerLink]="['/view-all-sites']" routerLinkActive="active">View All Sites</a>
+            <a [routerLink]="['/Site/view-all-sites']" routerLinkActive="active">View All Sites</a>
           </li>
           <li>
-            <a [routerLink]="['/add-site-details']" routerLinkActive="active">Add Site Details</a>
+            <a [routerLink]="['/Site/add-site-details']" routerLinkActive="active">Add Site Details</a>
           </li>
         </ul>
       </li>

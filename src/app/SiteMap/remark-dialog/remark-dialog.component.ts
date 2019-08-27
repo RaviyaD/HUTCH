@@ -1,10 +1,7 @@
 import {Component, Inject, OnInit} from '@angular/core';
 import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material';
-import {IMaintenance} from '../../Maintenance/Maintenance';
-import {MaintenanceServicesService} from '../../Maintenance/view-maintenance/MaintenanceServices';
 import {Remark} from '../model/remark';
 import {RemarkServiceService} from '../service/remark-service.service';
-import {RemarksComponent} from '../remarks/remarks.component';
 import {DataSource} from '@angular/cdk/table';
 import {Observable} from 'rxjs';
 

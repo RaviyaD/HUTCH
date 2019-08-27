@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpRequest, HttpEvent } from '@angular/common/http';
 import { Spec } from '../model/spec';
 import { Observable } from 'rxjs';
-import {getMatIconNameNotFoundError} from '@angular/material';
 
 @Injectable()
 export class UserServiceService {

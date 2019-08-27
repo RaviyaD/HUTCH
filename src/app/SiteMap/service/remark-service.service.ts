@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 import {HttpClient, HttpErrorResponse} from '@angular/common/http';
 import {BehaviorSubject, Observable} from 'rxjs';
 import {Remark} from '../model/remark';
-import {IMaintenance} from '../../Maintenance/Maintenance';
 
 @Injectable({
   providedIn: 'root'

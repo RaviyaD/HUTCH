@@ -1,9 +1,9 @@
-import { Component, OnInit, ViewChild, AfterViewInit } from '@angular/core';
+import { Component, OnInit, ViewChild} from '@angular/core';
 import {MatTableDataSource} from '@angular/material/table';
 import {MatPaginator} from '@angular/material/paginator';
 import {ProjectServicesService} from './ProjectServices';
 import {IProject} from '../Project';
-import {BehaviorSubject, merge, Observable} from 'rxjs';
+import {Observable} from 'rxjs';
 import { DataSource} from '@angular/cdk/collections';
 
 @Component({
@@ -18,7 +18,7 @@ export class ViewOngoingProjectComponent implements OnInit {
   project1: IProject;
   dataSource: ProjectDataSource;
   displayedColumns: string[] = ['projectId', 'projectName', 'projectType', 'projectPriority', 'startingDate', 'completionPeriod',
-                                'status', 'details', 'teamId'];
+    'status', 'details', 'teamId', 'actions'];
   public dataSource1 = new MatTableDataSource(this.project);
 
   @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
@@ -32,6 +32,13 @@ export class ViewOngoingProjectComponent implements OnInit {
     this.dataSource1.paginator = this.paginator;
     this.projectservice.getProject().subscribe(data => this.project = data);
   }
+
+  delete(projectId: string) {
+    this.projectservice.deleteProject(projectId);
+    window.location.reload();
+  }
+
+
 }
 
 export class ProjectDataSource extends DataSource<any> {
@@ -39,7 +46,7 @@ export class ProjectDataSource extends DataSource<any> {
     super();
   }
   connect(): Observable<IProject[]> {
-  return this.projectService.getProject();
+    return this.projectService.getProject();
   }
   disconnect() {}
 }

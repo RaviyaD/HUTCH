@@ -1,0 +1,51 @@
+<br>
+<p class="h1" style="margin-left: 30px">View Regions</p>
+<br>
+<br>
+<form>
+  <div class="row">
+    Region Name: <input type="text" class="form-control col-md-3" required=""/> <button type="submit"> Add  </button></div>
+  <br>
+  <br>
+  <br>
+
+  <div class="row" *ngFor="let m of zone">
+    Region Zone: <input type="text" class="form-control"/> </div>
+
+  <br>
+  <br>
+  <table>
+
+    <tr *ngFor="let m of zone" >
+      <td>Senior Engineer:</td>
+      <td ><input type="text" class="form-control"/></td>
+      <td>Mobile Number</td>
+      <td><input type="text" class="form-control"/></td>
+      <td>Email:</td>
+      <td> <input type="text" class="form-control"/></td>
+    </tr>
+    <tr *ngFor="let m of zone">
+      <td>Engineer:</td>
+      <td><input type="text" class="form-control"/></td>
+      <td>Mobile Number:</td>
+      <td><input type="text" class="form-control"/></td>
+      <td>Email:</td>
+      <td><input type="text" class="form-control"/></td>
+    </tr>
+    <tr>
+      <td>Technical officer</td>
+    <td><input type="text" class="form-control"/></td>
+      <td>Mobile Number:</td>
+    <td><input type="text" class="form-control"/></td>
+      <td>Email:</td>
+    <td><input type="text" class="form-control"/></td>
+    </tr>
+
+
+
+  </table>
+  <br>
+  <br>
+  <br>
+
+</form>

@@ -2,10 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import {Remark} from '../model/remark';
 import {RemarkServiceService} from '../service/remark-service.service';
 import {Router} from '@angular/router';
-import {ResolveMaintenanceComponent} from '../../Maintenance/resolve-maintenance/resolve-maintenance.component';
 import {MatDialog} from '@angular/material';
 import {RemarkDialogComponent} from '../remark-dialog/remark-dialog.component';
-import {MaintenanceServicesService} from '../../Maintenance/view-maintenance/MaintenanceServices';
 
 @Component({
   selector: 'app-remarks',
@@ -54,5 +52,3 @@ export class RemarksComponent implements OnInit {
       }
     });
   }}
-
-

@@ -3,8 +3,6 @@ import {NgForm} from '@angular/forms';
 import {UserServiceService} from '../service/user-service.service';
 import {ActivatedRoute, Router} from '@angular/router';
 import {Spec} from '../model/spec';
-import {Observable} from 'rxjs';
-import {HttpEvent, HttpRequest} from '@angular/common/http';
 
 @Component({
   selector: 'app-spec-upload-form',
