@@ -32,7 +32,7 @@ export class ViewRegionZoneComponent implements OnInit {
       .subscribe(data => this.dataSource1.data = data as Zone[]);
     //  this.dataSource1.data = Object.values(this.maintenance1);
 
-    this.activatedRoute.queryParamMap.subscribe((paramMap: ParamMap) => {
+    this.activatedRoute.queryParamMap.subscribe((paramMap: ParamMap) => {   // for refresh
       const refresh = paramMap.get('refresh');
       if (refresh) {
         this.dataSource1.paginator = this.paginator;
@@ -44,7 +44,7 @@ export class ViewRegionZoneComponent implements OnInit {
   // noinspection JSAnnotator
   delete(zonename: string) {
     this.zoneservice.deletezone(zonename);
-    this.router.navigate(['/view-region-zone'], {
+    this.router.navigate(['/view-region-zone'], {     // for refresh
       queryParams: {refresh: new Date().getTime()}
     });
   }
