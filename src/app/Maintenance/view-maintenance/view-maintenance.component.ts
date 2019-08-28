@@ -7,11 +7,13 @@ import {MatDialog} from '@angular/material/dialog';
 import {ActivatedRoute, Router} from '@angular/router';
 import {ResolveMaintenanceComponent} from '../resolve-maintenance/resolve-maintenance.component';
 import {MatSort} from '@angular/material';
+import {DatePipe} from '@angular/common';
 
 @Component({
   selector: 'app-view-maintenance',
   templateUrl: './view-maintenance.component.html',
-  styleUrls: ['./view-maintenance.component.css']
+  styleUrls: ['./view-maintenance.component.css'],
+  providers: [DatePipe]
 })
 
 
@@ -66,6 +68,7 @@ export class ViewMaintenanceComponent implements OnInit, AfterViewInit {
   gotoadd() {
     this.router.navigate(['/Maintenance/add-maintenance']);
   }
+
   startEdit(id: number, sname: string, category: string, issue: string,
             piority: string, idate: string) {
     this.id = id;

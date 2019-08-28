@@ -21,7 +21,7 @@ export class AddremarkComponent implements OnInit {
   }
 
   gotoRemarkList() {
-    this.router.navigate(['/MapRemark']);
+    this.router.navigate(['/siteMap/MapRemark']);
   }
 
   ngOnInit() {

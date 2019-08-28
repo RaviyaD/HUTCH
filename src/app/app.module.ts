@@ -40,8 +40,13 @@ import {RemarksComponent} from './SiteMap/remarks/remarks.component';
 import {SearchMapComponent} from './SiteMap/search-map/search-map.component';
 import {SiteStatusComponent} from './SiteMap/site-status/site-status.component';
 import {StatusReportComponent} from './SiteMap/status-report/status-report.component';
+import {AgmCoreModule} from '@agm/core';
+import {PhyscialMeasurementComponent} from './TowerLoading/physcial-measurement/physcial-measurement.component';
+import {CalculationComponent} from './TowerLoading/calculation/calculation.component';
 import {ViewOngoingProjectComponent} from './OngoingProject/view-ongoing-project/view-ongoing-project.component';
-import {AddRegionComponent} from './Region-Management/add-region/add-region.component';
+import {HttpClientModule} from '@angular/common/http';
+import {MaintenanceServicesService} from './Maintenance/view-maintenance/MaintenanceServices';
+import {AddAntennaComponent} from './TowerLoading/add-antenna/add-antenna.component';
 import {ViewIncidentsComponent} from './Security_Details/view-incidents/view-incidents.component';
 import {AddIncidentsComponent} from './Security_Details/add-incidents/add-incidents.component';
 import {ViewSiteSecurityPersonComponent} from './Security_Details/view-site-security-person/view-site-security-person.component';
@@ -60,6 +65,16 @@ import {ViewRegionZoneComponent} from './Region-Management/view-region-zone/view
 
 // Module
 import { TowerModule } from './TowerLoading/tower.module';
+import {SiteDetailsService} from './site-management/site-details.service';
+import {RemarkServiceService} from './SiteMap/service/remark-service.service';
+import {ZoneServices} from './Region-Management/zoneService';
+import {IncidentService} from './Security_Details/IncidentService';
+import {ProjectServicesService} from './OngoingProject/view-ongoing-project/ProjectServices';
+import {TowerService} from './TowerLoading/physcial-measurement/Tower.service';
+import {OwnedService} from './TowerLoading/owned-towers/Owned.service';
+import {AddusageComponent} from './TowerLoading/addusage/addusage.component';
+import {EditantennaComponent} from './TowerLoading/editantenna/editantenna.component';
+import {EditusageComponent} from './TowerLoading/editusage/editusage.component';
 
 @NgModule({
   declarations: [
@@ -69,31 +84,30 @@ import { TowerModule } from './TowerLoading/tower.module';
     SpecComponent,
     SpecLogTableComponent,
     SpecViewComComponent,
-    MapComponent,
-    RemarksComponent,
-    SearchMapComponent,
-    SiteStatusComponent,
-    StatusReportComponent,
     AddVisitorsComponent,
     ViewVisitorsComponent,
     ViewOngoingProjectComponent,
     AddNewProjectComponent,
     AddRegionComponent,
+    CalculationComponent,
+    AddAntennaComponent,
     ViewIncidentsComponent,
     AddIncidentsComponent,
-    AddRegionComponent,
     ViewSiteSecurityPersonComponent,
     AddSiteSecurityPersonComponent,
     AddSiteSecurityPersonComponent,
-    AddremarkComponent,
-    RemarkDialogComponent,
     AddIncidentsComponent,
     SpecLogInComponent,
     SpecUploadFormComponent,
     EditSpecComponent,
-    ViewRegionComponent,
-    ViewRegionZoneComponent,
-    AddIncidentsComponent
+    AddIncidentsComponent,
+    PhyscialMeasurementComponent,
+    OwnedTowersComponent,
+    CalculationComponent,
+    AddAntennaComponent,
+    AddusageComponent,
+    EditantennaComponent,
+    EditusageComponent,
   ],
   imports: [
     BrowserAnimationsModule,
@@ -103,8 +117,7 @@ import { TowerModule } from './TowerLoading/tower.module';
     ReactiveFormsModule,
     MaterialModule,
     HttpClientModule,
-    AgmCoreModule.forRoot({apiKey: 'AIzaSyCkBk3eKkKjRgv25gFD9YuOF59Fwijt3wk'}),
-    TowerModule
+  //  RegionManagementModule,
   ],
   providers: [
     MaintenanceServicesService,
@@ -118,7 +131,7 @@ import { TowerModule } from './TowerLoading/tower.module';
     TowerService,
     OwnedService,
   ],
-  entryComponents: [RemarkDialogComponent],
+  entryComponents: [EditusageComponent],
   bootstrap: [AppComponent]
 })
 
