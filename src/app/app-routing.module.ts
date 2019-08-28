@@ -1,10 +1,6 @@
 import {NgModule} from '@angular/core';
 import {Routes, RouterModule} from '@angular/router';
 import {SpecNavComponent} from './Specification/spec-nav/spec-nav.component';
-import {RemarksComponent} from './SiteMap/remarks/remarks.component';
-import {SearchMapComponent} from './SiteMap/search-map/search-map.component';
-import {SiteStatusComponent} from './SiteMap/site-status/site-status.component';
-import {StatusReportComponent} from './SiteMap/status-report/status-report.component';
 import {AddVisitorsComponent} from './Security_Details/add-visitors/add-visitors.component';
 import {ViewVisitorsComponent} from './Security_Details/view-visitors/view-visitors.component';
 import {ViewIncidentsComponent} from './Security_Details/view-incidents/view-incidents.component';
@@ -17,17 +13,12 @@ import {PhyscialMeasurementComponent} from './TowerLoading/physcial-measurement/
 import {AddAntennaComponent} from './TowerLoading/add-antenna/add-antenna.component';
 import {ViewSiteSecurityPersonComponent} from './Security_Details/view-site-security-person/view-site-security-person.component';
 import {AddSiteSecurityPersonComponent} from './Security_Details/add-site-security-person/add-site-security-person.component';
-import {AddremarkComponent} from './SiteMap/addremark/addremark.component';
 import {SpecLogTableComponent} from './Specification/spec-log-table/spec-log-table.component';
 import {AddusageComponent} from './TowerLoading/addusage/addusage.component';
 import {EditantennaComponent} from './TowerLoading/editantenna/editantenna.component';
 
 const routes: Routes = [
   {path: 'spec-nav', component: SpecNavComponent},
-  {path: 'remarks', component: RemarksComponent},
-  {path: 'search-map', component: SearchMapComponent},
-  {path: 'site-status', component: SiteStatusComponent},
-  {path: 'status-report', component: StatusReportComponent},
   {path: 'add-visitors', component: AddVisitorsComponent},
   {path: 'view-visitors', component: ViewVisitorsComponent},
   {path: 'view-incidents', component: ViewIncidentsComponent},
@@ -40,8 +31,6 @@ const routes: Routes = [
   {path: 'add-antenna', component: AddAntennaComponent},
   {path: 'addSpec', component: SpecLogTableComponent},
   {path: 'add-antenna', component: AddAntennaComponent},
-  {path: 'MapRemark', component: RemarksComponent},
-  {path: 'createRemark', component: AddremarkComponent },
   {path: 'view-site-security-person', component: ViewSiteSecurityPersonComponent},
   {path: 'add-site-security-person', component: AddSiteSecurityPersonComponent},
   {path: 'view-incidents', component: ViewIncidentsComponent},
@@ -55,6 +44,7 @@ const routes: Routes = [
   {path: 'Region', loadChildren: () => import('./Region-Management/region-management.module').then( mod => mod.RegionManagementModule )},
   {path: 'Site', loadChildren: () => import('./site-management/site-management.module').then( mod => mod.SiteManagementModule )},
   {path: 'Maintenance', loadChildren: () => import('./Maintenance/maintenance.module').then( mod => mod.MaintenanceModule )},
+  {path: 'siteMap', loadChildren: () => import('./SiteMap/site-map.module').then(mod => mod.SiteMapModule)},
   {path: '', redirectTo: '', pathMatch: 'full'}
 ];
 

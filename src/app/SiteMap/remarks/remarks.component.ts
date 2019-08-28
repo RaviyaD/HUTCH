@@ -33,7 +33,6 @@ export class RemarksComponent implements OnInit {
     console.log('deleted');
     window.location.reload();
   }
-
   startEdit(ids: string , remark: string) {
     this.ids = ids;
     // this.index = i;

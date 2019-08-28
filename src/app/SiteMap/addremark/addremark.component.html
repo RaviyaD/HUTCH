@@ -14,10 +14,10 @@
                class="form-control" id="remark" name="remark" placeholder="Please add a remark"
                required #remark="ngModel" style="height: 100px;width: 500px">
         <div [hidden]="!remark.pristine" class="alert alert-danger" style="margin-top:7px; ">Adding a remark is required</div>
-        <button type="submit" [disabled]="!remarkForm.form.valid" class="btn btn-info" style="background-color: #EC6708;margin-top: 20px;align-content: center;width: 100px;margin-left: 200px">Add</button>
+        <button type="submit" [disabled]="!remarkForm.form.valid" class="btn btn-info" style="background-color: #EC6708;margin-top: 20px;align-content: center;width: 100px;margin-left: 200px" >Add</button>
       </form>
 
-      <a [routerLink]="['/remarks']" routerLinkActive="active"> <button class="btn btn-danger" style="background-color: #EC6708;margin-top: 20px;align-content: center;width: 100px;margin-left: 200px"> Back</button></a>
+      <a [routerLink]="['/siteMap/remarks']" routerLinkActive="active"> <button class="btn btn-danger" style="background-color: #EC6708;margin-top: 20px;align-content: center;width: 100px;margin-left: 200px"> Back</button></a>
     </div>
   </th>
 </tr>
