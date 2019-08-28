@@ -64,7 +64,7 @@ export class ViewMaintenanceComponent implements OnInit, AfterViewInit {
   }
 
   gotoadd() {
-    this.router.navigate(['/add-maintenance']);
+    this.router.navigate(['/Maintenance/add-maintenance']);
   }
   startEdit(id: number, sname: string, category: string, issue: string,
             piority: string, idate: string) {

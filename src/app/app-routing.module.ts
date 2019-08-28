@@ -1,8 +1,6 @@
 import {NgModule} from '@angular/core';
 import {Routes, RouterModule} from '@angular/router';
 import {SpecNavComponent} from './Specification/spec-nav/spec-nav.component';
-import {AddMaintenanceComponent} from './Maintenance/add-maintenance/add-maintenance.component';
-import {ViewMaintenanceComponent} from './Maintenance/view-maintenance/view-maintenance.component';
 import {RemarksComponent} from './SiteMap/remarks/remarks.component';
 import {SearchMapComponent} from './SiteMap/search-map/search-map.component';
 import {SiteStatusComponent} from './SiteMap/site-status/site-status.component';
@@ -29,8 +27,6 @@ import {EditantennaComponent} from './TowerLoading/editantenna/editantenna.compo
 
 const routes: Routes = [
   {path: 'spec-nav', component: SpecNavComponent},
-  {path: 'add-maintenance', component: AddMaintenanceComponent},
-  {path: 'view-maintenance', component: ViewMaintenanceComponent },
   {path: 'remarks', component: RemarksComponent},
   {path: 'search-map', component: SearchMapComponent},
   {path: 'site-status', component: SiteStatusComponent},
@@ -64,6 +60,7 @@ const routes: Routes = [
   {path: 'edit-antenna', component: EditantennaComponent},
   {path: 'physical-measurement', component: PhyscialMeasurementComponent},
   {path: 'Site', loadChildren: () => import('./site-management/site-management.module').then( mod => mod.SiteManagementModule )},
+  {path: 'Maintenance', loadChildren: () => import('./Maintenance/maintenance.module').then( mod => mod.MaintenanceModule )},
   {path: '', redirectTo: '', pathMatch: 'full'}
 ];
 
