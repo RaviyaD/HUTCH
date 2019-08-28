@@ -37,3 +37,7 @@ button:active {
 .dropdown a:hover {background-color: #ddd;}
 
 .show {display: block;}
+
+.bg-light{
+  background-color: transparent!important;
+}
