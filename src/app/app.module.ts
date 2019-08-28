@@ -21,7 +21,6 @@ import {AgmCoreModule} from '@agm/core';
 import {PhyscialMeasurementComponent} from './TowerLoading/physcial-measurement/physcial-measurement.component';
 import {CalculationComponent} from './TowerLoading/calculation/calculation.component';
 import {ViewOngoingProjectComponent} from './OngoingProject/view-ongoing-project/view-ongoing-project.component';
-import {AddRegionComponent} from './Region-Management/add-region/add-region.component';
 import {HttpClientModule} from '@angular/common/http';
 import {MaintenanceServicesService} from './Maintenance/view-maintenance/MaintenanceServices';
 import {AddAntennaComponent} from './TowerLoading/add-antenna/add-antenna.component';
@@ -40,8 +39,6 @@ import {SiteDetailsService} from './site-management/site-details.service';
 import {AddremarkComponent} from './SiteMap/addremark/addremark.component';
 import {RemarkServiceService} from './SiteMap/service/remark-service.service';
 import {RemarkDialogComponent} from './SiteMap/remark-dialog/remark-dialog.component';
-import {ViewRegionComponent} from './Region-Management/view-region/view-region.component';
-import {ViewRegionZoneComponent} from './Region-Management/view-region-zone/view-region-zone.component';
 import {ZoneServices} from './Region-Management/zoneService';
 import {IncidentService} from './Security_Details/IncidentService';
 import {ProjectServicesService} from './OngoingProject/view-ongoing-project/ProjectServices';
@@ -50,6 +47,7 @@ import {OwnedService} from './TowerLoading/owned-towers/Owned.service';
 import {AddusageComponent} from './TowerLoading/addusage/addusage.component';
 import {EditantennaComponent} from './TowerLoading/editantenna/editantenna.component';
 import {EditusageComponent} from './TowerLoading/editusage/editusage.component';
+import {RegionManagementModule} from './Region-Management/region-management.module';
 
 @NgModule({
   declarations: [
@@ -72,11 +70,9 @@ import {EditusageComponent} from './TowerLoading/editusage/editusage.component';
     ViewOngoingProjectComponent,
     AddNewProjectComponent,
     CalculationComponent,
-    AddRegionComponent,
     AddAntennaComponent,
     ViewIncidentsComponent,
     AddIncidentsComponent,
-    AddRegionComponent,
     ViewSiteSecurityPersonComponent,
     AddSiteSecurityPersonComponent,
     AddSiteSecurityPersonComponent,
@@ -86,8 +82,6 @@ import {EditusageComponent} from './TowerLoading/editusage/editusage.component';
     SpecLogInComponent,
     SpecUploadFormComponent,
     EditSpecComponent,
-    ViewRegionComponent,
-    ViewRegionZoneComponent,
     AddIncidentsComponent,
     PhyscialMeasurementComponent,
     OwnedTowersComponent,
@@ -95,7 +89,7 @@ import {EditusageComponent} from './TowerLoading/editusage/editusage.component';
     AddAntennaComponent,
     AddusageComponent,
     EditantennaComponent,
-    EditusageComponent
+    EditusageComponent,
   ],
   imports: [
     BrowserAnimationsModule,
@@ -105,6 +99,7 @@ import {EditusageComponent} from './TowerLoading/editusage/editusage.component';
     ReactiveFormsModule,
     MaterialModule,
     HttpClientModule,
+    RegionManagementModule,
     AgmCoreModule.forRoot({apiKey: 'AIzaSyCkBk3eKkKjRgv25gFD9YuOF59Fwijt3wk'}),
   ],
   providers: [
