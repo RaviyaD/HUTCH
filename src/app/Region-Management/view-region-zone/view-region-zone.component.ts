@@ -44,7 +44,7 @@ export class ViewRegionZoneComponent implements OnInit {
   // noinspection JSAnnotator
   delete(zonename: string) {
     this.zoneservice.deletezone(zonename);
-    this.router.navigate(['/view-region-zone'], {     // for refresh
+    this.router.navigate(['Region/view-region-zone'], {     // for refresh
       queryParams: {refresh: new Date().getTime()}
     });
   }
