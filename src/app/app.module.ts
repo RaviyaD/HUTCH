@@ -4,7 +4,6 @@ import {AppComponent} from './app.component';
 import {RouterModule} from '@angular/router';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {SideNavComponent} from './side-nav/side-nav.component';
-import {AddMaintenanceComponent} from './Maintenance/add-maintenance/add-maintenance.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {MaterialModule} from './site-management/material.module';
 import {AddVisitorsComponent} from './Security_Details/add-visitors/add-visitors.component';
@@ -13,7 +12,6 @@ import {SpecNavComponent} from './Specification/spec-nav/spec-nav.component';
 import {SpecComponent} from './Specification/spec/spec.component';
 import {SpecLogTableComponent} from './Specification/spec-log-table/spec-log-table.component';
 import {SpecViewComComponent} from './Specification/spec-view-com/spec-view-com.component';
-import {ViewMaintenanceComponent} from './Maintenance/view-maintenance/view-maintenance.component';
 import {MapComponent} from './SiteMap/map/map.component';
 import {RemarksComponent} from './SiteMap/remarks/remarks.component';
 import {SearchMapComponent} from './SiteMap/search-map/search-map.component';
@@ -38,7 +36,6 @@ import {SpLogService} from './Specification/service/sp-log.service';
 import {SpecLogInComponent} from './Specification/spec-log-in/spec-log-in.component';
 import {SpecUploadFormComponent} from './Specification/spec-upload-form/spec-upload-form.component';
 import {EditSpecComponent} from './Specification/dialog/edit-spec/edit-spec.component';
-import {ResolveMaintenanceComponent} from './Maintenance/resolve-maintenance/resolve-maintenance.component';
 import {SiteDetailsService} from './site-management/site-details.service';
 import {AddremarkComponent} from './SiteMap/addremark/addremark.component';
 import {RemarkServiceService} from './SiteMap/service/remark-service.service';
@@ -58,12 +55,10 @@ import {EditusageComponent} from './TowerLoading/editusage/editusage.component';
   declarations: [
     AppComponent,
     SideNavComponent,
-    AddMaintenanceComponent,
     SpecNavComponent,
     SpecComponent,
     SpecLogTableComponent,
     SpecViewComComponent,
-    ViewMaintenanceComponent,
     MapComponent,
     RemarksComponent,
     SearchMapComponent,
@@ -81,11 +76,9 @@ import {EditusageComponent} from './TowerLoading/editusage/editusage.component';
     AddAntennaComponent,
     ViewIncidentsComponent,
     AddIncidentsComponent,
-    ResolveMaintenanceComponent,
     AddRegionComponent,
     ViewSiteSecurityPersonComponent,
     AddSiteSecurityPersonComponent,
-    ResolveMaintenanceComponent,
     AddSiteSecurityPersonComponent,
     AddremarkComponent,
     RemarkDialogComponent,
@@ -126,7 +119,7 @@ import {EditusageComponent} from './TowerLoading/editusage/editusage.component';
     TowerService,
     OwnedService,
   ],
-  entryComponents: [ResolveMaintenanceComponent, RemarkDialogComponent, EditusageComponent],
+  entryComponents: [RemarkDialogComponent, EditusageComponent],
   bootstrap: [AppComponent]
 })
 
