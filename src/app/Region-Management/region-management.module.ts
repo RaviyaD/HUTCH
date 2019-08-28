@@ -11,7 +11,7 @@ import {RegionManagementRoutingModule} from './region-management-routing.module'
   declarations: [
     AddRegionComponent,
     ViewRegionComponent,
-    ViewRegionZoneComponent
+    ViewRegionZoneComponent,
   ],
   imports: [
     CommonModule,

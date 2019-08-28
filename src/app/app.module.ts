@@ -47,7 +47,6 @@ import {OwnedService} from './TowerLoading/owned-towers/Owned.service';
 import {AddusageComponent} from './TowerLoading/addusage/addusage.component';
 import {EditantennaComponent} from './TowerLoading/editantenna/editantenna.component';
 import {EditusageComponent} from './TowerLoading/editusage/editusage.component';
-import {RegionManagementModule} from './Region-Management/region-management.module';
 
 @NgModule({
   declarations: [
@@ -99,7 +98,7 @@ import {RegionManagementModule} from './Region-Management/region-management.modu
     ReactiveFormsModule,
     MaterialModule,
     HttpClientModule,
-    RegionManagementModule,
+  //  RegionManagementModule,
     AgmCoreModule.forRoot({apiKey: 'AIzaSyCkBk3eKkKjRgv25gFD9YuOF59Fwijt3wk'}),
   ],
   providers: [
