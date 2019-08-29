@@ -1,5 +1,7 @@
 import {NgModule} from '@angular/core';
 import {Routes, RouterModule} from '@angular/router';
+
+
 import {SpecNavComponent} from './Specification/spec-nav/spec-nav.component';
 import {RemarksComponent} from './SiteMap/remarks/remarks.component';
 import {SearchMapComponent} from './SiteMap/search-map/search-map.component';
@@ -53,11 +55,13 @@ const routes: Routes = [
   {path: 'view-region', component: ViewRegionComponent},
   {path: 'view-incidents', component: ViewIncidentsComponent},
   {path: 'add-incidents', component: AddIncidentsComponent},
+
   // Load Children
   {path: 'Site', loadChildren: () => import('./site-management/site-management.module').then( mod => mod.SiteManagementModule )},
   {path: 'Maintenance', loadChildren: () => import('./Maintenance/maintenance.module').then( mod => mod.MaintenanceModule )},
   {path: 'siteMap', loadChildren: () => import('./SiteMap/site-map.module').then(mod => mod.SiteMapModule)},
   { path: 'Tower', loadChildren: () => import('./TowerLoading/tower.module').then(mod => mod.TowerModule)},
+  {path: 'Region', loadChildren: () => import ('./Region-Management/region-management.module').then(mod => mod.RegionManagementModule)},
   {path: '', redirectTo: '', pathMatch: 'full'}
 ];
 
