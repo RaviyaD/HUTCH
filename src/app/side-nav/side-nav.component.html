@@ -45,13 +45,13 @@
         <a href="#SiteMapSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Site Mapping</a>
         <ul class="collapse list-unstyled" id="SiteMapSubmenu">
           <li>
-            <a [routerLink]="['/search-map']" routerLinkActive="active">Search Map</a>
+            <a [routerLink]="['siteMap/search-map']" routerLinkActive="active">Search Map</a>
           </li>
           <li>
-            <a [routerLink]="['/site-status']" routerLinkActive="active">View Status</a>
+            <a [routerLink]="['siteMap/site-status']" routerLinkActive="active">View Status</a>
           </li>
           <li>
-            <a [routerLink]="['/remarks']" routerLinkActive="active">View Site Remarks</a>
+            <a [routerLink]="['siteMap/remarks']" routerLinkActive="active">View Site Remarks</a>
           </li>
         </ul>
       </li>
@@ -67,9 +67,6 @@
           </li>
           <li>
             <a [routerLink]="['/calculation']" routerLinkActive="active">Calculation</a>
-          </li>
-          <li>
-            <a [routerLink]="['/add-antenna']" routerLinkActive="active">Adding antenna details</a>
           </li>
         </ul>
       </li>

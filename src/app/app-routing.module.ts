@@ -1,5 +1,7 @@
 import {NgModule} from '@angular/core';
 import {Routes, RouterModule} from '@angular/router';
+
+
 import {SpecNavComponent} from './Specification/spec-nav/spec-nav.component';
 import {RemarksComponent} from './SiteMap/remarks/remarks.component';
 import {SearchMapComponent} from './SiteMap/search-map/search-map.component';
@@ -14,11 +16,14 @@ import {CalculationComponent} from './TowerLoading/calculation/calculation.compo
 import {ViewOngoingProjectComponent} from './OngoingProject/view-ongoing-project/view-ongoing-project.component';
 import {AddNewProjectComponent} from './OngoingProject/add-new-project/add-new-project.component';
 import {PhyscialMeasurementComponent} from './TowerLoading/physcial-measurement/physcial-measurement.component';
+import {AddRegionComponent} from './Region-Management/add-region/add-region.component';
 import {AddAntennaComponent} from './TowerLoading/add-antenna/add-antenna.component';
 import {ViewSiteSecurityPersonComponent} from './Security_Details/view-site-security-person/view-site-security-person.component';
 import {AddSiteSecurityPersonComponent} from './Security_Details/add-site-security-person/add-site-security-person.component';
 import {AddremarkComponent} from './SiteMap/addremark/addremark.component';
 import {SpecLogTableComponent} from './Specification/spec-log-table/spec-log-table.component';
+import {ViewRegionComponent} from './Region-Management/view-region/view-region.component';
+import {ViewRegionZoneComponent} from './Region-Management/view-region-zone/view-region-zone.component';
 import {AddusageComponent} from './TowerLoading/addusage/addusage.component';
 import {EditantennaComponent} from './TowerLoading/editantenna/editantenna.component';
 
@@ -37,24 +42,26 @@ const routes: Routes = [
   {path: 'calculation', component: CalculationComponent},
   {path: 'add-new-project', component: AddNewProjectComponent },
   {path: 'view-ongoing-project', component: ViewOngoingProjectComponent},
+  {path: 'add-region', component: AddRegionComponent},
   {path: 'add-antenna', component: AddAntennaComponent},
   {path: 'addSpec', component: SpecLogTableComponent},
+  {path: 'add-region', component: AddRegionComponent},
   {path: 'add-antenna', component: AddAntennaComponent},
   {path: 'MapRemark', component: RemarksComponent},
   {path: 'createRemark', component: AddremarkComponent },
   {path: 'view-site-security-person', component: ViewSiteSecurityPersonComponent},
   {path: 'add-site-security-person', component: AddSiteSecurityPersonComponent},
+  {path: 'view-region-zone', component: ViewRegionZoneComponent},
+  {path: 'view-region', component: ViewRegionComponent},
   {path: 'view-incidents', component: ViewIncidentsComponent},
   {path: 'add-incidents', component: AddIncidentsComponent},
-  {path: 'owned-towers', component: OwnedTowersComponent},
-  {path: 'add-antenna', component: AddAntennaComponent},
-  {path: 'add-usage', component: AddusageComponent},
-  {path: 'calculation', component: CalculationComponent},
-  {path: 'edit-antenna', component: EditantennaComponent},
-  {path: 'physical-measurement', component: PhyscialMeasurementComponent},
-  {path: 'Region', loadChildren: () => import('./Region-Management/region-management.module').then( mod => mod.RegionManagementModule )},
+
+  // Load Children
   {path: 'Site', loadChildren: () => import('./site-management/site-management.module').then( mod => mod.SiteManagementModule )},
   {path: 'Maintenance', loadChildren: () => import('./Maintenance/maintenance.module').then( mod => mod.MaintenanceModule )},
+  {path: 'siteMap', loadChildren: () => import('./SiteMap/site-map.module').then(mod => mod.SiteMapModule)},
+  { path: 'Tower', loadChildren: () => import('./TowerLoading/tower.module').then(mod => mod.TowerModule)},
+  {path: 'Region', loadChildren: () => import ('./Region-Management/region-management.module').then(mod => mod.RegionManagementModule)},
   {path: '', redirectTo: '', pathMatch: 'full'}
 ];
 
