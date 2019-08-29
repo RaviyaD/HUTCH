@@ -93,13 +93,26 @@ export class AddMaintenanceComponent implements OnInit {
     return this.options.filter(option => option.toLowerCase().indexOf(filterValue) === 0);
   }
 
+  public validcomplete(key: string) {
+    let j;
+    for (let i = 0; i < this.options.length; i++) {
+      console.log(this.options[i]);
+      if (key !== this.options[i]) {
+        j = 0;
+      } else {
+         j = -1;
+         break;
+      }
+    }
+    return j;
+  }
   onSubmit() {
     this.im.status = 'pending';
     this.ms.addMaintenance(this.im).subscribe(result => this.gotoViewMaintenance());
   }
 
   gotoViewMaintenance() {
-    this.router.navigate(['/view-maintenance']);
+    this.router.navigate(['/Maintenance/view-maintenance']);
   }
 
   log(x) { console.log(x); }
