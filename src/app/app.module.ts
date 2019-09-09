@@ -6,7 +6,6 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {SideNavComponent} from './side-nav/side-nav.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {MaterialModule} from './site-management/material.module';
-import {AgmCoreModule} from '@agm/core';
 import {HttpClientModule} from '@angular/common/http';
 
 
@@ -27,7 +26,6 @@ import {OwnedService} from './TowerLoading/owned-towers/Owned.service';
 import {ProjectServicesService} from './OngoingProject/view-ongoing-project/ProjectServices';
 import {SiteDetailsService} from './site-management/site-details.service';
 
-
 // Component
 import {AddVisitorsComponent} from './Security_Details/add-visitors/add-visitors.component';
 import {ViewVisitorsComponent} from './Security_Details/view-visitors/view-visitors.component';
@@ -35,18 +33,7 @@ import {SpecNavComponent} from './Specification/spec-nav/spec-nav.component';
 import {SpecComponent} from './Specification/spec/spec.component';
 import {SpecLogTableComponent} from './Specification/spec-log-table/spec-log-table.component';
 import {SpecViewComComponent} from './Specification/spec-view-com/spec-view-com.component';
-import {MapComponent} from './SiteMap/map/map.component';
-import {RemarksComponent} from './SiteMap/remarks/remarks.component';
-import {SearchMapComponent} from './SiteMap/search-map/search-map.component';
-import {SiteStatusComponent} from './SiteMap/site-status/site-status.component';
-import {StatusReportComponent} from './SiteMap/status-report/status-report.component';
-import {AgmCoreModule} from '@agm/core';
-import {PhyscialMeasurementComponent} from './TowerLoading/physcial-measurement/physcial-measurement.component';
-import {CalculationComponent} from './TowerLoading/calculation/calculation.component';
 import {ViewOngoingProjectComponent} from './OngoingProject/view-ongoing-project/view-ongoing-project.component';
-import {HttpClientModule} from '@angular/common/http';
-import {MaintenanceServicesService} from './Maintenance/view-maintenance/MaintenanceServices';
-import {AddAntennaComponent} from './TowerLoading/add-antenna/add-antenna.component';
 import {ViewIncidentsComponent} from './Security_Details/view-incidents/view-incidents.component';
 import {AddIncidentsComponent} from './Security_Details/add-incidents/add-incidents.component';
 import {ViewSiteSecurityPersonComponent} from './Security_Details/view-site-security-person/view-site-security-person.component';
@@ -55,26 +42,13 @@ import {AddNewProjectComponent} from './OngoingProject/add-new-project/add-new-p
 import {SpecLogInComponent} from './Specification/spec-log-in/spec-log-in.component';
 import {SpecUploadFormComponent} from './Specification/spec-upload-form/spec-upload-form.component';
 import {EditSpecComponent} from './Specification/dialog/edit-spec/edit-spec.component';
-import {AddremarkComponent} from './SiteMap/addremark/addremark.component';
-import {RemarkDialogComponent} from './SiteMap/remark-dialog/remark-dialog.component';
-import {ViewRegionComponent} from './Region-Management/view-region/view-region.component';
-import {ViewRegionZoneComponent} from './Region-Management/view-region-zone/view-region-zone.component';
 
 
 
 
 // Module
 import { TowerModule } from './TowerLoading/tower.module';
-import {SiteDetailsService} from './site-management/site-details.service';
-import {RemarkServiceService} from './SiteMap/service/remark-service.service';
-import {ZoneServices} from './Region-Management/zoneService';
-import {IncidentService} from './Security_Details/IncidentService';
-import {ProjectServicesService} from './OngoingProject/view-ongoing-project/ProjectServices';
-import {TowerService} from './TowerLoading/physcial-measurement/Tower.service';
-import {OwnedService} from './TowerLoading/owned-towers/Owned.service';
-import {AddusageComponent} from './TowerLoading/addusage/addusage.component';
-import {EditantennaComponent} from './TowerLoading/editantenna/editantenna.component';
-import {EditusageComponent} from './TowerLoading/editusage/editusage.component';
+
 
 @NgModule({
   declarations: [
@@ -88,9 +62,6 @@ import {EditusageComponent} from './TowerLoading/editusage/editusage.component';
     ViewVisitorsComponent,
     ViewOngoingProjectComponent,
     AddNewProjectComponent,
-    AddRegionComponent,
-    CalculationComponent,
-    AddAntennaComponent,
     ViewIncidentsComponent,
     AddIncidentsComponent,
     ViewSiteSecurityPersonComponent,
@@ -100,14 +71,7 @@ import {EditusageComponent} from './TowerLoading/editusage/editusage.component';
     SpecLogInComponent,
     SpecUploadFormComponent,
     EditSpecComponent,
-    AddIncidentsComponent,
-    PhyscialMeasurementComponent,
-    OwnedTowersComponent,
-    CalculationComponent,
-    AddAntennaComponent,
-    AddusageComponent,
-    EditantennaComponent,
-    EditusageComponent,
+    AddIncidentsComponent
   ],
   imports: [
     BrowserAnimationsModule,
@@ -116,8 +80,7 @@ import {EditusageComponent} from './TowerLoading/editusage/editusage.component';
     FormsModule,
     ReactiveFormsModule,
     MaterialModule,
-    HttpClientModule,
-  //  RegionManagementModule,
+    HttpClientModule
   ],
   providers: [
     MaintenanceServicesService,
@@ -131,7 +94,6 @@ import {EditusageComponent} from './TowerLoading/editusage/editusage.component';
     TowerService,
     OwnedService,
   ],
-  entryComponents: [EditusageComponent],
   bootstrap: [AppComponent]
 })
 
