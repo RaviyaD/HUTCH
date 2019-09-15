@@ -55,6 +55,7 @@ button{
 button.uploadbtn {
   background-color: darkorange;
   margin: 20px;
+  float:left
 }
 
 
@@ -63,5 +64,8 @@ button.form-control {
 }
 
 input.ng-invalid.ng-touched {
-  border: 2px solid red;
+  border: 1px solid red;
+}
+table {
+  width: 100%;
 }

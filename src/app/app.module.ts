@@ -26,22 +26,17 @@ import {OwnedService} from './TowerLoading/owned-towers/Owned.service';
 import {ProjectServicesService} from './OngoingProject/view-ongoing-project/ProjectServices';
 import {SiteDetailsService} from './site-management/site-details.service';
 
+
 // Component
 import {AddVisitorsComponent} from './Security_Details/add-visitors/add-visitors.component';
 import {ViewVisitorsComponent} from './Security_Details/view-visitors/view-visitors.component';
-import {SpecNavComponent} from './Specification/spec-nav/spec-nav.component';
-import {SpecComponent} from './Specification/spec/spec.component';
-import {SpecLogTableComponent} from './Specification/spec-log-table/spec-log-table.component';
-import {SpecViewComComponent} from './Specification/spec-view-com/spec-view-com.component';
 import {ViewOngoingProjectComponent} from './OngoingProject/view-ongoing-project/view-ongoing-project.component';
 import {ViewIncidentsComponent} from './Security_Details/view-incidents/view-incidents.component';
 import {AddIncidentsComponent} from './Security_Details/add-incidents/add-incidents.component';
 import {ViewSiteSecurityPersonComponent} from './Security_Details/view-site-security-person/view-site-security-person.component';
 import {AddSiteSecurityPersonComponent} from './Security_Details/add-site-security-person/add-site-security-person.component';
 import {AddNewProjectComponent} from './OngoingProject/add-new-project/add-new-project.component';
-import {SpecLogInComponent} from './Specification/spec-log-in/spec-log-in.component';
-import {SpecUploadFormComponent} from './Specification/spec-upload-form/spec-upload-form.component';
-import {EditSpecComponent} from './Specification/dialog/edit-spec/edit-spec.component';
+
 
 
 
@@ -50,14 +45,11 @@ import {EditSpecComponent} from './Specification/dialog/edit-spec/edit-spec.comp
 import { TowerModule } from './TowerLoading/tower.module';
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
     SideNavComponent,
-    SpecNavComponent,
-    SpecComponent,
-    SpecLogTableComponent,
-    SpecViewComComponent,
     AddVisitorsComponent,
     ViewVisitorsComponent,
     ViewOngoingProjectComponent,
@@ -68,9 +60,7 @@ import { TowerModule } from './TowerLoading/tower.module';
     AddSiteSecurityPersonComponent,
     AddSiteSecurityPersonComponent,
     AddIncidentsComponent,
-    SpecLogInComponent,
-    SpecUploadFormComponent,
-    EditSpecComponent,
+
     AddIncidentsComponent
   ],
   imports: [
@@ -80,7 +70,9 @@ import { TowerModule } from './TowerLoading/tower.module';
     FormsModule,
     ReactiveFormsModule,
     MaterialModule,
-    HttpClientModule
+    HttpClientModule,
+    TowerModule
+
   ],
   providers: [
     MaintenanceServicesService,
