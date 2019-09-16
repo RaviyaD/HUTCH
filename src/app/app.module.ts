@@ -21,7 +21,7 @@ import {SpLogService} from './Specification/service/sp-log.service';
 import {RemarkServiceService} from './SiteMap/service/remark-service.service';
 import {ZoneServices} from './Region-Management/zoneService';
 import {IncidentService} from './Security_Details/IncidentService';
-import {TowerService} from './TowerLoading/physcial-measurement/Tower.service';
+import {TowerService} from './TowerLoading/physical-measurement/Tower.service';
 import {OwnedService} from './TowerLoading/owned-towers/Owned.service';
 import {ProjectServicesService} from './OngoingProject/view-ongoing-project/ProjectServices';
 import {SiteDetailsService} from './site-management/site-details.service';

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {OwnedService} from './Owned.service';
 import {OwnedDataSource} from './OwnedDataSource';
-import {TowerService} from '../physcial-measurement/Tower.service';
+import {TowerService} from '../physical-measurement/Tower.service';
 import {MatDialog, MatTableDataSource} from '@angular/material';
 import {AddusageComponent} from '../addusage/addusage.component';
 import {IOwned} from './Owned';
@@ -14,17 +14,19 @@ import {EditusageComponent} from '../editusage/editusage.component';
 })
 export class OwnedTowersComponent implements OnInit {
 
-  public OwnedTower = [];
+
+  id: string;
   dataSource: OwnedDataSource;
   displayColumns = ['siteID', 'totalArea', 'windSheildArea', 'ownMicro', 'ownGSM',
-    'totalSharedGSM', 'totalSharedMicro', 'remaining', 'actions'];
-  id: string;
+                    'totalSharedGSM', 'totalSharedMicro', 'remaining', 'actions'];
   exampleDatabase: TowerService | null;
-  ot: IOwned;
-
-  constructor(private OS: OwnedService, public dialog: MatDialog) { }
-
   public ds = new MatTableDataSource<IOwned>();
+  testid = 'raviya';
+
+  constructor(private OS: OwnedService, public dialog: MatDialog) {
+
+  }
+
   ngOnInit() {
     this.dataSource = new OwnedDataSource(this.OS);
     this.dataSource.loadOwned();
@@ -35,22 +37,23 @@ export class OwnedTowersComponent implements OnInit {
   startEdit(siteID: string, totalArea: number, windSheildArea: number, ownMicro: number,
             ownGSM: number, totalSharedMicro: number, totalSharedGSM: number, remaining: number) {
     this.id = siteID;
-    // this.index = i;
     console.log(this.id);
+
     const dialogRef = this.dialog.open(EditusageComponent, {
       data: {
-        siteID: siteID,
-        totalArea: totalArea,
-        windSheildArea: windSheildArea,
-        ownMicro: ownMicro,
-        ownGSM: ownGSM,
-        totalSharedMicro: totalSharedMicro,
-        totalSharedGSM: totalSharedGSM,
-        remaining: remaining
+        siteID,
+        totalArea,
+        windSheildArea,
+        ownMicro,
+        ownGSM,
+        totalSharedMicro,
+        totalSharedGSM,
+        remaining
 
       }, autoFocus: false,
       maxHeight: '90vh'
     });
+
     dialogRef.afterClosed().subscribe(result => {
       if (result === 1) {
         // When using an edit things are little different, firstly we find record inside DataService by id
@@ -74,9 +77,16 @@ export class OwnedTowersComponent implements OnInit {
 
   gotoadd() {
     const dialogRef = this.dialog.open(AddusageComponent, {
+      width: '80%',
       autoFocus: false,
         maxHeight: '90vh'
     });
   }
+
+
+  getString() {
+    return this.testid;
+  }
+
 
 }
