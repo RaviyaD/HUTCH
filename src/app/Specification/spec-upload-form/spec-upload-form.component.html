@@ -7,16 +7,23 @@
              class="form-control" id="specID" name="specID"
              placeholder="Enter spec id "
              required #id="ngModel"
-            required>
+             required>
     </div></li>
 
-      <li> <div class="form-group">
-        <label for="category">Category</label>
-        <input type="text" [(ngModel)]="specUp.category"
-               class="form-control" id="category" name="category"
-               placeholder="Enter category "
-               required #cat="ngModel">
-      </div></li>
+    <li> <div class="form-group">
+      <label for="category">Category</label>
+      <!--<input type="text" [(ngModel)]="specUp.category"-->
+      <!--class="form-control" id="category" name="category"-->
+      <!--placeholder="Enter category "-->
+      <!--req class="form-control"uired #cat="ngModel">-->
+      <mat-select class="form-control" uired #cat="ngModel" placeholder="Enter category "[(ngModel)]="specUp.category" id="category" name="category">
+        <mat-option *ngFor="let option of categoryList" [value]="option">
+          {{ option }}
+        </mat-option>
+      </mat-select>
+
+    </div></li>
+
     <li> <div class="form-group">
       <label for="name">Enter name</label>
       <input type="text" [(ngModel)]="specUp.name"
@@ -41,76 +48,73 @@
              required #name="ngModel">
     </div></li-->
     <li><div> <button class="uploadbtn" >Upload document</button></div></li><br>
-   <li><div>
-    <button class="form-control justify-content-center" [disabled]="!UploadSpecForm.form.valid">Submit </button>
-   </div></li>
+    <li><div>
+      <button class="form-control justify-content-center" >Submit </button>
+    </div></li>
   </form>
 </div>
 
-<!--<select id="category" name="category"
-            [(ngModel)]="category" class="form-control">
-      <option value="security">Tower</option>
-      <option value="tech">Fencing</option>
-      <option value="tech">Grounding</option>
-    </select>-->
+
+<h3 class="justify-content-center">View specifications</h3>
+
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+  <!--- Note that these columns can be defined in any order.
+        The actual rendered columns are set as a property on the row definition" -->
+
+  <!-- Position Column -->
+  <ng-container matColumnDef="specId">
+    <th mat-header-cell *matHeaderCellDef> specId </th>
+    <td mat-cell *matCellDef="let element"> SP0{{element.specId}} </td>
+  </ng-container>
+
+  <!-- Name Column -->
+  <ng-container matColumnDef="name">
+    <th mat-header-cell *matHeaderCellDef> Name </th>
+    <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+  </ng-container>
+
+  <!-- Weight Column -->
+  <ng-container matColumnDef="category">
+    <th mat-header-cell *matHeaderCellDef> category </th>
+    <td mat-cell *matCellDef="let element"> {{element.category}} </td>
+  </ng-container>
+
+  <!-- Symbol Column -->
+  <ng-container matColumnDef="description">
+    <th mat-header-cell *matHeaderCellDef> description </th>
+    <td mat-cell *matCellDef="let element"> {{element.description}} </td>
+  </ng-container>
+  <ng-container matColumnDef="url">
+    <th mat-header-cell *matHeaderCellDef> url </th>
+    <td mat-cell *matCellDef="let element"> {{element.url}} </td>
+  </ng-container>
+  <ng-container matColumnDef="actions">
+    <th mat-header-cell *matHeaderCellDef> Actions </th>
+    <mat-cell *matCellDef="let element">
+      <button mat-button (click)="viewSpec(element.specId)"><i class="fas fa-eye"></i></button>
+      <button mat-button (click)="downloadSpec(element)"><i class="fas fa-download"></i></button>
+      <button mat-button color="warn"(click)="deleteSpec(element.specId)"><i class="fas fa-trash"></i></button>
+    </mat-cell>
+  </ng-container>
 
 
-
-  <!-- added after site and project integrated
-  <h3>Additional details</h3>
-
-    <li> <div class="form-group">
-      <input type="site" [(ngModel)]="specUp."
-             class="form-control" id="site" name="site"
-             placeholder="Enter description "
-             required #name="ngModel">
-    </div></li>
-
-    <!--<select id="specSite" name="category"
-            [(ngModel)]="category" class="form-control">
-      <option value="security">COL001</option>
-      <option value="tech">COL002</option>
-      <option value="tech">COL003</option>
-    </select>
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>
 
 
-    <li>
+<div class="card text-center" *ngFor="let specUp of specList">
 
-      <div class="row ">
-        <div class="form-group col-md-2">
-          <label for="category">
-            Select project
-          </label>
-          <select id="SpecProject" name="category"
-                  [(ngModel)]="category" class="form-control">
-            <option value="security">P001</option>
-            <option value="tech">P002</option>
-            <option value="tech">P003</option>
-          </select>
-        </div>
-      </div>
-    </li>-->
-
-
-
-    <!-- <mat-chip>Upload document/ Image</mat-chip>-->
-
-
-
-    <!--button class="button btn-info" *ngIf='showFile'
-            (click)='showFiles(false)'>Hide Files</button>
-
-    <button class="button btn-info" *ngIf='!showFile'
-            (click)='showFiles(true)'>Show Files</button>
-
-    <div [hidden]="!showFile">
-      <div class="panel panel-primary">
-        <div class="panel-heading">List of Files</div>
-        <div *ngFor="let file of fileUploads | async">
-          <div class="panel-body">
-            <app-spec-upload-form [fileUpload]='file'></app-spec-upload-form>
-          </div>
-        </div>
-      </div>
-    </div-->
+  <div class="card-body">
+    <h5 class="card-title"><label>SP0{{specUp.specId}} | {{specUp.name}}</label></h5>
+    <p class="card-text"> <label>{{specUp.description}}</label></p>
+    <p class="card-text"><label>{{specUp.category}} type</label></p>
+    <a href="#" class="btn btn-primary">Further Details</a>
+    <a href="#" class="btn btn-primary">Download</a>
+  </div>
+  <div class="card-footer text-muted">
+    project id and site id
+  </div>
+</div>
 
