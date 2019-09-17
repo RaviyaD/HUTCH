@@ -6,3 +6,10 @@ table {
   font-size: 14px;
   width: 100%;
 }
+
+element.style {
+  width: 80% !important;
+  max-height: 90vh;
+  pointer-events: auto;
+  position: static;
+}

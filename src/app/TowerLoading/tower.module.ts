@@ -5,25 +5,24 @@ import { MaterialModule} from '../site-management/material.module';
 
 import { TowerRoutingModule} from './tower-routing.module';
 
-import {PhyscialMeasurementComponent} from './physcial-measurement/physcial-measurement.component';
+import {PhysicalMeasurementComponent} from './physical-measurement/physical-measurement.component';
 import {CalculationComponent} from './calculation/calculation.component';
 import {AddAntennaComponent} from './add-antenna/add-antenna.component';
 import {OwnedTowersComponent} from './owned-towers/owned-towers.component';
 import {AddusageComponent} from './addusage/addusage.component';
 import {EditantennaComponent} from './editantenna/editantenna.component';
-
-
+import {EditusageComponent} from './editusage/editusage.component';
 
 
 @NgModule({
   declarations: [
-    PhyscialMeasurementComponent,
+    PhysicalMeasurementComponent,
     AddAntennaComponent,
     CalculationComponent,
     OwnedTowersComponent,
     AddusageComponent,
     EditantennaComponent,
-    EditantennaComponent
+    EditusageComponent
   ],
   imports: [
     CommonModule,

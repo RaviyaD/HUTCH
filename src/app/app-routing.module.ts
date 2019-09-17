@@ -1,15 +1,7 @@
 import {NgModule} from '@angular/core';
 import {Routes, RouterModule} from '@angular/router';
-import {OwnedTowersComponent} from './TowerLoading/owned-towers/owned-towers.component';
-import {CalculationComponent} from './TowerLoading/calculation/calculation.component';
-import {PhyscialMeasurementComponent} from './TowerLoading/physcial-measurement/physcial-measurement.component';
-import {AddAntennaComponent} from './TowerLoading/add-antenna/add-antenna.component';
 
 const routes: Routes = [
-  {path: 'owned-towers', component: OwnedTowersComponent},
-  {path: 'physical-measurment', component: PhyscialMeasurementComponent},
-  {path: 'calculation', component: CalculationComponent},
-  {path: 'add-antenna', component: AddAntennaComponent},
 
   // Load Children
   {path: 'Site', loadChildren: () => import('./site-management/site-management.module').then( mod => mod.SiteManagementModule )},

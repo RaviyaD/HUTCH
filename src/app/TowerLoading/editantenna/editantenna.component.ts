@@ -1,7 +1,7 @@
 import {Component, Inject, OnInit} from '@angular/core';
 import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material';
-import {ITower} from '../physcial-measurement/Tower';
-import {TowerService} from '../physcial-measurement/Tower.service';
+import {ITower} from '../physical-measurement/Tower';
+import {TowerService} from '../physical-measurement/Tower.service';
 
 @Component({
   selector: 'app-editantenna',
