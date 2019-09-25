@@ -1,5 +1,5 @@
-import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+import {NgModule} from '@angular/core';
+import {Routes, RouterModule} from '@angular/router';
 import {ViewSiteDetailsComponent} from './view-site-details/view-site-details.component';
 import {ViewSiteComponent} from './view-site/view-site.component';
 import {ViewAllSitesComponent} from './view-all-sites/view-all-sites.component';

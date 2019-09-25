@@ -2,6 +2,13 @@ table {
   width: 100%;
 }
 
+th, td {
+  margin-left: 100px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
 .mat-form-field {
   font-size: 14px;
   width: 100%;
