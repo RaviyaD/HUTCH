@@ -1,4 +1,5 @@
 <h2>| Usage of Antenna's Area |</h2>
+<hr>
 <form (ngSubmit)="onSubmit()" #f="ngForm" >
 
   <mat-form-field class="example-full-width">
@@ -16,16 +17,20 @@
       </mat-option>
     </mat-autocomplete>
   </mat-form-field>
-  <p>Site ID: {{ot.siteID}}</p>
 
   <div class="form-group">
-    <label >Site name:</label>
+    <label >Site name: </label>
     <label>{{getSiteName()}}</label>
   </div>
 
   <div class="form-group">
     <label >Total Area on Tower (m^2) :</label>
-    <input type="number" class="form-control" name="totalArea"  placeholder="Total Area: m^2" required ngModel
+    <input type="number"
+           class="form-control"
+           name="totalArea"
+           placeholder="Total Area: m^2"
+           required
+           ngModel
            [(ngModel)]="ot.totalArea"
       min=20
        max=50>

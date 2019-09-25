@@ -11,7 +11,6 @@ import {AddAntennaComponent} from './add-antenna/add-antenna.component';
 import {OwnedTowersComponent} from './owned-towers/owned-towers.component';
 import {AddusageComponent} from './addusage/addusage.component';
 import {EditantennaComponent} from './editantenna/editantenna.component';
-import {EditusageComponent} from './editusage/editusage.component';
 
 
 @NgModule({
@@ -21,8 +20,7 @@ import {EditusageComponent} from './editusage/editusage.component';
     CalculationComponent,
     OwnedTowersComponent,
     AddusageComponent,
-    EditantennaComponent,
-    EditusageComponent
+    EditantennaComponent
   ],
   imports: [
     CommonModule,
