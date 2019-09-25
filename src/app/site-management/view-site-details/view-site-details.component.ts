@@ -21,19 +21,14 @@ export class ViewSiteDetailsComponent implements OnInit {
   options: string[] = [];
   filteredOptions: Observable<string[]>;
   search: string;
-
-  siteWithId: SiteDetails = { siteID: null, siteName: null, ownership: null, ownerSiteName: null, frequencyBand: null,
-    commissionedDate: null, commissionedDate3G: null };
-
+  siteWithId: SiteDetails = new SiteDetails();
   routerParam: string;
-
-  update: SiteDetails = { siteID: null, siteName: null, ownership: null, ownerSiteName: null, frequencyBand: null,
-    commissionedDate: null, commissionedDate3G: null };
-
+  update: SiteDetails;
   step = -1;
 
   onSubmit(buttonType) {
     if (buttonType === 'update') {
+      this.update = new SiteDetails();
       this.update.siteID = this.siteForm.value.siteid;
       this.update.siteName = this.siteForm.value.name;
       this.update.ownership = this.siteForm.value.ownership;
@@ -74,6 +69,7 @@ export class ViewSiteDetailsComponent implements OnInit {
 
   findSiteById(siteID: string) {
     this.siteService.getSiteByID(siteID).subscribe(data => {
+      this.siteWithId = new SiteDetails();
       this.siteWithId = data;
       this.siteWithId.commissionedDate = this.datePipe.transform(this.siteWithId.commissionedDate, 'yyyy-MM-dd');
       this.siteWithId.commissionedDate3G = this.datePipe.transform(this.siteWithId.commissionedDate3G, 'yyyy-MM-dd');
