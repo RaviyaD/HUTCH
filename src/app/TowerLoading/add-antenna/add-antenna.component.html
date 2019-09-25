@@ -1,30 +1,46 @@
-<h3>|  Add Antenna Dimensions  |</h3>
-<form (ngSubmit)="onSubmit()">
+<h3>| Add Antenna Dimensions |</h3>
+<form class="Custom-form" (ngSubmit)="onSubmit()" [formGroup]="AddAntennaForm">
+
+
+  <mat-form-field class="example-full-width">
+    <input type="text" placeholder="Pick one" aria-label="Number"
+           matInput
+           [formControl]="myControl"
+           formControlName="siteID"
+           [matAutocomplete]="auto"
+           name="siteID"
+           [(ngModel)]="at.siteID">
+    <mat-autocomplete #auto="matAutocomplete">
+      <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+        {{option}}
+      </mat-option>
+    </mat-autocomplete>
+  </mat-form-field>
+  <span *ngIf="!AddAntennaForm.get('siteID').valid && AddAntennaForm.get('siteID').touched"
+        class="help-block">Enter a Site ID</span>
+
+
   <div class="form-group">
-    <label >Site ID:</label>
-    <input type="text" class="form-control" name="siteID"  placeholder="Site ID" required ngModel
-           [(ngModel)]="at.siteID" >
-    <small class="form-text text-muted">Enter Valid SiteID</small>
+    <label>Height of Antenna:</label>
+    <input type="number" class="form-control" name="height" placeholder="Height" ngModel
+           [(ngModel)]="at.height" formControlName="height">
+    <span *ngIf=" AddAntennaForm.get('height').errors['limit']"
+          class="help-block">Out of limit</span>
   </div>
   <div class="form-group">
-    <label >Height of Antenna:</label>
-    <input type="number" class="form-control" name="height"  placeholder="Height" required ngModel
-           [(ngModel)]="at.height">
+    <label>Diameter of Antenna:</label>
+    <input type="number" class="form-control" name="diameter" placeholder="Diameter" ngModel
+           [(ngModel)]="at.diameter" formControlName="diameter">
   </div>
   <div class="form-group">
-    <label >Diameter of Antenna:</label>
-    <input type="number" class="form-control" name="diameter"  placeholder="Diameter" required ngModel
-           [(ngModel)]="at.diameter">
+    <label>Azimuth of Antenna:</label>
+    <input type="number" class="form-control" name="azimuth" placeholder="Azimuth" ngModel
+           [(ngModel)]="at.azimuth" formControlName="azimuth">
   </div>
   <div class="form-group">
-    <label >Azimuth of Antenna:</label>
-    <input type="number" class="form-control" name="azimuth"  placeholder="Azimuth" required ngModel
-           [(ngModel)]="at.azimuth">
-  </div>
-  <div class="form-group">
-    <label >Opposite Site:</label>
-    <input type="text" class="form-control" name="oppositeSite"  placeholder="Opposite Site" required ngModel
-           [(ngModel)]="at.oppositeSite" >
+    <label>Opposite Site:</label>
+    <input type="text" class="form-control" name="oppositeSite" placeholder="Opposite Site" ngModel
+           [(ngModel)]="at.oppositeSite" formControlName="oppositeSite">
   </div>
   <button type="submit" class="btn btn-primary btn-lg btn-block">Submit</button>
 </form>
