@@ -28,19 +28,19 @@
   <ng-container matColumnDef="TypeAntenna">
     <th mat-header-cell *matHeaderCellDef>   Type of Antenna    </th>
     <td mat-cell mat-cell class="duration-cell"
-        *matCellDef="let tower">{{tower.TypeAntenna}}</td>
+        *matCellDef="let tower">{{tower.type}}</td>
   </ng-container>
 
   <ng-container matColumnDef="ownership">
     <th mat-header-cell *matHeaderCellDef>   Network Operator   </th>
     <td mat-cell mat-cell class="duration-cell"
-         *matCellDef="let tower">{{tower.ownerShip}}</td>
+         *matCellDef="let tower">{{tower.owner}}</td>
   </ng-container>
 
   <ng-container matColumnDef="area">
     <th mat-header-cell *matHeaderCellDef>   Area of Antenna    </th>
     <td mat-cell mat-cell class="duration-cell"
-        *matCellDef="let tower">{{tower.areaAntenna}}</td>
+        *matCellDef="let tower">{{tower.area}}</td>
   </ng-container>
 
   <ng-container matColumnDef="oppositeSite">

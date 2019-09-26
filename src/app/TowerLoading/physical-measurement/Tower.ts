@@ -4,8 +4,8 @@ export class ITower {
   diameter: number;
   height: number;
   azimuth: number;
-  areaAntenna: number;
-  TypeAntenna: string;
-  ownerShip: string;
+  area: number;
+  type: string;
+  owner: string;
   oppositeSite: string;
 }
