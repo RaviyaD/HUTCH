@@ -34,6 +34,7 @@ export class SiteDetailsService {
     return this.http.delete(this.sitesUrl + '/' + siteID).subscribe( data => {
     },
       (err: HttpErrorResponse) => {
-    });
+        console.log(err);
+      });
   }
 }

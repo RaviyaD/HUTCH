@@ -22,7 +22,7 @@ import {SiteMapRoutingModule} from './site-map-routing.module';
     SiteStatusComponent,
     StatusReportComponent,
     AddremarkComponent,
-    RemarkDialogComponent,
+    RemarkDialogComponent
   ],
   imports: [
     CommonModule,

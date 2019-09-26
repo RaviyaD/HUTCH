@@ -1,45 +1,66 @@
 <h2>| Usage of Antenna's Area |</h2>
-<form (ngSubmit)="onSubmit()">
-  <div class="form-group">
-    <label >Site ID:</label>
-    <input type="text" class="form-control" name="siteID"  placeholder="Site ID" required ngModel
+<form (ngSubmit)="onSubmit()" #f="ngForm" >
+
+  <mat-form-field class="example-full-width">
+    <input name="siteID" type="text" placeholder="Site ID number" aria-label="Number"
+           matInput
+           ngModel
+           [formControl]="myControl"
+           [matAutocomplete]="auto"
+           required
            [(ngModel)]="ot.siteID">
-    <small class="form-text text-muted">Enter Valid SiteID</small>
+
+    <mat-autocomplete #auto="matAutocomplete">
+      <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+        {{option}}
+      </mat-option>
+    </mat-autocomplete>
+  </mat-form-field>
+  <p>Site ID: {{ot.siteID}}</p>
+
+  <div class="form-group">
+    <label >Site name:</label>
+    <label>{{getSiteName()}}</label>
   </div>
+
   <div class="form-group">
     <label >Total Area on Tower (m^2) :</label>
-    <input type="text" class="form-control" name="totalArea"  placeholder="Total Area: m^2" required ngModel
-           [(ngModel)]="ot.totalArea">
+    <input type="number" class="form-control" name="totalArea"  placeholder="Total Area: m^2" required ngModel
+           [(ngModel)]="ot.totalArea"
+      min=20
+       max=50>
   </div>
   <div class="form-group">
     <label >Wind sheild Area:</label>
-    <input type="text" class="form-control" name="windSheildArea"  placeholder="Area: m^2" required ngModel
+    <input type="number" class="form-control" name="windSheildArea"  placeholder="Area: m^2" required ngModel
            [(ngModel)]="ot.windSheildArea">
   </div>
   <div class="form-group">
     <label >Own GSM antenna covered Area:</label>
-    <input type="text" class="form-control" name="ownGSM"  placeholder="Area: m^2" required ngModel
+    <input type="number" class="form-control" name="ownGSM"  placeholder="Area: m^2" required ngModel
            [(ngModel)]="ot.ownGSM">
   </div>
   <div class="form-group">
     <label >Own Micro wave antenna covered Area:</label>
-    <input type="text" class="form-control" name="ownMicro"  placeholder="Area: m^2" required ngModel
+    <input type="number" class="form-control" name="ownMicro"  placeholder="Area: m^2" required ngModel
            [(ngModel)]="ot.ownMicro">
   </div>
   <div class="form-group">
     <label >Total Shared Area with Networkers for GSM :</label>
-    <input type="text" class="form-control" name="totalSharedGSM"  placeholder="Area: m^2" required ngModel
+    <input type="number" class="form-control" name="totalSharedGSM"  placeholder="Area: m^2" required ngModel
            [(ngModel)]="ot.totalSharedGSM">
   </div>
   <div class="form-group">
-    <label >Total Shared Area with Networkers for GSM :</label>
+    <label >Total Shared Area with Networkers for Micro :</label>
     <input type="text" class="form-control" name="totalSharedMicro"  placeholder="Area: m^2" required ngModel
-           [(ngModel)]="ot.totalSharedGSM">
+           [(ngModel)]="ot.totalSharedMicro">
   </div>
   <div class="form-group">
     <label >Remaining area on the Tower:</label>
-    <input type="text" class="form-control" name="remaining"  placeholder="Area: m^2" required ngModel
+    <input type="number" class="form-control" name="remaining"  placeholder="Area: m^2" required ngModel
            [(ngModel)]="ot.remaining">
   </div>
-  <button type="submit" class="btn btn-primary btn-lg btn-block">Submit</button>
+  <button type="submit"
+          class="btn btn-primary btn-lg btn-block"S
+           [disabled]="!f.valid || !(ot.siteID!=null) " >Submit</button>
 </form>

@@ -1,16 +1,28 @@
-@import "~bootstrap/dist/css/bootstrap.css";
-
-.body { padding: 30px }
-
-.form-control.ng-touched.ng-invalid {
-  border: 2px solid red;
-}
-.example-form {
-  min-width: 150px;
-  max-width: 500px;
-  width: 100%;
+.example-headers-align .mat-expansion-panel-header-title,
+.example-headers-align .mat-expansion-panel-header-description {
+  flex-basis: 0;
 }
 
-.example-full-width {
-  width: 100%;
+.example-headers-align .mat-expansion-panel-header-description {
+  justify-content: space-between;
+  align-items: center;
+}
+
+mat-form-field {
+  margin-right: 12px;
+}
+
+::ng-deep .mat-focused .mat-form-field-label {
+  /*change color of label*/
+  color: #EC6708 !important;
+}
+
+::ng-deep.mat-form-field-underline {
+  /*change color of underline*/
+  background-color: #EC6708 !important;
+}
+
+::ng-deep.mat-form-field-ripple {
+  /*change color of underline when focused*/
+  background-color: #EC6708 !important;;
 }

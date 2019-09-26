@@ -2,14 +2,13 @@ import {Injectable} from '@angular/core';
 import {HttpClient, HttpErrorResponse} from '@angular/common/http';
 import {BehaviorSubject, Observable} from 'rxjs';
 import {IOwned} from './Owned';
-import {ITower} from '../physcial-measurement/Tower';
 
 
 @Injectable()
 export class OwnedService {
 
   private url = 'http://localhost:8080/TowersSpace';
-  datachange: BehaviorSubject<ITower[]> = new BehaviorSubject<ITower[]>([]);
+  datachange: BehaviorSubject<IOwned[]> = new BehaviorSubject<IOwned[]>([]);
   dialogdata: any;
 
   constructor(private http: HttpClient) {

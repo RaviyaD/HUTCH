@@ -8,11 +8,11 @@ import {ITower} from './Tower';
 import {IOwned} from '../owned-towers/Owned';
 
 @Component({
-  selector: 'app-physcial-measurement',
-  templateUrl: './physcial-measurement.component.html',
-  styleUrls: ['./physcial-measurement.component.css']
+  selector: 'app-physical-measurement',
+  templateUrl: './physical-measurement.component.html',
+  styleUrls: ['./physical-measurement.component.css']
 })
-export class PhyscialMeasurementComponent implements OnInit {
+export class PhysicalMeasurementComponent implements OnInit {
 
   public Tower1 = [];
   public errorMsg;
