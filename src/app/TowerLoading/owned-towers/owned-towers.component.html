@@ -20,32 +20,17 @@
     </td>
   </ng-container>
 
-  <ng-container matColumnDef="ownMicro">
+  <ng-container matColumnDef="Micro">
     <th mat-header-cell *matHeaderCellDef> Own Microwave Antenna</th>
     <td mat-cell mat-cell class="duration-cell"
         *matCellDef="let OwnedTowers">{{OwnedTowers.ownMicro}}
     </td>
   </ng-container>
 
-  <ng-container matColumnDef="ownGSM">
+  <ng-container matColumnDef="GSM">
     <th mat-header-cell *matHeaderCellDef> Own GSM Antenna</th>
     <td mat-cell mat-cell class="duration-cell"
         *matCellDef="let OwnedTowers">{{OwnedTowers.ownGSM}}
-    </td>
-  </ng-container>
-
-  <ng-container matColumnDef="totalSharedGSM">
-    <th mat-header-cell *matHeaderCellDef> Total Shared GSM</th>
-    <td mat-cell mat-cell class="duration-cell"
-        *matCellDef="let OwnedTowers">{{OwnedTowers.totalSharedGSM}}
-    </td>
-  </ng-container>
-
-
-  <ng-container matColumnDef="totalSharedMicro">
-    <th mat-header-cell *matHeaderCellDef> Total Shared Micro</th>
-    <td mat-cell mat-cell class="duration-cell"
-        *matCellDef="let OwnedTowers">{{OwnedTowers.totalSharedMicro}}
     </td>
   </ng-container>
 
@@ -60,7 +45,6 @@
     <mat-header-cell *matHeaderCellDef>
       <button style="margin-top: 5px" class="btn btn-light" (click)="gotoadd()">
         ADD Details
-
       </button>
     </mat-header-cell>
 

@@ -16,8 +16,8 @@ export class OwnedTowersComponent implements OnInit {
 
   id: string;
   dataSource: OwnedDataSource;
-  displayColumns = ['siteID', 'totalArea', 'windSheildArea', 'ownMicro', 'ownGSM',
-    'totalSharedGSM', 'totalSharedMicro', 'remaining', 'actions'];
+  displayColumns = ['siteID', 'totalArea', 'windSheildArea', 'Micro', 'GSM',
+    'remaining', 'actions'];
   exampleDatabase: TowerService | null;
   public ds = new MatTableDataSource<IOwned>();
   testid = 'raviya';

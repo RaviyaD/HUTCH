@@ -21,7 +21,7 @@ export class PhysicalMeasurementComponent implements OnInit {
   public Tower1 = [];
   public errorMsg;
   dataSource: TowerDataSource;
-  displayedColumns = ['siteID', 'height', 'diameter', 'azimuth', 'oppositeSite', 'actions'];
+  displayedColumns = ['siteID', 'height', 'diameter', 'azimuth', 'area', 'TypeAntenna', 'ownership', 'oppositeSite', 'actions'];
   id: string;
   exampleDatabase: TowerService | null;
   at: ITower;
@@ -40,7 +40,7 @@ export class PhysicalMeasurementComponent implements OnInit {
   }
 
   startEdit(siteID: string, towerID: number, diameter: number, height: number,
-            azimuth: number, oppositeSite: number) {
+            azimuth: number, area: number, TypeAntenna: string, ownerShip: string, oppositeSite: string) {
     this.id = siteID;
     // this.index = i;
     console.log(this.id);
@@ -51,6 +51,9 @@ export class PhysicalMeasurementComponent implements OnInit {
         diameter,
         height,
         azimuth,
+        area,
+        TypeAntenna,
+        ownerShip,
         oppositeSite
       }, autoFocus: false,
       maxHeight: '90vh'

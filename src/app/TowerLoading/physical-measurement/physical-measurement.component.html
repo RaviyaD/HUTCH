@@ -25,10 +25,28 @@
          *matCellDef="let tower">{{tower.azimuth}}</td>
   </ng-container>
 
+  <ng-container matColumnDef="TypeAntenna">
+    <th mat-header-cell *matHeaderCellDef>   Type of Antenna    </th>
+    <td mat-cell mat-cell class="duration-cell"
+        *matCellDef="let tower">{{tower.TypeAntenna}}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="ownership">
+    <th mat-header-cell *matHeaderCellDef>   Network Operator   </th>
+    <td mat-cell mat-cell class="duration-cell"
+         *matCellDef="let tower">{{tower.ownerShip}}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="area">
+    <th mat-header-cell *matHeaderCellDef>   Area of Antenna    </th>
+    <td mat-cell mat-cell class="duration-cell"
+        *matCellDef="let tower">{{tower.areaAntenna}}</td>
+  </ng-container>
+
   <ng-container matColumnDef="oppositeSite">
     <th mat-header-cell *matHeaderCellDef>   Opposite Site of Antenna    </th>
     <td mat-cell mat-cell class="duration-cell"
-         *matCellDef="let tower">{{tower.oppositeSite}}</td>
+        *matCellDef="let tower">{{tower.oppositeSite}}</td>
   </ng-container>
 
   <ng-container matColumnDef="actions">

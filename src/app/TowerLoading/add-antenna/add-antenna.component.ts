@@ -38,6 +38,8 @@ export class AddAntennaComponent implements OnInit {
   Diameter: boolean;
   Azimuth: boolean;
   public counter;
+  operators: string[] = ['HUTCH', 'Etisalat', 'Mobitel', 'SLT', 'LANKA BELL'];
+  Type: string[] = ['GSM', 'MICRO'];
 
   ngOnInit() {
     this.filteredOptions = this.myControl.valueChanges
