@@ -26,7 +26,7 @@ export class UserServiceService {
   // }
   public deleteSpecById(specId): void {
     console.log('Delete function');
-    this.http.delete(this.specUrl +  specId)
+    this.http.delete(this.specUrl + '/' + specId)
       .subscribe(data => {console.log('deleted');
                           console.log('error');
         },

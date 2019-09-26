@@ -5,7 +5,6 @@ import {CalculationComponent} from './calculation/calculation.component';
 import {AddAntennaComponent} from './add-antenna/add-antenna.component';
 import {AddusageComponent} from './addusage/addusage.component';
 import {EditantennaComponent} from './editantenna/editantenna.component';
-import {EditusageComponent} from './editusage/editusage.component';
 import {PhysicalMeasurementComponent} from './physical-measurement/physical-measurement.component';
 
 const appRoutes: Routes = [
@@ -14,7 +13,6 @@ const appRoutes: Routes = [
   {path: 'add-antenna', component: AddAntennaComponent},
   {path: 'add-usage', component: AddusageComponent},
   {path: 'edit-antenna', component: EditantennaComponent},
-  {path: 'edit-usage', component: EditusageComponent},
   {path: 'physical-measurement', component: PhysicalMeasurementComponent}
 ];
 

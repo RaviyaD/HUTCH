@@ -2,67 +2,53 @@
 <table style="margin-top: 10px" mat-table class="lessons-table mat-elevation-z8" [dataSource]="ds">
 
   <ng-container matColumnDef="siteID">
-    <th mat-header-cell *matHeaderCellDef>   Site ID   </th>
+    <th mat-header-cell *matHeaderCellDef> Site ID</th>
     <td mat-cell *matCellDef="let OwnedTowers">{{OwnedTowers.siteID}}</td>
   </ng-container>
 
   <ng-container matColumnDef="totalArea">
-    <th mat-header-cell *matHeaderCellDef>   Total Area    </th>
-    <td  mat-cell class="description-cell"
-         *matCellDef="let OwnedTowers">{{OwnedTowers.totalArea}}</td>
+    <th mat-header-cell *matHeaderCellDef> Total Area</th>
+    <td mat-cell class="description-cell"
+        *matCellDef="let OwnedTowers">{{OwnedTowers.totalArea}}
+    </td>
   </ng-container>
 
-  <ng-container matColumnDef="windSheildArea">
-    <th mat-header-cell *matHeaderCellDef>   Wind Sheild Area   </th>
+  <ng-container matColumnDef="windShieldArea">
+    <th mat-header-cell *matHeaderCellDef> Wind Shield Area</th>
     <td mat-cell mat-cell class="duration-cell"
-        *matCellDef="let OwnedTowers">{{OwnedTowers.windSheildArea}}</td>
+        *matCellDef="let OwnedTowers">{{OwnedTowers.windSheildArea}}
+    </td>
   </ng-container>
 
-  <ng-container matColumnDef="ownMicro">
-    <th mat-header-cell *matHeaderCellDef>   Own Microwave Antenna   </th>
-    <td  mat-cell mat-cell class="duration-cell"
-         *matCellDef="let OwnedTowers">{{OwnedTowers.ownMicro}}</td>
-  </ng-container>
-
-  <ng-container matColumnDef="ownGSM">
-    <th mat-header-cell *matHeaderCellDef>   Own GSM Antenna    </th>
+  <ng-container matColumnDef="Micro">
+    <th mat-header-cell *matHeaderCellDef>Microwave Antenna</th>
     <td mat-cell mat-cell class="duration-cell"
-        *matCellDef="let OwnedTowers">{{OwnedTowers.ownGSM}}</td>
+        *matCellDef="let OwnedTowers">{{OwnedTowers.micro}}
+    </td>
   </ng-container>
 
-  <ng-container matColumnDef="totalSharedGSM">
-    <th mat-header-cell *matHeaderCellDef>   Total Shared GSM    </th>
+  <ng-container matColumnDef="GSM">
+    <th mat-header-cell *matHeaderCellDef> GSM Antenna</th>
     <td mat-cell mat-cell class="duration-cell"
-        *matCellDef="let OwnedTowers">{{OwnedTowers.totalSharedGSM}}</td>
-  </ng-container>
-
-
-  <ng-container matColumnDef="totalSharedMicro">
-    <th mat-header-cell *matHeaderCellDef>   Total Shared Micro    </th>
-    <td mat-cell mat-cell class="duration-cell"
-        *matCellDef="let OwnedTowers">{{OwnedTowers.totalSharedMicro}}</td>
+        *matCellDef="let OwnedTowers">{{OwnedTowers.gsm}}
+    </td>
   </ng-container>
 
   <ng-container matColumnDef="remaining">
-    <th mat-header-cell *matHeaderCellDef>   Remaining    </th>
+    <th mat-header-cell *matHeaderCellDef> Remaining</th>
     <td mat-cell mat-cell class="duration-cell"
-        *matCellDef="let OwnedTowers">{{OwnedTowers.remaining}}</td>
+        *matCellDef="let OwnedTowers">{{OwnedTowers.remaining}}
+    </td>
   </ng-container>
 
   <ng-container matColumnDef="actions">
     <mat-header-cell *matHeaderCellDef>
       <button style="margin-top: 5px" class="btn btn-light" (click)="gotoadd()">
         ADD Details
-
       </button>
     </mat-header-cell>
 
     <mat-cell *matCellDef="let OwnedTowers; let i=index;">
-      <button style="margin-right: 10px" class="btn btn-primary btn-sm" (click)="startEdit(OwnedTowers.siteID, OwnedTowers.totalArea, OwnedTowers.windSheildArea,
-                                    OwnedTowers.ownGSM, OwnedTowers.ownMicro, OwnedTowers.totalSharedGSM,
-                                    OwnedTowers.totalSharedMicro,OwnedTowers.remaining)">
-        EDIT
-      </button>
 
 
       <button class="btn btn-ligh btn-sm" (click)="delete(OwnedTowers.siteID)">
