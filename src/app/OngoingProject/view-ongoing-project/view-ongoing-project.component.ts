@@ -21,7 +21,6 @@ export class ViewOngoingProjectComponent implements OnInit, AfterViewInit {
   projectId: string;
   index: number;
   project1: IProject;
-  dataSource: ProjectDataSource;
   displayedColumns: string[] = ['projectId', 'projectName', 'projectType', 'projectPriority', 'startingDate', 'completionPeriod',
     'status', 'details', 'teamId', 'actions'];
   public dataSource = new MatTableDataSource(this.project);
@@ -32,10 +31,13 @@ export class ViewOngoingProjectComponent implements OnInit, AfterViewInit {
 
   applyFilter(filterValue: string) {
     this.dataSource.filter = filterValue.trim().toLowerCase();
+    if (this.dataSource.paginator) {
+      this.dataSource.paginator.firstPage();
+    }
   }
 
   ngOnInit() {
-    this.dataSource = new ProjectDataSource(this.projectservice);
+    this.dataSource.sort = this.sort;
     this.dataSource.paginator = this.paginator;
     this.projectservice.getProject().subscribe(data => this.project = data);
   }
