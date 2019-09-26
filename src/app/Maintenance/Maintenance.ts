@@ -1,5 +1,6 @@
 export class IMaintenance {
   ids: number;
+  sid: string;
   sname: string;
   category: string;
   issue: string;
@@ -7,7 +8,7 @@ export class IMaintenance {
   idate: string;
   status: string;
   cost: string;
-  method: string;
+  conname: string;
   rdate: string;
   cdate: string;
 }
