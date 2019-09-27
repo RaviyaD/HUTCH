@@ -8,9 +8,9 @@ import {Router} from '@angular/router';
 import {MatSnackBar} from '@angular/material';
 
 @Component({
-  selector: 'app-view-site',
-  templateUrl: './view-site.component.html',
-  styleUrls: ['./view-site.component.css']
+selector: 'app-view-site',
+templateUrl: './view-site.component.html',
+styleUrls: ['./view-site.component.css']
 })
 
 export class ViewSiteComponent implements OnInit {

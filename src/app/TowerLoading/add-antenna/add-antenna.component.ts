@@ -2,9 +2,12 @@ import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
 import {ITower} from '../physical-measurement/Tower';
 import {TowerService} from '../physical-measurement/Tower.service';
-import {FormControl, FormGroup, Validators} from '@angular/forms';
+import {FormControl} from '@angular/forms';
 import {Observable} from 'rxjs';
 import {map, startWith} from 'rxjs/operators';
+import {MatSnackBar} from '@angular/material';
+import {SiteDetails} from '../../site-management/site-details';
+import {SiteDetailsService} from '../../site-management/site-details.service';
 
 @Component({
   selector: 'app-add-antenna',
@@ -12,16 +15,31 @@ import {map, startWith} from 'rxjs/operators';
   styleUrls: ['./add-antenna.component.css']
 })
 export class AddAntennaComponent implements OnInit {
+
+  constructor(private route: ActivatedRoute, private router: Router,
+              private ts: TowerService, private snackBar: MatSnackBar,
+              private siteDetailsService: SiteDetailsService) {
+    this.at = new ITower();
+    this.siteDetailsService.findAll().subscribe(data => {
+      this.sites = data;
+      for (let counter = 0; counter < this.sites.length; counter++) {
+        this.options[counter] = this.sites[counter].siteID;
+      }
+    });
+  }
+
   at: ITower;
   myControl = new FormControl();
-  options: string[] = ['COL001', 'COL020', 'NEG011'];
+  options: string[] = [];
   filteredOptions: Observable<string[]>;
-  AddAntennaForm: FormGroup;
-
-
-  constructor(private route: ActivatedRoute, private router: Router, private ts: TowerService) {
-    this.at = new ITower();
-  }
+  sites: SiteDetails[] = [];
+  name: string = null;
+  Height: boolean;
+  Diameter: boolean;
+  Azimuth: boolean;
+  public counter;
+  operators: string[] = ['HUTCH', 'Etisalat', 'Mobitel', 'SLT', 'LANKA BELL'];
+  Type: string[] = ['GSM', 'MICRO'];
 
   ngOnInit() {
     this.filteredOptions = this.myControl.valueChanges
@@ -30,46 +48,59 @@ export class AddAntennaComponent implements OnInit {
         map(value => this._filter(value))
       );
 
-    this.AddAntennaForm = new FormGroup({
-      siteID: new FormControl(null, Validators.required),
-      height: new FormControl(null, [Validators.required, this.HeightLimit]),
-      diameter: new FormControl(null, Validators.required),
-      azimuth: new FormControl(null, Validators.required),
-      oppositeSite: new FormControl(null, Validators.required),
-
-    });
   }
 
   // auto complete part
   private _filter(value: string): string[] {
     const filterValue = value.toLowerCase();
 
-    return this.options. filter(option => option.toLowerCase().includes(filterValue));
+    return this.options.filter(option =>
+      option.toLowerCase().includes(filterValue));
   }
 
   onSubmit() {
-    console.log(this.AddAntennaForm);
+
     // this.ts.addTower(this.at).subscribe(result => this.gotoOwnedTowers());
+    if (this.validate()) {
+      // this.router.navigate(['/owned-towers']);
+      this.ts.addTower(this.at).subscribe(result => this.gotoAnTowers());
+    } else {
+      this.openSnackBar('Invalid site ID or Detail already added');
+    }
     this.GenerateEmail();
   }
 
-  gotoOwnedTowers() {
-    this.router.navigate(['/physical-measurment']);
+  validate() {
+    return (this.sites.some((el) => el.siteID === this.at.siteID));
   }
 
-  HeightLimit(control: FormControl): {[s: string]: boolean} {
-    if ( !(10 <= control.value && control.value <= 20)) {
-      return {limit: true};
-    }
-    return null;
+  validateHeight() {
+
   }
 
-  GenerateReport() {
-    console.log('Report');
+  gotoAnTowers() {
+    this.router.navigate(['/add-antenna']);
+  }
+
+  openSnackBar(message: string) {
+    this.snackBar.open(message, undefined, {
+      duration: 3000,
+    });
   }
 
   GenerateEmail() {
     console.log('Email');
+
+  }
+
+  getSiteName() {
+    this.counter = 0;
+    for (const each of this.sites) {
+      this.counter++;
+      if (this.at.siteID === this.sites[this.counter].siteID) {
+        return this.sites[this.counter].siteName;
+      }
+    }
 
   }
 }

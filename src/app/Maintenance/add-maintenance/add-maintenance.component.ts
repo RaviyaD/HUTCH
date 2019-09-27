@@ -39,7 +39,8 @@ import {SiteDetails} from '../../site-management/site-details';
 
 export class AddMaintenanceComponent implements OnInit {
 
-  options: string[] = [];
+  optionssiteid: string[] = [];
+  optionssitename: string[] = [];
   filteredOptions: Observable<string[]>;
   sites: SiteDetails[];
 
@@ -51,8 +52,8 @@ export class AddMaintenanceComponent implements OnInit {
     this.siteDetailsService.findAll().subscribe(data => {
       this.sites = data;
       for (let counter = 0; counter < this.sites.length; counter++) {
-        this.options[counter] = this.sites[counter].siteName;
-        console.log(this.options[counter]);
+        this.optionssiteid[counter] = this.sites[counter].siteID;
+        this.optionssitename[counter] = this.sites[counter].siteName;
       }
       // console.log(this.options[3]);
     });
@@ -64,8 +65,7 @@ export class AddMaintenanceComponent implements OnInit {
   date = new FormControl(new Date());
   serializedDate = new FormControl((new Date()).toISOString());
   myControl = new FormControl();
- // options: string[] = ['One', 'Two', 'Three'];
- // filteredOptions: Observable<string[]>;
+
 
   formControl = new FormControl('', [
     Validators.required
@@ -90,16 +90,40 @@ export class AddMaintenanceComponent implements OnInit {
   private _filter(value: string): string[] {
     const filterValue = value.toLowerCase();
 
-    return this.options.filter(option => option.toLowerCase().indexOf(filterValue) === 0);
+    return this.optionssitename.filter(option => option.toLowerCase().indexOf(filterValue) === 0);
+  }
+
+
+  public validcomplete(key: string) {
+    let j;
+    for (let i = 0; i < this.optionssitename.length; i++) {
+      console.log(this.optionssitename[i]);
+      if (key !== this.optionssitename[i]) {
+        j = 0;
+      } else {
+         j = -1;
+         break;
+      }
+    }
+    return j;
+  }
+
+  public  showsiteid(key: string) {
+    for (let i = 0; i < this.optionssitename.length; i++) {
+      if (key === this.optionssitename[i]) {
+        return this.optionssiteid[i];
+      }
+    }
   }
 
   onSubmit() {
+    this.im.sid = this.showsiteid(this.im.sname)
     this.im.status = 'pending';
     this.ms.addMaintenance(this.im).subscribe(result => this.gotoViewMaintenance());
   }
 
   gotoViewMaintenance() {
-    this.router.navigate(['/view-maintenance']);
+    this.router.navigate(['/Maintenance/view-maintenance']);
   }
 
   log(x) { console.log(x); }

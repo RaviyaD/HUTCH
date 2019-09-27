@@ -21,5 +21,6 @@ import {RegionManagementRoutingModule} from './region-management-routing.module'
     RegionManagementRoutingModule
   ],
 
+
 })
 export class RegionManagementModule { }

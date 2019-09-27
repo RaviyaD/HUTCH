@@ -19,10 +19,11 @@
        <!--   <mat-error *ngIf="formControl.invalid">{{getErrorMessage()}}</mat-error> -->
         </mat-form-field>
       </div>
-
     </div>
-
-
+    <div [hidden]="(validcomplete(im.sname) === -1)? true:false" >
+    <p class="mat-warn">  Enter valid name</p>
+    </div>
+    <p >{{showsiteid(im.sname)}}</p>
     <div class="row">
       <div class="form-group col-md-2">
         <mat-form-field class="example-full-width">
