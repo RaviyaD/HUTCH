@@ -22,9 +22,9 @@
   <div class="row">
     <div class="form-group col-md-4">
       <mat-form-field class="example-full-width">
-        <label for="method">Method</label>
-        <mat-select [(ngModel)]="data.method" name="method" id="method" class="form-control">
-          <mat-option *ngFor="let cate of method" [value]="cate">
+        <label for="conname">Contractor Name</label>
+        <mat-select [(ngModel)]="data.conname" name="conname" id="conname" class="form-control">
+          <mat-option *ngFor="let cate of optionscontractornames" [value]="cate">
             {{cate}}
           </mat-option>
         </mat-select>
