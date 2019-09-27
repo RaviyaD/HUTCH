@@ -1,9 +1,11 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
-import {NgForm} from '@angular/forms';
+import {FormControl, NgForm} from '@angular/forms';
 import {SiteDetails} from '../site-details';
 import {SiteDetailsService} from '../site-details.service';
 import {MatSnackBar} from '@angular/material';
 import {Router} from '@angular/router';
+import {map, startWith} from 'rxjs/operators';
+import {Observable} from 'rxjs';
 
 @Component({
   selector: 'app-add-site-details',
@@ -16,10 +18,20 @@ export class AddSiteDetailsComponent implements OnInit {
   sites: SiteDetails[] = [];
   insert: SiteDetails;
   step = -1;
+  typeOptions: string[] = ['COW', 'GM', 'GP', 'RTP', 'RTT', 'SS'];
+  filteredOptionsTowerType: Observable<string[]>;
+  myControl1 = new FormControl();
+  myControl2 = new FormControl();
+  bandOptions: string[] = ['Single', 'Dual', 'Dual/Single'];
+  btsOptions: string[] = ['Indoor', 'Outdoor', 'Indoor/Outdoor'];
+  trxOptions: string[] = ['DTRUG', 'ETRMG', 'MRFU', 'RRU', 'RSU', 'TRMG'];
+  filteredOptionsTRX: Observable<string[]>;
+  tt: string;
+  trx: string;
 
   onSubmit() {
     if (this.validate(this.siteForm.value.id)) {
-      this.openSnackBar('Invalid Site ID');
+      this.openSnackBar('Site ID already exists');
     } else {
       this.insert = new SiteDetails();
       this.insert.siteID = this.siteForm.value.id;
@@ -30,13 +42,13 @@ export class AddSiteDetailsComponent implements OnInit {
       this.insert.commissionedDate = this.siteForm.value.cd;
       this.insert.commissionedDate3G = this.siteForm.value.cd3G;
       // Site Location Details
-      console.log(Number(this.siteForm.value.latitude));
+      // console.log(Number(this.siteForm.value.latitude));
       this.insert.latitude = Number(this.siteForm.value.latitude);
       this.insert.longitude = Number(this.siteForm.value.longitude);
       this.insert.subRegion = this.siteForm.value.subRegion;
       this.insert.address = this.siteForm.value.address;
       this.insert.altitude = Number(this.siteForm.value.altitude);
-      this.insert.towerType = this.siteForm.value.towerType;
+      this.insert.towerType = this.tt;
       this.insert.towerHeight = Number(this.siteForm.value.towerHeight);
       this.insert.buildingHeight = Number(this.siteForm.value.buildingHeight);
       // Cellular Antenna Location Details
@@ -70,14 +82,15 @@ export class AddSiteDetailsComponent implements OnInit {
       this.insert.rnc = Number(this.siteForm.value.rnc);
       this.insert.btsType = this.siteForm.value.btsType;
       this.insert.btsModel = this.siteForm.value.btsModel;
-      this.insert.trxType2g = this.siteForm.value.trxType2g;
+      this.insert.trxType2g = this.trx;
       // Cabin Details
       this.insert.equipmentType = this.siteForm.value.equipmentType;
       this.insert.shelterType = this.siteForm.value.shelterType;
       this.insert.shelterSize = this.siteForm.value.shelterSize;
       this.insert.accessoriesInShelter = this.siteForm.value.accessoriesInShelter;
       this.siteService.save(this.insert).subscribe();
-      this.router.navigate(['Site/view-site-details' + '/' + this.siteForm.value.id]).then();
+      this.router.navigate(['Site/view-all-sites']).then();
+      this.openSnackBar('Site added');
     }
   }
 
@@ -99,6 +112,26 @@ export class AddSiteDetailsComponent implements OnInit {
     this.siteService.findAll().subscribe(data => {
       this.sites = data;
     });
+    this.filteredOptionsTowerType = this.myControl1.valueChanges
+      .pipe(
+        startWith(''),
+        map(value => this._filter1(value))
+      );
+    this.filteredOptionsTRX = this.myControl2.valueChanges
+      .pipe(
+        startWith(''),
+        map(value => this._filter2(value))
+      );
+  }
+
+  private _filter1(value: string): string[] {
+    const filterValue = value.toLowerCase();
+    return this.typeOptions.filter(option => option.toLowerCase().includes(filterValue));
+  }
+
+  private _filter2(value: string): string[] {
+    const filterValue = value.toLowerCase();
+    return this.trxOptions.filter(option => option.toLowerCase().includes(filterValue));
   }
 
   validate(siteID: string) {
