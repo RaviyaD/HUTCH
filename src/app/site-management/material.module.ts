@@ -63,8 +63,7 @@ import {MatNativeDateModule} from '@angular/material';
     MatSnackBarModule,
     MatTableModule,
     MatSortModule,
-    MatPaginatorModule,
-    MatNativeDateModule
+    MatPaginatorModule
   ],
   exports: [
     MatCheckboxModule,

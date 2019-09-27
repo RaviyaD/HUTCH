@@ -5,6 +5,7 @@ import {Observable} from 'rxjs';
 import {map, startWith} from 'rxjs/operators';
 import {ProjectServicesService} from '../view-ongoing-project/ProjectServices';
 import {IProject} from '../Project';
+import {ActivatedRoute, Router} from '@angular/router';
 
 @Component({
   selector: 'app-add-new-project',
@@ -17,13 +18,13 @@ export class AddNewProjectComponent implements OnInit {
   options: string[] = ['P001', 'P002', 'P003'];
   filteredOptions: Observable<string[]>;
 
-  constructor(private projectService: ProjectServicesService) {
+  constructor(private route: ActivatedRoute, private router: Router, private projectService: ProjectServicesService) {
   }
 
   @ViewChild('f', {static: false}) siteForm: NgForm;
   insert: IProject = {
     projectId: null, projectName: null, projectType: null, projectPriority: null,
-    startingDate: null, completionPeriod: null, status: null, details: null, teamId: null
+    startingDate: null, completionPeriod: null, status: null, details: null, teamId: null,
   };
 
   ngOnInit() {
@@ -32,6 +33,9 @@ export class AddNewProjectComponent implements OnInit {
         startWith(''),
         map(value => this._filter(value))
       );
+  }
+  gotoViewProject() {
+    this.router.navigate([]);
   }
 
   onSubmit() {
@@ -46,6 +50,8 @@ export class AddNewProjectComponent implements OnInit {
     this.insert.teamId = this.siteForm.value.teamId;
     console.log(this.insert.projectId);
     this.projectService.addProject(this.insert).subscribe();
+    window.location.reload();
+    this.gotoViewProject();
   }
 
   private _filter(value: string): string[] {

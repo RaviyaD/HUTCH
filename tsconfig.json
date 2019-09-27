@@ -11,8 +11,12 @@
     "moduleResolution": "node",
     "importHelpers": true,
     "target": "es2015",
+    "types": [
+      // add node as an option
+      "node"
+    ],
     "typeRoots": [
-      "node_modules/@types"
+      "node_modules/@types", "node_modules"
     ],
     "lib": [
       "es2018",

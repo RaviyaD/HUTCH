@@ -12,6 +12,7 @@ const routes: Routes = [
   {path: 'Spec', loadChildren: () => import('./Specification/specroute/specroute.module').then(mod => mod.SpecrouteModule)},
   {path: 'Ongoing', loadChildren: () => import('./OngoingProject/project.module').then(mod => mod.ProjectModule)},
   {path: 'Security', loadChildren: () => import('./Security_Details/securitydetails.module').then(mod => mod.SecuritydetailsModule)},
+  {path: 'Dashboard', loadChildren: () => import('./DashBoard/dashboard.module').then(mod => mod.DashboardModule)},
   {path: '', redirectTo: '', pathMatch: 'full'}
 ];
 

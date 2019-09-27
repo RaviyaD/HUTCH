@@ -7,7 +7,7 @@ import {SideNavComponent} from './side-nav/side-nav.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {MaterialModule} from './site-management/material.module';
 import {HttpClientModule} from '@angular/common/http';
-
+import {ChartsModule} from 'ng2-charts';
 
 
 // Routing Module
@@ -29,13 +29,15 @@ import {SiteDetailsService} from './site-management/site-details.service';
 
 // Module
 import { TowerModule } from './TowerLoading/tower.module';
+import {ProjectViewComponent} from './OngoingProject/project-view/project-view.component';
+
 
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    SideNavComponent,
+    SideNavComponent
   ],
   imports: [
     BrowserAnimationsModule,
@@ -45,7 +47,8 @@ import { TowerModule } from './TowerLoading/tower.module';
     ReactiveFormsModule,
     MaterialModule,
     HttpClientModule,
-    TowerModule
+    TowerModule,
+    ChartsModule
 
   ],
   providers: [
@@ -60,7 +63,7 @@ import { TowerModule } from './TowerLoading/tower.module';
     TowerService,
     OwnedService,
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent ]
 })
 
 export class AppModule { }
