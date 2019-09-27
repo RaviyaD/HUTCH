@@ -8,22 +8,23 @@ import { DataSource} from '@angular/cdk/collections';
 import {ActivatedRoute, Router} from '@angular/router';
 import {MatDialog, MatSort} from '@angular/material';
 import {UpdateOngoingProjectComponent} from '../update-ongoing-project/update-ongoing-project.component';
+import {DatePipe} from '@angular/common';
 
 @Component({
   selector: 'app-view-ongoing-project',
   templateUrl: './view-ongoing-project.component.html',
-  styleUrls: ['./view-ongoing-project.component.css']
+  styleUrls: ['./view-ongoing-project.component.css'],
+  providers: [DatePipe]
 })
 export class ViewOngoingProjectComponent implements OnInit, AfterViewInit {
 
-  public project = [];
   constructor(private route: ActivatedRoute, private router: Router, private projectservice: ProjectServicesService, public dialog: MatDialog) { }
   projectId: string;
   index: number;
   project1: IProject;
   displayedColumns: string[] = ['projectId', 'projectName', 'projectType', 'projectPriority', 'startingDate', 'completionPeriod',
     'status', 'details', 'teamId', 'actions'];
-  public dataSource = new MatTableDataSource(this.project);
+  public dataSource = new MatTableDataSource<IProject>();
 
   @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
   @ViewChild(MatSort, {static: true}) sort: MatSort;
@@ -39,7 +40,7 @@ export class ViewOngoingProjectComponent implements OnInit, AfterViewInit {
   ngOnInit() {
     this.dataSource.sort = this.sort;
     this.dataSource.paginator = this.paginator;
-    this.projectservice.getProject().subscribe(data => this.project = data);
+    this.projectservice.getProject().subscribe(data => this.dataSource.data = data as IProject[]);
   }
   ngAfterViewInit(): void {
     this.dataSource.sort = this.sort;
