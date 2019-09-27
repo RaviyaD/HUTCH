@@ -7,7 +7,7 @@ export class IMaintenance {
   piority: string;
   idate: string;
   status: string;
-  cost: string;
+  cost: number;
   conname: string;
   rdate: string;
   cdate: string;

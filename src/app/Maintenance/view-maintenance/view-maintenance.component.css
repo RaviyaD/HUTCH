@@ -120,3 +120,7 @@ tr.example-element-row:not(.example-expanded-row):active {
   -webkit-hyphens: auto;
   hyphens: auto;
 }
+
+tr.mat-footer-row {
+  font-weight: bold;
+}

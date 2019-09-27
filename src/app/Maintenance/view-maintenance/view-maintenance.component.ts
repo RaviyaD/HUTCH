@@ -36,15 +36,19 @@ export class ViewMaintenanceComponent implements OnInit, AfterViewInit {
   cname: string;
   id: number;
   index: number;
-  data1: IMaintenance[];
+  data1: IMaintenance[] = [];
   displayedColumns: string[] = ['ids', 'sid', 'sname', 'category',  'piority',
     'status', 'idate', 'cost', 'conname', 'rdate', 'cdate', 'actions'];
   public dataSource1 = new MatTableDataSource<IMaintenance>();
-
+  tableFooterColumns: string[] = ['ids', 'cost'];
   @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
   @ViewChild(MatSort, {static: true}) sort: MatSort;
   exampleDatabase: MaintenanceServicesService | null;
   expandedElement: IMaintenance;
+
+  getTotalCost() {
+    return this.dataSource1.data.map(t => t.cost).reduce((acc, value) => acc + value, 0);
+  }
 
   applyFilter(filterValue: string) {
     this.dataSource1.filter = filterValue.trim().toLowerCase();
@@ -60,6 +64,7 @@ export class ViewMaintenanceComponent implements OnInit, AfterViewInit {
     this.dataSource1.sort = this.sort;
     this.maintenanceservice.getMaintenance()
       .subscribe(data => this.dataSource1.data = data as IMaintenance[]);
+    this.maintenanceservice.getMaintenance().subscribe( data => this.data1);
     this.cname = this.route.snapshot.params.cname;
     if (this.cname != null) {
       this.applyFilter(this.cname);
