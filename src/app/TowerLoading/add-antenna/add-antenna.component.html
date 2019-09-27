@@ -5,15 +5,14 @@
   <div class="form-group">
     <label>Diameter of Antenna:</label>
     <mat-form-field class="example-full-width">
-      <input type="text"
-             placeholder="Pick one"
+      <input placeholder="Site ID number"
+             type="text"
              aria-label="Number"
              matInput
              [formControl]="myControl"
              [matAutocomplete]="auto"
-             name="siteID"
+             id="siteID"
              [(ngModel)]="at.siteID"
-             ngModel
              required>
       <mat-autocomplete #auto="matAutocomplete">
         <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
@@ -27,6 +26,7 @@
     <label>Site name: </label>
     <label>{{getSiteName()}}</label>
   </div>
+
 
   <div class="form-group">
     <label>Height of Antenna:</label>
