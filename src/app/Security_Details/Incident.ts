@@ -1,5 +1,6 @@
 export class Incident {
 
+  siteId: string;
   incidentId: number;
   siteName: string;
   incidentDate: string;

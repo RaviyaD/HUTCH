@@ -1,69 +1,41 @@
-<p class="h1" style="margin-left: 200px">Add-Visitors</p>
+<p class="h1" style="margin-left: 200px" xmlns="http://www.w3.org/1999/html">Add-Visitors</p>
 
 <form xmlns="http://www.w3.org/1999/html" class="form-control-static">
 
-  <div class="row">
-    <div class="form-group col-md-2" >
+  <mat-form-field class="example-full-width">
+    <input matInput placeholder="Site Name" required="required Site Name">
 
-        <label for="siteName">Site Name</label>
-        <input type="text" required ngModel
-               id="siteName"  aria-label="Number" matInput [formControl]="myControl" [matAutocomplete]="auto" class="form-control">
+  </mat-form-field>
 
-    </div>
-  </div>
+  <br>
 
+  <mat-form-field class="example-full-width">
+    <input matInput placeholder="Visitor Name" >
+  </mat-form-field>
+  <br>
 
-  <div class="row">
-    <div class="form-group col-md-2" >
+  <mat-form-field class="date">
+    <input  type="date" matInput placeholder="Visit Date" required="required date">
+  </mat-form-field>
 
-      <label for="visit_date">Date</label>
-      <input id="visit_date" name="visit_date" type="date" class="form-control">
-
-    </div>
-  </div>
-
-
-  <div class="row">
-    <div class="form-group col-md-2" >
-
-      <label for="startTime">Visit Time</label>
-      <input type="text" required ngModel
-             id="startTime"   aria-label="Number" matInput [formControl]="myControl" class="form-control">
-
-    </div>
+  <br>
 
 
 
-    <div class="form-group col-md-2" >
+    <mat-form-field class="date">
+      <input  type="time" matInput placeholder="Visit Time"required >
+    </mat-form-field>
 
-      <label for="endTime">Exit Time</label>
-      <input type="text" required ngModel
-             id="endTime"   aria-label="Number" matInput [formControl]="myControl" class="form-control">
+    <mat-form-field class="date">
+      <input  type="time" matInput placeholder="Exit Time" required>
+    </mat-form-field>
 
-    </div>
-  </div>
-
-
-
-
-  <div class="row">
-    <div class="form-group col-md-2" >
-
-      <label for="vName">Visitor Name</label>
-      <input type="text" required ngModel
-             id="vName"   aria-label="Number" matInput [formControl]="myControl" class="form-control">
-
-    </div>
-  </div>
+  <br>
 
 
-
-  <div class="row">
-    <div class="form-group col-md-5">
-      <label for="description">Description</label>
-      <textarea id="description" cols="10" rows="5" class="form-control"></textarea>
-    </div>
-  </div>
+  <mat-form-field class="example-full-width">
+    <textarea matInput placeholder="Visitor Name" cdkTextareaAutosize="100"></textarea>
+  </mat-form-field>
 
 
   <div class="panel">

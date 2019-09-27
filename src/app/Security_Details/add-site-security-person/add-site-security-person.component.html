@@ -3,47 +3,30 @@
 <form xmlns="http://www.w3.org/1999/html" class="form-control-static">
 
 
-  <div class="row">
-    <div class="form-group col-md-2" >
+  <mat-form-field class="example-full-width" >
+    <input matInput placeholder="Site Name" required>
+  </mat-form-field>
+  <br>
 
-      <label for="siteName">Site Name</label>
-      <input type="text" required ngModel
-             id="siteName"  aria-label="Number" matInput [formControl]="myControl" [matAutocomplete]="auto" class="form-control">
+  <mat-form-field class="example-full-width">
+    <input matInput placeholder="Security Name" required>
 
-    </div>
-  </div>
+  </mat-form-field>
+  <br>
 
-  <div class="row">
-    <div class="form-group col-md-2" >
+  <mat-form-field class="example-full-width">
+    <input type="number" matInput placeholder="Phone Number" required>
 
-      <label for="securityName">Security Name</label>
-      <input type="text" required ngModel
-             id="securityName"  aria-label="Number" matInput [formControl]="myControl" [matAutocomplete]="auto" class="form-control">
+  </mat-form-field>
 
-    </div>
-  </div>
+  <br>
 
-  <div class="row">
-    <div class="form-group col-md-2" >
-
-      <label for="workTime">Work Time</label>
-      <input type="text" required ngModel
-             id="workTime"  aria-label="Number" matInput [formControl]="myControl" [matAutocomplete]="auto" class="form-control">
-
-    </div>
-  </div>
-
-
+  <mat-form-field class="time">
+    <input type="time" matInput placeholder="Work time" required>
+  </mat-form-field>
 
   <div class="panel">
     <button md-button color="primary" >Submit</button>
   </div>
-
-  <div class="panel">
-    <button md-button color="primary" >Update</button>
-  </div>
-
-
-
 
 </form>
