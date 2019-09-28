@@ -42,7 +42,7 @@ export class RegionServices {
   updateregion(rr: Region): void {
     this.http.put(this.url + '/' + rr.regionname, rr).subscribe(data => {
         this.dialogData = rr;
-        console.log('Hari bn Update una');
+        console.log('Updateeeeeed');
       },
       (err: HttpErrorResponse) => {
         console.log(err);
