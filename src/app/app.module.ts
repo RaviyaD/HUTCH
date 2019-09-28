@@ -31,6 +31,7 @@ import {SiteDetailsService} from './site-management/site-details.service';
 import { TowerModule } from './TowerLoading/tower.module';
 import {ProjectViewComponent} from './OngoingProject/project-view/project-view.component';
 import {RegionServices} from './Region-Management/regionService';
+import { EditZoneComponent } from './Region-Management/edit-zone/edit-zone.component';
 
 
 
@@ -38,7 +39,7 @@ import {RegionServices} from './Region-Management/regionService';
 @NgModule({
   declarations: [
     AppComponent,
-    SideNavComponent
+    SideNavComponent,
   ],
   imports: [
     BrowserAnimationsModule,
