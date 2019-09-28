@@ -22,6 +22,10 @@ export class SiteDetailsService {
     return this.http.get<SiteDetails>(this.sitesUrl + '/' + id);
   }
 
+  public getSiteDetailsByName(name: string): Observable<SiteDetails> {
+    return this.http.get<SiteDetails>(this.sitesUrl + '/ByName/' + name );
+  }
+
   public save(site: SiteDetails) {
     return this.http.post<SiteDetails>(this.sitesUrl, site);
   }

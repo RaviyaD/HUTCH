@@ -1,0 +1,29 @@
+<agm-map [latitude]="lat" [longitude]="lng" >
+
+  <agm-marker
+    *ngFor="let map of downsites"
+    [latitude]="map.latitude"
+    [longitude]="map.longitude"
+    iconUrl= "http://maps.google.com/mapfiles/ms/icons/red-dot.png"
+  >
+  </agm-marker>
+
+  <agm-marker
+    *ngFor="let map2 of upsites"
+    [latitude]="map2.latitude"
+    [longitude]="map2.longitude"
+    iconUrl= "http://maps.google.com/mapfiles/ms/icons/green-dot.png"
+  >
+  </agm-marker>
+
+  <agm-marker
+    *ngFor="let map2 of underMaintenance"
+    [latitude]="map2.latitude"
+    [longitude]="map2.longitude"
+    iconUrl= "http://maps.google.com/mapfiles/ms/icons/yellow-dot.png"
+  >
+  </agm-marker>
+
+</agm-map>
+
+
