@@ -20,6 +20,9 @@
           <li>
             <a href="#"  [routerLink]="['/Region/add-region']" routerLinkActive="active">Add Zone</a>
           </li>
+          <li>
+            <a href="#"  [routerLink]="['/Region/add-subregion']" routerLinkActive="active">Add Sub-Region</a>
+          </li>
         </ul>
       </li>
       <hr>
@@ -81,7 +84,7 @@
             <a [routerLink]="['/Maintenance/view-maintenance']" routerLinkActive="active">View Maintenance</a>
           </li>
           <li>
-            <a href="#">Remark Maintenance</a>
+            <a [routerLink]="['/Maintenance/view-contractors']" routerLinkActive="active">Contractors</a>
           </li>
         </ul>
       </li>

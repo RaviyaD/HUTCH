@@ -13,48 +13,37 @@
           <mat-expansion-panel [expanded]="step === 0" (opened)="setStep(0)" hideToggle>
             <mat-expansion-panel-header>
               <mat-panel-title>
-                Region Zone
+                Sub-Region
               </mat-panel-title>
               <mat-panel-description>
-                  Add Region-Zone
-                <mat-icon>settings_input_antenna</mat-icon>
+                Add Sub-Region
+                <mat-icon>map</mat-icon>
               </mat-panel-description>
             </mat-expansion-panel-header>
 
+            <mat-form-field style="width: 25%">
+              <input matInput placeholder="Region Name" ngModel name="regionname" id="regionname" required >
+            </mat-form-field>
+            <br>
             <mat-form-field style="width: 25%">
               <input matInput placeholder="Zone Name" ngModel name="zonename" id="zonename" required >
             </mat-form-field>
             <br>
             <mat-form-field style="width: 25%">
-              <input matInput placeholder="Senior Eng Name" ngModel name="seniorengineer" id="seniorengineer" required >
+              <input matInput placeholder="Technical Officer Name" ngModel name="technicalofficer" id="technicalofficer" required >
             </mat-form-field>
             <br>
             <mat-form-field style="width: 25%">
-              <input matInput placeholder="Senior Eng Mob No:" ngModel name="semobno" id="semobno" minlength="10" maxlength="10" required >
+              <input matInput placeholder="Technical Officer Mobile No:" ngModel name="tomobno" id="tomobno" minlength="10" maxlength="10" required >
             </mat-form-field>
             <br>
-            <mat-form-field style="width: 25%">
-              <input matInput placeholder="Senior Eng Email:" ngModel name="seemail" id="seemail" required >
-            </mat-form-field>
-            <br>
-            <mat-form-field style="width: 25%">
-              <input matInput placeholder="Engineer" ngModel name="engineer" id="engineer" required >
-            </mat-form-field>
-            <br>
-            <mat-form-field style="width: 25%">
-              <input matInput placeholder="Engineer Mob No:" ngModel name="emobno" id="emobno" minlength="10" maxlength="10" required >
-            </mat-form-field>
-            <br>
-            <mat-form-field style="width: 25%">
-              <input matInput [(ngModel)]="insert.eemail" placeholder="Engineer Email"  name="eemail" id="eemail" required >
+            <mat-form-field style="width: 25%;">
+              <input matInput placeholder="Technical Officer Email:" ngModel name="toemail" id="toemail" required >
             </mat-form-field>
             <br>
             <button class="btn btn-primary mt-2 ml-4 mb-2" type="submit" [disabled]="!f.valid" >
               Submit
             </button>
-
-
-
 
 
           </mat-expansion-panel>
