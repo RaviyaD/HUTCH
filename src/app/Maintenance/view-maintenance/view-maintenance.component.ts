@@ -109,8 +109,7 @@ export class ViewMaintenanceComponent implements OnInit, AfterViewInit {
         const foundIndex = this.exampleDatabase.dataChange.value.findIndex(x => x.ids === this.id);
         // Then you update that record using data from dialogData (values you enetered)
         this.exampleDatabase.dataChange.value[foundIndex] = this.maintenanceservice.getDialogData();
-        // And lastly refresh table
-        // this.refreshTable();
+
       }
     });
   }

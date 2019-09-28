@@ -25,7 +25,7 @@
               <mat-form-field class="example-full-width">
                 <label for="regionname">Region Name</label>
                 <input type="text" required
-                       name="sname"   id="regionname"  [(ngModel)]="rname" aria-label="Number" matInput  [formControl]="myControl" [matAutocomplete]="auto" class="form-control">
+                       name="regionname"   id="regionname"  [(ngModel)]="rname" aria-label="Number" matInput  [formControl]="myControl" [matAutocomplete]="auto" class="form-control">
                 <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete" >
                   <mat-option *ngFor="let option of filteredOptions | async" [value]="option" class="row">
                     {{option}}
@@ -37,31 +37,33 @@
             <div [hidden]="(validcomplete(rname) === -1)? true:false" >
               <p class="mat-warn">  Enter valid Region name</p>
             </div>
+
+            <div [hidden]="(validcomplete(rname) === 0)? true:false">
             <br>
             <mat-form-field style="width: 25%">
-              <input matInput placeholder="Zone Name" ngModel name="zonename" id="zonename" value="{{re.zonename}}" required >
+              <input matInput placeholder="Zone Name" [(ngModel)]="re.zonename" name="zonename" id="zonename" value="{{re.zonename}}" required >
             </mat-form-field>
             <br>
             <mat-form-field style="width: 25%">
-              <input matInput placeholder="Technical Officer Name" ngModel name="technicalofficer" id="technicalofficer" value="{{re.technicalofficer}}" required >
+              <input matInput placeholder="Technical Officer Name" [(ngModel)]="re.technicalofficer" name="technicalofficer" id="technicalofficer" value="{{re.technicalofficer}}" required >
             </mat-form-field>
             <br>
             <mat-form-field style="width: 25%">
-              <input matInput placeholder="Technical Officer Mobile No:" ngModel name="tomobno" id="tomobno" value="{{re.tomobno}}" minlength="10" maxlength="10" required >
+              <input matInput placeholder="Technical Officer Mobile No:" [(ngModel)]="re.tomobno" name="tomobno" id="tomobno" value="{{re.tomobno}}" minlength="10" maxlength="10" required >
             </mat-form-field>
             <br>
             <mat-form-field style="width: 25%;">
-              <input matInput placeholder="Technical Officer Email:" ngModel name="toemail" id="toemail" value="{{re.toemail}}"required >
+              <input matInput placeholder="Technical Officer Email:" [(ngModel)]="re.toemail" name="toemail" id="toemail" value="{{re.toemail}}"required >
             </mat-form-field>
             <br>
-            <button class="btn btn-primary mt-2 ml-4 mb-2" type="submit" [disabled]="!f.valid" >
-              Submit
+            <button class="btn btn-primary mt-2 ml-4 mb-2" (click)="submitUpdate(re)" type="button" >
+              Update
             </button>
-            <br>
-            <button mat-icon-button color="accent" (click)="delete(regionname)">
-              <mat-icon aria-label="Delete">delete</mat-icon>
+            <button class="btn btn-primary mt-2 ml-4 mb-2" (click)="deleteregion(rname)" type="button"  >
+              Delete
             </button>
 
+            </div>
 
           </mat-expansion-panel>
         </mat-accordion>

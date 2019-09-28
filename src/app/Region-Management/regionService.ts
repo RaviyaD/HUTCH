@@ -2,11 +2,13 @@ import { Injectable} from '@angular/core';
 import {HttpClient, HttpErrorResponse} from '@angular/common/http';
 import { Observable} from 'rxjs';
 import {Region} from './region';
+import {IProject} from '../OngoingProject/Project';
 
 @Injectable()
 export class RegionServices {
 
   private url: string;
+  private dialogData: any;
 
   constructor(private http: HttpClient) {
     this.url = 'http://localhost:8080/Region';
@@ -36,5 +38,15 @@ export class RegionServices {
       }
     );
 
+  }
+  updateregion(rr: Region): void {
+    this.http.put(this.url + '/' + rr.regionname, rr).subscribe(data => {
+        this.dialogData = rr;
+        console.log('Hari bn Update una');
+      },
+      (err: HttpErrorResponse) => {
+        console.log(err);
+      }
+    );
   }
 }

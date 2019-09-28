@@ -1,11 +1,14 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import {Component, Inject, OnInit, ViewChild} from '@angular/core';
 import {RegionServices} from '../regionService';
 import {Region} from '../region';
 import {map, startWith} from 'rxjs/operators';
 import {Observable} from 'rxjs';
 import {FormControl} from '@angular/forms';
 import {ActivatedRoute, ParamMap, Router} from '@angular/router';
-import {MatPaginator, MatTableDataSource} from '@angular/material';
+import {MAT_DIALOG_DATA, MatPaginator, MatTableDataSource} from '@angular/material';
+import {TowerService} from '../../TowerLoading/physical-measurement/Tower.service';
+import {ZoneServices} from '../zoneService';
+import {ITower} from '../../TowerLoading/physical-measurement/Tower';
 
 @Component({
   selector: 'app-view-region',
@@ -13,20 +16,22 @@ import {MatPaginator, MatTableDataSource} from '@angular/material';
   styleUrls: ['./view-region.component.css']
 })
 export class ViewRegionComponent implements OnInit {
-  constructor(private rr: RegionServices, private router: Router, private route: ActivatedRoute  ) {
+  constructor(private rr: RegionServices, private router: Router, private route: ActivatedRoute, public dataService: RegionServices) {
     this.re = new Region();
+    this.re.zonename = null;
     this.rr.getregion().subscribe(data => {
       this.reg = data;
       for (let i = 0; i < this.reg.length; i++) {
-        this.options[i] = this.reg[i].regionname ;
-        console.log(this.options[i]);
+        this.options[i] = this.reg[i].regionname;
       }
     });
   }
+
   options: string[] = [];
   filteredOptions: Observable<string[]>;
   reg: Region[];
   re: Region;
+  j: number;
   step = 0;
   myControl = new FormControl();
   rname: string;
@@ -44,15 +49,16 @@ export class ViewRegionComponent implements OnInit {
   prevStep() {
     this.step--;
   }
+
   ngOnInit() {
-  //  this.rr.getregion().subscribe(data => this.region = data);
+    //  this.rr.getregion().subscribe(data => this.region = data);
     this.filteredOptions = this.myControl.valueChanges.pipe(
       startWith(''),
       map(value => this._filter(value))
     );
 
     if (this.rname !== null) {
-  } else {
+    } else {
       this.re.zonename = ' Enter Name';
     }
   }
@@ -64,25 +70,33 @@ export class ViewRegionComponent implements OnInit {
   }
 
   public show(n: string) {
-    this.rr.getbuyname(n).subscribe(data => {
-      this.re = data;
-    } );
+    if (this.j === -1) {
+      for (let i = 0; i < this.options.length; i++) {
+        if (this.options[i] === this.rname) {
+          this.rr.getbuyname(n).subscribe(data => {
+            this.re = data;
+          });
+        }
+      }
+    }
   }
 
   public validcomplete(key: string) {
-    let j;
-    for (let i = 0; i < this.options.length; i++) {
-      console.log(this.options[i]);
-      if (key !== this.options[i]) {
-        j = 0;
-      } else {
-        j = -1;
-        this.show(this.rname);
-        break;
-      }
+    if (this.re.zonename === null) {
+      for (let i = 0; i < this.options.length; i++) {
 
+        if (key !== this.options[i]) {
+          this.j = 0;
+        } else {
+          this.j = -1;
+          this.rname = key;
+          this.show(this.rname);
+          break;
+        }
+
+      }
     }
-    return j;
+    return this.j;
 
     this.dataSource1.paginator = this.paginator;
     this.rr.getregion()
@@ -98,6 +112,7 @@ export class ViewRegionComponent implements OnInit {
       }
     });
   }
+
   // noinspection JSAnnotator
   delete(regionname: string) {
     this.rr.deleteregion(regionname);
@@ -106,7 +121,15 @@ export class ViewRegionComponent implements OnInit {
     });
   }
 
+  submitUpdate(im: Region) {
+    this.dataService.updateregion(im);
+    console.log('updateeeeed');
+  }
 
+  deleteregion(im: string) {
+    console.log('llllllllll');
+    this.dataService.deleteregion(im);
+  }
 }
 
 
