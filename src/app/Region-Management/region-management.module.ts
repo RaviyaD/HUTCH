@@ -23,5 +23,6 @@ import { AddSubregionComponent } from './add-subregion/add-subregion.component';
     RegionManagementRoutingModule
   ],
 
+
 })
 export class RegionManagementModule { }

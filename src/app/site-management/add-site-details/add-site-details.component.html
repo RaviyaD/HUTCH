@@ -21,31 +21,31 @@
               </mat-panel-description>
             </mat-expansion-panel-header>
 
-            <mat-form-field style="width: 25%">
-              <input matInput placeholder="Site ID (should be 6 characters)" ngModel name="id" id="id" required minlength="6" maxlength="6">
+            <mat-form-field style="width: 35%">
+              <input matInput placeholder="Site ID (should be 6 characters)" ngModel name="id" id="id" required minlength="6" maxlength="6" pattern="[A-Z]{3}[0-9]{3}" title="ID should be in the form of 'XXX000'">
             </mat-form-field>
             <br>
-            <mat-form-field style="width: 25%">
+            <mat-form-field style="width: 35%">
               <input matInput placeholder="Site Name" ngModel name="name" id="name" >
             </mat-form-field>
             <br>
-            <mat-form-field style="width: 25%">
+            <mat-form-field style="width: 35%">
               <input matInput placeholder="Ownership" ngModel name="ownership" id="ownership">
             </mat-form-field>
             <br>
-            <mat-form-field style="width: 25%">
+            <mat-form-field style="width: 35%">
               <input matInput placeholder="Owner's Site Name" ngModel name="osn" id="osn" >
             </mat-form-field>
             <br>
-            <mat-form-field style="width: 25%">
+            <mat-form-field style="width: 35%">
               <input matInput placeholder="Frequency Band" ngModel name="fb" id="fb">
             </mat-form-field>
             <br>
-            <mat-form-field style="width: 25%">
+            <mat-form-field style="width: 35%">
               <input type="date" matInput placeholder="Commissioned Date" ngModel name="cd" id="cd">
             </mat-form-field>
             <br>
-            <mat-form-field style="width: 25%">
+            <mat-form-field style="width: 35%">
               <input type="date" matInput ngModel placeholder="Commissioned Date 3G"  name="cd3G" id="cd3G">
             </mat-form-field>
             <br>
@@ -68,8 +68,41 @@
               </mat-panel-description>
             </mat-expansion-panel-header>
 
-            <mat-form-field>
-              <input matInput placeholder="Country">
+            <mat-form-field style="width: 35%">
+              <input matInput placeholder="Latitude" type="number" ngModel name="latitude" id="latitude" step="any" pattern="[-+]?[0-9]*[.,]?[0-9]+" title="Should be a valid coordinate">
+            </mat-form-field>
+            <br>
+            <mat-form-field style="width: 35%">
+              <input matInput placeholder="Longitude" type="number" ngModel name="longitude" id="longitude" step="any" pattern="[-+]?[0-9]*[.,]?[0-9]+" title="Should be a valid coordinate">
+            </mat-form-field>
+            <br>
+            <mat-form-field style="width: 35%">
+              <input matInput placeholder="Sub Region" ngModel name="subRegion" id="subRegion" >
+            </mat-form-field>
+            <br>
+            <mat-form-field style="width: 35%">
+              <input matInput placeholder="Address" ngModel name="address" id="address" >
+            </mat-form-field>
+            <br>
+            <mat-form-field style="width: 35%">
+              <input matInput placeholder="Altitude" ngModel type="number" name="altitude" id="altitude" step="any" pattern="[-+]?[0-9]*[.,]?[0-9]+" title="Should be a real number">
+            </mat-form-field>
+            <br>
+            <mat-form-field style="width: 35%">
+              <input matInput placeholder="Tower Type" [(ngModel)]="tt" name="towerType" id="towerType" [matAutocomplete]="auto1">
+              <mat-autocomplete #auto1="matAutocomplete">
+                <mat-option *ngFor="let option of filteredOptionsTowerType | async" [value]="option">
+                  {{option}}
+                </mat-option>
+              </mat-autocomplete>
+            </mat-form-field>
+            <br>
+            <mat-form-field style="width: 35%">
+              <input matInput placeholder="Tower Height" type="number" ngModel name="towerHeight" id="towerHeight" step="any" pattern="[-+]?[0-9]*[.,]?[0-9]+" title="Should be a real number">
+            </mat-form-field>
+            <br>
+            <mat-form-field style="width: 35%">
+              <input matInput placeholder="Building Height" type="number" ngModel name="buildingHeight" id="buildingHeight" step="any" pattern="[-+]?[0-9]*[.,]?[0-9]+" title="Should be a real number">
             </mat-form-field>
 
             <mat-action-row>
@@ -89,10 +122,58 @@
               </mat-panel-description>
             </mat-expansion-panel-header>
 
-            <mat-form-field>
-              <input matInput placeholder="Date" [matDatepicker]="picker" (focus)="picker.open()" readonly>
+            <mat-form-field style="width: 35%">
+              <input matInput placeholder="Height In Tower" ngModel name="heightInTower" id="heightInTower" >
             </mat-form-field>
-            <mat-datepicker #picker></mat-datepicker>
+            <br>
+            <mat-form-field style="width: 35%">
+              <input matInput type="number" placeholder="Sector1 Direction" ngModel name="sector1Direction" id="sector1Direction" >
+            </mat-form-field>
+            <br>
+            <mat-form-field style="width: 35%">
+              <input matInput type="number" placeholder="Sector2 Direction" ngModel name="sector2Direction" id="sector2Direction" >
+            </mat-form-field>
+            <br>
+            <mat-form-field style="width: 35%">
+              <input matInput type="number" placeholder="Sector3 Direction" ngModel name="sector3Direction" id="sector3Direction" >
+            </mat-form-field>
+            <br>
+            <mat-form-field style="width: 35%">
+              <input matInput type="number" placeholder="Sector1 HBW" ngModel name="sector1HBW" id="sector1HBW" >
+            </mat-form-field>
+            <br>
+            <mat-form-field style="width: 35%">
+              <input matInput type="number" placeholder="Sector2 HBW" ngModel name="sector2HBW" id="sector2HBW" >
+            </mat-form-field>
+            <br>
+            <mat-form-field style="width: 35%">
+              <input matInput type="number" placeholder="Sector3 HBW" ngModel name="sector3HBW" id="sector3HBW" >
+            </mat-form-field>
+            <br>
+            <mat-form-field style="width: 35%">
+              <input matInput placeholder="Sector1 Tilt 2g" ngModel name="sector1Tilt2g" id="sector1Tilt2g" >
+            </mat-form-field>
+            <br>
+            <mat-form-field style="width: 35%">
+              <input matInput placeholder="Sector2 Tilt 2g" ngModel name="sector2Tilt2g" id="sector2Tilt2g" >
+            </mat-form-field>
+            <br>
+            <mat-form-field style="width: 35%">
+              <input matInput placeholder="Sector3 Tilt 2g" ngModel name="sector3Tilt2g" id="sector3Tilt2g" >
+            </mat-form-field>
+            <br>
+            <mat-form-field style="width: 35%">
+              <input matInput placeholder="Sector1 Tilt 3g" ngModel name="sector1Tilt3g" id="sector1Tilt3g" >
+            </mat-form-field>
+            <br>
+            <mat-form-field style="width: 35%">
+              <input matInput placeholder="Sector2 Tilt 3g" ngModel name="sector2Tilt3g" id="sector2Tilt3g" >
+            </mat-form-field>
+            <br>
+            <mat-form-field style="width: 35%">
+              <input matInput placeholder="Sector3 Tilt 3g" ngModel name="sector3Tilt3g" id="sector3Tilt3g" >
+            </mat-form-field>
+            <br>
 
             <mat-action-row>
               <button mat-button color="warn" (click)="prevStep()">Previous</button>
@@ -111,9 +192,60 @@
               </mat-panel-description>
             </mat-expansion-panel-header>
 
-            <mat-form-field>
-              <input matInput placeholder="Country">
+            <mat-form-field style="width: 35%">
+              <input matInput placeholder="Band Type" ngModel name="bandType" id="bandType"  [matAutocomplete]="auto2">
+              <mat-autocomplete #auto2="matAutocomplete">
+                <mat-option *ngFor="let option of bandOptions" [value]="option">
+                  {{option}}
+                </mat-option>
+              </mat-autocomplete>
             </mat-form-field>
+            <br>
+            <mat-form-field style="width: 35%">
+              <input matInput placeholder="3G Antenna Product Name" ngModel name="antProdName3g" id="antProdName3g" [matAutocomplete]="auto3">
+              <mat-autocomplete #auto3="matAutocomplete">
+                <mat-option *ngFor="let option of modelOptions" [value]="option">
+                  {{option}}
+                </mat-option>
+              </mat-autocomplete>
+            </mat-form-field>
+            <br>
+            <mat-form-field style="width: 35%">
+              <input matInput type="number" placeholder="3G Antenna HBW" ngModel name="antHBW3g" id="antHBW3g" >
+            </mat-form-field>
+            <br>
+            <mat-form-field style="width: 35%">
+              <input matInput placeholder="3G Antenna Model" ngModel name="antModel3g" id="antModel3g" >
+            </mat-form-field>
+            <br>
+            <mat-form-field style="width: 35%">
+              <input matInput type="number" placeholder="3G Antenna Quantity" ngModel name="antQty3g" id="antQty3g" >
+            </mat-form-field>
+            <br>
+            <mat-form-field style="width: 35%">
+              <input matInput placeholder="3G Bi-sector Antenna Sector No" ngModel name="bisectorAntSectorNo3G" id="bisectorAntSectorNo3G" >
+            </mat-form-field>
+            <br>
+            <mat-form-field style="width: 35%">
+              <input matInput type="number" placeholder="2G Antenna HBW" ngModel name="antHBW2g" id="antHBW2g" >
+            </mat-form-field>
+            <br>
+            <mat-form-field style="width: 35%">
+              <input matInput placeholder="2G Antenna Model" ngModel name="antModel2g" id="antModel2g" >
+            </mat-form-field>
+            <br>
+            <mat-form-field style="width: 35%">
+              <input matInput type="number" placeholder="2G 900MHz Antenna Qty" ngModel name="antQty2g900" id="antQty2g900" >
+            </mat-form-field>
+            <br>
+            <mat-form-field style="width: 35%">
+              <input matInput type="number" placeholder="2G 1800MHz Antenna Qty" ngModel name="antQty2g1800" id="antQty2g1800" >
+            </mat-form-field>
+            <br>
+            <mat-form-field style="width: 35%">
+              <input matInput type="number" placeholder="Total Antenna Quantity" ngModel name="totalAntQty" id="totalAntQty" >
+            </mat-form-field>
+            <br>
 
             <mat-action-row>
               <button mat-button color="warn" (click)="prevStep()">Previous</button>
@@ -132,10 +264,36 @@
               </mat-panel-description>
             </mat-expansion-panel-header>
 
-            <mat-form-field>
-              <input matInput placeholder="Country">
+            <mat-form-field style="width: 35%">
+              <input matInput placeholder="BSC" ngModel name="bsc" id="bsc" >
             </mat-form-field>
-
+            <br>
+            <mat-form-field style="width: 35%">
+              <input matInput type="number" placeholder="RNC" ngModel name="rnc" id="rnc" >
+            </mat-form-field>
+            <br>
+            <mat-form-field style="width: 35%">
+              <input matInput placeholder="BTS Type" ngModel [matAutocomplete]="auto4" name="btsType" id="btsType" >
+              <mat-autocomplete #auto4="matAutocomplete">
+                <mat-option *ngFor="let option of btsOptions" [value]="option">
+                  {{option}}
+                </mat-option>
+              </mat-autocomplete>
+            </mat-form-field>
+            <br>
+            <mat-form-field style="width: 35%">
+              <input matInput placeholder="BTS Model" ngModel name="btsModel" id="btsModel" >
+            </mat-form-field>
+            <br>
+            <mat-form-field style="width: 35%">
+              <input matInput placeholder="TRX Type 2G" [(ngModel)]="trx" name="trxType2g" id="trxType2g" [formControl]="myControl2" [matAutocomplete]="auto5">
+              <mat-autocomplete #auto5="matAutocomplete">
+                <mat-option *ngFor="let option of filteredOptionsTRX | async" [value]="option">
+                  {{option}}
+                </mat-option>
+              </mat-autocomplete>
+            </mat-form-field>
+            <br>
             <mat-action-row>
               <button mat-button color="warn" (click)="prevStep()">Previous</button>
               <button mat-button color="primary" (click)="nextStep()">Next</button>
@@ -153,9 +311,27 @@
               </mat-panel-description>
             </mat-expansion-panel-header>
 
-            <mat-form-field>
-              <input matInput placeholder="Country">
+            <mat-form-field style="width: 35%">
+              <input matInput placeholder="Equipment Type" ngModel name="equipmentType" id="equipmentType" [matAutocomplete]="auto4">
+              <mat-autocomplete #auto4="matAutocomplete">
+                <mat-option *ngFor="let option of btsOptions" [value]="option">
+                  {{option}}
+                </mat-option>
+              </mat-autocomplete>
             </mat-form-field>
+            <br>
+            <mat-form-field style="width: 35%">
+              <input matInput placeholder="Shelter Type" ngModel name="shelterType" id="shelterType" >
+            </mat-form-field>
+            <br>
+            <mat-form-field style="width: 35%">
+              <input matInput placeholder="Shelter Size" ngModel name="shelterSize" id="shelterSize" >
+            </mat-form-field>
+            <br>
+            <mat-form-field style="width: 35%">
+              <textarea matInput placeholder="Accessories In Shelter" ngModel name="accessoriesInShelter" id="accessoriesInShelter" ></textarea>
+            </mat-form-field>
+            <br>
 
             <mat-action-row>
               <button mat-button color="warn" (click)="prevStep()">Previous</button>
@@ -166,17 +342,4 @@
       </form>
     </div>
   </div>
-
-  <!--tr *ngFor="let site of sites">
-    <td><input value="{{ site.id }}"></td>
-    <td>{{ site.name }}</td>
-  </tr>
-
-  <button (click)="findSiteById()">Click</button>
-    <!--p [innerHTML]="sitewWithId.id"></p>
-    <p>{{ sitewWithId.name }}</p>
-
-  <p>{{ this.temp }}</p-->
-
 </div>
-

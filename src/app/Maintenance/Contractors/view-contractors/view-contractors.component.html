@@ -1,0 +1,75 @@
+<p class="h2" style="margin-left: 200px">View-Contractor </p>
+
+
+<div style="position: relative; margin-left:350px">
+  <div  fxLayout fxLayoutAlign="center center">
+    <mat-form-field fxFlex="40%" class="example-form ">
+      <input matInput type="text" (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+    </mat-form-field>
+  </div>
+</div>
+
+<table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
+
+  <!-- Position Column -->
+  <ng-container matColumnDef="id">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header> ID. </th>
+    <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+  </ng-container>
+
+  <!-- Name Column -->
+  <ng-container matColumnDef="cname">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header> Name </th>
+    <td mat-cell *matCellDef="let element"> {{element.cname}} </td>
+  </ng-container>
+
+  <!-- Weight Column -->
+  <ng-container matColumnDef="address">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header>Address</th>
+    <td mat-cell *matCellDef="let element"> {{element.address}} </td>
+  </ng-container>
+
+  <!-- Symbol Column -->
+  <ng-container matColumnDef="telno">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header> Tel No. </th>
+    <td mat-cell *matCellDef="let element"> {{element.telno}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="email">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header> E-mail </th>
+    <td mat-cell *matCellDef="let element"> {{element.email}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="nic">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header> Nic No </th>
+    <td mat-cell *matCellDef="let element"> {{element.nic}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="regdate">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header> Registered Date </th>
+    <td mat-cell *matCellDef="let element"> {{element.regdate}} </td>
+  </ng-container>
+
+
+  <ng-container matColumnDef="actions">
+    <mat-header-cell *matHeaderCellDef>
+      <button mat-icon-button color="primary" (click)="addNew()">
+        <mat-icon aria-label="Example icon-button with a heart icon">add</mat-icon>
+      </button>
+    </mat-header-cell>
+
+    <mat-cell *matCellDef="let m; let i=index;">
+      <button mat-icon-button color="accent"  >
+        <mat-icon aria-label="Edit" (click)="viewmaintenance(m.cname)">edit</mat-icon>
+      </button>
+
+
+
+
+    </mat-cell>
+  </ng-container>
+
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>

@@ -2,8 +2,8 @@ import {Component, OnInit, ViewChild} from '@angular/core';
 import {IOwned} from '../owned-towers/Owned';
 import {ActivatedRoute, Router} from '@angular/router';
 import {OwnedService} from '../owned-towers/Owned.service';
-import {count, map, startWith} from 'rxjs/operators';
-import {FormControl, NgForm, Validators} from '@angular/forms';
+import {map, startWith} from 'rxjs/operators';
+import {FormControl, NgForm} from '@angular/forms';
 import {Observable} from 'rxjs';
 import {SiteDetailsService} from '../../site-management/site-details.service';
 import {MatSnackBar} from '@angular/material';
@@ -17,7 +17,20 @@ import {SiteDetails} from '../../site-management/site-details';
 })
 export class AddusageComponent implements OnInit {
 
-  constructor(private route: ActivatedRoute, private router: Router, private os: OwnedService, private siteDetailsService: SiteDetailsService,
+  ot: IOwned;
+  myControl = new FormControl();
+  options: string[] = [];
+  filteredOptions: Observable<string[]>;
+  sites: SiteDetails[] = [];
+  sites1: IOwned[];
+  SitesIn: string[] = [];
+  name: string = null;
+  @ViewChild('f', {static: false}) addForm: NgForm;
+  private counter: number;
+
+  constructor(private route: ActivatedRoute, private router: Router,
+              private os: OwnedService,
+              private siteDetailsService: SiteDetailsService,
               private snackBar: MatSnackBar, private ownedservice: OwnedService) {
     this.ot = new IOwned();
     this.ownedservice.getOwnedTowers().subscribe(data => {
@@ -37,18 +50,6 @@ export class AddusageComponent implements OnInit {
     });
   }
 
-  ot: IOwned;
-  SiteName: string;
-  myControl = new FormControl();
-  options: string[] = [];
-  filteredOptions: Observable<string[]>;
-  sites: SiteDetails[];
-  sites1: IOwned[];
-  SitesIn: string[] = [];
-
-
-  @ViewChild('f', {static: false}) addForm: NgForm;
-
   ngOnInit() {
     this.filteredOptions = this.myControl.valueChanges
       .pipe(
@@ -61,15 +62,16 @@ export class AddusageComponent implements OnInit {
   private _filter(value: string): string[] {
     const filterValue = value.toLowerCase();
 
-    return this.options.filter(option => option.toLowerCase().includes(filterValue));
+    return this.options.filter(option =>
+      option.toLowerCase().includes(filterValue));
   }
 
   onSubmit() {
     if (this.validate()) {
       this.router.navigate(['/owned-towers']);
+      console.log(this.addForm);
       // this.os.addOwnedTower(this.ot).subscribe(result => this.gotoOwnedTowers());
       this.addForm.reset();
-      // this.matDialogReference.close([]);
     } else {
       this.openSnackBar('Invalid site ID or Detail already added');
     }
@@ -85,13 +87,14 @@ export class AddusageComponent implements OnInit {
     });
   }
 
-
-  gotoOwnedTowers() {
-    this.router.navigate(['/owned-towers']);
-  }
-
   getSiteName() {
-
+    this.counter = 0;
+    for (const each of this.sites) {
+      this.counter++;
+      if (this.ot.siteID === this.sites[this.counter].siteID) {
+        return this.sites[this.counter].siteName;
+      }
+    }
 
   }
 

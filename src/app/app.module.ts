@@ -7,7 +7,7 @@ import {SideNavComponent} from './side-nav/side-nav.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {MaterialModule} from './site-management/material.module';
 import {HttpClientModule} from '@angular/common/http';
-
+import {ChartsModule} from 'ng2-charts';
 
 
 // Routing Module
@@ -27,42 +27,17 @@ import {ProjectServicesService} from './OngoingProject/view-ongoing-project/Proj
 import {SiteDetailsService} from './site-management/site-details.service';
 
 
-// Component
-import {AddVisitorsComponent} from './Security_Details/add-visitors/add-visitors.component';
-import {ViewVisitorsComponent} from './Security_Details/view-visitors/view-visitors.component';
-import {ViewOngoingProjectComponent} from './OngoingProject/view-ongoing-project/view-ongoing-project.component';
-import {ViewIncidentsComponent} from './Security_Details/view-incidents/view-incidents.component';
-import {AddIncidentsComponent} from './Security_Details/add-incidents/add-incidents.component';
-import {ViewSiteSecurityPersonComponent} from './Security_Details/view-site-security-person/view-site-security-person.component';
-import {AddSiteSecurityPersonComponent} from './Security_Details/add-site-security-person/add-site-security-person.component';
-import {AddNewProjectComponent} from './OngoingProject/add-new-project/add-new-project.component';
-
-
-
-
-
 // Module
 import { TowerModule } from './TowerLoading/tower.module';
-import {RegionServices} from './Region-Management/regionService';
+import {ProjectViewComponent} from './OngoingProject/project-view/project-view.component';
+
 
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    SideNavComponent,
-    AddVisitorsComponent,
-    ViewVisitorsComponent,
-    ViewOngoingProjectComponent,
-    AddNewProjectComponent,
-    ViewIncidentsComponent,
-    AddIncidentsComponent,
-    ViewSiteSecurityPersonComponent,
-    AddSiteSecurityPersonComponent,
-    AddSiteSecurityPersonComponent,
-    AddIncidentsComponent,
-
-    AddIncidentsComponent
+    SideNavComponent
   ],
   imports: [
     BrowserAnimationsModule,
@@ -72,7 +47,8 @@ import {RegionServices} from './Region-Management/regionService';
     ReactiveFormsModule,
     MaterialModule,
     HttpClientModule,
-    TowerModule
+    TowerModule,
+    ChartsModule
 
   ],
   providers: [
@@ -86,9 +62,8 @@ import {RegionServices} from './Region-Management/regionService';
     ProjectServicesService,
     TowerService,
     OwnedService,
-    RegionServices,
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent ]
 })
 
 export class AppModule { }

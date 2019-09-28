@@ -1,0 +1,35 @@
+<p>complete-maintenance works!</p>
+<p [(ngModel)]="data.ids" ngDefaultControl>Maintenance ID: {{data.ids}}</p>
+
+<p [(ngModel)]="data.sname" ngDefaultControl>Site Name : {{data.sname}}</p>
+<p [(ngModel)]="data.category" ngDefaultControl>Category : {{data.category}}</p>
+<p [(ngModel)]="data.issue" ngDefaultControl>Issue: {{data.issue}}</p>
+<p [(ngModel)]="data.idate" ngDefaultControl>Informed Date:  {{data.idate}}</p>
+<p [(ngModel)]="data.piority" ngDefaultControl>Piority: {{data.piority}}</p>
+<p [(ngModel)]="data.cost" ngDefaultControl>Cost:  {{data.cost}}</p>
+<p [(ngModel)]="data.conname" ngDefaultControl>Contractor Name: {{data.conname}}</p>
+<p [(ngModel)]="data.rdate" ngDefaultControl>Refactor Date:  {{data.rdate}}</p>
+
+
+
+<form (ngSubmit)="submitUpdate()" >
+
+  <div class="row">
+    <div class="form-group col-md-7">
+      <label for="cdate">Completed Date</label>
+      <input required ngModel
+             name="rdate"
+             [(ngModel)]="data.cdate"
+             id="cdate"
+             type="date"
+             class="form-control" >
+
+    </div>
+  </div>
+
+  <div class="panel">
+    <button type="submit"   class="btn-success">Submit</button>
+  </div>
+
+
+</form>

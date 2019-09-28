@@ -1,10 +1,8 @@
 export class IOwned {
   siteID: string;
   windSheildArea: number;
-  ownGSM: number;
-  ownMicro: number;
-  totalSharedGSM: number;
-  totalSharedMicro: number;
+  gsm: number;
+  micro: number;
   totalArea: number;
   remaining: number;
 }

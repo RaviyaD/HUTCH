@@ -19,10 +19,12 @@
        <!--   <mat-error *ngIf="formControl.invalid">{{getErrorMessage()}}</mat-error> -->
         </mat-form-field>
       </div>
-
+    <div [hidden]="(validcomplete(im.sname) === -1)? true:false" >
+    <p style="margin-top: 50px; background-color: red" class="mat-warn">  Enter valid name</p>
     </div>
 
-
+    <p style="margin-top: 50px; background-color: green" class="alert-warning" >{{showsiteid(im.sname)}}</p>
+    </div>
     <div class="row">
       <div class="form-group col-md-2">
         <mat-form-field class="example-full-width">
@@ -74,7 +76,7 @@
     </div>
 
    <div class="panel">
-      <button type="submit"    class="btn btn-primary mt-2 ml-1 mb-2" [disabled]="!f.valid">Submit</button>
+      <button type="submit" [hidden]="(validcomplete(im.sname) === 0)? true:false"   class="btn btn-primary mt-2 ml-1 mb-2" [disabled]="!f.valid">Submit</button>
     </div>
 
 

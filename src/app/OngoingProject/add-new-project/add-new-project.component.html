@@ -19,7 +19,7 @@
                 <label for="projectID"> ProjectID </label>
             </div>
             <div class="col-lg-4">
-                <input type="text" ngModel name="projectId" id="projectId" class="form-control" required>
+                <input type="text" ngModel name="projectId" id="projectId" class="form-control" required />
             </div>
           </div>
           <br><br>
@@ -28,7 +28,7 @@
                 <label for="projectname">Project Name</label>
             </div>
             <div class="col-lg-7">
-                <input type="text" ngModel name="projectName" id="projectName" class="form-control" required>
+                <input type="text" ngModel name="projectName" id="projectName" class="form-control" required />
             </div>
           </div>
           <br>
@@ -38,7 +38,7 @@
             </div>
             <div class="col-lg-6">
               <div class="form-group">
-                <select class="form-control" ngModel name="projectType" id="projectType" required>
+                <select class="form-control" ngModel name="projectType" id="projectType" >
                   <option>--select--</option>
                   <option>SiteRelated</option>
                   <option>CabinRelated</option>
@@ -56,7 +56,7 @@
           </div>
           <div class="col-lg-5">
             <div class="form-group">
-              <select class="form-control" ngModel name="projectPriority" id="projectPriority">
+              <select class="form-control" ngModel name="projectPriority" id="projectPriority" >
                 <option>--select--</option>
                 <option>Normal</option>
                 <option>Severe</option>
@@ -71,8 +71,8 @@
             <label for="startingDate">Starting Date</label>
           </div>
           <div class="col-lg-5">
-            <div class='input-group date' id='datetimepicker1'>
-              <input type='text' class="form-control" ngModel name="startingDate" id="startingDate">
+            <div class='input-group date'>
+              <input type='date' class="form-control" ngModel name="startingDate" id="startingDate" required />
               <div class="input-group-addon">
                 <span class="glyphicon glyphicon-calendar"></span>
               </div>
@@ -85,7 +85,7 @@
             <label for="completionPeriod">Completion Period</label>
           </div>
           <div class="col-lg-5">
-            <input type="text" class="form-control" ngModel name="completionPeriod" id="completionPeriod">
+            <input type="text" class="form-control" ngModel name="completionPeriod" id="completionPeriod" required />
           </div>
         </div>
 

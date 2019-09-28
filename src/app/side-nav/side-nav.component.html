@@ -2,7 +2,7 @@
   <!-- Sidebar Holder -->
   <nav id="sidebar" style="box-shadow: 4px 4px 5px lightgrey">
     <div class="sidebar-header">
-      <h3>HUTCH</h3>
+      <a [routerLink]="['Dashboard/page-content']" routerLinkActive="active"><h3>HUTCH</h3></a>
     </div>
 
     <ul class="list-unstyled components">
@@ -84,7 +84,7 @@
             <a [routerLink]="['/Maintenance/view-maintenance']" routerLinkActive="active">View Maintenance</a>
           </li>
           <li>
-            <a href="#">Remark Maintenance</a>
+            <a [routerLink]="['/Maintenance/view-contractors']" routerLinkActive="active">Contractors</a>
           </li>
         </ul>
       </li>
@@ -93,13 +93,13 @@
         <a href="#SecuritySubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Security Details</a>
         <ul class="collapse list-unstyled" id="SecuritySubmenu">
           <li>
-            <a [routerLink]="['/view-incidents']" routerLinkActive="active">View Incident</a>
+            <a [routerLink]="['Security/view-incidents']" routerLinkActive="active">View Incident</a>
           </li>
           <li>
-            <a [routerLink]="['/add-visitors']" routerLinkActive="active">Add Visitors</a>
+            <a [routerLink]="['Security/add-visitors']" routerLinkActive="active">Add Visitors</a>
           </li>
           <li>
-            <a [routerLink]="['/add-incidents']" routerLinkActive="active">Add Incidents</a>
+            <a [routerLink]="['Security/add-incidents']" routerLinkActive="active">Add Incidents</a>
           </li>
         </ul>
       </li>
@@ -114,13 +114,13 @@
         <a href="#projectSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Ongoing Project</a>
         <ul class="collapse list-unstyled" id="projectSubmenu">
           <li>
-            <a [routerLink]="['/view-ongoing-project']" routerLinkActive="active">View Ongoing Project</a>
+            <a [routerLink]="['Ongoing/view-ongoing-project']" routerLinkActive="active">View Ongoing Project</a>
           </li>
           <li>
-            <a [routerLink]="['/add-new-project']" routerLinkActive="active">Add New Project</a>
+            <a [routerLink]="['Ongoing/add-new-project']" routerLinkActive="active">Add New Project</a>
           </li>
           <li>
-            <a href="#">Remark Maintenance</a>
+            <a [routerLink]="['Ongoing/project-view']" routerLinkActive="active">View project</a>
           </li>
         </ul>
       </li>
