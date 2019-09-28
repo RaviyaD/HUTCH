@@ -1,6 +1,6 @@
-<p>complete-maintenance works!</p>
-<p [(ngModel)]="data.ids" ngDefaultControl>Maintenance ID: {{data.ids}}</p>
 
+<p [(ngModel)]="data.ids" ngDefaultControl>Maintenance ID: {{data.ids}}</p>
+<p [(ngModel)]="data.sid" ngDefaultControl>Site ID : {{data.sid}}</p>
 <p [(ngModel)]="data.sname" ngDefaultControl>Site Name : {{data.sname}}</p>
 <p [(ngModel)]="data.category" ngDefaultControl>Category : {{data.category}}</p>
 <p [(ngModel)]="data.issue" ngDefaultControl>Issue: {{data.issue}}</p>
@@ -28,8 +28,7 @@
   </div>
 
   <div class="panel">
-    <button type="submit"   class="btn-success">Submit</button>
+    <button type="submit"    class="btn btn-primary mt-2 ml-1 mb-2">Submit</button>
   </div>
-
 
 </form>

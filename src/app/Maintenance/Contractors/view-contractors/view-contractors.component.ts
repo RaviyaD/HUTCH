@@ -52,7 +52,8 @@ export class ViewContractorsComponent implements OnInit {
 
   addNew(icontractors: IContractors) {
     const dialogRef = this.dialog.open(AddContractorComponent, {
-      data: {icontractor : icontractors}
+      width: '600px',
+      data: {icontractor : icontractors},
     });
     dialogRef.afterClosed().subscribe(result => {
       if (result === 1) {
