@@ -1,5 +1,5 @@
 import {Component, NgModule, OnInit, CUSTOM_ELEMENTS_SCHEMA} from '@angular/core';
-import {MatAutocompleteModule, MatFormFieldModule, MatInputModule, MatSelectModule} from '@angular/material';
+import {MatAutocompleteModule, MatFormFieldModule, MatInputModule, MatSelectModule, MatSnackBar} from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {BrowserModule} from '@angular/platform-browser';
 import {FormControl, FormsModule, ReactiveFormsModule, Validators} from '@angular/forms';
@@ -11,6 +11,7 @@ import {IMaintenance} from '../Maintenance';
 import {ActivatedRoute, Router} from '@angular/router';
 import {SiteDetailsService} from '../../site-management/site-details.service';
 import {SiteDetails} from '../../site-management/site-details';
+import {DatePipe} from '@angular/common';
 
 @Component({
   selector: 'app-add-maintenance',
@@ -43,11 +44,14 @@ export class AddMaintenanceComponent implements OnInit {
   optionssitename: string[] = [];
   filteredOptions: Observable<string[]>;
   sites: SiteDetails[];
+  expectedDate: any;
+  datee: any;
+  datePipe: DatePipe;
 
   im: IMaintenance;
 
-  constructor(private route: ActivatedRoute, private router: Router, private ms: MaintenanceServicesService,
-              private siteDetailsService: SiteDetailsService) {
+  constructor(private route: ActivatedRoute, private router: Router, datePipe: DatePipe, private ms: MaintenanceServicesService,
+              private siteDetailsService: SiteDetailsService, private snackBar: MatSnackBar) {
     this.im = new IMaintenance();
     this.siteDetailsService.findAll().subscribe(data => {
       this.sites = data;
@@ -55,8 +59,11 @@ export class AddMaintenanceComponent implements OnInit {
         this.optionssiteid[counter] = this.sites[counter].siteID;
         this.optionssitename[counter] = this.sites[counter].siteName;
       }
-      // console.log(this.options[3]);
+
     });
+    this.expectedDate = new Date(new Date().toLocaleDateString('en-US')).toISOString().substr(0, 10);
+    datePipe.transform(this.expectedDate, 'yyyy-MM-dd');
+    console.log(this.expectedDate);
   }
 
 
@@ -97,7 +104,7 @@ export class AddMaintenanceComponent implements OnInit {
   public validcomplete(key: string) {
     let j;
     for (let i = 0; i < this.optionssitename.length; i++) {
-      console.log(this.optionssitename[i]);
+
       if (key !== this.optionssitename[i]) {
         j = 0;
       } else {
@@ -117,13 +124,22 @@ export class AddMaintenanceComponent implements OnInit {
   }
 
   onSubmit() {
-    this.im.sid = this.showsiteid(this.im.sname)
-    this.im.status = 'pending';
-    this.ms.addMaintenance(this.im).subscribe(result => this.gotoViewMaintenance());
+
+
+      this.im.sid = this.showsiteid(this.im.sname)
+      this.im.status = 'pending';
+      this.ms.addMaintenance(this.im).subscribe(result => this.gotoViewMaintenance());
+
   }
 
   gotoViewMaintenance() {
     this.router.navigate(['/Maintenance/view-maintenance']);
+  }
+
+  openSnackBar(message: string) {
+    this.snackBar.open(message, undefined, {
+      duration: 3000,
+    });
   }
 
   log(x) { console.log(x); }

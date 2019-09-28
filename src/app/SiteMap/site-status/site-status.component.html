@@ -1,5 +1,5 @@
-<table><tr>
-  <th class="the">    <app-map></app-map></th>
+<table class="table-responsive"> <tr>
+  <th class="the">    <app-status-map></app-status-map></th>
 
 
 
@@ -7,16 +7,17 @@
 
     <div class="col-md-6 user-container" align="bottom"><table ><tr><th class="th">
       <h3 >Site Status</h3>
-      <a href="#"><button class="buttonMain2">View Active Sites </button></a>
-      <a href="#"><button class="buttonMain2">View Down Sites</button></a>
-      <a href="#"><button class="buttonMain2">View Maintaining Sites</button></a>
-      <a [routerLink]="['/siteMap/status-report']" routerLinkActive="active"><button class="buttonMain2">View Status Report</button></a>
+      <a [routerLink]="['/siteMap/upsitesmap']"><button class="buttonMain2">View Active Sites </button></a>
+      <a [routerLink]="['/siteMap/downsitesmap']"><button class="buttonMain2">View Down Sites</button></a>
+      <a [routerLink]="['/siteMap/maintainmap']"><button class="buttonMain2">View Maintaining Sites</button></a>
+      <a [routerLink]="['/siteMap/directionmap']" routerLinkActive="active"><button class="buttonMain2">View Status Report</button></a>
 
     </th></tr></table>
       <br><br>
 
 
     </div>
+
   </th>
 </tr>
 </table>

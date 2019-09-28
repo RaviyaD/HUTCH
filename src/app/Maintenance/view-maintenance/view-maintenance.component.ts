@@ -6,12 +6,12 @@ import {IMaintenance} from '../Maintenance';
 import {MatDialog} from '@angular/material/dialog';
 import {ActivatedRoute, Router} from '@angular/router';
 import {ResolveMaintenanceComponent} from '../resolve-maintenance/resolve-maintenance.component';
-import {MatSort} from '@angular/material';
+import {MatSort, MatSortable} from '@angular/material';
 import {DatePipe} from '@angular/common';
 import {CompleteMaintenanceComponent} from '../complete-maintenance/complete-maintenance.component';
 import {animate, state, style, transition, trigger} from '@angular/animations';
-import {Observable, of} from 'rxjs';
-
+import 'jspdf-autotable';
+import {Angular5Csv} from 'angular5-csv/dist/Angular5-csv';
 @Component({
   selector: 'app-view-maintenance',
   templateUrl: './view-maintenance.component.html',
@@ -36,6 +36,7 @@ export class ViewMaintenanceComponent implements OnInit, AfterViewInit {
   cname: string;
   id: number;
   index: number;
+  renderedData: any;
   data1: IMaintenance[] = [];
   displayedColumns: string[] = ['ids', 'sid', 'sname', 'category',  'piority',
     'status', 'idate', 'cost', 'conname', 'rdate', 'cdate', 'actions'];
@@ -61,6 +62,7 @@ export class ViewMaintenanceComponent implements OnInit, AfterViewInit {
 
 
     this.dataSource1.paginator = this.paginator;
+    this.sort.sort(({ id: 'idate', start: 'desc'}) as MatSortable);
     this.dataSource1.sort = this.sort;
     this.maintenanceservice.getMaintenance()
       .subscribe(data => this.dataSource1.data = data as IMaintenance[]);
@@ -70,6 +72,7 @@ export class ViewMaintenanceComponent implements OnInit, AfterViewInit {
       this.applyFilter(this.cname);
     }
 
+    this.dataSource1.connect().subscribe(d => this.renderedData = d);
   }
 
 
@@ -80,7 +83,7 @@ export class ViewMaintenanceComponent implements OnInit, AfterViewInit {
 
   delete(id: number) {
     this.maintenanceservice.deleteMaintenance(id);
-    this.gotoViewMaintenance();
+    this.ngOnInit();
   }
 
   gotoViewMaintenance() {
@@ -106,8 +109,7 @@ export class ViewMaintenanceComponent implements OnInit, AfterViewInit {
         const foundIndex = this.exampleDatabase.dataChange.value.findIndex(x => x.ids === this.id);
         // Then you update that record using data from dialogData (values you enetered)
         this.exampleDatabase.dataChange.value[foundIndex] = this.maintenanceservice.getDialogData();
-        // And lastly refresh table
-        // this.refreshTable();
+
       }
     });
   }
@@ -133,9 +135,13 @@ export class ViewMaintenanceComponent implements OnInit, AfterViewInit {
   }
 
   viewcondetails(id: string) {
-    console.log(id);
     this.router.navigate(['Maintenance/view-contractors', id]);
   }
+
+  print() {
+   new Angular5Csv(this.renderedData, 'Maintenance Report');
+  }
+
 
 
 }

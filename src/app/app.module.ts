@@ -30,6 +30,11 @@ import {SiteDetailsService} from './site-management/site-details.service';
 
 // Module
 import { TowerModule } from './TowerLoading/tower.module';
+import {ProjectViewComponent} from './OngoingProject/project-view/project-view.component';
+import {RegionServices} from './Region-Management/regionService';
+import { EditZoneComponent } from './Region-Management/edit-zone/edit-zone.component';
+
+
 
 
 @NgModule({
@@ -60,6 +65,7 @@ import { TowerModule } from './TowerLoading/tower.module';
     ProjectServicesService,
     TowerService,
     OwnedService,
+    RegionServices
   ],
   bootstrap: [AppComponent ]
 })

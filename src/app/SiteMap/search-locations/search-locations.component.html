@@ -1,0 +1,49 @@
+
+
+<table><tr>
+  <th class="the"> <agm-map  [zoom]="17"  [latitude]="lan" [longitude]="lon" [mapTypeId]= 'mapType' >
+
+    <agm-marker
+
+      [latitude]="lan"
+      [longitude]="lon">
+    </agm-marker>
+
+  </agm-map>  </th>
+
+
+
+  <th class="the">
+
+    <h3 > Search for a Site</h3>
+    <div class="col-md-6 user-container" align="bottom" ><table class="table1"><tr><th class="th">
+
+
+      <div class="container" style="margin-left: 9px">
+        <div class="row custom-wrapper" >
+          <div class="col-md-12" >
+            <div class="di" style="margin-right: 90px">
+
+
+              <table>
+                <tr>
+                  <td matTreeNodePadding="2px">Site ID : </td><td>{{lid}}</td> </tr>
+                <tr>  <td>Site Name : </td><td>{{lname}}</td></tr>
+                <tr> <td>Lantitude : </td><td>{{lan}}</td>
+                </tr>
+                <tr><td>Longtitude : </td><td>{{lon}}</td>
+              </table>
+
+
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </th></tr></table>
+
+
+    </div>
+  </th>
+</tr>
+</table>

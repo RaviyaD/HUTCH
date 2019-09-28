@@ -1,0 +1,65 @@
+<div class="container-fluid">
+
+  <div class="row">
+    <div class="col-12">
+      <h3 class="text-center">Region Details</h3>
+    </div>
+  </div>
+
+  <div class="row mt-4">
+    <div class="col-12">
+      <form (ngSubmit)="onSubmit(f)" #f="ngForm">
+        <mat-accordion class="example-headers-align">
+          <mat-expansion-panel [expanded]="step === 0" (opened)="setStep(0)" hideToggle>
+            <mat-expansion-panel-header>
+              <mat-panel-title>
+                Region Zone
+              </mat-panel-title>
+              <mat-panel-description>
+                Edit Region-Zone
+                <mat-icon>settings_input_antenna</mat-icon>
+              </mat-panel-description>
+            </mat-expansion-panel-header>
+
+            <mat-form-field style="width: 25%">
+              <input matInput placeholder="Zone Name" ngModel name="zonename" id="zonename" [(ngModel)]="zn.zonename" value={{zn.zonename}} required disabled>
+            </mat-form-field>
+            <br>
+            <mat-form-field style="width: 25%">
+              <input matInput placeholder="Senior Eng Name" ngModel name="seniorengineer" id="seniorengineer" [(ngModel)]="zn.seniorengineer" value={{zn.seniorengineer}} required >
+            </mat-form-field>
+            <br>
+            <mat-form-field style="width: 25%">
+              <input matInput placeholder="Senior Eng Mob No:" ngModel name="semobno" id="semobno" [(ngModel)]="zn.semobno" value={{zn.semobno}} minlength="10" maxlength="10" required >
+            </mat-form-field>
+            <br>
+            <mat-form-field style="width: 25%">
+              <input matInput placeholder="Senior Eng Email:" ngModel name="seemail" id="seemail" [(ngModel)]="zn.seemail" value={{zn.seemail}} required >
+            </mat-form-field>
+            <br>
+            <mat-form-field style="width: 25%">
+              <input matInput placeholder="Engineer" ngModel name="engineer" id="engineer" [(ngModel)]="zn.engineer" value={{zn.engineer}} required >
+            </mat-form-field>
+            <br>
+            <mat-form-field style="width: 25%">
+              <input matInput placeholder="Engineer Mob No:" ngModel name="emobno" id="emobno" [(ngModel)]="zn.emobno" value={{zn.emobno}} minlength="10" maxlength="10" required >
+            </mat-form-field>
+            <br>
+            <mat-form-field style="width: 25%">
+              <input matInput placeholder="Engineer Email"  name="eemail" id="eemail" [(ngModel)]="zn.eemail" value={{zn.eemail}} required >
+            </mat-form-field>
+            <br>
+            <button class="btn btn-primary mt-2 ml-4 mb-2" (click)="submitUpdate()" type="button" >
+              Update
+            </button>
+
+
+
+
+
+          </mat-expansion-panel>
+        </mat-accordion>
+      </form>
+    </div>
+  </div>
+</div>
