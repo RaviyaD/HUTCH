@@ -4,7 +4,7 @@ import {MatPaginator} from '@angular/material/paginator';
 import {ProjectServicesService} from './ProjectServices';
 import {IProject} from '../Project';
 import {Observable} from 'rxjs';
-import { DataSource} from '@angular/cdk/collections';
+import {DataSource} from '@angular/cdk/collections';
 import {ActivatedRoute, Router} from '@angular/router';
 import {MatDialog, MatSort} from '@angular/material';
 import {UpdateOngoingProjectComponent} from '../update-ongoing-project/update-ongoing-project.component';
