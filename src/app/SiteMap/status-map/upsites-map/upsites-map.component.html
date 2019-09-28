@@ -1,5 +1,26 @@
+
 <table class="table-responsive"> <tr>
-  <th class="the">    <app-status-map></app-status-map></th>
+  <th class="the">
+
+    <agm-map [latitude]="latU" [longitude]="lngU" >
+
+
+
+      <agm-marker
+        *ngFor="let map2 of upsites"
+        [latitude]="map2.latitude"
+        [longitude]="map2.longitude"
+        iconUrl= "http://maps.google.com/mapfiles/ms/icons/green-dot.png"
+      >
+      </agm-marker>
+
+    </agm-map>
+
+
+
+
+
+  </th>
 
 
 
@@ -10,16 +31,14 @@
       <a [routerLink]="['/siteMap/upsitesmap']"><button class="buttonMain2">View Active Sites </button></a>
       <a [routerLink]="['/siteMap/downsitesmap']"><button class="buttonMain2">View Down Sites</button></a>
       <a [routerLink]="['/siteMap/maintainmap']"><button class="buttonMain2">View Maintaining Sites</button></a>
-      <a [routerLink]="['/siteMap/directionmap']" routerLinkActive="active"><button class="buttonMain2">View Status Report</button></a>
+      <a [routerLink]="['/siteMap/status-report']" routerLinkActive="active"><button class="buttonMain2">View Status Report</button></a>
 
     </th></tr></table>
       <br><br>
 
 
     </div>
-
   </th>
 </tr>
 </table>
-
 

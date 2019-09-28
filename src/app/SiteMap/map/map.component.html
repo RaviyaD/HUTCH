@@ -1,43 +1,14 @@
-<agm-map [latitude]="lat" [longitude]="lng">
-  <agm-marker
 
-    [latitude]="6.585395"
-    [longitude]="79.960739">
-  </agm-marker>
+
+<agm-map [latitude]="lat" [longitude]="lng" >
 
   <agm-marker
+    *ngFor="let map of mmap"
+    [latitude]="map.latitude"
+    [longitude]="map.longitude"
 
-    [latitude]="8.592200"
-    [longitude]="81.196793">
-  </agm-marker>
-  <agm-marker
-
-    [latitude]="6.87291679"
-    [longitude]="79.888634">
+  >
   </agm-marker>
 
-  <agm-marker
-
-    [latitude]="6.124593"
-    [longitude]="81.101074">
-  </agm-marker>
-
-  <agm-marker
-
-    [latitude]="7.554821"
-    [longitude]="80.457296">
-  </agm-marker>
-
-  <agm-marker
-
-    [latitude]="7.290572"
-    [longitude]=" 80.633728">
-  </agm-marker>
-
-  <agm-marker
-
-    [latitude]="7.301756"
-    [longitude]=" 81.674730">
-  </agm-marker>
 
 </agm-map>

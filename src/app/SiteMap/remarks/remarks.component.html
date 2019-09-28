@@ -1,11 +1,11 @@
-<table width="100%"><tr>
+<table width="95%"><tr>
   <th class=".the">    <app-map></app-map> </th>
 
 
   <th class=".the">
 
-    <table class="table1"><tr><th class="th">  <h3 align="center" > Site-Map Remarks</h3>
-      </th></tr></table>
+    <h3 align="center"  > Site-Map Remarks</h3>
+
     <br>
     <a routerLink="/siteMap/createRemark" class="btn btn-info" style="margin-bottom: 10px;width: 150px;align: center;background-color: #EC6708" >Add Remark</a>
     <!--  <table class="table table-striped" class="table3" >
@@ -38,8 +38,8 @@
       <!--Table body-->
       <tbody>
       <tr *ngFor="let remark of remarks">
-        <td>{{ remark.remark }}</td>
-        <td padding="4px 2px" class="r"><button class="btn btn-info"  style="background-color: #EC6708;margin-right: 10px"  (click)="delete(remark.id)"> Delete</button>
+        <td >{{ remark.remark }}</td>
+        <td padding="4px 2px 10px" class="r"><button class="btn btn-info"  style="background-color: #EC6708;margin-right: 10px"  (click)="delete(remark.id)"> Delete</button>
           <button class="btn btn-info" style="background-color: #EC6708;margin-left: 5px;" (click)="startEdit(remarks)" > Edit</button></td>
       </tr>
 
@@ -53,4 +53,3 @@
   </th>
 </tr>
 </table>
-
