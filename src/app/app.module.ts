@@ -43,6 +43,7 @@ import {AddNewProjectComponent} from './OngoingProject/add-new-project/add-new-p
 
 // Module
 import { TowerModule } from './TowerLoading/tower.module';
+import {RegionServices} from './Region-Management/regionService';
 
 
 
@@ -85,6 +86,7 @@ import { TowerModule } from './TowerLoading/tower.module';
     ProjectServicesService,
     TowerService,
     OwnedService,
+    RegionServices,
   ],
   bootstrap: [AppComponent]
 })
