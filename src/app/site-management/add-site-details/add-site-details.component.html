@@ -89,12 +89,7 @@
             </mat-form-field>
             <br>
             <mat-form-field style="width: 35%">
-              <input matInput placeholder="Tower Type" [(ngModel)]="tt" name="towerType" id="towerType" [matAutocomplete]="auto1">
-              <mat-autocomplete #auto1="matAutocomplete">
-                <mat-option *ngFor="let option of filteredOptionsTowerType | async" [value]="option">
-                  {{option}}
-                </mat-option>
-              </mat-autocomplete>
+              <input matInput placeholder="Tower Type" ngModel name="towerType" id="towerType" >
             </mat-form-field>
             <br>
             <mat-form-field style="width: 35%">
@@ -193,21 +188,11 @@
             </mat-expansion-panel-header>
 
             <mat-form-field style="width: 35%">
-              <input matInput placeholder="Band Type" ngModel name="bandType" id="bandType"  [matAutocomplete]="auto2">
-              <mat-autocomplete #auto2="matAutocomplete">
-                <mat-option *ngFor="let option of bandOptions" [value]="option">
-                  {{option}}
-                </mat-option>
-              </mat-autocomplete>
+              <input matInput placeholder="Band Type" ngModel name="bandType" id="bandType" >
             </mat-form-field>
             <br>
             <mat-form-field style="width: 35%">
-              <input matInput placeholder="3G Antenna Product Name" ngModel name="antProdName3g" id="antProdName3g" [matAutocomplete]="auto3">
-              <mat-autocomplete #auto3="matAutocomplete">
-                <mat-option *ngFor="let option of modelOptions" [value]="option">
-                  {{option}}
-                </mat-option>
-              </mat-autocomplete>
+              <input matInput placeholder="3G Antenna Product Name" ngModel name="antProdName3g" id="antProdName3g" >
             </mat-form-field>
             <br>
             <mat-form-field style="width: 35%">
@@ -273,12 +258,7 @@
             </mat-form-field>
             <br>
             <mat-form-field style="width: 35%">
-              <input matInput placeholder="BTS Type" ngModel [matAutocomplete]="auto4" name="btsType" id="btsType" >
-              <mat-autocomplete #auto4="matAutocomplete">
-                <mat-option *ngFor="let option of btsOptions" [value]="option">
-                  {{option}}
-                </mat-option>
-              </mat-autocomplete>
+              <input matInput placeholder="BTS Type" ngModel name="btsType" id="btsType" >
             </mat-form-field>
             <br>
             <mat-form-field style="width: 35%">
@@ -286,14 +266,10 @@
             </mat-form-field>
             <br>
             <mat-form-field style="width: 35%">
-              <input matInput placeholder="TRX Type 2G" [(ngModel)]="trx" name="trxType2g" id="trxType2g" [formControl]="myControl2" [matAutocomplete]="auto5">
-              <mat-autocomplete #auto5="matAutocomplete">
-                <mat-option *ngFor="let option of filteredOptionsTRX | async" [value]="option">
-                  {{option}}
-                </mat-option>
-              </mat-autocomplete>
+              <input matInput placeholder="TRX Type 2G" ngModel name="trxType2g" id="trxType2g" >
             </mat-form-field>
             <br>
+
             <mat-action-row>
               <button mat-button color="warn" (click)="prevStep()">Previous</button>
               <button mat-button color="primary" (click)="nextStep()">Next</button>
@@ -312,12 +288,7 @@
             </mat-expansion-panel-header>
 
             <mat-form-field style="width: 35%">
-              <input matInput placeholder="Equipment Type" ngModel name="equipmentType" id="equipmentType" [matAutocomplete]="auto4">
-              <mat-autocomplete #auto4="matAutocomplete">
-                <mat-option *ngFor="let option of btsOptions" [value]="option">
-                  {{option}}
-                </mat-option>
-              </mat-autocomplete>
+              <input matInput placeholder="Equipment Type" ngModel name="equipmentType" id="equipmentType" >
             </mat-form-field>
             <br>
             <mat-form-field style="width: 35%">
