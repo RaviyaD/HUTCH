@@ -5,6 +5,7 @@ import {MatSort} from '@angular/material';
 import {SiteDetailsService} from '../site-details.service';
 import {DatePipe} from '@angular/common';
 import {Router} from '@angular/router';
+import {HttpClient} from '@angular/common/http';
 
 @Component({
   selector: 'app-view-all-sites',
@@ -22,14 +23,61 @@ export class ViewAllSitesComponent implements OnInit {
   displayedColumns: string[] = ['siteID', 'siteName', 'ownership', 'ownerSiteName', 'frequencyBand',
     'commissionedDate', 'commissionedDate3G'];
   newColumns: string[] = ['bsc'];
+  insert: number;
+  update: number;
   public dataSource = new MatTableDataSource<SiteDetails>();
+
+  /*title = 'Browser market shares at a specific website, 2014';
+  type = 'PieChart';
+  data = [
+    ['Firefox', 45.0],
+    ['IE', 26.8],
+    ['Chrome', 12.8],
+    ['Safari', 8.5],
+    ['Opera', 6.2],
+    ['Others', 0.7]
+  ];
+  columnNames = ['Browser', 'Percentage'];
+  options = {
+  };*/
+  title = 'Site changes for the year (2019)';
+  type = 'BarChart';
+  data = [
+    ['Added', this.insert],
+    ['Updated', this.update],
+  ];
+  columnNames = ['Year', 'Hutch'];
+  options = { };
+  width = 650;
+  height = 400;
 
   @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
   @ViewChild(MatSort, {static: true}) sort: MatSort;
 
-  constructor(private siteDetailsService: SiteDetailsService, private datePipe: DatePipe, private router: Router) { }
+  constructor(private siteDetailsService: SiteDetailsService, private datePipe: DatePipe, private router: Router, private http: HttpClient) {
+
+  }
 
   ngOnInit() {
+    this.http.post('http://localhost:8080/SiteDetails' + '/' + 'Count/Inserted', {
+      startDate: '27-09-2019',
+      endDate: '30-09-2019'} ).toPromise().then((data: any) => {
+      this.insert = data;
+      this.data = [
+        ['Added', this.insert],
+        ['Updated', this.update],
+      ];
+    });
+    this.http.post('http://localhost:8080/SiteDetails' + '/' + 'Count/Updated', {
+      startDate: '27-09-2019',
+      endDate: '30-09-2019'} ).toPromise().then((data: any) => {
+      this.update = data;
+      this.data = [
+        ['Added', this.insert],
+        ['Updated', this.update],
+      ];
+    });
+
     this.dataSource.paginator = this.paginator;
     this.dataSource.sort = this.sort;
     this.siteDetailsService.findAll().subscribe( data => this.dataSource.data = data as SiteDetails[]);
@@ -119,5 +167,11 @@ export class ViewAllSitesComponent implements OnInit {
         'commissionedDate', 'commissionedDate3G'];
     }
     this.cabinDet = !this.cabinDet;
+    console.log(this.insert);
+  }
+
+  dateeeee() {
+    console.log('inside');
+    this.siteDetailsService.getUpdateCount();
   }
 }

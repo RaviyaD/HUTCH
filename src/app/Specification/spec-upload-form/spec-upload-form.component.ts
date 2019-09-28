@@ -36,15 +36,15 @@ export class SpecUploadFormComponent implements OnInit {
   onSubmitUpload() {
 
 
-    if (this.specUp.specId === 0) {
+    /*if (this.specUp.specId === 0) {*/
       console.log('sub');
       this.upl.save(this.specUp).subscribe(result =>
         this.getSpecList() );
       this.specUp = new Spec();
-    } else {
+    /*} else {
       console.log('update');
       this.onUpdate(this.specUp.specId, this.specUp );
-    }
+    }*/
     // this.goToSpecItem()
 
     // console.log('after');

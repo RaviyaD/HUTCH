@@ -1,8 +1,18 @@
+<google-chart
+  [title]="title"
+  [type]="type"
+  [(data)]="data"
+  [columnNames]="columnNames"
+  [options]="options"
+  [width]="width"
+  [height]="height">
+</google-chart>
 <button (click)="toggleColumn()">Toggle Location Details</button>
 <button (click)="toggleCellAntLocDet()">Toggle Cellular Antenna Location Details</button>
 <button (click)="toggleCellAntType()">Toggle Cellular Antenna Type</button>
 <button (click)="toggleBSCRNC()">Toggle BSC/RNC Details</button>
 <button (click)="toggleCabinDet()">Toggle Cabin Details</button>
+<button (click)="dateeeee()">date</button>
 <mat-form-field>
   <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
 </mat-form-field>
