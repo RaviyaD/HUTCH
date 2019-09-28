@@ -1,4 +1,5 @@
-<google-chart
+<div id="print-section">
+<google-chart #chart
   [title]="title"
   [type]="type"
   [(data)]="data"
@@ -7,12 +8,16 @@
   [width]="width"
   [height]="height">
 </google-chart>
-<button (click)="toggleColumn()">Toggle Location Details</button>
-<button (click)="toggleCellAntLocDet()">Toggle Cellular Antenna Location Details</button>
-<button (click)="toggleCellAntType()">Toggle Cellular Antenna Type</button>
-<button (click)="toggleBSCRNC()">Toggle BSC/RNC Details</button>
-<button (click)="toggleCabinDet()">Toggle Cabin Details</button>
-<button (click)="dateeeee()">date</button>
+</div>
+<button mat-button color="accent" (click)="print()" class="doNotPrint">
+  <mat-icon class="mat-24" aria-label="Example icon-button with a heart icon" class="doNotPrint">print</mat-icon></button>
+<br>
+<div class="doNotPrint">
+<button class="btn btn-primary mt-2 ml-4 mb-2" (click)="toggleColumn()">Toggle Location Details</button>
+<button class="btn btn-primary mt-2 ml-4 mb-2" (click)="toggleCellAntLocDet()">Toggle Cellular Antenna Location Details</button>
+<button class="btn btn-primary mt-2 ml-4 mb-2" (click)="toggleCellAntType()">Toggle Cellular Antenna Type</button>
+<button class="btn btn-primary mt-2 ml-4 mb-2" (click)="toggleBSCRNC()">Toggle BSC/RNC Details</button>
+<button class="btn btn-primary mt-2 ml-4 mb-2" (click)="toggleCabinDet()">Toggle Cabin Details</button>
 <mat-form-field>
   <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
 </mat-form-field>
@@ -80,4 +85,5 @@
   </table>
 
   <mat-paginator [pageSizeOptions]="[10, 25, 50, 100]"></mat-paginator>
+</div>
 </div>

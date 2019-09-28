@@ -6,6 +6,7 @@ import {SiteDetailsService} from '../site-details.service';
 import {DatePipe} from '@angular/common';
 import {Router} from '@angular/router';
 import {HttpClient} from '@angular/common/http';
+import {GoogleChartComponent} from 'angular-google-charts';
 
 @Component({
   selector: 'app-view-all-sites',
@@ -15,6 +16,8 @@ import {HttpClient} from '@angular/common/http';
 })
 export class ViewAllSitesComponent implements OnInit {
 
+  @ViewChild('chart', {static: false})
+  chart: GoogleChartComponent;
   public display = true;
   public cellAntLocDet = true;
   cellAntLocType = true;
@@ -47,21 +50,22 @@ export class ViewAllSitesComponent implements OnInit {
     ['Updated', this.update],
   ];
   columnNames = ['Year', 'Hutch'];
-  options = { };
-  width = 650;
-  height = 400;
+  options = {
+    colors: ['#ffa726']
+  };
+  width = 550;
+  height = 300;
 
   @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
   @ViewChild(MatSort, {static: true}) sort: MatSort;
 
   constructor(private siteDetailsService: SiteDetailsService, private datePipe: DatePipe, private router: Router, private http: HttpClient) {
-
   }
 
   ngOnInit() {
     this.http.post('http://localhost:8080/SiteDetails' + '/' + 'Count/Inserted', {
       startDate: '27-09-2019',
-      endDate: '30-09-2019'} ).toPromise().then((data: any) => {
+      endDate: '30-10-2019'} ).toPromise().then((data: any) => {
       this.insert = data;
       this.data = [
         ['Added', this.insert],
@@ -70,7 +74,7 @@ export class ViewAllSitesComponent implements OnInit {
     });
     this.http.post('http://localhost:8080/SiteDetails' + '/' + 'Count/Updated', {
       startDate: '27-09-2019',
-      endDate: '30-09-2019'} ).toPromise().then((data: any) => {
+      endDate: '30-10-2019'} ).toPromise().then((data: any) => {
       this.update = data;
       this.data = [
         ['Added', this.insert],
@@ -173,5 +177,24 @@ export class ViewAllSitesComponent implements OnInit {
   dateeeee() {
     console.log('inside');
     this.siteDetailsService.getUpdateCount();
+  }
+  print(): void {
+    let printContents;
+    let popupWin;
+    printContents = document.getElementById('print-section').innerHTML;
+    popupWin = window.open('', '_blank', 'top=0,left=0,height=100%,width=auto');
+    popupWin.document.open();
+    popupWin.document.write(`
+      <html>
+        <head>
+          <title>Print tab</title>
+          <style>
+          //........Customized style.......
+          </style>
+        </head>
+    <body onload="window.print();window.close()">${printContents}</body>
+      </html>`
+    );
+    popupWin.document.close();
   }
 }
