@@ -101,7 +101,13 @@ export class AddNewProjectComponent implements OnInit {
 
   onSubmit() {
     console.log(this.is.projectId);
-    this.projectService.addProject(this.is).subscribe(result => this.gotoViewProject());
+    if (this.is.projectId == null) {
+      this.openSnackBar('Enter ProjectID');
+    } else if (this.is.projectName == null) {
+      this.openSnackBar('Enter Valid Project Name');
+    } else {
+      this.projectService.addProject(this.is).subscribe(result => this.gotoViewProject());
+    }
   }
   gotoViewProject() {
     this.router.navigate(['Ongoing/view-ongoing-project']);
