@@ -8,13 +8,30 @@
 
   <div class="row mt-4">
     <div class="col parent">
-      <form class="example-form text-center" (ngSubmit)="onSubmit()">
+      <form class="example-form text-center" (ngSubmit)="onSubmit('id')">
         <mat-form-field class="example-full-width">
           <button type="submit" style="display:none">hidden submit</button>
           <input type="text" matInput [formControl]="myControl" [matAutocomplete]="auto" [(ngModel)]="siteID">
           <mat-placeholder>Enter Site ID</mat-placeholder>
           <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
             <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+              {{option}}
+            </mat-option>
+          </mat-autocomplete>
+        </mat-form-field>
+      </form>
+    </div>
+  </div>
+
+  <div class="row mt-4">
+    <div class="col parent">
+      <form class="example-form text-center" (ngSubmit)="onSubmit('name')">
+        <mat-form-field class="example-full-width">
+          <button type="submit" style="display:none">hidden submit</button>
+          <input type="text" matInput [formControl]="myControl1" [matAutocomplete]="auto1" [(ngModel)]="siteName">
+          <mat-placeholder> or Site Name</mat-placeholder>
+          <mat-autocomplete autoActiveFirstOption #auto1="matAutocomplete">
+            <mat-option *ngFor="let option of filteredNameOptions | async" [value]="option">
               {{option}}
             </mat-option>
           </mat-autocomplete>

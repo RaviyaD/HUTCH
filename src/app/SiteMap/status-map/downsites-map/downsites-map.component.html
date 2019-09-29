@@ -1,0 +1,45 @@
+
+<table class="table-responsive"> <tr>
+  <th class="the">
+
+    <agm-map [latitude]="latD" [longitude]="lngD" >
+
+
+
+      <agm-marker
+        *ngFor="let map2D of downsites"
+        [latitude]="map2D.latitude"
+        [longitude]="map2D.longitude"
+        iconUrl= "http://maps.google.com/mapfiles/ms/icons/red-dot.png"
+
+      >
+      </agm-marker>
+
+    </agm-map>
+
+
+
+
+
+  </th>
+
+
+
+  <th class="the">
+
+    <div class="col-md-6 user-container" align="bottom"><table ><tr><th class="th">
+      <h3 >Site Status</h3>
+      <a  [routerLink]="['/siteMap/upsitesmap']"><button class="buttonMain2">View Active Sites </button></a>
+      <a  [routerLink]="['/siteMap/downsitesmap']"><button class="buttonMain2">View Down Sites</button></a>
+      <a  [routerLink]="['/siteMap/maintainmap']"><button class="buttonMain2">View Maintaining Sites</button></a>
+      <a [routerLink]="['/siteMap/status-report']" routerLinkActive="active"><button class="buttonMain2">View Status Report</button></a>
+
+    </th></tr></table>
+      <br><br>
+
+
+    </div>
+  </th>
+</tr>
+</table>
+

@@ -79,12 +79,11 @@ td{
 
 
 .di {
-  background-color: lightgray;
+  background-color: white;
   color: Black;
-  width: 470px;
+  width: 600px;
   height: 300px;
-  margin: 1px 0.1px ;
+
 
   padding: 10px 0px;
 }
-
