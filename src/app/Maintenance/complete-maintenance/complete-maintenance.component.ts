@@ -32,6 +32,7 @@ export class CompleteMaintenanceComponent implements OnInit {
     this.data.rdate = this.datePipe.transform(this.data.rdate, 'yyyy-MM-dd');
     this.data.cdate = this.datePipe.transform(this.data.cdate, 'yyyy-MM-dd');
     this.isValidDate = this.validateDates(this.data.idate, this.data.rdate);
+    console.log(this.data.rdate + this.data.cdate);
     if (this.isValidDate) {
       this.data.status = 'Complete';
       this.dataService.updateMaintenance(this.data);
