@@ -16,9 +16,17 @@ export class RemarkServiceService {
     this.usersUrl = 'http://localhost:8080/MapRemark';
   }
 
-  public getRemark(): Observable<Remark[]> {
-    return this.http.get<Remark[]>(this.usersUrl);
+  updateRemarks(rrr: Remark): void {
+    this.http.put(this.usersUrl + '/' + rrr.id, rrr).subscribe(data => {
+        this.dialogData = rrr;
+      },
+      (err: HttpErrorResponse) => {
+        console.log(err);
+      }
+    );
   }
+
+
   public findAll(): Observable<Remark[]> {
     return this.http.get<Remark[]>(this.usersUrl);
   }

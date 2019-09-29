@@ -21,17 +21,14 @@
               </mat-panel-description>
             </mat-expansion-panel-header>
 
-            <mat-form-field style="width: 25%">
-              <input matInput placeholder="Site ID (should be 6 characters)" ngModel name="id" id="id" required minlength="6" maxlength="6">
-            </mat-form-field>
             <br>
             <mat-form-field style="width: 25%">
-              <input matInput placeholder="Site Name" ngModel name="name" id="name" required>
+              <input matInput placeholder="Site Name" ngModel name="sname" id="name" required>
             </mat-form-field>
             <br>
 
             <mat-form-field style="width: 25%">
-              <input type="date" matInput placeholder="Incident Date" ngModel name="cd" id="incident_date">
+              <input type="date" matInput placeholder="Incident Date" ngModel name="idate" id="incident_date">
             </mat-form-field>
             <br>
 
@@ -47,7 +44,7 @@
 
             <br>
             <button mat-button color="primary" (click)="nextStep()"[disabled]="!f.valid" >
-              Next
+              Submit
             </button>
             <mat-action-row>
               <button mat-button color="primary" (click)="nextStep()">Next</button>
@@ -57,17 +54,31 @@
           <mat-expansion-panel [expanded]="step === 1" (opened)="setStep(1)" hideToggle>
             <mat-expansion-panel-header>
               <mat-panel-title>
-                Location
+                Inform Incident
               </mat-panel-title>
               <mat-panel-description>
-                Site Location Details
-                <mat-icon>map</mat-icon>
+                Infomer Details
+                <mat-icon></mat-icon>
               </mat-panel-description>
             </mat-expansion-panel-header>
 
-            <mat-form-field>
-              <input matInput placeholder="Country">
+            <mat-form-field style="width: 25%">
+            <input matInput placeholder="Informer Name" ngModel name="iname" id="InformName" required>
             </mat-form-field>
+            <br>
+              <mat-form-field style="width: 25%">
+                <input type="date" matInput placeholder="Inform Date" ngModel name="indate" id="inform_date" >
+              </mat-form-field>
+            <br>
+
+            <label id="example-radio-group-label">Provide Abans Security</label>
+            <mat-radio-group
+              aria-labelledby="example-radio-group-label"
+              class="radio_group"
+              ngModel name="provideAbansSecurity">
+              <mat-radio-button value="yes">YES</mat-radio-button>
+              <mat-radio-button value="no">No</mat-radio-button>
+            </mat-radio-group>
 
             <mat-action-row>
               <button mat-button color="warn" (click)="prevStep()">Previous</button>
@@ -78,18 +89,36 @@
           <mat-expansion-panel [expanded]="step === 2" (opened)="setStep(2)" hideToggle>
             <mat-expansion-panel-header>
               <mat-panel-title>
-                Cellular Antenna
+                Inform police
               </mat-panel-title>
               <mat-panel-description>
-                Location Details
-                <mat-icon>signal_cellular_alt</mat-icon>
+                police Details
+                <mat-icon></mat-icon>
               </mat-panel-description>
             </mat-expansion-panel-header>
 
-            <mat-form-field>
-              <input matInput placeholder="Date" [matDatepicker]="picker" (focus)="picker.open()" readonly>
+            <mat-form-field style="width: 25%">
+              <input type="date" matInput placeholder="Entry Date" ngModel name="endate" id="dateOfEntry" >
             </mat-form-field>
             <mat-datepicker #picker></mat-datepicker>
+            <br>
+
+            <mat-form-field style="width: 25%">
+              <input matInput placeholder="Police Station Name" ngModel name="policename" id="nameOfThePoliceStation" required>
+            </mat-form-field>
+            <br>
+
+            <label id="police_report">Obtain Police Report</label>
+            <mat-radio-group
+              aria-labelledby="example-radio-group-label"
+              class="radio_group"
+              [(ngModel)]="ObtainPoliceReport">
+              <mat-radio-button value="yes">YES</mat-radio-button>
+              <mat-radio-button value="no">No</mat-radio-button>
+            </mat-radio-group>
+
+
+
 
             <mat-action-row>
               <button mat-button color="warn" (click)="prevStep()">Previous</button>
@@ -100,10 +129,21 @@
           <mat-expansion-panel [expanded]="step === 3" (opened)="setStep(3)" hideToggle>
             <mat-expansion-panel-header>
               <mat-panel-title>
-                Cellular Antenna
+                Remarks
               </mat-panel-title>
               <mat-panel-description>
                 Type Details
-                <mat-icon>signal_cellular_alt</mat-icon>
+                <mat-icon></mat-icon>
               </mat-panel-description>
             </mat-expansion-panel-header>
+
+            <mat-form-field style="width: 25%">
+              <textarea matInput placeholder="Remarks" ngModel name="remark" id="Remarks" required></textarea>
+            </mat-form-field>
+
+<br>
+<br>
+              <button class="btn btn-primary mt-2 ml-4 mb-2" type="submit" [disabled]="!f.valid" >
+                Submit
+              </button>
+          </mat-expansion-panel></mat-accordion></form></div></div></div>

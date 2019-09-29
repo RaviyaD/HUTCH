@@ -17,16 +17,29 @@ td{
 
 
 
+
 .the{
   height: 750px;
-  width: 50%;
+  width:30%;
 
   z-index: 1;
   top: 0;
   overflow-x: hidden;
   padding-top: 2px;
   left: auto;
-  background-color: lightgray;
+  background-color: #fefefe;
+}
+
+.the2{
+  height: 750px;
+  width: 600px;
+
+  z-index: 1;
+  top: 0;
+  overflow-x: hidden;
+  padding-top: 2px;
+
+  background-color: #fefefe;
 }
 
 .centereds {
@@ -52,17 +65,17 @@ td{
   background-color: darkorange;
   border: none;
   color: white;
-  padding: 15px 30px;
+  padding: 5px 5px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
   font-size: 19px;
-  margin: 20px 2px;
+  margin: 20px 1px;
   cursor: pointer;
   -webkit-transition-duration: 0.4s; /* Safari */
   transition-duration: 0.4s;
   box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
-  width: 300px;
+  width: 200px;
 }
 
 .buttonMain1 {

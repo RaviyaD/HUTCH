@@ -1,6 +1,6 @@
-<div class="wrapper">
+<div class="wrapper" >
   <!-- Sidebar Holder -->
-  <nav id="sidebar" style="box-shadow: 4px 4px 5px lightgrey">
+  <nav id="sidebar" class="doNotPrint" style="box-shadow: 4px 4px 5px lightgrey">
     <div class="sidebar-header">
       <a [routerLink]="['Dashboard/page-content']" routerLinkActive="active"><h3>HUTCH</h3></a>
     </div>
@@ -93,13 +93,13 @@
         <a href="#SecuritySubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Security Details</a>
         <ul class="collapse list-unstyled" id="SecuritySubmenu">
           <li>
-            <a [routerLink]="['Security/view-incidents']" routerLinkActive="active">View Incident</a>
+            <a [routerLink]="['Security/add-site-security-person']" routerLinkActive="active">View Incident</a>
           </li>
           <li>
-            <a [routerLink]="['Security/add-visitors']" routerLinkActive="active">Add Visitors</a>
+            <a [routerLink]="['Security/view-visitors']" routerLinkActive="active">view Visitors</a>
           </li>
           <li>
-            <a [routerLink]="['Security/add-incidents']" routerLinkActive="active">Add Incidents</a>
+            <a [routerLink]="['Security/view-site-security-person']" routerLinkActive="active">View Security</a>
           </li>
         </ul>
       </li>

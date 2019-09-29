@@ -1,6 +1,6 @@
 <h2>| Usage of Antenna's Area |</h2>
 <hr>
-<form (ngSubmit)="onSubmit()" #f="ngForm" >
+<form (ngSubmit)="onSubmit()" #f="ngForm">
 
   <mat-form-field class="example-full-width">
     <input name="siteID" type="text" placeholder="Site ID number" aria-label="Number"
@@ -19,12 +19,12 @@
   </mat-form-field>
 
   <div class="form-group">
-    <label >Site name: </label>
+    <label>Site name: </label>
     <label>{{getSiteName()}}</label>
   </div>
 
   <div class="form-group">
-    <label >Total Area on Tower (m^2) :</label>
+    <label>Total Area on Tower (m^2) :</label>
     <input type="number"
            class="form-control"
            name="totalArea"
@@ -32,31 +32,59 @@
            required
            ngModel
            [(ngModel)]="ot.totalArea"
-      min=20
-       max=50>
+           #totalArea="ngModel">
+    <small><p *ngIf="!validateArea() && !totalArea.untouched" style="color: #ca2819">Height should be between 5 and
+      10!</p></small>
   </div>
   <div class="form-group">
-    <label >Wind sheild Area:</label>
-    <input type="number" class="form-control" name="windSheildArea"  placeholder="Area: m^2" required ngModel
-           [(ngModel)]="ot.windShieldArea">
+    <label>Wind sheild Area:</label>
+    <input type="number"
+           class="form-control"
+           name="windSheildArea"
+           placeholder="Area: m^2"
+           required ngModel
+           [(ngModel)]="ot.windSheildArea"
+           #windSheildArea="ngModel">
+    <small><p *ngIf="!windshieldArea() && !windSheildArea.untouched" style="color: #ca2819">Height should be between 5
+      and 10!</p></small>
+
   </div>
   <div class="form-group">
-    <label >GSM antenna covered Area:</label>
-    <input type="number" class="form-control" name="ownGSM"  placeholder="Area: m^2" required ngModel
-           [(ngModel)]="ot.gsm">
+    <label>GSM antenna covered Area:</label>
+    <input type="number"
+           class="form-control"
+           name="ownGSM"
+           placeholder="Area: m^2"
+           required ngModel
+           [(ngModel)]="ot.gsm"
+           #ownGSM="ngModel"
+           disabled>
   </div>
   <div class="form-group">
-    <label >Micro wave antenna covered Area:</label>
-    <input type="number" class="form-control" name="ownMicro"  placeholder="Area: m^2" required ngModel
-           [(ngModel)]="ot.micro">
+    <label>Micro wave antenna covered Area:</label>
+    <input type="number"
+           class="form-control"
+           name="ownMicro"
+           placeholder="Area: m^2"
+           required ngModel
+           [(ngModel)]="ot.micro"
+           #ownMicro="ngModel"
+           disabled>
   </div>
 
   <div class="form-group">
-    <label >Remaining area on the Tower:</label>
-    <input type="number" class="form-control" name="remaining"  placeholder="Area: m^2" required ngModel
-           [(ngModel)]="ot.remaining">
+    <label>Remaining area on the Tower:</label>
+    <input type="number"
+           class="form-control"
+           name="remaining"
+           placeholder="Area: m^2"
+           required ngModel
+           [(ngModel)]="ot.remaining"
+           #height="ngModel"
+           disabled>
   </div>
   <button type="submit"
-          class="btn btn-primary btn-lg btn-block"S
-           [disabled]="!f.valid || !(ot.siteID!=null) " >Submit</button>
+          class="btn btn-primary btn-lg btn-block" S
+          [disabled]="!f.valid || !(ot.siteID!=null) ">Submit
+  </button>
 </form>

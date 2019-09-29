@@ -3,5 +3,4 @@ export class Spec {
   name: string;
   description: string;
   category: string;
-  url: string;
 }

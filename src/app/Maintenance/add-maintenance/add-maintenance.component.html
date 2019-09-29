@@ -20,10 +20,10 @@
         </mat-form-field>
       </div>
     <div [hidden]="(validcomplete(im.sname) === -1)? true:false" >
-    <p style="margin-top: 50px; background-color: red" class="mat-warn">  Enter valid name</p>
+    <p style="margin-top: 50px; color: red" class="mat-warn">  Enter valid name</p>
     </div>
 
-    <p style="margin-top: 50px; background-color: green" class="alert-warning" >{{showsiteid(im.sname)}}</p>
+    <p style="margin-top: 50px; color: green" >{{showsiteid(im.sname)}}</p>
     </div>
     <div class="row">
       <div class="form-group col-md-2">
@@ -52,7 +52,7 @@
       <div class="form-group col-md-2">
         <mat-form-field class="example-full-width">
           <label for="piority">Piority Level</label>
-          <mat-select [(ngModel)]="im.piority" name="piority" id="piority" class="form-control">
+          <mat-select [(ngModel)]="im.piority" name="piority" id="piority" class="form-control" required="">
             <mat-option *ngFor="let p of pio" [value]="p">
               {{p}}
             </mat-option>
@@ -67,7 +67,7 @@
       <div class="form-group col-md-2">
     <mat-form-field>
       <label for="InformDate">Inform Date</label>
-      <input [(ngModel)]="im.idate" type="text" matInput="date" [matDatepicker]="picker1" id="InformDate" [formControl]="date"  class="form-control">
+      <input [(ngModel)]="im.idate" type="text" matInput="date" [matDatepicker]="picker1" id="InformDate" [formControl]="date"  class="form-control" >
       <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
       <mat-datepicker #picker1></mat-datepicker>
    <!--   <mat-error *ngIf="formControl.invalid">{{getErrorMessage()}}</mat-error> -->

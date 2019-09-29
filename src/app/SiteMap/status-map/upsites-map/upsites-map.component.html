@@ -1,0 +1,44 @@
+
+<table class="table-responsive"> <tr>
+  <th class="the2">
+
+    <agm-map [latitude]="latU" [longitude]="lngU" >
+
+
+
+      <agm-marker
+        *ngFor="let map2 of upsites"
+        [latitude]="map2.latitude"
+        [longitude]="map2.longitude"
+        iconUrl= "http://maps.google.com/mapfiles/ms/icons/green-dot.png"
+      >
+      </agm-marker>
+
+    </agm-map>
+
+
+
+
+
+  </th>
+
+
+
+  <th class="the">
+
+    <div class="col-md-6 user-container" align="bottom"><table ><tr><th class="th">
+      <h3 >Site Status</h3>
+      <a [routerLink]="['/siteMap/upsitesmap']"><button class="btn btn-primary mt-2 ml-1 mb-2" style="background-color: #EC6708;width: 200px;margin-top: 20px">View Active Sites </button></a><br>
+      <a [routerLink]="['/siteMap/downsitesmap']"><button class="btn btn-primary mt-2 ml-1 mb-2"  style="background-color: #EC6708;width: 200px">View Down Sites</button></a><br>
+      <a [routerLink]="['/siteMap/maintainmap']"><button class="btn btn-primary mt-2 ml-1 mb-2"  style="background-color: #EC6708;width: 200px;margin-top: 20px">View Maintaining Sites</button></a><br>
+      <a [routerLink]="['/siteMap/directionmap']" routerLinkActive="active"><button class="btn btn-primary mt-2 ml-1 mb-2"  style="background-color: #EC6708;width: 200px;margin-top: 20px">View Status Report</button></a>
+
+    </th></tr></table>
+      <br><br>
+
+
+    </div>
+  </th>
+</tr>
+</table>
+

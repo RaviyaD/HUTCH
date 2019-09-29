@@ -1,69 +1,55 @@
-<p class="h1" style="margin-left: 200px">Add-Visitors</p>
+<p class="h1" style="margin-left: 200px" xmlns="http://www.w3.org/1999/html">Add-Visitors</p>
 
-<form xmlns="http://www.w3.org/1999/html" class="form-control-static">
+<form xmlns="http://www.w3.org/1999/html" (ngSubmit)="onSubmit()" #f="ngForm" class="form-control-static">
 
   <div class="row">
     <div class="form-group col-md-2" >
-
+      <mat-form-field class="example-full-width">
         <label for="siteName">Site Name</label>
-        <input type="text" required ngModel
-               id="siteName"  aria-label="Number" matInput [formControl]="myControl" [matAutocomplete]="auto" class="form-control">
-
+        <input type="text" required
+               id="siteName"  [(ngModel)]="vi.siteName" name="siteName" matInput  [formControl]="myControl" [matAutocomplete]="auto" class="form-control">
+        <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete" >
+          <mat-option *ngFor="let option of filteredOptions | async" [value]="option" class="row">
+            {{option}}
+          </mat-option>
+        </mat-autocomplete>
+        <!--   <mat-error *ngIf="formControl.invalid">{{getErrorMessage()}}</mat-error> -->
+      </mat-form-field>
     </div>
   </div>
-
-
-  <div class="row">
-    <div class="form-group col-md-2" >
-
-      <label for="visit_date">Date</label>
-      <input id="visit_date" name="visit_date" type="date" class="form-control">
-
-    </div>
+  <div [hidden]="(validcomplete(vi.siteName) === -1)? true:false" >
+    <p class="mat-warn">  Enter valid name</p>
   </div>
 
+  <br>
 
-  <div class="row">
-    <div class="form-group col-md-2" >
+  <mat-form-field class="example-full-width">
+    <input type="text" matInput placeholder="Visitor Name" [(ngModel)]="vi.visitorName" name="visitorName" >
+  </mat-form-field>
+  <br>
 
-      <label for="startTime">Visit Time</label>
-      <input type="text" required ngModel
-             id="startTime"   aria-label="Number" matInput [formControl]="myControl" class="form-control">
+  <mat-form-field class="date">
+    <input  type="date" matInput placeholder="Visit Date" [(ngModel)]="vi.vistDate" name="vistDate" required="required date">
+  </mat-form-field>
 
-    </div>
-
-
-
-    <div class="form-group col-md-2" >
-
-      <label for="endTime">Exit Time</label>
-      <input type="text" required ngModel
-             id="endTime"   aria-label="Number" matInput [formControl]="myControl" class="form-control">
-
-    </div>
-  </div>
+  <br>
 
 
 
+    <mat-form-field class="date">
+      <input  type="time" matInput placeholder="Visit Time" [(ngModel)]="vi.intime" name="Intime" >
+    </mat-form-field>
 
-  <div class="row">
-    <div class="form-group col-md-2" >
+    <mat-form-field class="date">
+      <input  type="time" matInput placeholder="Exit Time" [(ngModel)]="vi.exitTime"  name="exitTime" >
+    </mat-form-field>
 
-      <label for="vName">Visitor Name</label>
-      <input type="text" required ngModel
-             id="vName"   aria-label="Number" matInput [formControl]="myControl" class="form-control">
-
-    </div>
-  </div>
-
+  <br>
 
 
-  <div class="row">
-    <div class="form-group col-md-5">
-      <label for="description">Description</label>
-      <textarea id="description" cols="10" rows="5" class="form-control"></textarea>
-    </div>
-  </div>
+  <mat-form-field class="example-full-width">
+    <textarea matInput type="text" placeholder="Description"  [(ngModel)]="vi.description" name="Description" ></textarea>
+  </mat-form-field>
 
 
   <div class="panel">
@@ -71,6 +57,5 @@
   </div>
 
 
-
-
 </form>
+

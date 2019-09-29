@@ -22,3 +22,7 @@ th, td {
 /*td, th {
   width: 10%;
 }*/
+
+@media print{
+  .doNotPrint{display:none !important;}
+}

@@ -41,3 +41,7 @@ button:active {
 .bg-light{
   background-color: transparent!important;
 }
+
+@media print{
+  .doNotPrint{display:none !important;}
+}

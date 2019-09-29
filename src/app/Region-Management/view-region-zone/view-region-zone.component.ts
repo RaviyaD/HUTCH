@@ -27,12 +27,14 @@ export class ViewRegionZoneComponent implements OnInit {
 
   ngOnInit() {
 
-    this.dataSource1.paginator = this.paginator;
-    this.zoneservice.getzone()
+
+
+      this.dataSource1.paginator = this.paginator;
+      this.zoneservice.getzone()
       .subscribe(data => this.dataSource1.data = data as Zone[]);
     //  this.dataSource1.data = Object.values(this.maintenance1);
 
-    this.activatedRoute.queryParamMap.subscribe((paramMap: ParamMap) => {   // for refresh
+      this.activatedRoute.queryParamMap.subscribe((paramMap: ParamMap) => {   // for refresh
       const refresh = paramMap.get('refresh');
       if (refresh) {
         this.dataSource1.paginator = this.paginator;
@@ -49,7 +51,10 @@ export class ViewRegionZoneComponent implements OnInit {
     });
   }
 
-
+  editzone(zonename: string) {
+   // this.zoneservice.getzone().subscribe(data => this.dataSource1.data = data as Zone[]);
+    this.router.navigate(['/Region/edit-zone', zonename]);
+  }
 }
 
 

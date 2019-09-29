@@ -12,10 +12,6 @@
 
     <li> <div class="form-group">
       <label for="category">Category</label>
-      <!--<input type="text" [(ngModel)]="specUp.category"-->
-      <!--class="form-control" id="category" name="category"-->
-      <!--placeholder="Enter category "-->
-      <!--req class="form-control"uired #cat="ngModel">-->
       <mat-select class="form-control" uired #cat="ngModel" placeholder="Enter category "[(ngModel)]="specUp.category" id="category" name="category">
         <mat-option *ngFor="let option of categoryList" [value]="option">
           {{ option }}
@@ -104,7 +100,7 @@
 </table>
 
 
-<div class="card text-center" *ngFor="let specUp of specList">
+<!--<div class="card text-center" *ngFor="let specUp of specList">
 
   <div class="card-body">
     <h5 class="card-title"><label>SP0{{specUp.specId}} | {{specUp.name}}</label></h5>
@@ -116,5 +112,4 @@
   <div class="card-footer text-muted">
     project id and site id
   </div>
-</div>
-
+</div>-->
