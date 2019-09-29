@@ -38,6 +38,7 @@ export class ViewMaintenanceComponent implements OnInit, AfterViewInit {
 
 
   cname: string;
+  snamepdf: string;
   id: number;
   index: number;
   renderedData: any;
@@ -54,6 +55,7 @@ export class ViewMaintenanceComponent implements OnInit, AfterViewInit {
 
 
   applyFilter(filterValue: string) {
+    this.snamepdf = filterValue;
     this.dataSource1.filter = filterValue.trim().toLowerCase();
     if (this.dataSource1.paginator) {
       this.dataSource1.paginator.firstPage();
@@ -87,14 +89,13 @@ export class ViewMaintenanceComponent implements OnInit, AfterViewInit {
   }
 
   delete(id: number) {
-    this.deletconfirmbox('Are You Sure To Delete ?')
-      .afterClosed().subscribe(res => {
-      console.log(res);
-      if (res) {
-        this.maintenanceservice.deleteMaintenance(id);
-        this.ngOnInit();
-      }
-    });
+    // this.deletconfirmbox('Are You Sure To Delete ?')
+    //   .afterClosed().subscribe(res => {
+    //   console.log(res);
+    //   if (res) {
+    this.maintenanceservice.deleteMaintenance(id);
+    window.location.reload();
+    //  }
 
 
   }
@@ -180,6 +181,11 @@ export class ViewMaintenanceComponent implements OnInit, AfterViewInit {
     // new Angular5Csv(this.renderedData, 'Maintenance Report');
   }
 
+  SearchDirection(name: string) {
+    this.router.navigate(['/siteMap/directmap/', name]);
+  }
+
+
   goToView(siteID: string) {
     this.router.navigate(['Site/view-site-details/' + siteID]).then();
   }
@@ -191,23 +197,43 @@ export class ViewMaintenanceComponent implements OnInit, AfterViewInit {
     const col = ['MaintenanceID', 'siteID', 'siteName', 'Category', 'Discription', 'Piority', 'Status',
       'Inform Date', 'Contractor Name', 'Cost', 'Refactor Date', 'Completed Date']; // initialization for headers
     const title = 'Sample Report of Maintenance'; // title of report
-    for (let i = 0; i < this.maintenances.length; i++) {
-      row.push(this.maintenances[i].id);
-      row.push(this.maintenances[i].sid);
-      row.push(this.maintenances[i].sname);
-      row.push(this.maintenances[i].category);
-      row.push(this.maintenances[i].issue);
-      row.push(this.maintenances[i].piority);
-      row.push(this.maintenances[i].status);
-      row.push(this.maintenances[i].idate);
-      row.push(this.maintenances[i].conname);
-      row.push(this.maintenances[i].cost);
-      row.push(this.maintenances[i].rdate);
-      row.push(this.maintenances[i].cdate);
-      rowD.push(row);
-      row = [];
+    if (this.snamepdf == null) {
+      for (let i = 0; i < this.maintenances.length; i++) {
+        row.push(this.maintenances[i].id);
+        row.push(this.maintenances[i].sid);
+        row.push(this.maintenances[i].sname);
+        row.push(this.maintenances[i].category);
+        row.push(this.maintenances[i].issue);
+        row.push(this.maintenances[i].piority);
+        row.push(this.maintenances[i].status);
+        row.push(this.maintenances[i].idate);
+        row.push(this.maintenances[i].conname);
+        row.push(this.maintenances[i].cost);
+        row.push(this.maintenances[i].rdate);
+        row.push(this.maintenances[i].cdate);
+        rowD.push(row);
+        row = [];
+      }
+    } else {
+      for (let i = 0; i < this.maintenances.length; i++) {
+        if (this.maintenances[i].sname === this.snamepdf) {
+          row.push(this.maintenances[i].id);
+          row.push(this.maintenances[i].sid);
+          row.push(this.maintenances[i].sname);
+          row.push(this.maintenances[i].category);
+          row.push(this.maintenances[i].issue);
+          row.push(this.maintenances[i].piority);
+          row.push(this.maintenances[i].status);
+          row.push(this.maintenances[i].idate);
+          row.push(this.maintenances[i].conname);
+          row.push(this.maintenances[i].cost);
+          row.push(this.maintenances[i].rdate);
+          row.push(this.maintenances[i].cdate);
+          rowD.push(row);
+          row = [];
+        }
+      }
     }
-
 
     this.getReport(col, rowD, title);
   }
@@ -222,7 +248,7 @@ export class ViewMaintenanceComponent implements OnInit, AfterViewInit {
     pdf.text('' + title, 435, 130).setFontSize(10);  //
     pdf.setLineWidth(1.5);
     pdf.line(5, 150, 995, 150);
-    const pageContent = function (data) {
+    const pageContent = function(data) {
       // HEADER
 
       // FOOTER
@@ -235,11 +261,11 @@ export class ViewMaintenanceComponent implements OnInit, AfterViewInit {
       const pageHeight = pdf.internal.pageSize.height || pdf.internal.pageSize.getHeight();
       pdf.text(str, data.settings.margin.left, pageHeight - 10); // showing current page number
     };
-   // pdf.autoTable(col, rowD,
-   //  {
-   //     addPageContent: pageContent,
-   //     margin: {top: 160},
-   //   });
+    // pdf.autoTable(col, rowD,
+    //  {
+    //     addPageContent: pageContent,
+    //     margin: {top: 160},
+    //    });
 
     // for adding total number of pages // i.e 10 etc
     if (typeof pdf.putTotalPages === 'function') {
@@ -250,6 +276,10 @@ export class ViewMaintenanceComponent implements OnInit, AfterViewInit {
 
   }
 
+  insertfulreport() {
+
+  }
+
   getreporttoeach(id, sid, sname, cat, issue, piority, status, idate, conname, cost, rdate, cdate) {
 
     const totalPagesExp = '{total_pages_count_string}';
@@ -257,25 +287,25 @@ export class ViewMaintenanceComponent implements OnInit, AfterViewInit {
     pdf.setTextColor(255, 69, 0);
     pdf.text('HUTCH', 480, 50).setFontSize(30);
     pdf.text('Civil Department', 430, 80).setFontSize(20); // 450 here is x-axis and 80 is y-axis
-    pdf.text('Maintenance', 430, 100).setFontSize(20); // 450 here is x-axis and 80 is y-axis
-    pdf.text('Maintenance ID: ' + id, 435, 130).setFontSize(10);  //
+    pdf.text('Maintenance', 450, 100).setFontSize(20); // 450 here is x-axis and 80 is y-axis
+    pdf.text('Maintenance ID: ' + id, 435, 130).setFontSize(20);  //
     pdf.setLineWidth(1.5);
 
-  //  pdf.text('Maintenance ID       :' + id, 140, 180).setFontSize(8);
-    pdf.text('Site ID              :' + sid, 140, 190).setFontSize(12);
-    pdf.text('Site Name            :' + sname, 140, 210).setFontSize(12);
-    pdf.text('Category             :' + cat, 140, 230).setFontSize(12);
-    pdf.text('Discription          :' + issue, 140, 250).setFontSize(12);
-    pdf.text('Piority              :' + piority, 140, 270).setFontSize(12);
-    pdf.text('Status               :' + status, 140, 290).setFontSize(12);
-    pdf.text('Informed Date        :' + idate, 140, 310).setFontSize(12);
-    pdf.text('Contractor Name      :' + conname, 140, 330).setFontSize(12);
-    pdf.text('Cost                 :' + cost, 140, 350).setFontSize(12);
-    pdf.text('Refactor Date        :' + rdate, 140, 370).setFontSize(12);
-    pdf.text('Completed Date       :' + cdate, 140, 390).setFontSize(12);
+    //  pdf.text('Maintenance ID       :' + id, 140, 180).setFontSize(8);
+    pdf.text('Site ID              :' + sid, 280, 190).setFontSize(20);
+    pdf.text('Site Name            :' + sname, 280, 220).setFontSize(18);
+    pdf.text('Category             :' + cat, 280, 250).setFontSize(18);
+    pdf.text('Discription          :' + issue, 280, 280).setFontSize(18);
+    pdf.text('Piority              :' + piority, 280, 310).setFontSize(18);
+    pdf.text('Status               :' + status, 280, 340).setFontSize(18);
+    pdf.text('Informed Date        :' + idate, 280, 370).setFontSize(18);
+    pdf.text('Contractor Name      :' + conname, 280, 400).setFontSize(18);
+    pdf.text('Cost                 :' + cost, 280, 430).setFontSize(18);
+    pdf.text('Refactor Date        :' + rdate, 280, 460).setFontSize(18);
+    pdf.text('Completed Date       :' + cdate, 280, 490).setFontSize(18);
 
     pdf.line(5, 150, 995, 150);
-    const pageContent = function (data) {
+    const pageContent = function(data) {
       // HEADER
 
       // FOOTER

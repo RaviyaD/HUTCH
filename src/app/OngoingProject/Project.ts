@@ -8,4 +8,7 @@ export class IProject {
   status: string;
   details: string;
   teamId: string;
+  specId: string;
+  projectfor: string;
+  scope: string;
 }

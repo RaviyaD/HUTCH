@@ -37,7 +37,7 @@
            [(ngModel)]="at.height"
            required
            #height="ngModel">
-    <small><p *ngIf="!validateHeight() && !height.untouched" style="color: #ca2819">Height should be between 5 and 10!</p></small>
+    <small><p *ngIf="!validateHeight() && !height.untouched" style="color: #ca2819">Height should be between 5 and 15!</p></small>
   </div>
 
   <div class="form-group">
@@ -49,7 +49,7 @@
            [(ngModel)]="at.diameter"
            required
            #diameter="ngModel">
-    <small><p *ngIf="!validateDiameter() && !diameter.untouched" style="color: #ca2819">Height should be between 5 and 10!</p></small>
+    <small><p *ngIf="!validateDiameter() && !diameter.untouched" style="color: #ca2819">Diameter should be between 0.5 and 5!</p></small>
   </div>
 
   <div class="form-group">
@@ -61,7 +61,7 @@
            [(ngModel)]="at.azimuth"
            required
            #azimuth="ngModel">
-    <small><p *ngIf="!validateAzimuth() && !azimuth.untouched" style="color: #ca2819">Height should be between 5 and 10!</p></small>
+    <small><p *ngIf="!validateAzimuth() && !azimuth.untouched" style="color: #ca2819">Height should be between 0 degrees and 360 degrees!</p></small>
   </div>
 
   <div class="form-group">
@@ -107,7 +107,7 @@
   </div>
 
   <button type="submit" class="btn btn-primary btn-lg btn-block"
-          [disabled]="!f.valid || !(at.siteID!=null) ">Submit
+          [disabled]="!f.valid || !(at.siteID!=null) || ValidateAll()">Submit
   </button>
 
 </form>

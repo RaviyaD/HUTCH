@@ -4,7 +4,7 @@ import {MatPaginator} from '@angular/material/paginator';
 import {ProjectServicesService} from './ProjectServices';
 import {IProject} from '../Project';
 import {Observable} from 'rxjs';
-import { DataSource} from '@angular/cdk/collections';
+import {DataSource} from '@angular/cdk/collections';
 import {ActivatedRoute, Router} from '@angular/router';
 import {MatDialog, MatSort} from '@angular/material';
 import {UpdateOngoingProjectComponent} from '../update-ongoing-project/update-ongoing-project.component';
@@ -56,7 +56,7 @@ export class ViewOngoingProjectComponent implements OnInit, AfterViewInit {
     window.location.reload();
   }
   gotoadd() {
-    this.router.navigate(['../add-new-project']);
+    this.router.navigate(['Ongoing/add-new-project']);
   }
 
   startEdit(projectId: string, projectName: string, projectType: string, projectPriority: string,

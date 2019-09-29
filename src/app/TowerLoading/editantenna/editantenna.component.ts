@@ -20,6 +20,7 @@ export class EditantennaComponent implements OnInit {
 
   submitUpdate() {
     this.dataService.updateTower(this.data);
+    this.dialogRef.close();
   }
 
   ValidateAll() {

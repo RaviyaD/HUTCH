@@ -101,7 +101,7 @@
     <mat-cell *matCellDef="let m; let i=index;">
 
       <button mat-icon-button color="accent"  >
-        <mat-icon aria-label="location_searching">location_searching</mat-icon></button>
+        <mat-icon aria-label="location_searching" (click)="SearchDirection(m.sname)">location_searching</mat-icon></button>
 
       <button mat-icon-button color="accent" (click)="startEdit(m.id, m.sname, m.category, m.issue, m.piority, m.idate, m.sid)" [hidden]="(m.status == 'Complete' || m.status == 'In-Progressing')? true:false" >
         <mat-icon aria-label="Build">build</mat-icon>

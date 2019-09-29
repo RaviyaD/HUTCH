@@ -82,20 +82,20 @@ export class AddAntennaComponent implements OnInit {
   }
 
   validateHeight() {
-    return (this.at.height > 5 && this.at.height < 15);
+    return (this.at.height >= 5 && this.at.height <= 15);
   }
 
   validateDiameter() {
-    return (this.at.diameter > 0.5 && this.at.diameter < 5);
+    return (this.at.diameter >= 0.5 && this.at.diameter <= 5);
   }
 
   validateArea() {
-    return (this.at.diameter > 2 && this.at.diameter < 15);
+    return (this.at.diameter >= 2 && this.at.diameter <= 15);
 
   }
 
   validateAzimuth() {
-    return (this.at.diameter > 0 && this.at.diameter < 360);
+    return (this.at.diameter >= 0 && this.at.diameter <= 360);
   }
 
   gotoAnTowers() {

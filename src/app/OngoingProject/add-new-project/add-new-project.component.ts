@@ -1,11 +1,18 @@
 import {Component, OnInit} from '@angular/core';
-import {ViewChild} from '@angular/core';
-import {FormControl, NgForm} from '@angular/forms';
+import {FormControl, NgForm, Validators} from '@angular/forms';
 import {Observable} from 'rxjs';
 import {map, startWith} from 'rxjs/operators';
 import {ProjectServicesService} from '../view-ongoing-project/ProjectServices';
 import {IProject} from '../Project';
 import {ActivatedRoute, Router} from '@angular/router';
+import {DatePipe} from '@angular/common';
+import {MatSnackBar} from '@angular/material';
+import {Zone} from '../../Region-Management/zone';
+import {ZoneServices} from '../../Region-Management/zoneService';
+import {Region} from '../../Region-Management/region';
+import {RegionServices} from '../../Region-Management/regionService';
+import {Spec} from '../../Specification/model/spec';
+import {UserServiceService} from '../../Specification/service/user-service.service';
 
 @Component({
   selector: 'app-add-new-project',
@@ -14,49 +21,129 @@ import {ActivatedRoute, Router} from '@angular/router';
 })
 export class AddNewProjectComponent implements OnInit {
 
-  myControl = new FormControl();
-  options: string[] = ['P001', 'P002', 'P003'];
-  filteredOptions: Observable<string[]>;
+  optionszonename: string[] = [];
+  optionssubregion: string[] = [];
+  optionsspec: string[] = [];
 
-  constructor(private route: ActivatedRoute, private router: Router, private projectService: ProjectServicesService) {
+  filteredOptions: Observable<string[]>;
+  filteredOptions1: Observable<string[]>;
+  filteredOptions2: Observable<string[]>;
+
+  zones: Zone[];
+  subregion: Region[];
+  specs: Spec[];
+  is: IProject;
+  type: string;
+  datePipe: DatePipe;
+
+  constructor(private route: ActivatedRoute, private router: Router, private projectService: ProjectServicesService,
+              private zoneService: ZoneServices, private regionService: RegionServices, private specService: UserServiceService,
+              private snackBar: MatSnackBar) {
+    this.is = new IProject();
+    this.zoneService.getzone().subscribe(data => {
+      this.zones = data;
+      for (let counter = 0; counter < this.zones.length; counter++) {
+        this.optionszonename[counter] = this.zones[counter].zonename;
+      }
+    });
+    this.regionService.getregion().subscribe(data => {
+      this.subregion = data;
+      for (let counter = 0; counter < this.subregion.length; counter++) {
+        this.optionssubregion[counter] = this.subregion[counter].regionname;
+      }
+    });
+    this.specService.findAll().subscribe(data => {
+      this.specs = data;
+      for (let counter = 0; counter < this.specs.length; counter++) {
+        console.log(this.specs[counter].specId);
+        this.optionsspec[counter] = String(this.specs[counter].specId);
+      }
+    });
   }
 
-  @ViewChild('f', {static: false}) siteForm: NgForm;
-  insert: IProject = {
-    projectId: null, projectName: null, projectType: null, projectPriority: null,
-    startingDate: null, completionPeriod: null, status: null, details: null, teamId: null,
-  };
+  myControl = new FormControl();
+  myControl1 = new FormControl();
+  myControl2 = new FormControl();
+  formControl = new FormControl('', [
+    Validators.required
+  ]);
+  getErrorMessage() {
+    return this.formControl.hasError('required') ? 'Required field' :
+        '';
+  }
 
   ngOnInit() {
-    this.filteredOptions = this.myControl.valueChanges
-      .pipe(
+    this.filteredOptions = this.myControl.valueChanges.pipe(
         startWith(''),
         map(value => this._filter(value))
       );
+    this.filteredOptions1 = this.myControl1.valueChanges.pipe(
+      startWith(''),
+      map(value1 => this.filter(value1))
+    );
+    this.filteredOptions2 = this.myControl2.valueChanges.pipe(
+      startWith(''),
+      map(value2 => this.filter2(value2))
+    );
   }
-  gotoViewProject() {
-    this.router.navigate([]);
+  private _filter(value: string): string[] {
+    const filterValue = value.toLowerCase();
+    return this.optionszonename.filter(option => option.toLowerCase().indexOf(filterValue) === 0);
+  }
+  private filter(value1: string): string[] {
+    const filterValue1 = value1.toLowerCase();
+    return this.optionssubregion.filter(option1 => option1.toLowerCase().indexOf(filterValue1) === 0);
+  }
+  private filter2(value2: string): string[] {
+    const filterValue2 = value2;
+    return this.optionsspec.filter(option2 => option2.indexOf(filterValue2) === 0);
+  }
+
+  public  showzonename(name: string) {
+    for (let i = 0; i < this.optionszonename.length; i++) {
+      if (name === this.optionszonename[i]) {
+        return this.optionszonename[i];
+      }
+    }
   }
 
   onSubmit() {
-    this.insert.projectId = this.siteForm.value.projectId;
-    this.insert.projectName = this.siteForm.value.projectName;
-    this.insert.projectType = this.siteForm.value.projectType;
-    this.insert.projectPriority = this.siteForm.value.projectPriority;
-    this.insert.startingDate = this.siteForm.value.startingDate;
-    this.insert.completionPeriod = this.siteForm.value.completionPeriod;
-    this.insert.status = this.siteForm.value.status;
-    this.insert.details = this.siteForm.value.details;
-    this.insert.teamId = this.siteForm.value.teamId;
-    console.log(this.insert.projectId);
-    this.projectService.addProject(this.insert).subscribe();
-    window.location.reload();
-    this.gotoViewProject();
+    console.log(this.is.projectId);
+    this.projectService.addProject(this.is).subscribe(result => this.gotoViewProject());
+  }
+  gotoViewProject() {
+    this.router.navigate(['Ongoing/view-ongoing-project']);
+  }
+  openSnackBar(message: string) {
+    this.snackBar.open(message, undefined, {
+      duration: 3000,
+    });
   }
 
-  private _filter(value: string): string[] {
-    const filterValue = value.toLowerCase();
+  displayregion(key: string) {
 
-    return this.options.filter(option => option.toLowerCase().includes(filterValue));
+    let i = 0;
+    if (key === 'SubRegion') {
+      return i;
+    } else if (key === undefined) {
+      return i;
+    } else {
+      return ++i;
+    }
   }
+  displaysubregion(key: string) {
+
+    let i = 0;
+    if (key === 'Region') {
+      return i;
+    } else if (key === undefined) {
+      return i;
+    } else {
+      return ++i;
+    }
+  }
+
+
+
+
 }
