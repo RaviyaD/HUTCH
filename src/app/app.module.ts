@@ -30,6 +30,7 @@ import {SiteDetailsService} from './site-management/site-details.service';
 // Module
 import { TowerModule } from './TowerLoading/tower.module';
 import {ProjectViewComponent} from './OngoingProject/project-view/project-view.component';
+import {RegionServices} from './Region-Management/regionService';
 
 
 
@@ -62,6 +63,7 @@ import {ProjectViewComponent} from './OngoingProject/project-view/project-view.c
     ProjectServicesService,
     TowerService,
     OwnedService,
+    RegionServices
   ],
   bootstrap: [AppComponent ]
 })

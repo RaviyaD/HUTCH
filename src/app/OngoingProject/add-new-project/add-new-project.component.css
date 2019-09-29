@@ -8,6 +8,12 @@
   width: 100%;
 }
 
+.body { padding: 30px }
+
+.form-control.ng-touched.ng-invalid {
+  border: 2px solid red;
+}
+
 mat-placeholder {
   color: #ffa726;
 }

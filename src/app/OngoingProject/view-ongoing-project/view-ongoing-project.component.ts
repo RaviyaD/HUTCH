@@ -56,7 +56,7 @@ export class ViewOngoingProjectComponent implements OnInit, AfterViewInit {
     window.location.reload();
   }
   gotoadd() {
-    this.router.navigate(['../add-new-project']);
+    this.router.navigate(['Ongoing/add-new-project']);
   }
 
   startEdit(projectId: string, projectName: string, projectType: string, projectPriority: string,

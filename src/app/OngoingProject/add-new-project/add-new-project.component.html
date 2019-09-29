@@ -9,26 +9,26 @@
   </div>
   <br>
 
-  <form style="margin: auto" (ngSubmit)="onSubmit()" #f="ngForm">
+  <form style="margin: auto" class="form-control-static" (ngSubmit)="onSubmit()" #f="ngForm">
 
     <div class="row">
       <div class="col-lg-6">
 
           <div class="row">
             <div class="col-lg-2">
-                <label for="projectID"> ProjectID </label>
+                <label for="projectId"> ProjectID </label>
             </div>
             <div class="col-lg-4">
-                <input type="text" ngModel name="projectId" id="projectId" class="form-control" required />
+              <input type="text" required="required" [(ngModel)]="is.projectId" name="projectId" id="projectId" class="form-control" >
             </div>
           </div>
           <br><br>
           <div class="row">
             <div class="col-lg-2">
-                <label for="projectname">Project Name</label>
+                <label for="projectName">Project Name</label>
             </div>
             <div class="col-lg-7">
-                <input type="text" ngModel name="projectName" id="projectName" class="form-control" required />
+                <input type="text" [(ngModel)]="is.projectName" name="projectName" id="projectName" class="form-control" required >
             </div>
           </div>
           <br>
@@ -38,7 +38,7 @@
             </div>
             <div class="col-lg-6">
               <div class="form-group">
-                <select class="form-control" ngModel name="projectType" id="projectType" >
+                <select class="form-control" [(ngModel)]="is.projectType" name="projectType" id="projectType" required="">
                   <option>--select--</option>
                   <option>SiteRelated</option>
                   <option>CabinRelated</option>
@@ -56,8 +56,7 @@
           </div>
           <div class="col-lg-5">
             <div class="form-group">
-              <select class="form-control" ngModel name="projectPriority" id="projectPriority" >
-                <option>--select--</option>
+              <select class="form-control" [(ngModel)]="is.projectPriority" name="projectPriority" id="projectPriority" required="">
                 <option>Normal</option>
                 <option>Severe</option>
                 <option>None</option>
@@ -72,7 +71,7 @@
           </div>
           <div class="col-lg-5">
             <div class='input-group date'>
-              <input type='date' class="form-control" ngModel name="startingDate" id="startingDate" required />
+              <input type='date' class="form-control" [(ngModel)]="is.startingDate" name="startingDate" id="startingDate" required >
               <div class="input-group-addon">
                 <span class="glyphicon glyphicon-calendar"></span>
               </div>
@@ -85,7 +84,7 @@
             <label for="completionPeriod">Completion Period</label>
           </div>
           <div class="col-lg-5">
-            <input type="text" class="form-control" ngModel name="completionPeriod" id="completionPeriod" required />
+            <input type="text" class="form-control" [(ngModel)]="is.completionPeriod" name="completionPeriod" id="completionPeriod" required >
           </div>
         </div>
 
@@ -100,12 +99,27 @@
           </div>
           <div class="col-lg-5">
             <div class="form-group">
-              <select class="form-control" ngModel name="teamId" id="teamId">
-                <option>--select--</option>
+              <select class="form-control" [(ngModel)]="is.teamId" name="teamId" id="teamId">
                 <option>T1230</option>
                 <option>T0125</option>
                 <option>T0028</option>
               </select>
+            </div>
+          </div>
+        </div>
+        <br>
+        <div class="row">
+          <div class="col-lg-2">
+            <label for="specId">Specification ID</label>
+          </div>
+          <div class="col-lg-5">
+            <div class="form-group">
+              <input type="text" class="form-control" [(ngModel)]="is.specId" name="specId" id="specId" matInput [formControl]="myControl2" [matAutocomplete]="auto2" required >
+              <mat-autocomplete autoActiveFirstOption #auto2="matAutocomplete" >
+                <mat-option *ngFor="let option2 of filteredOptions2 | async" [value]="option2" class="row">
+                  {{option2}}
+                </mat-option>
+              </mat-autocomplete>
             </div>
           </div>
         </div>
@@ -116,14 +130,62 @@
             <label for="details">Details</label>
           </div>
           <div class="col-lg-6">
-            <textarea class="form-control" rows="5" ngModel name="details" id="details"></textarea>
+            <textarea class="form-control" rows="5" [(ngModel)]="is.details" name="details" id="details"></textarea>
+          </div>
+        </div>
+      </div>
+    </div>
+    <br>
+    <div class="row">
+      <div class="col-lg-6">
+        <div class="row">
+          <div class="col-lg-2">
+            <label for="projectfor">Project Scope</label>
+          </div>
+          <div class="col-lg-5">
+            <div class="form-group">
+              <select class="form-control" [(ngModel)]="is.projectfor" name="projectfor" id="projectfor">
+                <option>Region</option>
+                <option>SubRegion</option>
+              </select>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-6" [hidden]="(displayregion(is.projectfor)===0)">
+        <div class="row">
+          <div class="col-lg-3">
+            <label for="scopenm">Region Name</label>
+          </div>
+          <div class="col-lg-6">
+            <input type="text" class="form-control" [(ngModel)]="is.scope" name="scope" id="scopenm" matInput  [formControl]="myControl" [matAutocomplete]="auto" required="required" >
+            <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete" >
+              <mat-option *ngFor="let option of filteredOptions | async" [value]="option" class="row">
+                {{option}}
+              </mat-option>
+            </mat-autocomplete>
+        </div>
+      </div>
+    </div>
+      <div class="col-lg-6" [hidden]="(displaysubregion(is.projectfor)===0)">
+        <div class="row">
+          <div class="col-lg-3">
+            <label for="scopesub">SubRegion Name</label>
+          </div>
+          <div class="col-lg-6">
+            <input type="text" class="form-control" [(ngModel)]="is.scope" name="scope" id="scopesub" matInput  [formControl]="myControl1" [matAutocomplete]="auto1" required="required" >
+            <mat-autocomplete autoActiveFirstOption #auto1="matAutocomplete" >
+              <mat-option *ngFor="let option1 of filteredOptions1 | async" [value]="option1" class="row">
+                {{option1}}
+              </mat-option>
+            </mat-autocomplete>
           </div>
         </div>
       </div>
     </div>
     <br>
     <div class="mybtn">
-      <button type="submit" class="btn btn-warning">Send</button>
+      <button type="submit" class="btn btn-warning">Submit</button>
     </div>
 
   </form>

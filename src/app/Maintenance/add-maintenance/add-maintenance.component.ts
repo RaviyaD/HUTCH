@@ -126,7 +126,7 @@ export class AddMaintenanceComponent implements OnInit {
   onSubmit() {
 
 
-      this.im.sid = this.showsiteid(this.im.sname)
+      this.im.sid = this.showsiteid(this.im.sname);
       this.im.status = 'pending';
       this.ms.addMaintenance(this.im).subscribe(result => this.gotoViewMaintenance());
 
