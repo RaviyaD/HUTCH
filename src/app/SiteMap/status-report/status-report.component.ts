@@ -103,19 +103,22 @@ export class StatusReportComponent implements OnInit {
       row = [];
     }
 
-
-    this.getReport(col, rowD, title);
   }
 
-  getReport(col: any[], rowD: any[], title: any) {
+  getreporttoeach(count11 , count22 , count33) {
+
     const totalPagesExp = '{total_pages_count_string}';
     const pdf = new jsPDF('l', 'pt', 'legal');
     pdf.setTextColor(255, 69, 0);
     pdf.text('HUTCH', 480, 50).setFontSize(30);
     pdf.text('Civil Department', 430, 80).setFontSize(20); // 450 here is x-axis and 80 is y-axis
-    pdf.text('Site Map Status Summary', 430, 100).setFontSize(20); // 450 here is x-axis and 80 is y-axis
-    pdf.text('' + title, 435, 130).setFontSize(10);  //
+    pdf.text('Stautus Map Report', 430, 100).setFontSize(20); // 450 here is x-axis and 80 is y-axis//
     pdf.setLineWidth(1.5);
+
+
+    pdf.text('Currently Total Up Sites             :' + count11, 140, 190).setFontSize(12);
+    pdf.text('Currently Total Down Sites           :' + count22, 140, 210).setFontSize(12);
+    pdf.text('Currently Total Maintaining Sites    :' + count33, 140, 230).setFontSize(12);
     pdf.line(5, 150, 995, 150);
     const pageContent = function (data) {
       // HEADER
@@ -130,21 +133,16 @@ export class StatusReportComponent implements OnInit {
       const pageHeight = pdf.internal.pageSize.height || pdf.internal.pageSize.getHeight();
       pdf.text(str, data.settings.margin.left, pageHeight - 10); // showing current page number
     };
-    // pdf.autoTable(col, rowD,
-    //  {
-    //     addPageContent: pageContent,
-    //     margin: {top: 160},
-    //   });
+
 
     // for adding total number of pages // i.e 10 etc
     if (typeof pdf.putTotalPages === 'function') {
       pdf.putTotalPages(totalPagesExp);
     }
 
-    pdf.save(title + '.pdf');
+    pdf.save('status Report' + '.pdf');
 
   }
-
 
 
 

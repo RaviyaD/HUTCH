@@ -1,6 +1,6 @@
 agm-map {
-  height: 450px;
-  width: 1000px;
+  height: 60%;
+  width: 70%;
 }
 th {
   padding: 5px;
@@ -89,5 +89,8 @@ td{
 
 
   padding: 10px 0px;
+}
+@media print{
+  .doNotPrint{display:none !important;}
 }
 
