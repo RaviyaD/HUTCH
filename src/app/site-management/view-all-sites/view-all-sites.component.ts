@@ -7,6 +7,8 @@ import {DatePipe} from '@angular/common';
 import {Router} from '@angular/router';
 import {HttpClient} from '@angular/common/http';
 import {GoogleChartComponent} from 'angular-google-charts';
+import {Count} from '../Count';
+import {CountT} from '../CountT';
 
 @Component({
   selector: 'app-view-all-sites',
@@ -18,6 +20,10 @@ export class ViewAllSitesComponent implements OnInit {
 
   @ViewChild('chart', {static: false})
   chart: GoogleChartComponent;
+  @ViewChild('chartO', {static: false})
+  chartO: GoogleChartComponent;
+  @ViewChild('chartT', {static: false})
+  chartT: GoogleChartComponent;
   public display = true;
   public cellAntLocDet = true;
   cellAntLocType = true;
@@ -56,6 +62,22 @@ export class ViewAllSitesComponent implements OnInit {
   width = 550;
   height = 300;
 
+  oTitle = 'Site Ownership Report';
+  oType = 'PieChart';
+  oData = [];
+  oColumnNames = ['Year', 'Hutch'];
+  oWidth = 550;
+  oHeight = 300;
+  counts: Count[];
+
+  titleT = 'Site Tower Type Report';
+  typeT = 'PieChart';
+  dataT = [];
+  columnNamesT = ['Year', 'Hutch'];
+  widthT = 550;
+  heightT = 300;
+  countsT: CountT[];
+
   @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
   @ViewChild(MatSort, {static: true}) sort: MatSort;
 
@@ -81,7 +103,18 @@ export class ViewAllSitesComponent implements OnInit {
         ['Updated', this.update],
       ];
     });
-
+    this.http.get<Count[]>('http://localhost:8080/SiteDetails' + '/' + 'Count/Owner').subscribe(data => {
+      this.counts = data;
+      for (let counter = 0; counter < this.counts.length; counter++) {
+        this.oData[counter] = [this.counts[counter].ownership, this.counts[counter].count];
+      }
+    });
+    this.http.get<CountT[]>('http://localhost:8080/SiteDetails' + '/' + 'Count/TT').subscribe(data => {
+      this.countsT = data;
+      for (let counter = 0; counter < this.countsT.length; counter++) {
+        this.dataT[counter] = [this.countsT[counter].tower_type, this.countsT[counter].count];
+      }
+    });
     this.dataSource.paginator = this.paginator;
     this.dataSource.sort = this.sort;
     this.siteDetailsService.findAll().subscribe( data => this.dataSource.data = data as SiteDetails[]);

@@ -6,6 +6,8 @@ import {MatSnackBar} from '@angular/material';
 import {Router} from '@angular/router';
 import {map, startWith} from 'rxjs/operators';
 import {Observable} from 'rxjs';
+import {Region} from '../../Region-Management/region';
+import {RegionServices} from '../../Region-Management/regionService';
 
 @Component({
   selector: 'app-add-site-details',
@@ -22,12 +24,16 @@ export class AddSiteDetailsComponent implements OnInit {
   filteredOptionsTowerType: Observable<string[]>;
   myControl1 = new FormControl();
   myControl2 = new FormControl();
+  myControl3 = new FormControl();
   bandOptions: string[] = ['Single', 'Dual', 'Dual/Single'];
   btsOptions: string[] = ['Indoor', 'Outdoor', 'Indoor/Outdoor'];
   trxOptions: string[] = ['DTRUG', 'ETRMG', 'MRFU', 'RRU', 'RSU', 'TRMG'];
   filteredOptionsTRX: Observable<string[]>;
   tt: string;
   trx: string;
+  regions: Region[];
+  regionOptions: string[] = [];
+  filteredRegionOptions: Observable<string[]>;
 
   onSubmit(insert: string) {
     if (insert === 'insert') {
@@ -111,7 +117,14 @@ export class AddSiteDetailsComponent implements OnInit {
     this.step--;
   }
 
-  constructor(private siteService: SiteDetailsService, private snackBar: MatSnackBar, private router: Router) {
+  constructor(private siteService: SiteDetailsService, private snackBar: MatSnackBar, private router: Router, private zoneService: RegionServices) {
+    this.zoneService.getregion().subscribe(data => {
+      this.regions = data;
+      for (let counter1 = 0; counter1 < this.regions.length; counter1++) {
+        this.regionOptions[counter1] = this.regions[counter1].regionname;
+        console.log(this.regionOptions[counter1]);
+      }
+    });
   }
 
   ngOnInit() {
@@ -128,6 +141,11 @@ export class AddSiteDetailsComponent implements OnInit {
         startWith(''),
         map(value => this._filter2(value))
       );
+    this.filteredRegionOptions = this.myControl3.valueChanges
+      .pipe(
+        startWith(''),
+        map(value => this._filter3(value))
+      );
   }
 
   private _filter1(value: string): string[] {
@@ -140,8 +158,13 @@ export class AddSiteDetailsComponent implements OnInit {
     return this.trxOptions.filter(option => option.toLowerCase().includes(filterValue));
   }
 
+  private _filter3(value: string): string[] {
+    const filterValue = value.toLowerCase();
+    return this.regionOptions.filter(option => option.toLowerCase().includes(filterValue));
+  }
+
   validate(siteID: string) {
-    return (this.sites.some((el) => el.siteID === siteID));
+    return (this.sites.some((el) =>  el.siteID === siteID ));
   }
 
   openSnackBar(message: string) {
@@ -207,7 +230,7 @@ export class AddSiteDetailsComponent implements OnInit {
   }
 
   validateName(siteName: string) {
-    return (this.sites.some((el) => el.siteName === siteName));
+    return (this.sites.some((el) =>  el.siteName === siteName ));
   }
 
 }
