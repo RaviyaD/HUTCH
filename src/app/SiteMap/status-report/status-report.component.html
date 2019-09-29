@@ -3,37 +3,43 @@
 
 
 
-  <th class="the">
-    <h3 >Status Report</h3>
-    <div class="col-md-6 user-container" align="bottom"  style="margin-top: 50px"><table class="table1"><tr><th class="th">
+  <th class="the" >
 
+    <h3 >Status Report</h3><br>
+    <button  class="btn btn-primary mt-2 ml-1 mb-2"   style="background-color: #EC6708;alignment: left"(click)="print()" class="doNotPrint"> Download Report</button>
+    <br><br>
+    <div id="print-section">
+      <table [align]="center"  style="width: 300px;margin-left: 1px" >
 
-      <div class="container" style="margin-left: 9px">
-        <div class="row custom-wrapper" >
-          <div class="col-md-12" >
-            <div class="di" style="margin-right: 90px" >
-
-
-              <table [align]="center"  style="width: 300px;margin-left: 2px" >
-
-                <tr style="width: 3px">  <td>Current total sites :   </td><td>{{c1}}</td></tr>
-                <tr> <td>Current Down Sites :  </td>{{c2}}<td></td>
-                </tr>
-                <tr><td>Currently Maintaining Sites : </td><td>{{c3}}</td></tr>
-              </table>
-      <tr></tr>
-              <button type="submit"    class="btn btn-primary mt-2 ml-1 mb-2" (click)="getreporttoeach(c1,c2,c3)" style="background-color: #EC6708;padding: 2px 13px 2px 13px;font-size: 16px;margin-top: 70px">Download Report</button><br>
-            </div>
-          </div>
-        </div>
-      </div>
-    </th></tr></table>
+        <tr style="width: 3px">  <td>Current total sites :   </td><td>{{c1}}</td></tr>
+        <tr> <td>Current Down Sites :  </td><td>{{c2}}</td>
+        </tr>
+        <tr><td>Currently Maintaining Sites : </td><td>{{c3}}</td></tr>
+      </table>
       <br><br>
+      <table class="table table-hover table-fixed  " style="background-color: white"  border="2px">
+
+        <!--Table head-->
+        <thead>
+        <tr>
+          <th>Remarks</th>
+        </tr>
+        </thead>
+        <!--Table head-->
+
+        <!--Table body-->
+        <tbody>
+        <tr *ngFor="let remark of remarks2">
+          <td >{{ remark.remark }}</td>
+        </tr>
+
+        </tbody>
+        <!--Table body-->
+
+      </table>
 
 
     </div>
   </th>
 </tr>
 </table>
-
-

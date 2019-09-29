@@ -1,4 +1,4 @@
-import {Component, NgModule, OnInit} from '@angular/core';
+import {Component} from '@angular/core';
 import {CdkDragDrop, moveItemInArray, transferArrayItem} from '@angular/cdk/drag-drop';
 
 @Component({
@@ -8,9 +8,10 @@ import {CdkDragDrop, moveItemInArray, transferArrayItem} from '@angular/cdk/drag
 })
 
 export class ProjectViewComponent {
-  todo = ['1', '2', '3', '4'];
-  doing = ['5', '6', '7', '8'];
-  done = ['9', '10', '11', '12'];
+  text: string;
+  todo = ['Do a swot analaysis'];
+  doing = [];
+  done = [];
 
   drop(event: CdkDragDrop<string[]>) {
     if (event.previousContainer === event.container) {
@@ -22,4 +23,8 @@ export class ProjectViewComponent {
         event.currentIndex);
     }
   }
+  add(txt: string) {
+    this.todo.push(txt);
+  }
+
 }

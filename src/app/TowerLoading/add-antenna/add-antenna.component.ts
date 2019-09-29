@@ -5,9 +5,11 @@ import {TowerService} from '../physical-measurement/Tower.service';
 import {FormControl} from '@angular/forms';
 import {Observable} from 'rxjs';
 import {count, map, startWith} from 'rxjs/operators';
-import {MatSnackBar} from '@angular/material';
-import {SiteDetails} from '../../site-management/site-details';
+import {MatDialogRef, MatSnackBar} from '@angular/material';
+import {OwnedService} from '../owned-towers/Owned.service';
+import {IOwned} from '../owned-towers/Owned';
 import {SiteDetailsService} from '../../site-management/site-details.service';
+import {SiteDetails} from '../../site-management/site-details';
 
 @Component({
   selector: 'app-add-antenna',
@@ -20,22 +22,26 @@ export class AddAntennaComponent implements OnInit {
   options: string[] = [];
   sitenames: string[] = [];
   filteredOptions: Observable<string[]>;
-  sites: SiteDetails[] = [];
+  sites: IOwned[] = [];
   name: string = null;
   Height: boolean;
   public counter;
   operators: string[] = ['Hutch', 'Etisalat', 'Mobitel', 'SLT', 'LANKA BELL'];
   Type: string[] = ['GSM', 'MICRO'];
+  sites1: SiteDetails[];
+  sites1ID: string[];
+
 
   constructor(private route: ActivatedRoute, private router: Router,
               private ts: TowerService, private snackBar: MatSnackBar,
-              private siteDetailsService: SiteDetailsService) {
+              private Service: OwnedService, private Dialogref: MatDialogRef<AddAntennaComponent>) {
     this.at = new ITower();
-    this.siteDetailsService.findAll().subscribe(data => {
+
+
+    this.Service.getOwnedTowers().subscribe(data => {
       this.sites = data;
       for (let counter = 0; counter < this.sites.length; counter++) {
         this.options[counter] = this.sites[counter].siteID;
-        this.sitenames[counter] = this.sites[counter].siteName;
       }
     });
 
@@ -48,6 +54,8 @@ export class AddAntennaComponent implements OnInit {
         startWith(''),
         map(value => this._filter(value))
       );
+    this.router.navigate(['/physical-measurement']);
+
 
   }
 
@@ -70,7 +78,7 @@ export class AddAntennaComponent implements OnInit {
     } else {
       this.openSnackBar('Form is Invalid!');
     }
-    this.GenerateEmail();
+    // this.GenerateEmail();
   }
 
   validate() {
@@ -90,16 +98,17 @@ export class AddAntennaComponent implements OnInit {
   }
 
   validateArea() {
-    return (this.at.diameter >= 2 && this.at.diameter <= 15);
+    return (this.at.area >= 2 && this.at.area <= 15);
 
   }
 
   validateAzimuth() {
-    return (this.at.diameter >= 0 && this.at.diameter <= 360);
+    return (this.at.azimuth >= 0 && this.at.azimuth <= 360);
   }
 
   gotoAnTowers() {
-    this.router.navigate(['/add-antenna']);
+    this.Dialogref.close();
+    this.ngOnInit();
   }
 
   openSnackBar(message: string) {

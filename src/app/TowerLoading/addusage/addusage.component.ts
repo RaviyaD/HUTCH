@@ -32,7 +32,7 @@ export class AddusageComponent implements OnInit {
   constructor(private route: ActivatedRoute, private router: Router,
               private os: OwnedService,
               private siteDetailsService: SiteDetailsService,
-              private snackBar: MatSnackBar, private ownedservice: OwnedService, private Dialogref: MatDialogRef) {
+              private snackBar: MatSnackBar, private ownedservice: OwnedService, private Dialogref: MatDialogRef<AddusageComponent>) {
 
     this.ot = new IOwned();
     this.ot.micro = 0;
@@ -80,6 +80,7 @@ export class AddusageComponent implements OnInit {
 
   onSubmit() {
     if (this.validate()) {
+      this.ot.remaining = this.ot.totalArea;
       this.os.addOwnedTower(this.ot).subscribe(result => this.gotoOwnedTowers());
       this.addForm.reset();
     } else {

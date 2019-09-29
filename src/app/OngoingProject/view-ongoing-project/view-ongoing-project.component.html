@@ -27,28 +27,24 @@
             <td mat-cell *matCellDef="let m"> <a class="mat-tab-link"></a> {{m.projectId}}</td>
           </ng-container>
 
-          <ng-container matColumnDef="projectName">
-            <th mat-header-cell *matHeaderCellDef mat-sort-header>Project Name </th>
+          <ng-container matColumnDef="Name">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Name </th>
             <td mat-cell *matCellDef="let m"> {{m.projectName}} </td>
           </ng-container>
 
-          <ng-container matColumnDef="projectType">
-            <th mat-header-cell *matHeaderCellDef> Project Type </th>
+          <ng-container matColumnDef="Type">
+            <th mat-header-cell *matHeaderCellDef> Type </th>
             <td mat-cell *matCellDef="let m"> {{m.projectType}} </td>
           </ng-container>
 
-          <ng-container matColumnDef="projectPriority">
-            <th mat-header-cell *matHeaderCellDef> Project Priority </th>
-            <td mat-cell *matCellDef="let m"> {{m.projectPriority}} </td>
-          </ng-container>
 
           <ng-container matColumnDef="startingDate">
-            <th mat-header-cell *matHeaderCellDef mat-sort-header> Starting Date </th>
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> StartingDate </th>
             <td mat-cell *matCellDef="let m"> {{m.startingDate}} </td>
           </ng-container>
 
           <ng-container matColumnDef="completionPeriod">
-            <th mat-header-cell *matHeaderCellDef> Completion Period </th>
+            <th mat-header-cell *matHeaderCellDef> CompletionPeriod </th>
             <td mat-cell *matCellDef="let m"> {{m.completionPeriod}} </td>
           </ng-container>
 
@@ -67,6 +63,16 @@
             <td mat-cell *matCellDef="let m"> {{m.teamId}} </td>
           </ng-container>
 
+          <ng-container matColumnDef="specId">
+            <th mat-header-cell *matHeaderCellDef> SpecID </th>
+            <td mat-cell *matCellDef="let m"> {{m.specId}} </td>
+          </ng-container>
+
+          <ng-container matColumnDef="scope">
+            <th mat-header-cell *matHeaderCellDef> Scope </th>
+            <td mat-cell *matCellDef="let m"> {{m.scope}} </td>
+          </ng-container>
+
           <ng-container matColumnDef="actions">
             <mat-header-cell *matHeaderCellDef>
               <button mat-icon-button color="primary" (click)="gotoadd()">
@@ -75,12 +81,16 @@
             </mat-header-cell>
 
             <mat-cell *matCellDef="let m; let i=index;">
-              <button mat-icon-button color="accent" (click)="startEdit(m.projectId, m.projectName, m.projectType, m.projectPriority, m.startingDate, m.completionPeriod,m.status,m.details,m.teamId)"  >
+              <button mat-icon-button color="accent" (click)="startEdit(m.projectId, m.projectName, m.projectType, m.startingDate, m.completionPeriod,m.status,m.details,m.teamId,m.specId,m.scope)"  >
                 <mat-icon aria-label="Edit">edit</mat-icon>
               </button>
 
               <button mat-icon-button color="accent" (click)="delete(m.projectId)">
                 <mat-icon aria-label="Delete">delete</mat-icon>
+              </button>
+
+              <button mat-button color="accent"  (click)="getreporttoeach(m.projectId, m.projectName, m.projectType, m.startingDate, m.completionPeriod,m.status,m.details,m.teamId,m.specId,m.scope)">
+                <mat-icon class="mat-24" aria-label="Example icon-button with a heart icon">print</mat-icon>
               </button>
 
             </mat-cell>
@@ -94,6 +104,9 @@
                        [pageSize]="10"
                        [pageSizeOptions]="[5, 10, 25, 100]">
         </mat-paginator>
+        <button mat-button color="accent" (click)="GenerateReport()">
+          <mat-icon class="mat-24" aria-label="Example icon-button with a heart icon">print</mat-icon>
+        </button>
       </div>
 
 
@@ -109,28 +122,25 @@
             <td mat-cell *matCellDef="let m"> {{m.projectId}}</td>
           </ng-container>
 
-          <ng-container matColumnDef="projectName">
-            <th mat-header-cell *matHeaderCellDef>Project Name </th>
+          <ng-container matColumnDef="Name">
+            <th mat-header-cell *matHeaderCellDef> Name </th>
             <td mat-cell *matCellDef="let m"> {{m.projectName}} </td>
           </ng-container>
 
-          <ng-container matColumnDef="projectType">
-            <th mat-header-cell *matHeaderCellDef> Project Type </th>
+          <ng-container matColumnDef="Type">
+            <th mat-header-cell *matHeaderCellDef> Type </th>
             <td mat-cell *matCellDef="let m"> {{m.projectType}} </td>
           </ng-container>
 
-          <ng-container matColumnDef="projectPriority">
-            <th mat-header-cell *matHeaderCellDef> Project Priority </th>
-            <td mat-cell *matCellDef="let m"> {{m.projectPriority}} </td>
-          </ng-container>
+
 
           <ng-container matColumnDef="startingDate">
-            <th mat-header-cell *matHeaderCellDef> Starting Date </th>
+            <th mat-header-cell *matHeaderCellDef> StartingDate </th>
             <td mat-cell *matCellDef="let m"> {{m.startingDate}} </td>
           </ng-container>
 
           <ng-container matColumnDef="completionPeriod">
-            <th mat-header-cell *matHeaderCellDef> Completion Period </th>
+            <th mat-header-cell *matHeaderCellDef> CompletionPeriod </th>
             <td mat-cell *matCellDef="let m"> {{m.completionPeriod}} </td>
           </ng-container>
 
@@ -147,6 +157,16 @@
           <ng-container matColumnDef="teamId">
             <th mat-header-cell *matHeaderCellDef> TeamID </th>
             <td mat-cell *matCellDef="let m"> {{m.teamId}} </td>
+          </ng-container>
+
+          <ng-container matColumnDef="specId">
+            <th mat-header-cell *matHeaderCellDef> SpecID </th>
+            <td mat-cell *matCellDef="let m"> {{m.specId}} </td>
+          </ng-container>
+
+          <ng-container matColumnDef="scope">
+            <th mat-header-cell *matHeaderCellDef> Scope </th>
+            <td mat-cell *matCellDef="let m"> {{m.scope}} </td>
           </ng-container>
 
           <ng-container matColumnDef="actions">
@@ -175,6 +195,9 @@
                        [pageSize]="10"
                        [pageSizeOptions]="[5, 10, 25, 100]">
         </mat-paginator>
+        <button mat-button color="accent" (click)="GenerateReport()">
+          <mat-icon class="mat-24" aria-label="Example icon-button with a heart icon">print</mat-icon>
+        </button>
       </div>
 
     </div>

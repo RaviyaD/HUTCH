@@ -6,6 +6,8 @@ import {SiteDetailsService} from '../../site-management/site-details.service';
 import * as jsPDF from 'jspdf';
 import {DatePipe} from '@angular/common';
 import {animate, state, style, transition, trigger} from '@angular/animations';
+import {Remark} from '../model/remark';
+import {RemarkServiceService} from '../service/remark-service.service';
 
 @Component({
   selector: 'app-status-report',
@@ -40,11 +42,11 @@ export class StatusReportComponent implements OnInit {
   count3: number;
   m = 0;
   m2 = 0;
-
+  remarks2: Remark[];
   temp: string;
   map: SiteDetails[] = [];
 
-  constructor(private maintenanceservice: MaintenanceServicesService, private mapservice: SiteDetailsService) {
+  constructor(private maintenanceservice: MaintenanceServicesService, private mapservice: SiteDetailsService, private remarkService: RemarkServiceService) {
     this.c1 = 0;
     this.c2 = 0;
     this.c3 = 0;
@@ -70,10 +72,14 @@ export class StatusReportComponent implements OnInit {
           }
         }
       }
-      );
+    );
   }
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.remarkService.findAll().subscribe(data => {
+      this.remarks2 = data;
+    });
+  }
 
   get(name: string) {
     this.mapservice.getSiteDetailsByName(name).subscribe(data1 => {
@@ -109,16 +115,16 @@ export class StatusReportComponent implements OnInit {
 
     const totalPagesExp = '{total_pages_count_string}';
     const pdf = new jsPDF('l', 'pt', 'legal');
-    pdf.setTextColor(255, 69, 0);
-    pdf.text('HUTCH', 480, 50).setFontSize(30);
-    pdf.text('Civil Department', 430, 80).setFontSize(20); // 450 here is x-axis and 80 is y-axis
-    pdf.text('Stautus Map Report', 430, 100).setFontSize(20); // 450 here is x-axis and 80 is y-axis//
+    pdf.setTextColor(0, 0, 0);
+    pdf.text('    HUTCH', 480, 50).setFontSize(15);
+    pdf.text('  Civil Department', 430, 80).setFontSize(17); // 450 here is x-axis and 80 is y-axis
+    pdf.text('    Stautus Map Report', 430, 100).setFontSize(15); // 450 here is x-axis and 80 is y-axis//
     pdf.setLineWidth(1.5);
 
 
-    pdf.text('Currently Total Up Sites             :' + count11, 140, 190).setFontSize(12);
-    pdf.text('Currently Total Down Sites           :' + count22, 140, 210).setFontSize(12);
-    pdf.text('Currently Total Maintaining Sites    :' + count33, 140, 230).setFontSize(12);
+    pdf.text('Currently Total Up Sites                 :' + count11, 140, 190).setFontSize(15);
+    pdf.text('Currently Total Down Sites             :' + count22, 140, 210).setFontSize(15);
+    pdf.text('Currently Total Maintaining Sites    :' + count33, 140, 230).setFontSize(15);
     pdf.line(5, 150, 995, 150);
     const pageContent = function (data) {
       // HEADER
@@ -144,6 +150,24 @@ export class StatusReportComponent implements OnInit {
 
   }
 
-
+  print(): void {
+    let printContents;
+    let popupWin;
+    printContents = document.getElementById('print-section').innerHTML;
+    popupWin = window.open('', '_blank', 'top=0,left=0,height=100%,width=auto');
+    popupWin.document.open();
+    popupWin.document.write(`
+      <html>
+        <head>
+          <title></title>
+          <style>
+          //........Customized style.......
+          </style>
+        </head>
+    <body onload="window.print();window.close()">${printContents}</body>
+      </html>`
+    );
+    popupWin.document.close();
+  }
 
 }
