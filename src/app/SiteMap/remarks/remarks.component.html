@@ -7,7 +7,7 @@
     <h3 align="center"  > Site-Map Remarks</h3>
 
     <br>
-    <a routerLink="/siteMap/createRemark" class="btn btn-info" style="margin-bottom: 10px;width: 150px;align: center;background-color: #EC6708" >Add Remark</a>
+    <a routerLink="/siteMap/createRemark" class="btn btn-info" style="margin-bottom: 10px;width: 150px;align: center;background-color: #EC6708;margin-top: 40px" >Add Remark</a>
     <!--  <table class="table table-striped" class="table3" >
           <thead>
           <tr>
@@ -40,7 +40,7 @@
       <tr *ngFor="let remark of remarks">
         <td >{{ remark.remark }}</td>
         <td padding="4px 2px 10px" class="r"><button class="btn btn-info"  style="background-color: #EC6708;margin-right: 10px"  (click)="delete(remark.id)"> Delete</button>
-          <button class="btn btn-info" style="background-color: #EC6708;margin-left: 5px;" (click)="startEdit(remarks)" > Edit</button></td>
+          <button class="btn btn-info" style="background-color: #EC6708;margin-left: 5px;" (click)="startEdit(remark.id, remark.remark)" > Edit</button></td>
       </tr>
 
       </tbody>

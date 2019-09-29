@@ -1,4 +1,7 @@
-
+agm-map {
+  height: 450px;
+  width: 1000px;
+}
 th {
   padding: 5px;
   text-align: center;
@@ -20,28 +23,15 @@ td{
 
 .the{
   height: 750px;
-  width:30%;
+  width: 100%;
 
   z-index: 1;
   top: 0;
   overflow-x: hidden;
   padding-top: 2px;
   left: auto;
-  background-color: #fefefe;
+  background-color: whitesmoke;
 }
-
-.the2{
-  height: 750px;
-  width: 640px;
-
-  z-index: 1;
-  top: 0;
-  overflow-x: hidden;
-  padding-top: 2px;
-
-  background-color: #fefefe;
-}
-
 
 .centereds {
   position: absolute;
@@ -92,9 +82,9 @@ td{
 
 
 .di {
-  background-color: whitesmoke;
+  background-color: white;
   color: Black;
-  width: 370px;
+  width: 600px;
   height: 300px;
 
 

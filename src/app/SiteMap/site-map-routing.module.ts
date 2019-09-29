@@ -11,6 +11,7 @@ import {StatusMapComponent} from './status-map/status-map.component';
 import {UpsitesMapComponent} from './status-map/upsites-map/upsites-map.component';
 import {DownsitesMapComponent} from './status-map/downsites-map/downsites-map.component';
 import {MaintainsitesMapComponent} from './status-map/maintainsites-map/maintainsites-map.component';
+import {DirectionMapComponent} from './direction-map/direction-map.component';
 
 
 const appRoutes: Routes = [
@@ -26,6 +27,8 @@ const appRoutes: Routes = [
   {path: 'upsitesmap', component: UpsitesMapComponent},
   {path: 'downsitesmap', component: DownsitesMapComponent},
   {path: 'maintainmap', component: MaintainsitesMapComponent},
+  {path: 'directionmap', component: DirectionMapComponent},
+  {path: 'directmap/:siteName', component: DirectionMapComponent},
 
 ];
 

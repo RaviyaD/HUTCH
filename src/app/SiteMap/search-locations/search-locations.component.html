@@ -1,7 +1,7 @@
 
 
 <table><tr>
-  <th class="the"> <agm-map  [zoom]="17"  [latitude]="lan" [longitude]="lon" [mapTypeId]= 'mapType' >
+  <th class="the2"> <agm-map  [zoom]="17"  [latitude]="lan" [longitude]="lon" [mapTypeId]= 'mapType' >
 
     <agm-marker
 
@@ -15,7 +15,7 @@
 
   <th class="the">
 
-    <h3 > Search for a Site</h3>
+    <h3  [align]="center"> Search for a Site</h3>
     <div class="col-md-6 user-container" align="bottom" ><table class="table1"><tr><th class="th">
 
 
@@ -25,13 +25,14 @@
             <div class="di" style="margin-right: 90px">
 
 
-              <table>
-                <tr>
-                  <td matTreeNodePadding="2px">Site ID : </td><td>{{lid}}</td> </tr>
-                <tr>  <td>Site Name : </td><td>{{lname}}</td></tr>
-                <tr> <td>Lantitude : </td><td>{{lan}}</td>
+              <table [align]="center"  style="width: 300px;margin-left: 2px">
+
+                <tr style="width: 3px">  <td>Site Name  :   </td><td>{{lname}}</td></tr>
+                <tr> <td>OwnerShip  :   </td><td>{{owner}}</td>
                 </tr>
-                <tr><td>Longtitude : </td><td>{{lon}}</td>
+                <tr><td>Owner Site Name : </td><td>{{ownerSitename}}</td></tr>
+                <tr><td>Sub Region : </td><td>{{subregion}}</td></tr>
+                <tr><td>Site Address : </td><td>{{address}}</td>
               </table>
 
 
