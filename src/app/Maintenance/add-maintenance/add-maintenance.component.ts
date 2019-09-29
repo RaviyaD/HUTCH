@@ -45,9 +45,6 @@ export class AddMaintenanceComponent implements OnInit {
   filteredOptions: Observable<string[]>;
   sites: SiteDetails[];
   expectedDate: any;
-  datee: any;
-  datePipe: DatePipe;
-  currendate: any;
   im: IMaintenance;
 
   constructor(private route: ActivatedRoute, private router: Router, public datePipe: DatePipe, private ms: MaintenanceServicesService,
