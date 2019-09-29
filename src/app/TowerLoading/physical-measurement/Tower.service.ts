@@ -1,7 +1,8 @@
-import { Injectable } from '@angular/core';
-import { HttpClient, HttpErrorResponse } from '@angular/common/http';
-import { ITower } from './Tower';
+import {Injectable} from '@angular/core';
+import {HttpClient, HttpErrorResponse} from '@angular/common/http';
+import {ITower} from './Tower';
 import {BehaviorSubject, Observable} from 'rxjs';
+import {Isort} from './sort';
 
 
 @Injectable()
@@ -20,7 +21,7 @@ export class TowerService {
   }
 
 
-   addTower(at: ITower) {
+  addTower(at: ITower) {
     console.log(at.oppositeSite);
     return this.http.post<ITower>(this.url, at);
   }
@@ -52,6 +53,13 @@ export class TowerService {
     return this.dialogdata;
   }
 
+  sort(siteID: string): Observable<Isort[]> {
+    return this.http.get<Isort[]>(this.url + '/sort/' + siteID);
+  }
+
+  listbyID(siteID: string): Observable<Isort[]> {
+    return this.http.get<Isort[]>(this.url + '/only/' + siteID);
+  }
 
 
 }

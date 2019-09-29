@@ -1,1 +1,79 @@
-<p>summary works!</p>
+<h3>Site ID:{{ID}} </h3>
+Summary of Network Operators
+
+
+<label *ngFor="let s of sort">
+  <br>
+  <h5>{{ s.name }}:{{s.count}}</h5>
+  <hr>
+</label>
+
+
+<h3>All the Antennas to the given ID</h3>
+<table mat-table class="lessons-table mat-elevation-z8" [dataSource]="Tower1">
+
+  <ng-container matColumnDef="siteID">
+    <th mat-header-cell *matHeaderCellDef>   Site ID   </th>
+    <td mat-cell *matCellDef="let tower">{{tower.siteID}}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="height">
+    <th mat-header-cell *matHeaderCellDef>   Height    </th>
+    <td  mat-cell class="description-cell"
+         *matCellDef="let tower">{{tower.height}}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="diameter">
+    <th mat-header-cell *matHeaderCellDef>   Diameter    </th>
+    <td mat-cell mat-cell class="duration-cell"
+        *matCellDef="let tower">{{tower.diameter}}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="azimuth">
+    <th mat-header-cell *matHeaderCellDef>   Azimuth of Antenna    </th>
+    <td  mat-cell mat-cell class="duration-cell"
+         *matCellDef="let tower">{{tower.azimuth}}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="TypeAntenna">
+    <th mat-header-cell *matHeaderCellDef>   Type of Antenna    </th>
+    <td mat-cell mat-cell class="duration-cell"
+        *matCellDef="let tower">{{tower.type}}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="ownership">
+    <th mat-header-cell *matHeaderCellDef>   Network Operator   </th>
+    <td mat-cell mat-cell class="duration-cell"
+        *matCellDef="let tower">{{tower.owner}}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="area">
+    <th mat-header-cell *matHeaderCellDef>   Area of Antenna    </th>
+    <td mat-cell mat-cell class="duration-cell"
+        *matCellDef="let tower">{{tower.area}}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="oppositeSite">
+    <th mat-header-cell *matHeaderCellDef>   Opposite Site of Antenna    </th>
+    <td mat-cell mat-cell class="duration-cell"
+        *matCellDef="let tower">{{tower.oppositeSite}}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="date">
+    <th mat-header-cell *matHeaderCellDef>   Opposite Site of Antenna    </th>
+    <td mat-cell mat-cell class="duration-cell"
+        *matCellDef="let tower">{{tower.date}}</td>
+  </ng-container>
+
+
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+
+  <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+
+</table>
+<br>
+<hr>
+<div>
+  <Button class="btn btn-primary btn-sm" (click)="GenerateReport()">Generate Report</Button>
+</div>
