@@ -5,6 +5,7 @@ import {TowerService} from '../physical-measurement/Tower.service';
 import {MatDialog, MatTableDataSource} from '@angular/material';
 import {AddusageComponent} from '../addusage/addusage.component';
 import {IOwned} from './Owned';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-owned-towers',
@@ -22,7 +23,7 @@ export class OwnedTowersComponent implements OnInit {
   public ds = new MatTableDataSource<IOwned>();
   testid = 'raviya';
 
-  constructor(private OS: OwnedService, public dialog: MatDialog) {
+  constructor(private OS: OwnedService, public dialog: MatDialog, private router: Router) {
 
   }
 
@@ -55,6 +56,10 @@ export class OwnedTowersComponent implements OnInit {
 
   getString() {
     return this.testid;
+  }
+
+  Summary(sid: string) {
+    this.router.navigate(['/TowerLoading/summary', sid]);
   }
 
 
