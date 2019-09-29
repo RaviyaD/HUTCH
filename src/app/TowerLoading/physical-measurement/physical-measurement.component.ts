@@ -7,7 +7,7 @@ import {AddAntennaComponent} from '../add-antenna/add-antenna.component';
 import {EditantennaComponent} from '../editantenna/editantenna.component';
 import {ITower} from './Tower';
 import {IOwned} from '../owned-towers/Owned';
-
+import * as Highcharts from 'highcharts';
 const jsPDF = require('jspdf');
 require('jspdf-autotable');
 
@@ -17,7 +17,7 @@ require('jspdf-autotable');
   styleUrls: ['./physical-measurement.component.css']
 })
 export class PhysicalMeasurementComponent implements OnInit {
-  highcharts = Highcharts;
+   highcharts = Highcharts;
   chartOptions = {
     chart: {
       plotBorderWidth: null,
@@ -36,10 +36,6 @@ export class PhysicalMeasurementComponent implements OnInit {
         dataLabels: {
           enabled: true,
           format: '<b>{point.name}%</b>: {point.percentage:.1f} %',
-          style: {
-            color: (Highcharts.theme && Highcharts.theme.contrastTextColor) ||
-              'black'
-          }
         }
       }
     },

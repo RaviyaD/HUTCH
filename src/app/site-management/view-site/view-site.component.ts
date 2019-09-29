@@ -89,7 +89,11 @@ export class ViewSiteComponent implements OnInit {
           this.siteID = site.siteID;
         }
       }
-      this.router.navigate([value, this.siteID]);
+      if (value === '/siteMap/directmap') {
+        this.router.navigate([value, this.siteName]);
+      } else {
+        this.router.navigate([value, this.siteID]);
+      }
     } else {
       this.openSnackBar('Invalid Site ID or Name');
     }

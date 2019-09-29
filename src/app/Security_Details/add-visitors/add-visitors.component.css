@@ -6,11 +6,14 @@
   border: 2px solid red;
 }
 .example-form {
-  min-width: 150px;
-  max-width: 500px;
-  width: 100%;
+  min-width: 15px;
+  max-width: 50px;
+  width: 70%;
 }
 
 .example-full-width {
-  width: 100%;
+  width: 50%;
+}
+.date{
+  width: 20%;
 }

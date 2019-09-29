@@ -123,12 +123,17 @@ export class ViewRegionComponent implements OnInit {
 
   submitUpdate(im: Region) {
     this.dataService.updateregion(im);
+    this.gotoview();
     console.log('updateeeeed');
   }
 
   deleteregion(im: string) {
+    this.gotoview();
     console.log('llllllllll');
     this.dataService.deleteregion(im);
+  }
+  gotoview() {
+    this.router.navigate(['/Region/add-region']);
   }
 }
 

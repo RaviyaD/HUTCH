@@ -27,7 +27,6 @@ import {OwnedService} from './TowerLoading/owned-towers/Owned.service';
 import {ProjectServicesService} from './OngoingProject/view-ongoing-project/ProjectServices';
 import {SiteDetailsService} from './site-management/site-details.service';
 
-
 // Module
 import { TowerModule } from './TowerLoading/tower.module';
 import {ProjectViewComponent} from './OngoingProject/project-view/project-view.component';

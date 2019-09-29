@@ -10,11 +10,7 @@ export class Incident {
   provideAbansSecurity: string;
   dateOfEntry: string;
   nameOfThePoliceStation: string;
-  ObtainPoliceReport: string;
-  Remarks: string;
-
+  obtainPoliceReport: string;
+  remarks: string;
 
 }
-
-
-

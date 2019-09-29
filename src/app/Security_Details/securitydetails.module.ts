@@ -9,6 +9,9 @@ import {AddIncidentsComponent} from './add-incidents/add-incidents.component';
 import {ViewSiteSecurityPersonComponent} from './view-site-security-person/view-site-security-person.component';
 import {AddSiteSecurityPersonComponent} from './add-site-security-person/add-site-security-person.component';
 import {SecuritydetailsRoutingModule} from './securitydetails-routing.module';
+import { UpdateVisitorsComponent } from './update-visitors/update-visitors.component';
+import {DragDropModule} from '@angular/cdk/drag-drop';
+import { UpdateSecurityComponent } from './update-security/update-security.component';
 
 @NgModule({
   declarations: [
@@ -17,15 +20,21 @@ import {SecuritydetailsRoutingModule} from './securitydetails-routing.module';
     ViewIncidentsComponent,
     AddIncidentsComponent,
     ViewSiteSecurityPersonComponent,
-    AddSiteSecurityPersonComponent
+    AddSiteSecurityPersonComponent,
+    UpdateVisitorsComponent,
+    UpdateSecurityComponent
     ],
   imports: [
     CommonModule,
     MaterialModule,
     FormsModule,
     ReactiveFormsModule,
-    SecuritydetailsRoutingModule
+    SecuritydetailsRoutingModule,
+    DragDropModule
     ],
+
+  entryComponents: [UpdateVisitorsComponent, UpdateSecurityComponent],
+
 })
 
 export class SecuritydetailsModule { }
