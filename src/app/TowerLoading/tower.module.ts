@@ -11,6 +11,8 @@ import {AddAntennaComponent} from './add-antenna/add-antenna.component';
 import {OwnedTowersComponent} from './owned-towers/owned-towers.component';
 import {AddusageComponent} from './addusage/addusage.component';
 import {EditantennaComponent} from './editantenna/editantenna.component';
+import { SummaryComponent } from './summary/summary.component';
+import { HighchartsChartComponent} from 'highcharts-angular';
 
 
 @NgModule({
@@ -20,7 +22,9 @@ import {EditantennaComponent} from './editantenna/editantenna.component';
     CalculationComponent,
     OwnedTowersComponent,
     AddusageComponent,
-    EditantennaComponent
+    EditantennaComponent,
+    SummaryComponent,
+    HighchartsChartComponent
   ],
   imports: [
     CommonModule,

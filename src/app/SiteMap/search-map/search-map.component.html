@@ -1,5 +1,5 @@
 <table><tr>
-  <th class="the">    <app-map></app-map></th>
+  <th class="the2">    <app-map></app-map></th>
 
 
 
@@ -19,10 +19,10 @@
 
                 <div class="row"  style="margin-left: 90px">
                   <div class="form-group col-md-2" >
-                    <mat-form-field class="example-full-width" style="width: 450px">
-                      <label for="siteName" style="alignment: center;padding-bottom: 20px">Select Site Name By Here</label>
+                    <mat-form-field class="example-full-width" style="width: 200px;alignment: right;margin-right: 40px">
+                      <label for="siteName" style="alignment: center;padding-bottom: 20px;font-size: 17px;">Select Site Name By Here</label>
                       <input type="text" required
-                             name="sname"   id="siteName"  [(ngModel)]="sname" aria-label="Number" matInput  [formControl]="myControl" [matAutocomplete]="auto" class="form-control" style="padding-bottom: 12px;padding-top: 12px;">
+                             name="sname"   id="siteName"  [(ngModel)]="sname" aria-label="Number" matInput  [formControl]="myControl" [matAutocomplete]="auto" class="form-control" style="padding-bottom: 6px;padding-top: 6px;">
                       <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete" >
                         <mat-option *ngFor="let option of filteredOptions | async" [value]="option" class="row">
                           {{option}}
@@ -34,7 +34,8 @@
                 </div>
 
                 <div class="panel">
-                  <button type="submit"    class="btn btn-primary mt-2 ml-1 mb-2" [disabled]="!f.valid" style="background-color: #EC6708;padding: 10px 70px 10px 70px;font-size: 20px">Search</button>
+                  <button type="submit"    class="btn btn-primary mt-2 ml-1 mb-2" [disabled]="!f.valid" style="background-color: #EC6708;padding: 2px 40px 2px 40px;font-size: 15px">Search</button><br>
+                  <button class="btn btn-primary mt-2 ml-1 mb-2"   (click)="SearchDirection(sname)" style="background-color: #EC6708;padding: 2px 20px 2px 20px;font-size: 15px;margin-top: 10px">Get Direction</button>
                 </div>
 
               </form>

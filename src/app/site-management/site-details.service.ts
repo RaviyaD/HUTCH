@@ -9,6 +9,8 @@ import {SiteDetails} from './site-details';
 export class SiteDetailsService {
 
   private sitesUrl: string;
+  dat = -99;
+  dat1 = -99;
 
   constructor(private http: HttpClient) {
     this.sitesUrl = 'http://localhost:8080/SiteDetails';
@@ -40,5 +42,30 @@ export class SiteDetailsService {
       (err: HttpErrorResponse) => {
         console.log(err);
       });
+  }
+
+  public getInsertCount() {
+    console.log('inisde3');
+    this.http.post(this.sitesUrl + '/' + 'Count/Inserted', {
+      startDate: '27-09-2019',
+      endDate: '30-09-2019'} ).toPromise().then((data: any) => {
+      console.log(data);
+      this.dat1 = Number(JSON.stringify(data.json));
+      console.log(this.dat1);
+    });
+    // while (this.dat1 === -99) {}
+  }
+
+  public getUpdateCount() {
+    console.log('inisde2');
+    this.http.post(this.sitesUrl + '/' + 'Count/Updated', {
+      startDate: '27-09-2019',
+      endDate: '30-09-2019'} ).toPromise().then((data: any) => {
+        console.log(data);
+        this.dat = Number(JSON.stringify(data.json));
+        console.log(this.dat);
+    });
+    // while (this.dat === -99) {}
+    return this.dat;
   }
 }

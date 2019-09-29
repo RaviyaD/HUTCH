@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { MatTabsModule } from '@angular/material';
+import {MatInputModule, MatTabsModule} from '@angular/material';
 
 import { SpecrouteRoutingModule } from './specroute-routing.module';
 import {SpecNavComponent} from '../spec-nav/spec-nav.component';
@@ -10,9 +10,9 @@ import {SpecComponent} from '../spec/spec.component';
 import {SpecLogTableComponent} from '../spec-log-table/spec-log-table.component';
 import {SpecUploadFormComponent} from '../spec-upload-form/spec-upload-form.component';
 import {EditSpecComponent} from '../dialog/edit-spec/edit-spec.component';
-import {FormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {MaterialModule} from '../../site-management/material.module';
-
+import {HttpClientModule} from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -29,7 +29,10 @@ import {MaterialModule} from '../../site-management/material.module';
     SpecrouteRoutingModule,
     MatTabsModule,
     FormsModule,
-    MaterialModule
+    MaterialModule,
+    HttpClientModule,
+    ReactiveFormsModule,
+    MatInputModule
 
   ]
 })

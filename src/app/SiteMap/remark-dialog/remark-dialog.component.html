@@ -2,10 +2,10 @@
 
 <p>Remark: {{data.remark}}</p>
 
-<form>
+<form (ngSubmit)="submitUpdateRemarks()">
   <div class="row">
     <div class="form-group col-md-6" >
-      <label for="Uremark">Edit </label>
+      <label for="Uremark">Edit Remark </label>
       <input name="Uremark"
              [(ngModel)]="data.remark"
              id="Uremark"
@@ -20,4 +20,5 @@
     <button type="submit"   class="btn-success">Submit</button>
   </div>
 </form>
+
 

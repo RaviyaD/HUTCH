@@ -3,17 +3,16 @@
 <form class="Custom-form" (ngSubmit)="onSubmit()" #f="ngForm">
 
   <div class="form-group">
-    <label>Diameter of Antenna:</label>
+    <label>Site ID</label>
     <mat-form-field class="example-full-width">
-      <input type="text"
-             placeholder="Pick one"
+      <input placeholder="Site ID number"
+             type="text"
              aria-label="Number"
              matInput
              [formControl]="myControl"
              [matAutocomplete]="auto"
-             name="siteID"
+             id="siteID"
              [(ngModel)]="at.siteID"
-             ngModel
              required>
       <mat-autocomplete #auto="matAutocomplete">
         <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
@@ -28,6 +27,7 @@
     <label>{{getSiteName()}}</label>
   </div>
 
+
   <div class="form-group">
     <label>Height of Antenna:</label>
     <input type="number"
@@ -37,6 +37,7 @@
            [(ngModel)]="at.height"
            required
            #height="ngModel">
+    <small><p *ngIf="!validateHeight() && !height.untouched" style="color: #ca2819">Height should be between 5 and 10!</p></small>
   </div>
 
   <div class="form-group">
@@ -46,7 +47,9 @@
            name="diameter"
            placeholder="Diameter"
            [(ngModel)]="at.diameter"
-           required>
+           required
+           #diameter="ngModel">
+    <small><p *ngIf="!validateDiameter() && !diameter.untouched" style="color: #ca2819">Height should be between 5 and 10!</p></small>
   </div>
 
   <div class="form-group">
@@ -56,23 +59,26 @@
            name="azimuth"
            placeholder="Azimuth"
            [(ngModel)]="at.azimuth"
-           required>
+           required
+           #azimuth="ngModel">
+    <small><p *ngIf="!validateAzimuth() && !azimuth.untouched" style="color: #ca2819">Height should be between 5 and 10!</p></small>
   </div>
 
   <div class="form-group">
     <label>Area of Antenna:</label>
     <input type="number"
            class="form-control"
-           name="azimuth"
+           name="area"
            placeholder="Area m^2"
-           [(ngModel)]="at.areaAntenna"
-           required>
+           [(ngModel)]="at.area"
+           #area="ngModel">
+    <small><p *ngIf="!validateArea() && !area.untouched" style="color: #ca2819">Height should be between 5 and 10!</p></small>
   </div>
 
   <mat-form-field>
     <mat-label>Type of Antenna</mat-label>
     <mat-select
-      [(ngModel)]="at.TypeAntenna" name="TypeAntenna">
+      [(ngModel)]="at.type" name="TypeAntenna">
       <mat-option *ngFor="let op of Type" [value]="op">
         {{op}}
       </mat-option>
@@ -83,7 +89,7 @@
   <mat-form-field>
     <mat-label>Network Operator</mat-label>
     <mat-select
-      [(ngModel)]="at.ownerShip" name="ownerShip">
+      [(ngModel)]="at.owner" name="ownerShip">
       <mat-option *ngFor="let op of operators" [value]="op">
         {{op}}
       </mat-option>

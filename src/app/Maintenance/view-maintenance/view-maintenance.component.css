@@ -11,6 +11,10 @@ table {
 
 }
 
+.mat-button.mat-accent, .mat-icon-button.mat-accent, .mat-stroked-button.mat-accent {
+  color: rgba(7, 10, 11, 0.99);
+}
+
 
 .Emg{
   background: #ff592c; /* green */
@@ -25,7 +29,7 @@ table {
 }
 
 .Inprc{
-  background: #EC6708;
+  background: #ec912b;
 }
 
 

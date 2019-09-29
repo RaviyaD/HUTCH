@@ -65,4 +65,8 @@ export class SearchMapComponent implements OnInit {
   SearchInMap(name: string) {
     this.router.navigate(['/siteMap/search-locations/', name]);
   }
+
+  SearchDirection(name: string) {
+    this.router.navigate(['/siteMap/directmap/', name]);
+  }
 }

@@ -1,33 +1,32 @@
 <table><tr>
-  <th class="the">    <app-map></app-map></th>
+  <th class="the2">    <app-map></app-map></th>
 
 
 
   <th class="the">
     <h3 >Status Report</h3>
-    <div class="col-md-6 user-container" align="bottom"><table ><tr><th class="th">
+    <div class="col-md-6 user-container" align="bottom"  style="margin-top: 50px"><table class="table1"><tr><th class="th">
 
-      <div class="di">
-        <table class="table table-striped" class="table3" >
-          <thead>
 
-          </thead>
-          <tbody>
-          <tr >
-            <td>Total of current active sites</td>
-            <td><input type="text" class="float-right"> </td>
-          </tr>
-          <tr >
-            <td>Total of current down sites</td>
-            <td><input type="text" class="float-right"> </td>
-          </tr>
-          <tr >
-            <td>Total of current maintaining sites</td>
-            <td><input type="text" class="float-right"> </td>
-          </tr>
-          </tbody>
-        </table>
+      <div class="container" style="margin-left: 9px">
+        <div class="row custom-wrapper" >
+          <div class="col-md-12" >
+            <div class="di" style="margin-right: 90px" >
 
+
+              <table [align]="center"  style="width: 300px;margin-left: 2px" >
+
+                <tr style="width: 3px">  <td>Current total sites :   </td><td>{{c1}}</td></tr>
+                <tr> <td>Current Down Sites :  </td>{{c2}}<td></td>
+                </tr>
+                <tr><td>Currently Maintaining Sites : </td><td>{{c3}}</td></tr>
+              </table>
+              <button mat-button color="accent" (click)="GenerateReport()">
+                <mat-icon class="mat-24" aria-label="Example icon-button with a heart icon">print</mat-icon></button>
+
+            </div>
+          </div>
+        </div>
       </div>
     </th></tr></table>
       <br><br>

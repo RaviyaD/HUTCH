@@ -1,82 +1,89 @@
-<!--h3 class="display-5 text-center">Add new log</h3>
-
-  <div>
-    <form (ngSubmit)="onSubmit(SlogForm)" #SlogForm="ngForm">
-
-       <div class="form-group">
-        <label for="specID">Enter Specification ID</label>
-         <input type="text" [(ngModel)]="specl.specId"
-                class="form-control" id="specID" name="specID"
-                placeholder="Enter spec id "
-                required #name="ngModel">
-       </div>
-      <li>
-        <div class="row ">
-          <div class="form-group">
-            <label for="remark">
-              Enter remark
-            </label>
-            <input type="text" [(ngModel)]="specl.remark"
-                   class="form-control" id="remark" name="remark"
-                   placeholder="Enter remark "
-                   required #name="ngModel">
-          </div>
-         <!-- <p>***{{ temp.specId}}</p>
-        </div>
-      </li>
-
-
-      <button class="form-control" [disabled]="!SlogForm.form.valid">Submit </button>
-      <!--<p>{{ specl.remark }}</p>
-      <p>{{ specl.specId}}</p>
-
-       </form>
-  </div>
-
-    <!--select id="Speclog" name="category  "
-            [(ngModel)]="category" class="form-control">
-      <option value="security">S001</option>
-      <option value="tech">S002</option>
-      <option value="tech">S003</option>
-    </select>
-<li>
-<div class="row ">
-  <div class="form-group col-md-2">
-    <label for="siteId" >Select Site ID</label>
-    <input type="text" [(ngModel)]="SpecLog.siteId"
-           class="form-control" id="siteId" name="siteId"
-           placeholder="Enter site id "
-           required #name="ngModel">
-    <!--<select id="SpecSiteLog" name="category"
-            [(ngModel)]="SpecLog.siteId" class="form-control">
-      <option value="security">COL001</option>
-      <option value="tech">COL002</option>
-      <option value="tech">COL003</option>
-    </select>
-  </div>
-</div>
-</li>-->
-
-     <!-- <select id="SpecProject" name="category"
-              [(ngModel)]="category" class="form-control">
-        <option value="security">P001</option>
-        <option value="tech">P002</option>
-        <option value="tech">P003</option>
-      </select>
+<h3 class="display-5 justify-content-center">Add Log</h3>
+<div>
+  <form (ngSubmit) ="onSubmit(LogForm)" #LogForm = "ngForm" >
+    <div class="form-group">
+<!--    <mat-form-field class="form-group">-->
+      <label for="specID">Select Specification ID</label>
+      <input type="text" [(ngModel)]="specl.specId"
+             class="form-control" id="specID" name="specID"
+             placeholder="Enter spec id "
+             required #id="ngModel"
+             required>
+ <!--   </mat-form-field>-->
     </div>
-  </div>
-</li>
 
-  <div class="form-group col-md-2">
-  <label for="remark">
+    <div class="form-group">
+<!--      <mat-form-field class="form-group">-->
+        <label for="site">Site ID</label>
+        <input type="text" matInput [formControl]="myControl" [matAutocomplete]="auto" [(ngModel)]="specl.siteId" id="site">
+        <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
+          <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+            {{option}}
+          </mat-option>
+        </mat-autocomplete>
+   <!--   </mat-form-field>-->
+    </div>
 
-  </label>
-  <input type="text" [(ngModel)]="specs.r"
-         class="form-control" id="remark" name="remark"
-         placeholder="Enter project id "
-         required #name="ngModel">
-  </div>
+    <div class="form-group">
+<!--      <mat-form-field class="form-group">-->
+      <label for="desc">Project</label>
+      <input type="text" [(ngModel)]="specl.projectId"
+             class="form-control" id="desc" name="desc"
+             placeholder="Enter description "
+             required #desc="ngModel">
+ <!--     </mat-form-field>-->
+    </div>
 
-    </div>-->
+    <div class="form-group">
+<!--      <mat-form-field class="form-group">-->
+        <label for="name">Enter remark</label>
+        <input type="text" [(ngModel)]="specl.remark"
+               class="form-control" id="name" name="name"
+               placeholder="Enter name "
+               required #name="ngModel">
+ <!--     </mat-form-field>-->
+    </div>
+
+    <button class="form-control" >Submit </button>
+  </form>
 
 
+  <h3 class="justify-content-center">View Logs</h3>
+
+  <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+    <!-- Position Column -->
+    <ng-container matColumnDef="specId">
+      <th mat-header-cell *matHeaderCellDef> specId </th>
+      <td mat-cell *matCellDef="let element"> SP0{{element.specId}} </td>
+    </ng-container>
+
+    <!-- Name Column -->
+    <ng-container matColumnDef="specId">
+      <th mat-header-cell *matHeaderCellDef> Site Id </th>
+      <td mat-cell *matCellDef="let element"> {{element.specId}} </td>
+    </ng-container>
+
+    <!-- Weight Column -->
+    <ng-container matColumnDef="projectId">
+      <th mat-header-cell *matHeaderCellDef> Project Id </th>
+      <td mat-cell *matCellDef="let element"> {{element.projectId}} </td>
+    </ng-container>
+
+    <!-- Symbol Column -->
+    <ng-container matColumnDef="remark">
+      <th mat-header-cell *matHeaderCellDef> Remark </th>
+      <td mat-cell *matCellDef="let element"> {{element.remark}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="actions">
+      <th mat-header-cell *matHeaderCellDef> Actions </th>
+      <mat-cell *matCellDef="let element">
+        <button mat-button (click)="viewSpec(element.specId)"><i class="fas fa-eye"></i></button>
+        <button mat-button color="warn"(click)="deleteSpec(element.specId)"><i class="fas fa-trash"></i></button>
+      </mat-cell>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+</div>

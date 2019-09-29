@@ -19,15 +19,28 @@ td{
 
 .the{
   height: 750px;
-  width: 100%;
+  width:30%;
 
   z-index: 1;
   top: 0;
   overflow-x: hidden;
   padding-top: 2px;
   left: auto;
-  background-color: whitesmoke;
+  background-color: #fefefe;
 }
+
+.the2{
+  height: 750px;
+  width: 600px;
+
+  z-index: 1;
+  top: 0;
+  overflow-x: hidden;
+  padding-top: 2px;
+
+  background-color: #fefefe;
+}
+
 
 .centereds {
   position: absolute;
@@ -45,20 +58,6 @@ td{
   transform: translate(-50%, -50%);
   text-align: center;
 }
-
-
-.di {
-  background-color: lightgray;
-  color: Black;
-  width: 500px;
-  height: 300px;
-  margin: 100px 1px ;
-
-  padding: 10px;
-}
-
-
-
 
 
 
@@ -69,4 +68,16 @@ td{
   width: 480px;
   height: 250px;
   background-color: whitesmoke;
+}
+
+
+
+.di {
+  background-color: whitesmoke;
+  color: Black;
+  width: 350px;
+  height: 200px;
+  margin-right: auto;
+
+  padding: 10px 0px;
 }

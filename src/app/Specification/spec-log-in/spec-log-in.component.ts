@@ -9,7 +9,9 @@ import {SpecLog} from '../model/spec-log';
   styleUrls: ['./spec-log-in.component.css']
 })
 export class SpecLogInComponent implements OnInit {
-  specs: SpecLog[];
+  ngOnInit(): void {
+  }
+ /* specs: SpecLog[];
 
   constructor(private spl: SpLogService,  private route: ActivatedRoute, private router: Router) {
   }
@@ -29,5 +31,5 @@ export class SpecLogInComponent implements OnInit {
   update() {
 
 
-  }
+  }*/
 }

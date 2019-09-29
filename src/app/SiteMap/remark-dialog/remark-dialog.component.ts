@@ -4,6 +4,7 @@ import {Remark} from '../model/remark';
 import {RemarkServiceService} from '../service/remark-service.service';
 import {DataSource} from '@angular/cdk/table';
 import {Observable} from 'rxjs';
+import {ActivatedRoute, Router} from '@angular/router';
 
 @Component({
   selector: 'app-remark-dialog',
@@ -14,21 +15,19 @@ export class RemarkDialogComponent implements OnInit {
 
   constructor(public dialogRef: MatDialogRef<RemarkDialogComponent>,
               @Inject(MAT_DIALOG_DATA) public data: Remark,
-              public dataService: RemarkServiceService) { }
-  method: string[] = ['In-House', 'By-Contractor'];
+              public dataService: RemarkServiceService , private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit() {
   }
 
-}
-
-
-export class RemarkDataSource extends DataSource<any> {
-  constructor(private remarkService: RemarkServiceService) {
-    super();
+  gotoRemarks() {
+    this.router.navigate(['/remarks']);
+    window.location.reload();
   }
-  connect(): Observable<Remark[]> {
-    return this.remarkService.getRemark();
+  submitUpdateRemarks(): void {
+    console.log(this.data.remark);
+    console.log('iddddddddddddddd');
+    this.dataService.updateRemarks(this.data);
+    this.gotoRemarks();
   }
-  disconnect() {}
 }

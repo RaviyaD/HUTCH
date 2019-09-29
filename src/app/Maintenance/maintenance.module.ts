@@ -9,6 +9,7 @@ import { MaintenanaceRoutingModule} from './maintenanace-routing.module';
 import { ViewContractorsComponent } from './Contractors/view-contractors/view-contractors.component';
 import { AddContractorComponent } from './Contractors/add-contractor/add-contractor.component';
 import { CompleteMaintenanceComponent } from './complete-maintenance/complete-maintenance.component';
+import { ConfirmDeleteboxComponent } from './confirm-deletebox/confirm-deletebox.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { CompleteMaintenanceComponent } from './complete-maintenance/complete-ma
     ResolveMaintenanceComponent,
     ViewContractorsComponent,
     AddContractorComponent,
-    CompleteMaintenanceComponent
+    CompleteMaintenanceComponent,
+    ConfirmDeleteboxComponent
   ],
   imports: [
     CommonModule,
@@ -26,7 +28,7 @@ import { CompleteMaintenanceComponent } from './complete-maintenance/complete-ma
     ReactiveFormsModule,
     MaintenanaceRoutingModule
   ],
-  entryComponents: [ResolveMaintenanceComponent, AddContractorComponent, CompleteMaintenanceComponent],
+  entryComponents: [ResolveMaintenanceComponent, AddContractorComponent, CompleteMaintenanceComponent, ConfirmDeleteboxComponent],
   providers: [DatePipe],
 })
 
