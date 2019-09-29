@@ -19,7 +19,7 @@ require('jspdf-autotable');
   styleUrls: ['./physical-measurement.component.css']
 })
 export class PhysicalMeasurementComponent implements OnInit {
-  highcharts = Highcharts;
+  /* highcharts = Highcharts;
   chartOptions = {
     chart: {
       plotBorderWidth: null,
@@ -64,7 +64,7 @@ export class PhysicalMeasurementComponent implements OnInit {
     }]
   };
 
-
+*/
   public Tower1 = [];
   public errorMsg;
   dataSource: TowerDataSource;
