@@ -80,6 +80,7 @@ export class AddusageComponent implements OnInit {
 
   onSubmit() {
     if (this.validate()) {
+      this.ot.remaining = this.ot.totalArea;
       this.os.addOwnedTower(this.ot).subscribe(result => this.gotoOwnedTowers());
       this.addForm.reset();
     } else {
