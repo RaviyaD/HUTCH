@@ -29,7 +29,7 @@ export class DirectionMapComponent implements OnInit {
   }
 
   getDirection(name: string) {
-    this.origin = {lat: 6.58539, lng: 79.9607};
+    this.origin = {lat: 6.895848, lng: 79.856720};
 
 
     this.servicess.getSiteDetailsByName(name).subscribe(data => {

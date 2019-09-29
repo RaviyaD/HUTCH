@@ -11,7 +11,7 @@ th {
 }
 td{
 
-  padding: 15px;
+
   text-align: left;
 }
 
@@ -70,14 +70,9 @@ td{
   background-color: whitesmoke;
 }
 
-
-
-.di {
-  background-color: whitesmoke;
-  color: Black;
-  width: 350px;
-  height: 250px;
-  margin-right: auto;
-
-  padding: 10px 0px;
+@media print{
+  .doNotPrint{display:none !important;}
 }
+
+
+
