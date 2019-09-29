@@ -2,6 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import {NgForm} from '@angular/forms';
 import {Region} from '../region';
 import {RegionServices} from '../regionService';
+import {Router} from '@angular/router';
 
 
 @Component({
@@ -11,7 +12,7 @@ import {RegionServices} from '../regionService';
 })
 export class AddSubregionComponent implements OnInit {
 
-  constructor(private regionService: RegionServices) { }
+  constructor(private regionService: RegionServices, private router: Router) { }
 
   step = 0;
   @ViewChild('f', {static: false}) siteForm: NgForm;
@@ -37,6 +38,9 @@ export class AddSubregionComponent implements OnInit {
     this.insert.technicalofficer = this.siteForm.value.technicalofficer;
     this.insert.tomobno = this.siteForm.value.tomobno;
     this.insert.toemail = this.siteForm.value.toemail;
-    this.regionService.addregion(this.insert).subscribe();
+    this.regionService.addregion(this.insert).subscribe(resule => this.gotoviewr());
+  }
+  gotoviewr() {
+    this.router.navigate(['/Region/view-region']);
   }
 }
