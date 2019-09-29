@@ -239,7 +239,7 @@ export class ViewMaintenanceComponent implements OnInit, AfterViewInit {
    //  {
    //     addPageContent: pageContent,
    //     margin: {top: 160},
-   //   });
+   //     });
 
     // for adding total number of pages // i.e 10 etc
     if (typeof pdf.putTotalPages === 'function') {
