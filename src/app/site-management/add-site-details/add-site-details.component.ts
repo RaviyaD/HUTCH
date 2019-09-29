@@ -80,7 +80,9 @@ export class AddSiteDetailsComponent implements OnInit {
         this.insert.accessoriesInShelter = this.siteForm.value.accessoriesInShelter;
         this.siteService.save(this.insert).subscribe();
         this.openSnackBar('Site added successfully!!');
-        this.router.navigate(['Site/view-all-sites']).then();
+        setTimeout(() => {
+          this.router.navigate(['Site/view-all-sites']).then();
+        }, 2500);
       }
     }
   }
