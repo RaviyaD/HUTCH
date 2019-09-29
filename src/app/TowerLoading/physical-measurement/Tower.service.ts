@@ -25,14 +25,14 @@ export class TowerService {
     return this.http.post<ITower>(this.url, at);
   }
 
-  public deleteTower(siteID: string) {
+  public deleteTower(towerID: number) {
     console.log(this.url);
-    return this.http.delete(this.url + '/' + siteID).subscribe(data => {
+    return this.http.delete(this.url + '/' + towerID).subscribe(data => {
 
         console.log('hari bn  delete');
       },
       (err: HttpErrorResponse) => {
-        console.log('kela uan');
+        console.log('kela uan' + towerID);
       }
     );
   }
