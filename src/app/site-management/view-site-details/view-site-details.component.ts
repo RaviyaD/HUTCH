@@ -46,7 +46,7 @@ export class ViewSiteDetailsComponent implements OnInit {
     } else {
       if (this.siteForm.value.siteid != null) {
         if (buttonType === 'update') {
-          this.update = new SiteDetails();
+         /* this.update = new SiteDetails();
           this.update.siteID = this.siteForm.value.siteid;
           this.update.siteName = this.siteForm.value.name;
           this.update.ownership = this.siteForm.value.ownership;
@@ -103,7 +103,7 @@ export class ViewSiteDetailsComponent implements OnInit {
           this.siteService.updateSite(this.siteForm.value.siteid, this.update).subscribe();
           this.openSnackBar('Site updated');
           this.router.navigate(['Site/view-site-details' + '/' + this.siteForm.value.siteid]).then();
-          this.step = 0;
+          this.step = 0;*/
         } else if (buttonType === 'delete') {
           this.siteService.deleteSite(this.siteForm.value.siteid);
           this.openSnackBar('Site deleted');
@@ -114,7 +114,7 @@ export class ViewSiteDetailsComponent implements OnInit {
         this.openSnackBar('No Site ID chosen!!');
       }
     }
-}
+  }
 
   setStep(index: number) {
     this.step = index;
@@ -138,7 +138,7 @@ export class ViewSiteDetailsComponent implements OnInit {
   }
 
   constructor(private route: ActivatedRoute, private router: Router, private siteService: SiteDetailsService,
-              private datePipe: DatePipe,  private snackBar: MatSnackBar) {
+              private datePipe: DatePipe, private snackBar: MatSnackBar) {
     this.siteService.findAll().subscribe(data => {
       this.sites = data;
       for (let counter = 0; counter < this.sites.length; counter++) {
@@ -192,6 +192,6 @@ export class ViewSiteDetailsComponent implements OnInit {
   }
 
   validate(siteID: string) {
-    return (this.sites.some((el) =>  el.siteID === siteID ));
+    return (this.sites.some((el) => el.siteID === siteID));
   }
 }

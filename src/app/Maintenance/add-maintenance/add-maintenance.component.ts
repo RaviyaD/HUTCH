@@ -97,7 +97,7 @@ export class AddMaintenanceComponent implements OnInit {
   public validcomplete(key: string) {
     let j;
     for (let i = 0; i < this.optionssitename.length; i++) {
-      console.log(this.optionssitename[i]);
+      // console.log(this.optionssitename[i]);
       if (key !== this.optionssitename[i]) {
         j = 0;
       } else {
@@ -117,7 +117,7 @@ export class AddMaintenanceComponent implements OnInit {
   }
 
   onSubmit() {
-    this.im.sid = this.showsiteid(this.im.sname)
+    this.im.sid = this.showsiteid(this.im.sname);
     this.im.status = 'pending';
     this.ms.addMaintenance(this.im).subscribe(result => this.gotoViewMaintenance());
   }
