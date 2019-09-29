@@ -44,6 +44,10 @@ export class EditZoneComponent implements OnInit {
 
   submitUpdate() {
     this.dataService.updatezone(this.zn);
+    this.goto();
     console.log(this.zn.zonename);
+  }
+  goto() {
+    this.router.navigate(['/view-region']);
   }
 }
