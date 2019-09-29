@@ -14,7 +14,7 @@ import {GoogleChartsModule} from 'angular-google-charts';
     AddSiteDetailsComponent,
     ViewSiteComponent,
     ViewSiteDetailsComponent,
-    ViewAllSitesComponent
+    ViewAllSitesComponent,
   ],
   imports: [
     CommonModule,

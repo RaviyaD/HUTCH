@@ -12,3 +12,7 @@ export class IProject {
   projectfor: string;
   scope: string;
 }
+export class List {
+  projectId: string;
+  details: string;
+}

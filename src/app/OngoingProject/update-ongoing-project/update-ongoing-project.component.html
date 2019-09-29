@@ -2,10 +2,10 @@
 
 <p [(ngModel)]="data.projectName" ngDefaultControl>Project Name : {{data.projectName}}</p>
 <p [(ngModel)]="data.projectType" ngDefaultControl>Project Type : {{data.projectType}}</p>
-<p [(ngModel)]="data.projectPriority" ngDefaultControl>Project Priority: {{data.projectPriority}}</p>
 <p [(ngModel)]="data.startingDate" ngDefaultControl>Starting Date:  {{data.startingDate}}</p>
 <p [(ngModel)]="data.completionPeriod" ngDefaultControl>Completion Period: {{data.completionPeriod}}</p>
-
+<p [(ngModel)]="data.specId" ngDefaultControl>SpecId: {{data.specId}}</p>
+<p [(ngModel)]="data.scope" ngDefaultControl>Scope: {{data.scope}}</p>
 
 <form (ngSubmit)="submitUpdate()" >
   <div class="row">
