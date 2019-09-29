@@ -21,8 +21,12 @@ export class StatusReportComponent implements OnInit {
 
   options: string[] = [];
   options2: string[] = [];
-  cc: number;
-
+  c1: number;
+  c2: number;
+  c3: number;
+  count1: number;
+  count2: number;
+  count3: number;
   m = 0;
   m2 = 0;
 
@@ -30,6 +34,9 @@ export class StatusReportComponent implements OnInit {
   map: SiteDetails[] = [];
 
   constructor(private maintenanceservice: MaintenanceServicesService, private mapservice: SiteDetailsService) {
+    this.c1 = 0;
+    this.c2 = 0;
+    this.c3 = 0;
     this.maintenanceservice.getMaintenance().subscribe(data => {
         this.mlist = data;
 
@@ -37,17 +44,22 @@ export class StatusReportComponent implements OnInit {
           if (this.mlist[counter].status !== 'Complete' && this.mlist[counter].piority === 'High') {
             this.options[counter] = this.mlist[counter].sname;
             this.get(this.mlist[counter].sname);
-            this.cc = counter;
-            console.log(this.cc + 'kkkkkkkkkkkkkkk');
-          }
-          if (this.mlist[counter].status !== 'Complete' && this.mlist[counter].piority === 'Normal') {
+            this.c1 = this.c1 + 1;
+            console.log(this.c1 + '111');
+          } else if (this.mlist[counter].status !== 'Complete' && this.mlist[counter].piority === 'Normal') {
             this.options[counter] = this.mlist[counter].sname;
             this.get2(this.mlist[counter].sname);
-            console.log(this.cc + 'active');
+            this.c2 = this.c2 + 1;
+            console.log(this.c2 + '222');
+          } else if (this.mlist[counter].status !== 'Complete' && this.mlist[counter].piority === 'Low') {
+            this.options[counter] = this.mlist[counter].sname;
+            this.get2(this.mlist[counter].sname);
+            this.c3 = this.c3 + 1;
+            console.log(this.c3 + '333');
           }
         }
       }
-    );
+      );
   }
 
   ngOnInit() {}
