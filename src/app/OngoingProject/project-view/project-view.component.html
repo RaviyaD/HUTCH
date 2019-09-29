@@ -3,16 +3,15 @@
 
     <div class="col-md-4">
       <div class="drag-container">
-        <div class="section-heading">To Do
-        <button mat-icon-button color="primary" class="mat-icon-button">
+        <div class="section-heading">To Do<br>
+          <input type="text" [(ngModel)]="text" name="todotxt" >
+        <button mat-icon-button color="primary" class="mat-icon-button" (click)="add(text)">
           <mat-icon aria-label="Example icon-button with a heart icon">add</mat-icon>
         </button></div><br>
         <div cdkDropList #pendingList="cdkDropList" [cdkDropListData]="todo" [cdkDropListConnectedTo]="[doingList,doneList]"
              class="item-list" (cdkDropListDropped)="drop($event)">
           <div class="item-box" *ngFor="let item of todo" cdkDrag>{{item}}
-            <button mat-icon-button color="accent">
-              <mat-icon aria-label="Delete">delete</mat-icon>
-            </button>
+
           </div>
         </div>
       </div>
@@ -21,15 +20,11 @@
     <div class="col-md-4">
       <div class="drag-container">
         <div class="section-heading">Doing
-          <button mat-icon-button color="primary" class="mat-icon-button">
-            <mat-icon aria-label="Example icon-button with a heart icon">add</mat-icon>
-          </button></div><br>
-        <div cdkDropList #doingList="cdkDropList" [cdkDropListData]="doing" [cdkDropListConnectedTo]="[pendingList,doneList]"
+          </div><br>
+        <div cdkDropList #doingList="cdkDropList" [cdkDropListData]="doing" [cdkDropListConnectedTo]="[doneList,pendingList]"
              class="item-list" (cdkDropListDropped)="drop($event)">
           <div class="item-box" *ngFor="let item of doing" cdkDrag>{{item}}
-            <button mat-icon-button color="accent">
-              <mat-icon aria-label="Delete">delete</mat-icon>
-            </button>
+
           </div>
         </div>
       </div>
@@ -38,15 +33,11 @@
     <div class="col-md-4">
       <div class="drag-container">
         <div class="section-heading">Completed
-          <button mat-icon-button color="primary" class="mat-icon-button">
-            <mat-icon aria-label="Example icon-button with a heart icon">add</mat-icon>
-          </button></div><br>
-        <div cdkDropList #doneList="cdkDropList" [cdkDropListData]="done" [cdkDropListConnectedTo]="[doingList,pendingList]"
+          </div><br>
+        <div cdkDropList #doneList="cdkDropList" [cdkDropListData]="done" [cdkDropListConnectedTo]="[]"
              class="item-list" (cdkDropListDropped)="drop($event)">
           <div class="item-box" *ngFor="let item of done" cdkDrag>{{item}}
-            <button mat-icon-button color="accent">
-              <mat-icon aria-label="Delete">delete</mat-icon>
-            </button>
+
           </div>
         </div>
       </div>

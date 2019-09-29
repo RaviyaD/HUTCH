@@ -99,14 +99,6 @@ export class AddNewProjectComponent implements OnInit {
     return this.optionsspec.filter(option2 => option2.indexOf(filterValue2) === 0);
   }
 
-  public  showzonename(name: string) {
-    for (let i = 0; i < this.optionszonename.length; i++) {
-      if (name === this.optionszonename[i]) {
-        return this.optionszonename[i];
-      }
-    }
-  }
-
   onSubmit() {
     console.log(this.is.projectId);
     this.projectService.addProject(this.is).subscribe(result => this.gotoViewProject());
