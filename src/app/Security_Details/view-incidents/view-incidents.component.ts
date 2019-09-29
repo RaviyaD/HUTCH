@@ -1,37 +1,46 @@
-import {Component, OnInit, ViewChild} from '@angular/core';
+import {AfterViewInit, Component, OnInit, ViewChild} from '@angular/core';
 import {Incident} from '../Incident';
 import {IncidentService} from '../IncidentService';
-import {MatPaginator, MatTableDataSource} from '@angular/material';
+import {MatPaginator, MatSort, MatTableDataSource} from '@angular/material';
 import {DataSource} from '@angular/cdk/table';
 import {Observable} from 'rxjs';
-
+import {ActivatedRoute, Router} from '@angular/router';
 
 @Component({
   selector: 'app-view-incidents',
   templateUrl: './view-incidents.component.html',
   styleUrls: ['./view-incidents.component.css']
 })
-export class ViewIncidentsComponent implements OnInit {
+export class ViewIncidentsComponent implements OnInit, AfterViewInit {
 
-  public incident = [];
-  constructor( private incidentServe: IncidentService) { }
+  constructor(private route: ActivatedRoute, private router: Router, private incidentServe: IncidentService) { }
 
   incident1: Incident;
-  dataSource: IncidentDataSourse;
   displayedColumns: string[] = ['incidentId', 'siteName', 'incidentDate',
     'summeryOfTheIncident', 'dateOfInform', 'informerName' , 'descriptionStolenProperty',
     'provideAbansSecurity', 'dateOfEntry', 'nameOfThePoliceStation',
     'obtainPoliceReport', 'remarks'];
-  public dataSource1 = new MatTableDataSource(this.incident);
+  public dataSource = new MatTableDataSource<Incident>();
 
   @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
+  @ViewChild(MatSort, {static: true}) sort: MatSort;
+  exampleDatabase: IncidentService | null;
 
   applyFilter(filterValue: string) {
-    this.dataSource1.filter = filterValue.trim().toLowerCase();
+    this.dataSource.filter = filterValue.trim().toLowerCase();
+    if (this.dataSource.paginator) {
+      this.dataSource.paginator.firstPage();
+    }
   }
 
   ngOnInit() {
-    this.dataSource = new IncidentDataSourse(this.incidentServe);
+    this.dataSource.sort = this.sort;
+    this.dataSource.paginator = this.paginator;
+    this.incidentServe.getIncident().subscribe(data => this.dataSource.data = data as Incident[]);
+  }
+  ngAfterViewInit(): void {
+    this.dataSource.sort = this.sort;
+
   }
 }
 

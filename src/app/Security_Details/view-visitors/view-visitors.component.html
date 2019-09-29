@@ -51,13 +51,13 @@
         </mat-header-cell>
 
         <mat-cell *matCellDef="let m; let i=index;">
-          <button mat-icon-button color="accent" (click)="startEdit(m.visitorId,m.siteName, m.visitorName, m.intime, m.exitTime, m.description)" [hidden]="(m.status == 'Complete' || m.status == 'In-Progressing')? true:false" >
-            <mat-icon aria-label="Build">build</mat-icon>
+          <button mat-icon-button color="accent" (click)="startEdit(m.siteName,m.visitorId, m.visitorName,m.vistDate, m.intime, m.exitTime, m.description)"  >
+            <mat-icon aria-label="Build">edit</mat-icon>
           </button>
 
 
 
-          <button mat-icon-button color="accent"  (click)="delete(m.visitorId)" [hidden]="(m.status == 'pending' || m.status == 'In-Progressing')? true:false">
+          <button mat-icon-button color="accent"  (click)="delete(m.visitorId)" >
             <mat-icon aria-label="Delete">delete</mat-icon></button>
 
 

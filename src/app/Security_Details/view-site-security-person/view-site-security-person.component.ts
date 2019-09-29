@@ -3,7 +3,7 @@ import {ActivatedRoute, Router} from '@angular/router';
 import {IncidentService} from '../IncidentService';
 import {MatDialog, MatPaginator, MatSort, MatTableDataSource} from '@angular/material';
 import {Security} from '../Security';
-import {Visitors} from '../Visitors';
+import {UpdateSecurityComponent} from '../update-security/update-security.component';
 
 
 @Component({
@@ -19,6 +19,7 @@ export class ViewSiteSecurityPersonComponent implements OnInit, AfterViewInit {
   cname: string;
   id: number;
   index: number;
+  securityId: number;
   security: Security[] = [];
   displayedColumns: string[] = ['Site Name', 'Security Name', 'Work Time', 'Phone number', 'actions'];
   public dataSource1 = new MatTableDataSource<Security>();
@@ -55,17 +56,34 @@ export class ViewSiteSecurityPersonComponent implements OnInit, AfterViewInit {
   }
   delete(id: number) {
     this.securityservice.deleteSecurity(id);
-    this.gotoViewSecurity();
-  }
-  gotoViewSecurity() {
-    // this.router.navigate(['/view-maintenance']);
     window.location.reload();
   }
 
   gotoadd() {
-    this.router.navigate(['Security_Details/add-visitors']);
+    this.router.navigate(['Security/add-site-security-person']);
   }
 
+  startEdit(securityId1: number, siteName1: string, securityName1: string,
+            phoneNumber1: string, workTime1: string) {
+
+    this.securityId = securityId1;
+    console.log(this.index);
+
+    const dialogRef = this.dialog.open(UpdateSecurityComponent, {
+      width: '600px',
+      data: {siteName: siteName1, securityId: securityId1, securityName: securityName1, phoneNumber: phoneNumber1, workTime: workTime1 }
+    });
+    dialogRef.afterClosed().subscribe(result => {
+      if (result === 1) {
+        // When using an edit things are little different, firstly we find record inside DataService by id
+        const foundIndex = this.exampleDatabase.dataChange1.value.findIndex(x => x.securityId === this.securityId);
+        // Then you update that record using data from dialogData (values you enetered)
+        this.exampleDatabase.dataChange1.value[foundIndex] = this.securityservice.getDialogData1();
+        // And lastly refresh table
+        // this.refreshTable();
+      }
+    });
+  }
 
 
 }
