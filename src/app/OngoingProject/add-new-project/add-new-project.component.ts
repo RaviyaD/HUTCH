@@ -55,6 +55,7 @@ export class AddNewProjectComponent implements OnInit {
     this.specService.findAll().subscribe(data => {
       this.specs = data;
       for (let counter = 0; counter < this.specs.length; counter++) {
+        console.log(this.specs[counter].specId);
         this.optionsspec[counter] = String(this.specs[counter].specId);
       }
     });
