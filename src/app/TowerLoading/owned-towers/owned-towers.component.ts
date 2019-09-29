@@ -46,6 +46,10 @@ export class OwnedTowersComponent implements OnInit {
       autoFocus: false,
       maxHeight: '90vh'
     });
+    dialogRef.afterClosed().subscribe(() => {
+        this.ngOnInit();
+      }
+    );
   }
 
 
