@@ -129,3 +129,7 @@ tr.example-element-row:not(.example-expanded-row):active {
 tr.mat-footer-row {
   font-weight: bold;
 }
+
+.mat-row:hover {
+  cursor: pointer;
+}
