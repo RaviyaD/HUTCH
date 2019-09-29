@@ -13,6 +13,7 @@ import {EditSpecComponent} from '../dialog/edit-spec/edit-spec.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {MaterialModule} from '../../site-management/material.module';
 import {HttpClientModule} from '@angular/common/http';
+import {GoogleChartsModule} from 'angular-google-charts';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import {HttpClientModule} from '@angular/common/http';
     MaterialModule,
     HttpClientModule,
     ReactiveFormsModule,
-    MatInputModule
+    MatInputModule,
+    GoogleChartsModule
 
   ]
 })

@@ -180,6 +180,9 @@ export class ViewMaintenanceComponent implements OnInit, AfterViewInit {
     // new Angular5Csv(this.renderedData, 'Maintenance Report');
   }
 
+  goToView(siteID: string) {
+    this.router.navigate(['Site/view-site-details/' + siteID]).then();
+  }
 
   GenerateReport() {
 

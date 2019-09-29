@@ -1,3 +1,4 @@
+
 declare var require: any;
 import {Component, OnInit} from '@angular/core';
 import {TowerService} from './Tower.service';
@@ -7,6 +8,7 @@ import {AddAntennaComponent} from '../add-antenna/add-antenna.component';
 import {EditantennaComponent} from '../editantenna/editantenna.component';
 import {ITower} from './Tower';
 import {IOwned} from '../owned-towers/Owned';
+import {HighchartsChartComponent} from 'highcharts-angular';
 
 const jsPDF = require('jspdf');
 require('jspdf-autotable');
@@ -17,8 +19,52 @@ require('jspdf-autotable');
   styleUrls: ['./physical-measurement.component.css']
 })
 export class PhysicalMeasurementComponent implements OnInit {
+  /* highcharts = Highcharts;
+  chartOptions = {
+    chart: {
+      plotBorderWidth: null,
+      plotShadow: false
+    },
+    title: {
+      text: 'Browser market shares at a specific website, 2014'
+    },
+    tooltip: {
+      pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+    },
+    plotOptions: {
+      pie: {
+        allowPointSelect: true,
+        cursor: 'pointer',
+        dataLabels: {
+          enabled: true,
+          format: '<b>{point.name}%</b>: {point.percentage:.1f} %',
+          style: {
+          color: (Highcharts.theme && Highcharts.theme.contrastTextColor) ||
+            'black'
+          }
+        }
+      }
+    },
+    series: [{
+      type: 'pie',
+      name: 'Browser share',
+      data: [
+        ['Firefox', 45.0],
+        ['IE', 26.8],
+        {
+          name: 'Chrome',
+          y: 12.8,
+          sliced: true,
+          selected: true
+        },
+        ['Safari', 8.5],
+        ['Opera', 6.2],
+        ['Others', 0.7]
+      ]
+    }]
+  };
 
-
+*/
   public Tower1 = [];
   public errorMsg;
   dataSource: TowerDataSource;
