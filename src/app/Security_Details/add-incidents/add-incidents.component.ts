@@ -97,6 +97,23 @@ export class AddIncidentsComponent implements OnInit {
       duration: 3000,
     });
   }
+  demo() {
+    this.siteForm.controls.sname.setValue('Aluthgama');
+    this.siteForm.controls.idate.setValue('2/9/2019');
+    this.siteForm.controls.soi.setValue('Stolen copper tape and 12v Battery');
+    this.siteForm.controls.sp.setValue('7m copper tape, ' + '12v Batttery');
+    this.siteForm.controls.iname.setValue('Herath');
+    this.siteForm.controls.indate.setValue('3/9/2019');
+    this.siteForm.controls.provideAbansSecurity.setValue('Yes');
+    this.siteForm.controls.endate.setValue('3/9/2019');
+    this.siteForm.controls.ploicename.setValue('Aluthgama police Station');
+    this.siteForm.controls.ObtainPoliceReport.setValue('yes');
+    this.siteForm.controls.remark.setValue('pending');
+
+  }
+  validateName(siteName: string) {
+    return (this.sites.some((el) => el.siteName === siteName));
+  }
 
 }
 

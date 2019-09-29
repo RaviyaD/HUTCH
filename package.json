@@ -17,6 +17,7 @@
     "@angular/common": "~8.2.0",
     "@angular/compiler": "~8.2.0",
     "@angular/core": "~8.2.0",
+    "@angular/fire": "^5.2.1",
     "@angular/forms": "~8.2.0",
     "@angular/material": "^8.1.3",
     "@angular/platform-browser": "~8.2.0",
@@ -27,6 +28,7 @@
     "angular5-csv": "^0.2.11",
     "bootstrap": "^4.3.1",
     "chart.js": "^2.8.0",
+    "firebase": "^7.0.0",
     "highcharts": "^7.2.0",
     "highcharts-angular": "^2.4.0",
     "jspdf": "^1.5.3",
@@ -34,7 +36,8 @@
     "ng2-charts": "^2.3.0",
     "rxjs": "~6.4.0",
     "tslib": "^1.10.0",
-    "zone.js": "~0.9.1"
+    "zone.js": "~0.9.1",
+    "angularfire2": "latest"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "^0.802.2",

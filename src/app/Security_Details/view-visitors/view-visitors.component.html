@@ -60,6 +60,9 @@
           <button mat-icon-button color="accent"  (click)="delete(m.visitorId)" >
             <mat-icon aria-label="Delete">delete</mat-icon></button>
 
+          <button mat-button color="accent"  (click)="getreporttoeach(m.visitorId, m.siteName,m.visitorName, m.vistDate,m.intime,m.exitTime,m.description)">
+            <mat-icon class="mat-24" aria-label="Example icon-button with a heart icon">print</mat-icon></button>
+
 
 
         </mat-cell>
@@ -77,6 +80,8 @@
 
     </table>
   </div>
+  <button mat-button color="accent" (click)="GenerateReport()">
+    <mat-icon class="mat-24" aria-label="Example icon-button with a heart icon">print</mat-icon></button>
 
 
 </div>
