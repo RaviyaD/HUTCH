@@ -3,18 +3,29 @@ import {IMaintenance} from '../../Maintenance/Maintenance';
 import {SiteDetails} from '../../site-management/site-details';
 import {MaintenanceServicesService} from '../../Maintenance/view-maintenance/MaintenanceServices';
 import {SiteDetailsService} from '../../site-management/site-details.service';
+import * as jsPDF from 'jspdf';
+import {DatePipe} from '@angular/common';
+import {animate, state, style, transition, trigger} from '@angular/animations';
 
 @Component({
   selector: 'app-status-report',
   templateUrl: './status-report.component.html',
-  styleUrls: ['./status-report.component.css']
+  styleUrls: ['./status-report.component.css'],
+  providers: [DatePipe],
+  animations: [
+    trigger('detailExpand', [
+      state('collapsed', style({height: '0px', minHeight: '0', display: 'none'})),
+      state('expanded', style({height: '*'})),
+      transition('expanded <=> collapsed', animate('225ms cubic-bezier(0.4, 0.0, 0.2, 1)')),
+    ]),
+  ],
 })
 export class StatusReportComponent implements OnInit {
 
   mlist: IMaintenance[];
   mlist2: IMaintenance[];
   mlist3: IMaintenance[];
-
+  public mapreports = [];
   upsites: SiteDetails[] = [];
   downsites: SiteDetails[] = [];
   underMaintenance: SiteDetails[];
@@ -77,4 +88,64 @@ export class StatusReportComponent implements OnInit {
       this.m2 = this.m2 + 1;
     });
   }
+
+
+
+  GenerateReport() {
+
+    let row: any[] = [];
+    const rowD: any[] = [];
+    const col = ['Currently Total Up Sites', 'Currently Total Down Sites', 'Currently Total Maintaining Sites']; // initialization for headers
+    const title = 'Report of Site Map Details'; // title of report
+    for (let i = 0; i < this.mapreports.length; i++) {
+      row.push(this.mapreports[i].count);
+      rowD.push(row);
+      row = [];
+    }
+
+
+    this.getReport(col, rowD, title);
+  }
+
+  getReport(col: any[], rowD: any[], title: any) {
+    const totalPagesExp = '{total_pages_count_string}';
+    const pdf = new jsPDF('l', 'pt', 'legal');
+    pdf.setTextColor(255, 69, 0);
+    pdf.text('HUTCH', 480, 50).setFontSize(30);
+    pdf.text('Civil Department', 430, 80).setFontSize(20); // 450 here is x-axis and 80 is y-axis
+    pdf.text('Site Map Status Summary', 430, 100).setFontSize(20); // 450 here is x-axis and 80 is y-axis
+    pdf.text('' + title, 435, 130).setFontSize(10);  //
+    pdf.setLineWidth(1.5);
+    pdf.line(5, 150, 995, 150);
+    const pageContent = function (data) {
+      // HEADER
+
+      // FOOTER
+      let str = 'Page ' + data.pageCount;
+      // Total page number plugin only available in jspdf v1.0+
+      if (typeof pdf.putTotalPages === 'function') {
+        str = str + ' of ' + totalPagesExp;
+      }
+      pdf.setFontSize(10);
+      const pageHeight = pdf.internal.pageSize.height || pdf.internal.pageSize.getHeight();
+      pdf.text(str, data.settings.margin.left, pageHeight - 10); // showing current page number
+    };
+    // pdf.autoTable(col, rowD,
+    //  {
+    //     addPageContent: pageContent,
+    //     margin: {top: 160},
+    //   });
+
+    // for adding total number of pages // i.e 10 etc
+    if (typeof pdf.putTotalPages === 'function') {
+      pdf.putTotalPages(totalPagesExp);
+    }
+
+    pdf.save(title + '.pdf');
+
+  }
+
+
+
+
 }
