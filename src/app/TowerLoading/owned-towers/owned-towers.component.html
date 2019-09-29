@@ -1,4 +1,6 @@
 <h1>| Usage Details of Towers - HUTCH |</h1>
+<hr>
+<br>
 <table style="margin-top: 10px" mat-table class="lessons-table mat-elevation-z8" [dataSource]="ds">
 
   <ng-container matColumnDef="siteID">
@@ -63,5 +65,3 @@
   <tr mat-row *matRowDef="let row; columns: displayColumns"></tr>
 
 </table>
-
-<p [innerText]="getString()"></p>
