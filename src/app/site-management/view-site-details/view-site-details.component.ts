@@ -27,24 +27,30 @@ export class ViewSiteDetailsComponent implements OnInit {
   step = -1;
 
   onSubmit(buttonType) {
-    if (buttonType === 'update') {
-      this.update = new SiteDetails();
-      this.update.siteID = this.siteForm.value.siteid;
-      this.update.siteName = this.siteForm.value.name;
-      this.update.ownership = this.siteForm.value.ownership;
-      this.update.ownerSiteName = this.siteForm.value.osn;
-      this.update.frequencyBand = this.siteForm.value.fb;
-      this.update.commissionedDate = this.siteForm.value.cd;
-      this.update.commissionedDate3G = this.siteForm.value.cd3G;
-      this.siteService.updateSite(this.siteForm.value.siteid, this.update).subscribe();
-      this.openSnackBar('Site updated');
-      this.router.navigate(['Site/view-site-details' + '/' + this.siteForm.value.siteid]).then();
-      this.step = 0;
-    } else if (buttonType === 'delete') {
-      this.siteService.deleteSite(this.siteForm.value.siteid);
-      this.openSnackBar('Site deleted');
-      this.router.navigate(['Site/view-all-sites']).then();
-      this.step = 0;
+    if (this.validate(this.siteForm.value.siteid)) {
+      if (buttonType === 'update') {
+        this.update = new SiteDetails();
+        this.update.siteID = this.siteForm.value.siteid;
+        this.update.siteName = this.siteForm.value.name;
+        this.update.ownership = this.siteForm.value.ownership;
+        this.update.ownerSiteName = this.siteForm.value.osn;
+        this.update.frequencyBand = this.siteForm.value.fb;
+        this.update.commissionedDate = this.siteForm.value.cd;
+        this.update.commissionedDate3G = this.siteForm.value.cd3G;
+        this.siteService.updateSite(this.siteForm.value.siteid, this.update).subscribe();
+        this.openSnackBar('Site updated');
+        setTimeout(() => {
+          this.router.navigate(['Site/view-site-details' + '/' + this.siteForm.value.siteid]).then();
+        }, 2500);
+        this.step = 0;
+      } else if (buttonType === 'delete') {
+        this.siteService.deleteSite(this.siteForm.value.siteid);
+        this.openSnackBar('Site deleted');
+        setTimeout(() => {
+          this.router.navigate(['Site/view-all-sites']).then();
+        }, 2500);
+        this.step = 0;
+      }
     } else if (buttonType === 'search') {
       if (this.validate(this.search)) {
         this.findSiteById(this.search);
@@ -52,6 +58,8 @@ export class ViewSiteDetailsComponent implements OnInit {
       } else {
         this.openSnackBar('Invalid Site ID');
       }
+    } else {
+      this.openSnackBar('No Site selected');
     }
 }
 

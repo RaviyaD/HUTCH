@@ -1,6 +1,6 @@
-<div class="wrapper">
+<div class="wrapper" >
   <!-- Sidebar Holder -->
-  <nav id="sidebar" style="box-shadow: 4px 4px 5px lightgrey">
+  <nav id="sidebar" class="doNotPrint" style="box-shadow: 4px 4px 5px lightgrey">
     <div class="sidebar-header">
       <a [routerLink]="['Dashboard/page-content']" routerLinkActive="active"><h3>HUTCH</h3></a>
     </div>
@@ -19,6 +19,9 @@
           </li>
           <li>
             <a href="#"  [routerLink]="['/Region/add-region']" routerLinkActive="active">Add Zone</a>
+          </li>
+          <li>
+            <a href="#"  [routerLink]="['/Region/add-subregion']" routerLinkActive="active">Add Sub-Region</a>
           </li>
         </ul>
       </li>

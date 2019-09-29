@@ -3,9 +3,10 @@ import {HttpClient, HttpErrorResponse} from '@angular/common/http';
 import { Observable} from 'rxjs';
 import {Zone} from './zone';
 
+
 @Injectable()
 export class ZoneServices {
-
+  private dialogData: any;
   private url: string;
 
   constructor(private http: HttpClient) {
@@ -31,5 +32,15 @@ export class ZoneServices {
       }
     );
 
+  }
+  updatezone(zr: Zone): void {
+    this.http.put(this.url + '/' + zr.zonename, zr).subscribe(data => {
+        this.dialogData = zr;
+        console.log('Updateddddddddd' + zr.zonename);
+      },
+      (err: HttpErrorResponse) => {
+        console.log(err);
+      }
+    );
   }
 }

@@ -1,22 +1,23 @@
-<table><tr>
-  <th class="the">    <app-map></app-map></th>
+<table class="table-responsive"> <tr>
+  <th class="the2">    <app-status-map></app-status-map></th>
 
 
 
   <th class="the">
 
     <div class="col-md-6 user-container" align="bottom"><table ><tr><th class="th">
-      <h3 >Site Status</h3>
-      <a href="#"><button class="buttonMain2">View Active Sites </button></a>
-      <a href="#"><button class="buttonMain2">View Down Sites</button></a>
-      <a href="#"><button class="buttonMain2">View Maintaining Sites</button></a>
-      <a [routerLink]="['/siteMap/status-report']" routerLinkActive="active"><button class="buttonMain2">View Status Report</button></a>
+      <h3 >Site Status</h3><br><br>
+      <a [routerLink]="['/siteMap/upsitesmap']"><button class="btn btn-primary mt-2 ml-1 mb-2" style="background-color: #EC6708;width: 200px;margin-top: 20px">View Active Sites </button></a><br>
+      <a [routerLink]="['/siteMap/downsitesmap']"><button class="btn btn-primary mt-2 ml-1 mb-2"  style="background-color: #EC6708;width: 200px">View Down Sites</button></a><br>
+      <a [routerLink]="['/siteMap/maintainmap']"><button class="btn btn-primary mt-2 ml-1 mb-2"  style="background-color: #EC6708;width: 200px;margin-top: 20px">View Maintaining Sites</button></a><br>
+      <a [routerLink]="['/siteMap/status-report']" routerLinkActive="active"><button class="btn btn-primary mt-2 ml-1 mb-2"  style="background-color: #EC6708;width: 200px;margin-top: 20px">View Status Report</button></a>
 
     </th></tr></table>
       <br><br>
 
 
     </div>
+
   </th>
 </tr>
 </table>

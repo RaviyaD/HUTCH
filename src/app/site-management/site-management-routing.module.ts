@@ -11,7 +11,8 @@ const appRoutes: Routes = [
   {path: 'view-site-details', component: ViewSiteDetailsComponent},
   {path: 'view-site-details/:siteID', component: ViewSiteDetailsComponent},
   {path: 'view-all-sites', component: ViewAllSitesComponent},
-  {path: 'add-site-details', component: AddSiteDetailsComponent}
+  {path: 'add-site-details', component: AddSiteDetailsComponent},
+  {path: ''}
   ];
 
 @NgModule({

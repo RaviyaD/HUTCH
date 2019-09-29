@@ -5,9 +5,14 @@ table {
 .mat-form-field {
   font-size: 14px;
   min-width: 150px;
-  max-width: 400px;
+  max-width: 200px;
   width: 100%;
+  margin-left: 100px;
 
+}
+
+.mat-button.mat-accent, .mat-icon-button.mat-accent, .mat-stroked-button.mat-accent {
+  color: rgba(7, 10, 11, 0.99);
 }
 
 
@@ -24,7 +29,7 @@ table {
 }
 
 .Inprc{
-  background: #EC6708;
+  background: #ec912b;
 }
 
 

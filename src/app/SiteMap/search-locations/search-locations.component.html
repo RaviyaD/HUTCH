@@ -1,0 +1,50 @@
+
+
+<table><tr>
+  <th class="the2"> <agm-map  [zoom]="17"  [latitude]="lan" [longitude]="lon" [mapTypeId]= 'mapType' >
+
+    <agm-marker
+
+      [latitude]="lan"
+      [longitude]="lon">
+    </agm-marker>
+
+  </agm-map>  </th>
+
+
+
+  <th class="the">
+
+    <h3  [align]="center"> Search for a Site</h3>
+    <div class="col-md-6 user-container" align="bottom" ><table class="table1"><tr><th class="th">
+
+
+      <div class="container" style="margin-left: 9px">
+        <div class="row custom-wrapper" >
+          <div class="col-md-12" >
+            <div class="di" style="margin-right: 90px">
+
+
+              <table [align]="center"  style="width: 300px;margin-left: 2px">
+
+                <tr style="width: 3px">  <td>Site Name  :   </td><td>{{lname}}</td></tr>
+                <tr> <td>OwnerShip  :   </td><td>{{owner}}</td>
+                </tr>
+                <tr><td>Owner Site Name : </td><td>{{ownerSitename}}</td></tr>
+                <tr><td>Sub Region : </td><td>{{subregion}}</td></tr>
+                <tr><td>Site Address : </td><td>{{address}}</td>
+              </table>
+
+
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </th></tr></table>
+
+
+    </div>
+  </th>
+</tr>
+</table>

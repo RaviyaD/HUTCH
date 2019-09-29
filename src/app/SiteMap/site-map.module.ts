@@ -11,6 +11,12 @@ import {AgmCoreModule} from '@agm/core';
 import {MaterialModule} from '../site-management/material.module';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {SiteMapRoutingModule} from './site-map-routing.module';
+import { SearchLocationsComponent } from './search-locations/search-locations.component';
+import { StatusMapComponent } from './status-map/status-map.component';
+import { UpsitesMapComponent } from './status-map/upsites-map/upsites-map.component';
+import { DownsitesMapComponent } from './status-map/downsites-map/downsites-map.component';
+import { MaintainsitesMapComponent } from './status-map/maintainsites-map/maintainsites-map.component';
+import { DirectionMapComponent } from './direction-map/direction-map.component';
 
 
 
@@ -22,14 +28,20 @@ import {SiteMapRoutingModule} from './site-map-routing.module';
     SiteStatusComponent,
     StatusReportComponent,
     AddremarkComponent,
-    RemarkDialogComponent
+    RemarkDialogComponent,
+    SearchLocationsComponent,
+    StatusMapComponent,
+    UpsitesMapComponent,
+    DownsitesMapComponent,
+    MaintainsitesMapComponent,
+    DirectionMapComponent
   ],
   imports: [
     CommonModule,
     MaterialModule,
     FormsModule,
     ReactiveFormsModule,
-    AgmCoreModule.forRoot({apiKey: 'AIzaSyCkBk3eKkKjRgv25gFD9YuOF59Fwijt3wk'}),
+    AgmCoreModule.forRoot({apiKey: 'AIzaSyDiC1SSoFYcBl_SRPWnvKCVhfUfAmdHWn4'}),
     SiteMapRoutingModule
   ],
   entryComponents: [RemarkDialogComponent]

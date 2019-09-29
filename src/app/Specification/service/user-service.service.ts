@@ -4,6 +4,7 @@ import { Spec } from '../model/spec';
 import {Observable, of} from 'rxjs';
 import { catchError, map, tap} from 'rxjs/operators';
 import {getMatIconNameNotFoundError} from '@angular/material';
+
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json'})
 };
@@ -21,9 +22,6 @@ export class UserServiceService {
   public getSpecById(id): Observable<Spec> {
     return this.http.get<Spec>(this.specUrl + '/' + id);
   }
-  // public deleteSpecById(id): Observable<Spec> {
-  //   return this.http.delete<Spec>(this.specUrl + '/' + id);
-  // }
   public deleteSpecById(specId): void {
     console.log('Delete function');
     this.http.delete(this.specUrl + '/' + specId)

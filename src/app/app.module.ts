@@ -8,6 +8,7 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {MaterialModule} from './site-management/material.module';
 import {HttpClientModule} from '@angular/common/http';
 import {ChartsModule} from 'ng2-charts';
+import {GoogleChartsModule} from 'angular-google-charts';
 
 
 // Routing Module
@@ -30,6 +31,8 @@ import {SiteDetailsService} from './site-management/site-details.service';
 // Module
 import { TowerModule } from './TowerLoading/tower.module';
 import {ProjectViewComponent} from './OngoingProject/project-view/project-view.component';
+import {RegionServices} from './Region-Management/regionService';
+import { EditZoneComponent } from './Region-Management/edit-zone/edit-zone.component';
 
 
 
@@ -48,8 +51,8 @@ import {ProjectViewComponent} from './OngoingProject/project-view/project-view.c
     MaterialModule,
     HttpClientModule,
     TowerModule,
-    ChartsModule
-
+    ChartsModule,
+    GoogleChartsModule.forRoot()
   ],
   providers: [
     MaintenanceServicesService,
@@ -62,6 +65,7 @@ import {ProjectViewComponent} from './OngoingProject/project-view/project-view.c
     ProjectServicesService,
     TowerService,
     OwnedService,
+    RegionServices
   ],
   bootstrap: [AppComponent ]
 })

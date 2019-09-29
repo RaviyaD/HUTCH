@@ -1,0 +1,100 @@
+agm-map {
+  height: 700px;
+  width: 700px;
+}
+th {
+  padding: 15px;
+  text-align: center;
+  height: 50px;
+  font-size: 22px;
+}
+.th {
+  padding: 100px;
+  text-align: center;
+  width:70px;
+}
+td{
+
+  padding: 15px;
+  text-align: center;
+}
+
+
+
+
+.the{
+  height: 750px;
+  width:30%;
+
+  z-index: 1;
+  top: 0;
+  overflow-x: hidden;
+  padding-top: 2px;
+  left: auto;
+  background-color: #fefefe;
+}
+
+.the2{
+  height: 750px;
+  width: 600px;
+
+  z-index: 1;
+  top: 0;
+  overflow-x: hidden;
+  padding-top: 2px;
+
+  background-color: #fefefe;
+}
+
+.centereds {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+
+.di {
+  background-color: darkkhaki;
+  color: Black;
+  width: 500px;
+  height: 300px;
+  margin: 5px ;
+
+  padding: 10px;
+}
+
+.buttonMain2 {
+  background-color: darkorange;
+  border: none;
+  color: white;
+  padding: 15px 30px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 19px;
+  margin: 20px 2px;
+  cursor: pointer;
+  -webkit-transition-duration: 0.4s; /* Safari */
+  transition-duration: 0.4s;
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+  width: 300px;
+}
+
+.buttonMain1 {
+  background-color: black;
+  border: none;
+  color: white;
+  padding: 8px 30px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 19px;
+  margin: 20px 2px;
+  cursor: pointer;
+  -webkit-transition-duration: 0.4s; /* Safari */
+  transition-duration: 0.4s;
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+  width: 100px;
+}

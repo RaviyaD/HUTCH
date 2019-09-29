@@ -1,0 +1,54 @@
+<div class="container-fluid">
+
+  <div class="row">
+    <div class="col-12">
+      <h3 class="text-center">Add Region Details</h3>
+    </div>
+  </div>
+
+  <div class="row mt-4">
+    <div class="col-12">
+      <form (ngSubmit)="onSubmit(f)" #f="ngForm">
+        <mat-accordion class="example-headers-align">
+          <mat-expansion-panel [expanded]="step === 0" (opened)="setStep(0)" hideToggle>
+            <mat-expansion-panel-header>
+              <mat-panel-title>
+                Sub-Region
+              </mat-panel-title>
+              <mat-panel-description>
+                Add Sub-Region
+                <mat-icon>map</mat-icon>
+              </mat-panel-description>
+            </mat-expansion-panel-header>
+
+            <mat-form-field style="width: 25%">
+              <input matInput placeholder="Region Name" ngModel name="regionname" id="regionname" required >
+            </mat-form-field>
+            <br>
+            <mat-form-field style="width: 25%">
+              <input matInput placeholder="Zone Name" ngModel name="zonename" id="zonename" required >
+            </mat-form-field>
+            <br>
+            <mat-form-field style="width: 25%">
+              <input matInput placeholder="Technical Officer Name" ngModel name="technicalofficer" id="technicalofficer" required >
+            </mat-form-field>
+            <br>
+            <mat-form-field style="width: 25%">
+              <input matInput placeholder="Technical Officer Mobile No:" ngModel name="tomobno" id="tomobno"  minlength="10" maxlength="10" required >
+            </mat-form-field>
+            <br>
+            <mat-form-field style="width: 25%;">
+              <input matInput placeholder="Technical Officer Email:" ngModel name="toemail" id="toemail" required >
+            </mat-form-field>
+            <br>
+            <button class="btn btn-primary mt-2 ml-4 mb-2" type="submit" [disabled]="!f.valid" >
+              Submit
+            </button>
+
+
+          </mat-expansion-panel>
+        </mat-accordion>
+      </form>
+    </div>
+  </div>
+</div>
