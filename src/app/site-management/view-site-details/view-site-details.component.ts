@@ -7,8 +7,6 @@ import {DatePipe} from '@angular/common';
 import {Observable} from 'rxjs';
 import {map, startWith} from 'rxjs/operators';
 import {MatSnackBar} from '@angular/material';
-import {ZoneServices} from '../../Region-Management/zoneService';
-import {Zone} from '../../Region-Management/zone';
 import {Region} from '../../Region-Management/region';
 import {RegionServices} from '../../Region-Management/regionService';
 
