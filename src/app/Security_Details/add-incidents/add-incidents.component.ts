@@ -46,20 +46,24 @@ export class AddIncidentsComponent implements OnInit {
     nameOfThePoliceStation:null, ObtainPoliceReport:null,Remarks:null };*/
   step = 0;
 
-  onSubmit() {
-    this.insert.siteName = this.siteForm.value.sname;
-    this.insert.incidentDate = this.siteForm.value.idate;
-    this.insert.summeryOfTheIncident = this.siteForm.value.soi;
-    this.insert.descriptionStolenProperty = this.siteForm.value.sp;
-    this.insert.informerName = this.siteForm.value.iname;
-    this.insert.dateOfInform = this.siteForm.value.indate;
-    this.insert.provideAbansSecurity = this.siteForm.value.provideAbansSecurity;
-    this.insert.dateOfEntry = this.siteForm.value.endate;
-    this.insert.nameOfThePoliceStation = this.siteForm.value.ploicename;
-    this.insert.ObtainPoliceReport = this.siteForm.value.ObtainPoliceReport;
-    this.insert.Remarks = this.siteForm.value.remark;
-    this.incidentservice.addincident(this.insert).subscribe();
-    this.router.navigate(['/view-incidents']);  }
+  onSubmit(insert: string) {
+    if (insert === 'insert') {
+      this.insert.siteName = this.siteForm.value.sname;
+      this.insert.incidentDate = this.siteForm.value.idate;
+      this.insert.summeryOfTheIncident = this.siteForm.value.soi;
+      this.insert.descriptionStolenProperty = this.siteForm.value.sp;
+      this.insert.informerName = this.siteForm.value.iname;
+      this.insert.dateOfInform = this.siteForm.value.indate;
+      this.insert.provideAbansSecurity = this.siteForm.value.provideAbansSecurity;
+      this.insert.dateOfEntry = this.siteForm.value.endate;
+      this.insert.nameOfThePoliceStation = this.siteForm.value.ploicename;
+      this.insert.obtainPoliceReport = this.siteForm.value.ObtainPoliceReport;
+      this.insert.remarks = this.siteForm.value.remark;
+      this.incidentservice.addincident(this.insert).subscribe();
+      this.router.navigate(['Security/view-incidents']);
+    }
+  }
+
   setStep(index: number) {
     this.step = index;
   }

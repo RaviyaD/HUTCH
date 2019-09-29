@@ -1,7 +1,5 @@
 import {Component, Inject, OnInit} from '@angular/core';
 import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material';
-import {IProject} from '../../OngoingProject/Project';
-import {ProjectServicesService} from '../../OngoingProject/view-ongoing-project/ProjectServices';
 import {ActivatedRoute, Router} from '@angular/router';
 import {Visitors} from '../Visitors';
 import {IncidentService} from '../IncidentService';

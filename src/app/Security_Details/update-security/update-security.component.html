@@ -1,0 +1,32 @@
+<p [(ngModel)]="data.securityId" ngDefaultControl>Security Id: {{data.securityId}}</p>
+<p [(ngModel)]="data.siteName" ngDefaultControl>Site Name: {{data.siteName}}</p>
+<p [(ngModel)]="data.securityName" ngDefaultControl>In Time: {{data.securityName}}</p>
+
+
+<form (ngSubmit)="submitUpdate()" >
+  <div class="row">
+    <div class="form-group col-md-6" >
+      <label for="Pstatus">Phone Number</label>
+      <input name="Pstatus"
+             [(ngModel)]="data.phoneNumber"
+             id="Pstatus"
+             type="number"
+             class="form-control" >
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="form-group col-md-6" >
+      <label for="Pdetails">Work Time</label>
+      <input type="time" name="Pdetails"
+             [(ngModel)]="data.workTime"
+             id="Pdetails"
+             class="form-control" >
+    </div>
+  </div>
+
+
+  <div class="panel">
+    <button type="submit"  class="btn-success">Submit</button>
+  </div>
+</form>

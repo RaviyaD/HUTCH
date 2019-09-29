@@ -12,7 +12,7 @@ import {OwnedTowersComponent} from './owned-towers/owned-towers.component';
 import {AddusageComponent} from './addusage/addusage.component';
 import {EditantennaComponent} from './editantenna/editantenna.component';
 import { SummaryComponent } from './summary/summary.component';
-import {HighchartsChartComponent} from 'highcharts-angular';
+import { HighchartsChartComponent} from 'highcharts-angular';
 
 
 @NgModule({
