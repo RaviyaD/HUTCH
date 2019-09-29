@@ -8,6 +8,7 @@ import {AddAntennaComponent} from '../add-antenna/add-antenna.component';
 import {EditantennaComponent} from '../editantenna/editantenna.component';
 import {ITower} from './Tower';
 import {IOwned} from '../owned-towers/Owned';
+import {HighchartsChartComponent} from 'highcharts-angular';
 
 const jsPDF = require('jspdf');
 require('jspdf-autotable');

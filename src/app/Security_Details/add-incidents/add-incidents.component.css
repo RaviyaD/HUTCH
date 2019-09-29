@@ -26,3 +26,14 @@ mat-form-field {
   /*change color of underline when focused*/
   background-color: #EC6708 !important;;
 }
+
+.radio_group {
+  display: flex;
+  flex-direction: column;
+  margin: 15px 0;
+}
+
+.example-radio-button {
+  margin: 5px;
+}
+

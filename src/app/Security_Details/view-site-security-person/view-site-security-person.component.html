@@ -1,54 +1,73 @@
 <p class="h2" style="margin-left: 200px">View-Security </p>
 
-
-<table class="table-bordered">
-  <thead>
-  <tr>
-    <th scope="col">#</th>
-    <th scope="col">Site Name</th>
-    <th scope="col">Security Name</th>
-    <th scope="col">Mobile Number</th>
-    <th scope="col">work time</th>
-
-  </tr>
-  </thead>
-
-  <tbody>
-
-  <tr>
-    <th scope="row">1</th>
-    <td>Panadura</td>
-    <td>Mithripala</td>
-    <td>0773939467</td>
-    <td>2.34</td>
-
-    <td><button class="btn btn-outline-dark">Edit</button><button class="btn btn-outline-danger">Delete</button> </td>
-  </tr>
-
-
-  <tr>
-    <th scope="row">2</th>
-    <td>Panadura</td>
-    <td>Mithripala</td>
-    <td>0773939467</td>
-    <td>2.34</td>
-    <td><button class="btn btn-outline-dark">Edit</button><button class="btn btn-outline-danger">Delete</button> </td>
-  </tr>
-
-
-  <tr>
-    <th scope="row">3</th>
-    <td>Colombo</td>
-    <td>Mithripala</td>
-    <td>0773939467</td>
-    <td>2.34</td>
-  </tr>
-
-
-  </tbody>
+<div style="position: relative; margin-left:350px">
+  <div  fxLayout fxLayoutAlign="center center">
+    <mat-form-field fxFlex="40%" class="example-form ">
+      <input matInput type="text" (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+    </mat-form-field>
+  </div>
+</div>
 
 
 
+<div class="mat-elevation-z8">
+  <table mat-table [dataSource]="dataSource1" multiTemplateDataRows matSort  class="mat-elevation-z8">
+    <!-- Position Column -->
+    <ng-container matColumnDef="Site Name">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Site Name </th>
+      <td mat-cell *matCellDef="let m"> {{m.siteName}}</td>
+      <td mat-footer-cell *matFooterCellDef> Total </td>
+    </ng-container>
+
+    <ng-container matColumnDef="Security Name">
+      <th mat-header-cell *matHeaderCellDef>Security Name </th>
+      <td mat-cell *matCellDef="let m"> {{m.securityName}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="Work Time">
+      <th mat-header-cell *matHeaderCellDef>Work Time </th>
+      <td mat-cell *matCellDef="let m"> {{m.workTime}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="Phone number">
+      <th mat-header-cell *matHeaderCellDef>Phone Number </th>
+      <td mat-cell *matCellDef="let m"> {{m.phoneNumber}} </td>
+    </ng-container>
 
 
-</table>
+
+    <ng-container matColumnDef="actions">
+      <mat-header-cell *matHeaderCellDef>
+        <button mat-icon-button color="primary" (click)="gotoadd()">
+          <mat-icon aria-label="Example icon-button with a heart icon">add</mat-icon>
+        </button>
+      </mat-header-cell>
+
+      <mat-cell *matCellDef="let m; let i=index;">
+        <button mat-icon-button color="accent" (click)="startEdit(m.id, m.sname, m.category, m.issue, m.piority, m.idate)" [hidden]="(m.status == 'Complete' || m.status == 'In-Progressing')? true:false" >
+          <mat-icon aria-label="Build">build</mat-icon>
+        </button>
+
+
+
+
+        <button mat-icon-button color="accent"  (click)="delete(m.id)" [hidden]="(m.status == 'pending' || m.status == 'In-Progressing')? true:false">
+          <mat-icon aria-label="Delete">delete</mat-icon></button>
+
+
+
+      </mat-cell>
+    </ng-container>
+
+
+
+
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    <tr mat-footer-row *matFooterRowDef="tableFooterColumns"></tr>
+
+
+
+  </table>
+</div>
