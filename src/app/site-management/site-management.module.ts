@@ -7,6 +7,7 @@ import {ViewSiteComponent} from './view-site/view-site.component';
 import {ViewSiteDetailsComponent} from './view-site-details/view-site-details.component';
 import {ViewAllSitesComponent} from './view-all-sites/view-all-sites.component';
 import {SiteManagementRoutingModule} from './site-management-routing.module';
+import {GoogleChartsModule} from 'angular-google-charts';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import {SiteManagementRoutingModule} from './site-management-routing.module';
     MaterialModule,
     FormsModule,
     ReactiveFormsModule,
-    SiteManagementRoutingModule
+    SiteManagementRoutingModule,
+    GoogleChartsModule
   ]
 })
 export class SiteManagementModule { }

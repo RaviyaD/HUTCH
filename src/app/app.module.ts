@@ -8,6 +8,7 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {MaterialModule} from './site-management/material.module';
 import {HttpClientModule} from '@angular/common/http';
 import {ChartsModule} from 'ng2-charts';
+import {GoogleChartsModule} from 'angular-google-charts';
 
 
 // Routing Module
@@ -39,7 +40,7 @@ import { EditZoneComponent } from './Region-Management/edit-zone/edit-zone.compo
 @NgModule({
   declarations: [
     AppComponent,
-    SideNavComponent,
+    SideNavComponent
   ],
   imports: [
     BrowserAnimationsModule,
@@ -50,8 +51,8 @@ import { EditZoneComponent } from './Region-Management/edit-zone/edit-zone.compo
     MaterialModule,
     HttpClientModule,
     TowerModule,
-    ChartsModule
-
+    ChartsModule,
+    GoogleChartsModule.forRoot()
   ],
   providers: [
     MaintenanceServicesService,

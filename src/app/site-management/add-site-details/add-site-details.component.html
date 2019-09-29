@@ -5,7 +5,11 @@
       <h3 class="text-center">Add Site Details</h3>
     </div>
   </div>
-
+  <div class="row mt-4">
+    <button class="btn btn-primary mt-2 ml-4 mb-2" type="submit" (click)="demo()" >
+      DEMO
+    </button>
+  </div>
   <div class="row mt-4">
     <div class="col-12">
       <form (ngSubmit)="onSubmit(f)" #f="ngForm">
@@ -49,9 +53,6 @@
               <input type="date" matInput ngModel placeholder="Commissioned Date 3G"  name="cd3G" id="cd3G">
             </mat-form-field>
             <br>
-            <button class="btn btn-primary mt-2 ml-4 mb-2" type="submit" [disabled]="!f.valid" >
-              Submit
-            </button>
             <mat-action-row>
               <button mat-button color="primary" (click)="nextStep()">Next</button>
             </mat-action-row>
@@ -310,6 +311,10 @@
             </mat-action-row>
           </mat-expansion-panel>
         </mat-accordion>
+        <br>
+        <button class="btn btn-primary mt-2 ml-4 mb-2" type="submit" (click)="onSubmit('insert')" [disabled]="!f.valid" >
+          Submit
+        </button>
       </form>
     </div>
   </div>
