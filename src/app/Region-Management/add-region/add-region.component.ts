@@ -2,7 +2,7 @@ import {Component, OnInit, ViewChild} from '@angular/core';
 import {NgForm} from '@angular/forms';
 import {Zone} from '../zone';
 import {ZoneServices} from '../zoneService';
-import {Router} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 
 @Component({
   selector: 'app-add-region',
@@ -10,7 +10,7 @@ import {Router} from '@angular/router';
   styleUrls: ['./add-region.component.css']
 })
 export class AddRegionComponent implements OnInit {
-  constructor(private zoneService: ZoneServices) { }
+  constructor(private zoneService: ZoneServices, private router: Router) { }
   step = 0;
   @ViewChild('f', {static: false}) siteForm: NgForm;
   insert: Zone = { zonename: null, seniorengineer: null, semobno: null, seemail: null, engineer: null, emobno: null, eemail: null};
@@ -38,7 +38,11 @@ export class AddRegionComponent implements OnInit {
     this.insert.emobno = this.siteForm.value.emobno;
     console.log(this.insert.eemail);
     this.insert.eemail = this.siteForm.value.eemail;
-    this.zoneService.addzone(this.insert).subscribe();
+    this.zoneService.addzone(this.insert).subscribe(result => this.gotoview());
+  }
+
+  gotoview() {
+    this.router.navigate(['/Region/view-region-zone']);
   }
 }
 

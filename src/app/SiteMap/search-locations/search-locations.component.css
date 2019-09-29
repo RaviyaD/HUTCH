@@ -1,6 +1,6 @@
 agm-map {
-  height: 900px;
-  width: 800px;
+  height: 600px;
+  width: 600px;
 }
 
 
@@ -8,7 +8,7 @@ th {
   padding: 5px;
   text-align: center;
   height: 50px;
-  font-size: 22px;
+  font-size: 18px;
 }
 .th {
   padding: 5px;
@@ -18,21 +18,34 @@ th {
 td{
 
   padding: 4px;
-  text-align: center;
+  text-align: left;
 }
+
 
 
 
 .the{
   height: 750px;
-  width: 100%;
+  width:300px;
 
   z-index: 1;
   top: 0;
   overflow-x: hidden;
   padding-top: 2px;
   left: auto;
-  background-color: whitesmoke;
+  background-color: #fefefe;
+}
+
+.the2{
+  height: 750px;
+  width: 640px;
+
+  z-index: 1;
+  top: 0;
+  overflow-x: hidden;
+  padding-top: 2px;
+
+  background-color: #fefefe;
 }
 
 .centereds {
@@ -84,11 +97,11 @@ td{
 
 
 .di {
-  background-color: white;
+  background-color: whitesmoke;
   color: Black;
-  width: 600px;
+  width: 400px;
   height: 300px;
-
+  margin-right: auto;
 
   padding: 10px 0px;
 }

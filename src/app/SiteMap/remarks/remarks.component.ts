@@ -38,7 +38,7 @@ export class RemarksComponent implements OnInit {
     // this.index = i;
     console.log(this.index);
     const dialogRef = this.dialog.open(RemarkDialogComponent, {
-      data: {id: ids , remark: remark}
+      data: {id: ids , remark}
     });
     dialogRef.afterClosed().subscribe(result => {
       if (result === 1) {

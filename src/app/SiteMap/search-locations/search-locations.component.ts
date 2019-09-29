@@ -24,7 +24,11 @@ export class SearchLocationsComponent implements OnInit {
   lan: number;
   lon: number;
   lname: string;
-  lid: string;
+  owner: string;
+  ownerSitename: string;
+  subregion: string;
+  address: string;
+  altitude: number;
 
   constructor(private mapservice: SiteDetailsService, private  router: Router, private route: ActivatedRoute) {
   }
@@ -46,7 +50,11 @@ export class SearchLocationsComponent implements OnInit {
       this.lan = data.latitude;
       this.lon = data.longitude;
       this.lname = data.siteName;
-      this.lid = data.siteID;
+      this.owner = data.ownership;
+      this.ownerSitename = data.ownerSiteName;
+      this.address = data.address;
+      this.altitude = data.altitude;
+      this.subregion = data.subRegion;
       console.log(this.lan + 'venuuuuuuuuuuuuuuuuuuuuuuuu');
     });
   }

@@ -33,6 +33,7 @@ export class AddusageComponent implements OnInit {
               private siteDetailsService: SiteDetailsService,
               private snackBar: MatSnackBar, private ownedservice: OwnedService) {
     this.ot = new IOwned();
+    this.ot.remaining = this.ot.totalArea;
     this.ownedservice.getOwnedTowers().subscribe(data => {
       this.sites1 = data;
       for (let counter = 0; counter < this.sites1.length; counter++) {
@@ -79,6 +80,15 @@ export class AddusageComponent implements OnInit {
 
   validate() {
     return (this.sites.some((el) => el.siteID === this.ot.siteID));
+  }
+
+  validateArea() {
+    return (this.ot.totalArea > 10 && this.ot.totalArea < 30);
+
+  }
+
+  windshieldArea() {
+    return (this.ot.windSheildArea > 10 && this.ot.windSheildArea < 30);
   }
 
   openSnackBar(message: string) {
