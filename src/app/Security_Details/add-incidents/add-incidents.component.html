@@ -23,29 +23,27 @@
 
             <br>
             <mat-form-field style="width: 25%">
-              <input matInput placeholder="Site Name" ngModel name="sname" id="name" required>
+              <input matInput placeholder="Site Name" ngModel name="name" id="name" required>
             </mat-form-field>
             <br>
 
             <mat-form-field style="width: 25%">
-              <input type="date" matInput placeholder="Incident Date" ngModel name="idate" id="incident_date">
+              <input type="date" matInput placeholder="Incident Date" ngModel name="idate" id="idate">
             </mat-form-field>
             <br>
 
             <mat-form-field style="width: 25%">
-              <textarea matInput placeholder="Summery of Incident" ngModel name="soi" id="incident_summery" required></textarea>
+              <textarea matInput placeholder="Summery of Incident" ngModel name="soi" id="soi" required></textarea>
             </mat-form-field>
             <br>
 
             <mat-form-field style="width: 25%">
-              <textarea matInput placeholder="Stolen Property" ngModel name="sp" id="stolen_property"  required></textarea>
+              <textarea matInput placeholder="Stolen Property" ngModel name="sp" id="sp"  required></textarea>
             </mat-form-field>
             <br>
 
             <br>
-            <button mat-button color="primary" (click)="nextStep()"[disabled]="!f.valid" >
-              Submit
-            </button>
+
             <mat-action-row>
               <button mat-button color="primary" (click)="nextStep()">Next</button>
             </mat-action-row>
@@ -63,11 +61,11 @@
             </mat-expansion-panel-header>
 
             <mat-form-field style="width: 25%">
-            <input matInput placeholder="Informer Name" ngModel name="iname" id="InformName" required>
+            <input matInput placeholder="Informer Name" ngModel name="iname" id="iname" required>
             </mat-form-field>
             <br>
               <mat-form-field style="width: 25%">
-                <input type="date" matInput placeholder="Inform Date" ngModel name="indate" id="inform_date" >
+                <input type="date" matInput placeholder="Inform Date" ngModel name="indate" id="indate" >
               </mat-form-field>
             <br>
 
@@ -98,13 +96,13 @@
             </mat-expansion-panel-header>
 
             <mat-form-field style="width: 25%">
-              <input type="date" matInput placeholder="Entry Date" ngModel name="endate" id="dateOfEntry" >
+              <input type="date" matInput placeholder="Entry Date" ngModel name="endate" id="endate" >
             </mat-form-field>
             <mat-datepicker #picker></mat-datepicker>
             <br>
 
             <mat-form-field style="width: 25%">
-              <input matInput placeholder="Police Station Name" ngModel name="policename" id="nameOfThePoliceStation" required>
+              <input matInput placeholder="Police Station Name" ngModel name="policename" id="policename" required>
             </mat-form-field>
             <br>
 
@@ -112,7 +110,7 @@
             <mat-radio-group
               aria-labelledby="example-radio-group-label"
               class="radio_group"
-              [(ngModel)]="ObtainPoliceReport">
+              [(ngModel)]="obtainPoliceReport">
               <mat-radio-button value="yes">YES</mat-radio-button>
               <mat-radio-button value="no">No</mat-radio-button>
             </mat-radio-group>
@@ -138,12 +136,12 @@
             </mat-expansion-panel-header>
 
             <mat-form-field style="width: 25%">
-              <textarea matInput placeholder="Remarks" ngModel name="remark" id="Remarks" required></textarea>
+              <textarea matInput placeholder="Remarks" ngModel name="remark" id="remark" required></textarea>
             </mat-form-field>
 
 <br>
 <br>
-              <button class="btn btn-primary mt-2 ml-4 mb-2" type="submit" [disabled]="!f.valid" >
+              <button class="btn btn-primary mt-2 ml-4 mb-2" type="submit" (click)="onSubmit('insert')" [disabled]="!f.valid" >
                 Submit
               </button>
           </mat-expansion-panel></mat-accordion></form></div></div></div>

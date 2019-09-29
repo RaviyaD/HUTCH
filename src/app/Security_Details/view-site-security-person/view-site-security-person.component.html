@@ -44,15 +44,16 @@
       </mat-header-cell>
 
       <mat-cell *matCellDef="let m; let i=index;">
-        <button mat-icon-button color="accent" (click)="startEdit(m.id, m.sname, m.category, m.issue, m.piority, m.idate)" [hidden]="(m.status == 'Complete' || m.status == 'In-Progressing')? true:false" >
-          <mat-icon aria-label="Build">build</mat-icon>
+        <button mat-icon-button color="accent" (click)="startEdit(m.securityId, m.siteName, m.securityName, m.phoneNumber, m.workTime)" >
+          <mat-icon aria-label="Build">edit</mat-icon>
         </button>
 
 
 
 
-        <button mat-icon-button color="accent"  (click)="delete(m.id)" [hidden]="(m.status == 'pending' || m.status == 'In-Progressing')? true:false">
-          <mat-icon aria-label="Delete">delete</mat-icon></button>
+        <button mat-icon-button color="accent"  (click)="delete(m.securityId)">
+          <mat-icon aria-label="Delete">delete</mat-icon>
+        </button>
 
 
 

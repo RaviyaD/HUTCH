@@ -11,6 +11,7 @@ import {AddSiteSecurityPersonComponent} from './add-site-security-person/add-sit
 import {SecuritydetailsRoutingModule} from './securitydetails-routing.module';
 import { UpdateVisitorsComponent } from './update-visitors/update-visitors.component';
 import {DragDropModule} from '@angular/cdk/drag-drop';
+import { UpdateSecurityComponent } from './update-security/update-security.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import {DragDropModule} from '@angular/cdk/drag-drop';
     AddIncidentsComponent,
     ViewSiteSecurityPersonComponent,
     AddSiteSecurityPersonComponent,
-    UpdateVisitorsComponent
+    UpdateVisitorsComponent,
+    UpdateSecurityComponent
     ],
   imports: [
     CommonModule,
@@ -31,7 +33,7 @@ import {DragDropModule} from '@angular/cdk/drag-drop';
     DragDropModule
     ],
 
-  entryComponents: [UpdateVisitorsComponent],
+  entryComponents: [UpdateVisitorsComponent, UpdateSecurityComponent],
 
 })
 

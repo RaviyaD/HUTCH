@@ -14,8 +14,10 @@ export class IncidentService {
   private url3: string;
 
   dataChange: BehaviorSubject<Visitors[]> = new BehaviorSubject<Visitors[]>([]);
+  dataChange1: BehaviorSubject<Security[]> = new BehaviorSubject<Security[]>([]);
 
   dialogData: any;
+  dialogData1: any;
 
 
   constructor(private http: HttpClient) {
@@ -64,7 +66,7 @@ export class IncidentService {
   }
 
   updateVisitors(vi: Visitors): void {
-    this.http.put(this.url + '/' + vi.visitorId, vi).subscribe(data => {
+    this.http.put(this.url2 + '/' + vi.visitorId, vi).subscribe(data => {
         this.dialogData = vi;
         console.log('Hari bn Update una');
       },
@@ -80,17 +82,29 @@ export class IncidentService {
     return this.http.post<Security>(this.url3, inn);
   }
   public deleteSecurity(id: number): void {
-    this.http.delete(this.url3 + '/' + id ).subscribe(data => {console.log('Record Deleted');
-
+    this.http.delete(this.url3 + '/' + id ).subscribe(data => {
+      console.log('Record Deleted');
       },
       (err: HttpErrorResponse) => {
-        // this.toasterService.showToaster('Error occurred. Details: ' + err.name + ' ' + err.message, 8000);
         console.log('error');
+      }
+    );
+  }
+  updateSecurity(se: Security): void {
+    this.http.put(this.url3 + '/' + se.securityId, se).subscribe(data => {
+        this.dialogData = se;
+        console.log('Hari bn Update una');
+      },
+      (err: HttpErrorResponse) => {
+        console.log(err);
       }
     );
   }
 
   getDialogData() {
+    return this.dialogData;
+  }
+  getDialogData1() {
     return this.dialogData;
   }
   get data(): Visitors[] {
