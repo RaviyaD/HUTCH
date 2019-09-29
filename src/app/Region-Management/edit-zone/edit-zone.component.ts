@@ -48,6 +48,6 @@ export class EditZoneComponent implements OnInit {
     console.log(this.zn.zonename);
   }
   goto() {
-    this.router.navigate(['/view-region']);
+    this.router.navigate(['/Region/add-region']);
   }
 }
