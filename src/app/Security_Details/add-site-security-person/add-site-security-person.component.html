@@ -1,28 +1,48 @@
 <p class="h1" style="margin-left: 200px">Add-Security</p>
 
-<form xmlns="http://www.w3.org/1999/html" class="form-control-static">
+<form xmlns="http://www.w3.org/1999/html" (ngSubmit)="onSubmit()"  class="form-control-static">
 
 
-  <mat-form-field class="example-full-width" >
-    <input matInput placeholder="Site Name" required>
+ <!-- <mat-form-field class="example-full-width" >
+    <input matInput placeholder="Site Name" id="SiteName"required>
+  </mat-form-field>
+  <br> -->
+
+  <div class="row">
+    <div class="form-group col-md-2" >
+      <mat-form-field class="example-full-width">
+        <label for="siteName">Site Name</label>
+        <input type="text" required
+               name="sitename"   id="siteName"  [(ngModel)]="se.siteName" aria-label="Number" matInput  [formControl]="myControl" [matAutocomplete]="auto" class="form-control">
+        <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete" >
+          <mat-option *ngFor="let option of filteredOptions | async" [value]="option" class="row">
+            {{option}}
+          </mat-option>
+        </mat-autocomplete>
+        <!--   <mat-error *ngIf="formControl.invalid">{{getErrorMessage()}}</mat-error> -->
+      </mat-form-field>
+    </div>
+  </div>
+  <div [hidden]="(validcomplete(se.siteName) === -1)? true:false" >
+    <p class="mat-warn">  Enter valid name</p>
+  </div>
+
+
+  <mat-form-field class="example-full-width">
+    <input matInput placeholder="Security Name" id="SecurityName" [(ngModel)]="se.securityName" >
+
   </mat-form-field>
   <br>
 
   <mat-form-field class="example-full-width">
-    <input matInput placeholder="Security Name" required>
-
-  </mat-form-field>
-  <br>
-
-  <mat-form-field class="example-full-width">
-    <input type="number" matInput placeholder="Phone Number" required>
+    <input type="number" matInput placeholder="Phone Number"  [(ngModel)]="se.phoneNumber" id="PhoneNumber" >
 
   </mat-form-field>
 
   <br>
 
   <mat-form-field class="time">
-    <input type="time" matInput placeholder="Work time" required>
+    <input type="time" matInput placeholder="Work time"  id="WorkTime" [(ngModel)]="se.workTime" >
   </mat-form-field>
 
   <div class="panel">

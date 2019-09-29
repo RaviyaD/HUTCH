@@ -1,8 +1,10 @@
 export  class Visitors {
 
-  siteId: string;
-
-
-
-
+  siteName: string;
+  visitorId: number;
+  visitorName: string;
+  vistDate: string;
+  intime: string;
+  exitTime: string;
+  description: string;
 }

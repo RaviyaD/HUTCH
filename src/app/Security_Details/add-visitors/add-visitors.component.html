@@ -1,21 +1,35 @@
 <p class="h1" style="margin-left: 200px" xmlns="http://www.w3.org/1999/html">Add-Visitors</p>
 
-<form xmlns="http://www.w3.org/1999/html" class="form-control-static">
+<form xmlns="http://www.w3.org/1999/html" (ngSubmit)="onSubmit()" #f="ngForm" class="form-control-static">
 
-  <mat-form-field class="example-full-width">
-    <input matInput placeholder="Site Name" required="required Site Name">
-
-  </mat-form-field>
+  <div class="row">
+    <div class="form-group col-md-2" >
+      <mat-form-field class="example-full-width">
+        <label for="siteName">Site Name</label>
+        <input type="text" required
+               id="siteName"  [(ngModel)]="vi.siteName" name="siteName" matInput  [formControl]="myControl" [matAutocomplete]="auto" class="form-control">
+        <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete" >
+          <mat-option *ngFor="let option of filteredOptions | async" [value]="option" class="row">
+            {{option}}
+          </mat-option>
+        </mat-autocomplete>
+        <!--   <mat-error *ngIf="formControl.invalid">{{getErrorMessage()}}</mat-error> -->
+      </mat-form-field>
+    </div>
+  </div>
+  <div [hidden]="(validcomplete(vi.siteName) === -1)? true:false" >
+    <p class="mat-warn">  Enter valid name</p>
+  </div>
 
   <br>
 
   <mat-form-field class="example-full-width">
-    <input matInput placeholder="Visitor Name" >
+    <input type="text" matInput placeholder="Visitor Name" [(ngModel)]="vi.visitorName" name="visitorName" >
   </mat-form-field>
   <br>
 
   <mat-form-field class="date">
-    <input  type="date" matInput placeholder="Visit Date" required="required date">
+    <input  type="date" matInput placeholder="Visit Date" [(ngModel)]="vi.vistDate" name="vistDate" required="required date">
   </mat-form-field>
 
   <br>
@@ -23,18 +37,18 @@
 
 
     <mat-form-field class="date">
-      <input  type="time" matInput placeholder="Visit Time"required >
+      <input  type="time" matInput placeholder="Visit Time" [(ngModel)]="vi.intime" name="Intime" >
     </mat-form-field>
 
     <mat-form-field class="date">
-      <input  type="time" matInput placeholder="Exit Time" required>
+      <input  type="time" matInput placeholder="Exit Time" [(ngModel)]="vi.exitTime"  name="exitTime" >
     </mat-form-field>
 
   <br>
 
 
   <mat-form-field class="example-full-width">
-    <textarea matInput placeholder="Visitor Name" cdkTextareaAutosize="100"></textarea>
+    <textarea matInput type="text" placeholder="Description"  [(ngModel)]="vi.description" name="Description" ></textarea>
   </mat-form-field>
 
 
@@ -43,6 +57,5 @@
   </div>
 
 
-
-
 </form>
+
