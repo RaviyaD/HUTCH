@@ -87,14 +87,13 @@ export class ViewMaintenanceComponent implements OnInit, AfterViewInit {
   }
 
   delete(id: number) {
-    this.deletconfirmbox('Are You Sure To Delete ?')
-      .afterClosed().subscribe(res => {
-      console.log(res);
-      if (res) {
-        this.maintenanceservice.deleteMaintenance(id);
-        this.ngOnInit();
-      }
-    });
+    // this.deletconfirmbox('Are You Sure To Delete ?')
+    //   .afterClosed().subscribe(res => {
+    //   console.log(res);
+    //   if (res) {
+    this.maintenanceservice.deleteMaintenance(id);
+    window.location.reload();
+    //  }
 
 
   }
@@ -180,6 +179,11 @@ export class ViewMaintenanceComponent implements OnInit, AfterViewInit {
     // new Angular5Csv(this.renderedData, 'Maintenance Report');
   }
 
+  SearchDirection(name: string) {
+    this.router.navigate(['/siteMap/directmap/', name]);
+  }
+
+
   goToView(siteID: string) {
     this.router.navigate(['Site/view-site-details/' + siteID]).then();
   }
@@ -235,11 +239,11 @@ export class ViewMaintenanceComponent implements OnInit, AfterViewInit {
       const pageHeight = pdf.internal.pageSize.height || pdf.internal.pageSize.getHeight();
       pdf.text(str, data.settings.margin.left, pageHeight - 10); // showing current page number
     };
-   // pdf.autoTable(col, rowD,
-   //  {
-   //     addPageContent: pageContent,
-   //     margin: {top: 160},
-   //     });
+    // pdf.autoTable(col, rowD,
+    //  {
+    //     addPageContent: pageContent,
+    //     margin: {top: 160},
+    //     });
 
     // for adding total number of pages // i.e 10 etc
     if (typeof pdf.putTotalPages === 'function') {
@@ -261,7 +265,7 @@ export class ViewMaintenanceComponent implements OnInit, AfterViewInit {
     pdf.text('Maintenance ID: ' + id, 435, 130).setFontSize(10);  //
     pdf.setLineWidth(1.5);
 
-  //  pdf.text('Maintenance ID       :' + id, 140, 180).setFontSize(8);
+    //  pdf.text('Maintenance ID       :' + id, 140, 180).setFontSize(8);
     pdf.text('Site ID              :' + sid, 140, 190).setFontSize(12);
     pdf.text('Site Name            :' + sname, 140, 210).setFontSize(12);
     pdf.text('Category             :' + cat, 140, 230).setFontSize(12);
