@@ -39,12 +39,16 @@ export class ViewSiteDetailsComponent implements OnInit {
         this.update.commissionedDate3G = this.siteForm.value.cd3G;
         this.siteService.updateSite(this.siteForm.value.siteid, this.update).subscribe();
         this.openSnackBar('Site updated');
-        this.router.navigate(['Site/view-site-details' + '/' + this.siteForm.value.siteid]).then();
+        setTimeout(() => {
+          this.router.navigate(['Site/view-site-details' + '/' + this.siteForm.value.siteid]).then();
+        }, 2500);
         this.step = 0;
       } else if (buttonType === 'delete') {
         this.siteService.deleteSite(this.siteForm.value.siteid);
         this.openSnackBar('Site deleted');
-        this.router.navigate(['Site/view-all-sites']).then();
+        setTimeout(() => {
+          this.router.navigate(['Site/view-all-sites']).then();
+        }, 2500);
         this.step = 0;
       }
     } else if (buttonType === 'search') {
