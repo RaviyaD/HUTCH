@@ -5,7 +5,11 @@ import {ActivatedRoute, Router} from '@angular/router';
 import {Spec} from '../model/spec';
 import {HttpClient} from '@angular/common/http';
 import {GoogleChartComponent} from 'angular-google-charts';
-
+import {MatSnackBar} from '@angular/material';
+import {Observable} from 'rxjs';
+import {AngularFireStorage, AngularFireStorageReference, AngularFireUploadTask} from '@angular/fire/storage';
+import {Reference} from '@angular/fire/firestore';
+import {finalize, map} from 'rxjs/operators';
 
 @Component({
   selector: 'app-spec-upload-form',
@@ -33,6 +37,11 @@ export class SpecUploadFormComponent implements OnInit {
   ground: number;
   concrete: number;
   @Input() fileUpload: string;
+  ref: AngularFireStorageReference;
+  task: AngularFireUploadTask;
+  uploadProgress: Observable<number>;
+  downloadURL: Observable<string>;
+  uploadState: Observable<string>;
 
   title = 'Specifications by category';
   type = 'PieChart';
@@ -53,9 +62,24 @@ export class SpecUploadFormComponent implements OnInit {
   height = 300;
 
 
-  constructor(private upl: UserServiceService, private route: ActivatedRoute, private http: HttpClient, private router: Router) {
+  constructor(private upl: UserServiceService, private afStorage: AngularFireStorage, private snackBar: MatSnackBar, private route: ActivatedRoute, private http: HttpClient, private router: Router) {
     this.specUp = new Spec();
   }
+
+  upload(event) {
+    const id = Math.random().toString(36).substring(2);
+    this.ref = this.afStorage.ref(id);
+    this.task = this.ref.put(event.target.files[0]);
+    this.uploadState = this.task.snapshotChanges().pipe(map(s => s.state))
+    this.uploadProgress = this.task.percentageChanges();
+    this.task.snapshotChanges().pipe(finalize(() => {
+        this.downloadURL = this.ref.getDownloadURL(); // <-- Here the downloadURL is available.
+      })
+    ).subscribe();
+
+  }
+
+
   ngOnInit() {
     this.getSpecList();
     this.specUp = new Spec();
@@ -172,6 +196,7 @@ export class SpecUploadFormComponent implements OnInit {
         ];
       }
     );
+
   }
 
 
@@ -181,6 +206,7 @@ export class SpecUploadFormComponent implements OnInit {
     this.upl.save(this.specUp).subscribe(result =>
       this.getSpecList() );
     this.specUp = new Spec();
+    this.openSnackBar('Specification added successfully!');
     /*} else {
       console.log('update');
       this.onUpdate(this.specUp.specId, this.specUp );
@@ -191,10 +217,17 @@ export class SpecUploadFormComponent implements OnInit {
     // window.location.reload();
   }
 
+  openSnackBar(message: string) {
+    this.snackBar.open(message, undefined, {
+      duration: 3000,
+    });
+  }
+
   onUpdate(id, specUp) {
     this.upl.update(id, specUp).subscribe(result =>
       this.getSpecList() );
     this.specUp = new Spec();
+    this.openSnackBar('Specification updated successfully!');
 
   }
   getSpecList() {
@@ -215,6 +248,7 @@ export class SpecUploadFormComponent implements OnInit {
     setTimeout(() => {
       this.getSpecList();
     }, 2000);
+    this.openSnackBar('Specification deleted successfully!');
   }
   goToSpecItem() {
     this.router.navigate(['/uploadRes']);
@@ -242,4 +276,23 @@ export class SpecUploadFormComponent implements OnInit {
     popupWin.document.close();
   }
 
+  /*detectFiles(event) {
+    this.selectedFiles = event.target.files;
+  }
+
+  uploadSingle() {
+    const file = this.selectedFiles.item(0)
+    this.currentUpload = new Spec(file);
+    this.upl.pushUpload(this.currentUpload);
+  }
+
+  uploadMulti() {
+    const files = this.selectedFiles
+    const filesIndex = _.range(files.length)
+    _.each(filesIndex, (idx) => {
+      this.currentUpload = new Spec(files[idx]);
+      this.upl.pushUpload(this.currentUpload); }
+    );
+  }
+*/
 }

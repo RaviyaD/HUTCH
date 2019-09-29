@@ -29,7 +29,7 @@ formControl = new FormControl('', [
   }
 
   confirmAdd() {
-    console.log('Addconfirm eka weda' + this.data.email)
+    console.log('Addconfirm eka weda' + this.data.email);
     this.maintenanceservice.addContractors(this.data).subscribe( result => console.log('complete ptta'));
   }
 

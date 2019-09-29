@@ -52,17 +52,41 @@
              required #desc="ngModel">
     </div></li>
 
-    <!--li> <div class="form-group">
-      <label for="desc">Upload Document</label>
-      <input type="doc" [(ngModel)]="specUp.url"
-             class="form-control" id="doc" name="doc"
-             placeholder="replaced later "
-             required #name="ngModel">
-    </div></li-->
-    <li><div> <button class="uploadbtn" >Upload document</button></div></li><br>
+<!--
+    <li><div> <button class="uploadbtn"  >Upload document</button></div></li><br>
     <li><div>
+-->
+
+      <div class="container">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">Select a file for upload:</h5>
+            <input type="file"
+                   (change)="upload($event)"
+                   accept=".application/pdf,.png,.jpg"
+                   />
+            <div class="progress">
+              <div class="progress-bar progress-bar-striped bg-success"
+                   role="progressbar"
+                   [style.width]="(uploadProgress | async) + '%'"
+                   [attr.aria-valuenow]="(uploadProgress | async)"
+                   aria-valuemin="0" aria-valuemax="100"></div>
+            </div>
+            <br>
+            <div class="btn-group" role="group" *ngIf="uploadState | async; let state">
+              <button type="button" class="btn btn-primary" (click)="task.pause()" [disabled]="state === 'paused'">Pause</button>
+              <button type="button" class="btn btn-primary" (click)="task.cancel()" [disabled]="!(state === 'paused' || state === 'running')">Cancel</button>
+              <button type="button" class="btn btn-primary" (click)="task.resume()" [disabled]="state === 'running'">Resume</button>
+            </div>
+            <br>
+          </div>
+          <div *ngIf="downloadURL | async; let downloadSrc" class="alert alert-info" role="alert">
+            File uploaded: <a [href]="downloadSrc">{{downloadSrc}}</a>
+          </div>
+        </div>
+      </div>
+
       <button class="form-control justify-content-center" >Submit </button>
-    </div></li>
   </form>
 </div>
 
@@ -110,22 +134,6 @@
     </mat-cell>
   </ng-container>
 
-
   <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
   <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
 </table>
-
-
-<!--<div class="card text-center" *ngFor="let specUp of specList">
-
-  <div class="card-body">
-    <h5 class="card-title"><label>SP0{{specUp.specId}} | {{specUp.name}}</label></h5>
-    <p class="card-text"> <label>{{specUp.description}}</label></p>
-    <p class="card-text"><label>{{specUp.category}} type</label></p>
-    <a href="#" class="btn btn-primary">Further Details</a>
-    <a href="#" class="btn btn-primary">Download</a>
-  </div>
-  <div class="card-footer text-muted">
-    project id and site id
-  </div>
-</div>-->
