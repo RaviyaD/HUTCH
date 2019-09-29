@@ -35,7 +35,7 @@ import {AgmDirectionModule} from 'agm-direction';
     UpsitesMapComponent,
     DownsitesMapComponent,
     MaintainsitesMapComponent,
-    DirectionMapComponent
+    DirectionMapComponent,
   ],
   imports: [
     CommonModule,

@@ -1,6 +1,5 @@
 button{
   margin-right: 10px;
-  background-color: darkorange;
 }
 li{
   list-style: none;
@@ -37,4 +36,110 @@ input{
 
 input.ng-invalid.ng-touched {
   border: 1px solid red;
+}
+
+body {
+  padding: 30px ;}
+li {
+  list-style-type: none;
+  padding: 20px;
+}
+input {
+  float: right;
+  width: 200px;
+}
+label {
+  padding-left: 20px;
+}
+
+button {
+  float: right;
+  border: 20px;
+}
+.example-form {
+  min-width: 150px;
+  max-width: 500px;
+  width: 100%;
+}
+
+.example-full-width {
+  width: 100%;
+}
+
+li {
+  list-style: none;
+  border: 10px;
+}
+
+button {
+  border: 4px;
+}
+
+div.card{
+  margin: 20px;
+}
+input{
+  width: 70%;
+  float: right;
+  justify-content: center;
+}
+
+
+button{
+  justify-content: center;
+}
+
+button.uploadbtn {
+  margin: 20px;
+  float:left
+}
+
+
+button.form-control {
+  width: 150px;
+}
+
+input.ng-invalid.ng-touched {
+  border: 1px solid red;
+}
+table {
+  width: 100%;
+}
+
+.example-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.example-container > * {
+  width: 100%;
+}
+
+
+.drop-box {
+  cursor: pointer;
+  background: #F8F8F8;
+  border: 5px dashed #DDD;
+  text-align: center;
+  padding: 40px;
+}
+
+.drag-over-title {
+  display: none;
+}
+
+.drop-box.dragover {
+  opacity: 0.6;
+}
+
+.drop-box.dragover .drag-over-title {
+  display: block;
+}
+
+.drop-box.dragover .drag-in-title {
+  display: none;
+}
+
+input[type='file'] {
+  display: none;
 }

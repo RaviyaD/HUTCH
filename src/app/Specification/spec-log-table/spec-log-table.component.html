@@ -2,46 +2,52 @@
 <div>
   <form (ngSubmit) ="onSubmit(LogForm)" #LogForm = "ngForm" >
     <div class="form-group">
-<!--    <mat-form-field class="form-group">-->
+      <!--    <mat-form-field class="form-group">-->
       <label for="specID">Select Specification ID</label>
       <input type="text" [(ngModel)]="specl.specId"
              class="form-control" id="specID" name="specID"
              placeholder="Enter spec id "
              required #id="ngModel"
              required>
- <!--   </mat-form-field>-->
+      <!--   </mat-form-field>-->
     </div>
 
     <div class="form-group">
-<!--      <mat-form-field class="form-group">-->
-        <label for="site">Site ID</label>
-        <input type="text" matInput [formControl]="myControl" [matAutocomplete]="auto" [(ngModel)]="specl.siteId" id="site">
-        <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
-          <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
-            {{option}}
-          </mat-option>
-        </mat-autocomplete>
-   <!--   </mat-form-field>-->
+      <!--      <mat-form-field class="form-group">-->
+      <label for="site">Site ID</label>
+      <input type="text" matInput [formControl]="myControl" [matAutocomplete]="auto" [(ngModel)]="specl.siteId" id="site">
+      <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
+        <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+          {{option}}
+        </mat-option>
+      </mat-autocomplete>
+      <!--   </mat-form-field>-->
     </div>
 
     <div class="form-group">
-<!--      <mat-form-field class="form-group">-->
-      <label for="desc">Project</label>
-      <input type="text" [(ngModel)]="specl.projectId"
+      <!--      <mat-form-field class="form-group">-->
+      <label for="project">Project</label>
+      <input type="text" matInput [formControl]="myControl1" [matAutocomplete]="auto" [(ngModel)]="specl.projectId" id="project">
+      <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
+        <mat-option *ngFor="let option of filteredOptions2 | async" [value]="option">
+          {{option}}
+        </mat-option>
+      </mat-autocomplete>
+      <!--<input type="text" [(ngModel)]="specl.projectId"
              class="form-control" id="desc" name="desc"
              placeholder="Enter description "
-             required #desc="ngModel">
- <!--     </mat-form-field>-->
+             required #desc="ngModel">-->
+      <!--     </mat-form-field>-->
     </div>
 
     <div class="form-group">
-<!--      <mat-form-field class="form-group">-->
-        <label for="name">Enter remark</label>
-        <input type="text" [(ngModel)]="specl.remark"
-               class="form-control" id="name" name="name"
-               placeholder="Enter name "
-               required #name="ngModel">
- <!--     </mat-form-field>-->
+      <!--      <mat-form-field class="form-group">-->
+      <label for="name">Enter remark</label>
+      <input type="text" [(ngModel)]="specl.remark"
+             class="form-control" id="name" name="name"
+             placeholder="Enter name "
+             required #name="ngModel">
+      <!--     </mat-form-field>-->
     </div>
 
     <button class="form-control" >Submit </button>
@@ -58,9 +64,9 @@
     </ng-container>
 
     <!-- Name Column -->
-    <ng-container matColumnDef="specId">
+    <ng-container matColumnDef="siteId">
       <th mat-header-cell *matHeaderCellDef> Site Id </th>
-      <td mat-cell *matCellDef="let element"> {{element.specId}} </td>
+      <td mat-cell *matCellDef="let element"> {{element.siteId}} </td>
     </ng-container>
 
     <!-- Weight Column -->
