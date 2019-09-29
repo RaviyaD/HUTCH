@@ -5,52 +5,60 @@
   <form class="mat-dialog-content" (ngSubmit)="submit" #formControl="ngForm">
 
     <div class="form">
-      <mat-form-field color="accent">
-        <input matInput #input class="form-control" placeholder="Contractor Id" [(ngModel)]="data.id" name="id" required >
+      <label for ="id">ID</label>
+        <input type="text"  #input class="form-control" id="id" [(ngModel)]="data.id" name="id" required >
         <mat-error *ngIf="formControl.invalid">{{getErrorMessage()}}</mat-error>
-      </mat-form-field>
+
     </div>
 
     <!--Textarea for demo purposes-->
-    <div class="form">
-      <mat-form-field color="accent">
-        <textarea matInput #input class="form-control" placeholder="Contractor Name" [(ngModel)]="data.cname" name="cname" required ></textarea>
+    <div class="form-group">
+      <label for ="cname">Contractor Name</label>
+        <textarea matInput #input class="form-control" id="cname" [(ngModel)]="data.cname" name="cname" required ></textarea>
         <mat-error *ngIf="formControl.invalid">{{getErrorMessage()}}</mat-error>
-      </mat-form-field>
+
     </div>
 
     <!--Contains mat-hint for characters count and has maxLengt set-->
-    <div class="form">
-      <mat-form-field color="accent">
-        <input matInput #inputstate class="form-control" placeholder="Address" [(ngModel)]="data.address" name="address"  required >
+    <div class="form-group">
+      <label for ="Address">Address</label>
+        <input matInput #inputstate class="form-control" id="Address" [(ngModel)]="data.address" name="address"  required >
         <mat-error *ngIf="formControl.invalid">{{getErrorMessage()}}</mat-error>
-      </mat-form-field>
+
     </div>
 
-    <div class="form">
-      <mat-form-field color="accent">
-        <input matInput placeholder="Nic No" [(ngModel)]="data.nic" name="nicno">
+    <div class="form-group">
+      <label for ="nic">NIC</label>
+        <input type="text" class="form-control" id="nic" [(ngModel)]="data.nic" name="nicno" required>
         <mat-hint align="end">{{inputstate.value?.length || 0}}/10</mat-hint>
-      </mat-form-field>
     </div>
 
-    <div class="form">
-      <mat-form-field color="accent">
-        <input matInput placeholder="Tel No" [(ngModel)]="data.telno" name="telno">
+    <div class="form-group">
+      <label for ="telno">Tel No</label>
+        <input type="number" class="form-control" [(ngModel)]="data.telno" maxlength="10" minlength="10" name="telno" id="telno" required>
         <mat-hint align="end">{{inputstate.value?.length || 0}}/10</mat-hint>
-      </mat-form-field>
     </div>
 
-    <div class="form">
+   <!-- <div class="form">
       <mat-form-field color="accent">
-        <input matInput placeholder="E-mail" [(ngModel)]="data.email" name="email">
+        <input matInput placeholder="E-mail" [(ngModel)]="data.email" name="email" required>
       </mat-form-field>
+    </div> -->
+
+    <div class="form-group">
+      <label for ="email">Email</label>
+      <input type="text" class="form-control" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" id="email"name="email" [(ngModel)]="data.email" #emailref="ngModel">
+      <div *ngIf="emailref.errors &&(emailref.touched || emailref.dirty)" class ="aler alert-danger">
+        <div [hidden]="!emailref.errors?.pattern">
+          Invalid pattern
+        </div>
+      </div>
     </div>
 
-    <div class="form">
-      <mat-form-field color="accent">
-        <input matInput placeholder="Register Date" [(ngModel)]="data.regdate" name="regdate">
-      </mat-form-field>
+    <div class="form-group">
+      <label for ="Register">Register</label>
+        <input  id="Register" class="form-control" [(ngModel)]="data.regdate" name="regdate" required>
+
     </div>
 
     <div mat-dialog-actions>

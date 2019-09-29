@@ -66,12 +66,6 @@
               <input type="date" matInput [(ngModel)]="siteWithId.commissionedDate3G" placeholder="Commissioned Date 3G"  name="cd3G" id="cd3G">
             </mat-form-field>
             <br>
-            <button class="btn btn-primary mt-2 ml-4 mb-2" (click)="onSubmit('update')" type="button" [disabled]="!f.valid" >
-              Update
-            </button>
-            <button class="btn btn-primary mt-2 ml-4 mb-2" (click)="onSubmit('delete')" type="button" [disabled]="!f.valid" >
-              Delete
-            </button>
             <mat-action-row>
               <button mat-button color="primary" (click)="nextStep()">Next</button>
             </mat-action-row>
@@ -330,6 +324,13 @@
             </mat-action-row>
           </mat-expansion-panel>
         </mat-accordion>
+        <br>
+        <button class="btn btn-primary mt-2 ml-4 mb-2" (click)="onSubmit('update')" type="button" [disabled]="!f.valid" >
+          Update
+        </button>
+        <button class="btn btn-primary mt-2 ml-4 mb-2" (click)="onSubmit('delete')" type="button" [disabled]="!f.valid" >
+          Delete
+        </button>
       </form>
     </div>
   </div>
