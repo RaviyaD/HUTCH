@@ -109,8 +109,7 @@ export class PhysicalMeasurementComponent implements OnInit {
         const foundIndex = this.exampleDatabase.datachange.value.findIndex(x => x.siteID === this.id);
         // Then you update that record using data from dialogData (values you enetered)
         this.exampleDatabase.datachange.value[foundIndex] = this.TS.getDialogData();
-        // And lastly refresh table
-        // this.refreshTable();
+        this.ngOnInit();
       }
     });
 

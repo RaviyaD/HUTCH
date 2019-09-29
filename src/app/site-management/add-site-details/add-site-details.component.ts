@@ -111,7 +111,8 @@ export class AddSiteDetailsComponent implements OnInit {
     this.step--;
   }
 
-  constructor(private siteService: SiteDetailsService, private snackBar: MatSnackBar, private router: Router) { }
+  constructor(private siteService: SiteDetailsService, private snackBar: MatSnackBar, private router: Router) {
+  }
 
   ngOnInit() {
     this.siteService.findAll().subscribe(data => {
@@ -140,7 +141,7 @@ export class AddSiteDetailsComponent implements OnInit {
   }
 
   validate(siteID: string) {
-    return (this.sites.some((el) =>  el.siteID === siteID ));
+    return (this.sites.some((el) => el.siteID === siteID));
   }
 
   openSnackBar(message: string) {
@@ -206,7 +207,7 @@ export class AddSiteDetailsComponent implements OnInit {
   }
 
   validateName(siteName: string) {
-    return (this.sites.some((el) =>  el.siteName === siteName ));
+    return (this.sites.some((el) => el.siteName === siteName));
   }
 
 }

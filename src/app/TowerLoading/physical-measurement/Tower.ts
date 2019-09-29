@@ -8,4 +8,5 @@ export class ITower {
   type: string;
   owner: string;
   oppositeSite: string;
+  date: string;
 }
