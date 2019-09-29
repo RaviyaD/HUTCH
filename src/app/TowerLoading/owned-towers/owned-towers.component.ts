@@ -58,8 +58,8 @@ export class OwnedTowersComponent implements OnInit {
     return this.testid;
   }
 
-  Summary(sid: string) {
-    this.router.navigate(['/TowerLoading/summary', sid]);
+  summary(sid: string) {
+    this.router.navigate(['/summary', sid]);
   }
 
 

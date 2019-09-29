@@ -5,6 +5,11 @@
       <h3 class="text-center">Add Incident Details</h3>
     </div>
   </div>
+  <div class="row mt-4">
+    <button class="btn btn-primary mt-2 ml-4 mb-2" type="submit" (click)="demo()" >
+      DEMO
+    </button>
+  </div>
 
   <div class="row mt-4">
     <div class="col-12">
@@ -102,7 +107,7 @@
             <br>
 
             <mat-form-field style="width: 25%">
-              <input matInput placeholder="Police Station Name" ngModel name="policename" id="policename" required>
+              <input matInput placeholder="Police Station Name" id="policename" required>
             </mat-form-field>
             <br>
 
@@ -110,6 +115,7 @@
             <mat-radio-group
               aria-labelledby="example-radio-group-label"
               class="radio_group"
+              ngModel name="policename"
               [(ngModel)]="obtainPoliceReport">
               <mat-radio-button value="yes">YES</mat-radio-button>
               <mat-radio-button value="no">No</mat-radio-button>

@@ -12,7 +12,10 @@
 }
 
 .example-full-width {
-  width: 50%;
+  width: 40%;
+}
+.sname{
+  width: 100%;
 }
 .date{
   width: 20%;

@@ -22,10 +22,6 @@
     </mat-form-field>
   </div>
 
-  <div class="form-group">
-    <label>Site name: </label>
-    <label>{{getSiteName()}}</label>
-  </div>
 
 
   <div class="form-group">
@@ -72,7 +68,7 @@
            placeholder="Area m^2"
            [(ngModel)]="at.area"
            #area="ngModel">
-    <small><p *ngIf="!validateArea() && !area.untouched" style="color: #ca2819">Height should be between 5 and 10!</p></small>
+    <small><p *ngIf="!validateArea() && !area.untouched" style="color: #ca2819">Height should be between 2 and 15!</p></small>
   </div>
 
   <mat-form-field>
