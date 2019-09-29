@@ -1,4 +1,7 @@
 <h1>| Usage Details of Towers - HUTCH |</h1>
+<button class="btn btn-ligh btn-sm" (click)="Summary('COL002')">
+  GoTo
+</button>
 <hr>
 <br>
 <table style="margin-top: 10px" mat-table class="lessons-table mat-elevation-z8" [dataSource]="ds">
@@ -55,6 +58,10 @@
 
       <button class="btn btn-ligh btn-sm" (click)="delete(OwnedTowers.siteID)">
         DELETE
+      </button>
+
+      <button class="btn btn-ligh btn-sm" (click)="Summary(OwnedTowers.siteID)">
+        GoTo
       </button>
 
     </mat-cell>

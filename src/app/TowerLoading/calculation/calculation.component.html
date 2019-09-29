@@ -1,22 +1,38 @@
-Calculate Wind force
+<h2 xmlns="http://www.w3.org/1999/html"> Calculate Topographic multiplier & WindForce </h2>
+<hr>
+<img src="assets/img/image108.gif" width="400" height="400" alt="">
 <div class="form-row">
-  <div class="form-group col-md-4">
-    <label for="TowerH">Antenna Height</label>
-    <select id="TowerH" class="form-control">
-      <option selected>Choose...</option>
-      <option>27</option>
-      <option>30.5</option>
-      <option>35</option>
-      <option>38</option>
-    </select>
-  </div>
-  <div class="form-group col-md-4">
-    <label for="WindSpeed">Wind Speed</label>
-    <input type="number" class="form-control" id="WindSpeed">
-  </div>
-  <div class="form-group col-md-2">
-    <label for="value">M z.cat Value</label>
-    <input type="number" class="form-control" id="value">
-  </div>
+  <label>
+    Terrain Height Multiplier ( Mz,cat)
+    <br>
+    This requirement is incorporated in
+    calculation of terrain-height multiplier for antenna and tower wind forces.
+  </label>
+  <input type="number" class="form-control col-md-2" id="value" [(ngModel)]="Mz">
 </div>
+<hr>
+<label>Shielding Multiplier ( Ms)
+  <br>
+  The location is steep hilly area and could assume that average upwind ground
+  gradient is greater than 0.2.
+</label>
+<input type="number" class="form-control col-md-2" id="WindSpeed" [(ngModel)]="Ms">
+<br>
+<hr>
+<label for="value">Antenna Height</label>
+<input type="number" class="form-control col-md-2" id="Height" [(ngModel)]="height">
+<br>
+<label>Topographic multiplier  ( Mt)
+  The topographic  multiplier  ( Mt )  for gust wind speeds shall be obtained for site at near the crest of a
+  hill , ridge or escarpment from the following equation</label>
+<pre>
+  Mt = 1+ (H[1-x/4Lg] / 3.5(z+Lg))
+    Lg=312.5
+    x=1
+  = 1+ ({{height}}[1-1/312.5] / 3.5({{Mz}}+312.5))
+  <h5>= {{GetMT()}}</h5>
+  </pre>
+
+
+
 
