@@ -20,7 +20,7 @@ export class SpecUploadFormComponent implements OnInit {
   specUp: Spec;
   ELEMENT_DATA: Spec[];
   displayedColumns: string[] = ['specId', 'name', 'category', 'description', 'url', 'actions'];
-  categoryList: string[] = ['Ca1', 'cat2', 'cat3', 'cat4'];
+  categoryList: string[] = ['Tower', 'Shelter', 'Earthing', 'Electrical'];
   dataSource = this.ELEMENT_DATA;
 
   @Input() fileUpload: string;
@@ -34,13 +34,11 @@ export class SpecUploadFormComponent implements OnInit {
   }
 
   onSubmitUpload() {
-
-
     /*if (this.specUp.specId === 0) {*/
-      console.log('sub');
-      this.upl.save(this.specUp).subscribe(result =>
-        this.getSpecList() );
-      this.specUp = new Spec();
+    console.log('sub');
+    this.upl.save(this.specUp).subscribe(result =>
+      this.getSpecList() );
+    this.specUp = new Spec();
     /*} else {
       console.log('update');
       this.onUpdate(this.specUp.specId, this.specUp );
