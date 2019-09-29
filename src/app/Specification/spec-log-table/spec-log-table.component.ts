@@ -22,15 +22,17 @@ export class SpecLogTableComponent implements OnInit {
   specList: SpecLog [];
   specl: SpecLog;
   ELEMENT_DATA: SpecLog[];
-  displayedColumns: string[] = ['specId', 'Site Id', 'Project Id', 'description', 'actions'];
-  siteid: string[] = [];
-  projectId: string[] = [];
-  Sites: SiteDetails[];
-  projects: IProject[];
+  displayedColumns: string[] = ['specId', 'siteId', 'projectId', 'remark', 'actions'];
   dataSource = this.ELEMENT_DATA;
   // FOR DB RETRIEVAL
   myControl = new FormControl();
+  myControl1 = new FormControl();
   filteredOptions: Observable<string[]>;
+  filteredOptions2: Observable<string[]>;
+  Sites: SiteDetails[];
+  projects: IProject[];
+  siteid: string[] = [];
+  projectId: string[] = [];
 
   constructor(private spl: SpLogService,  private siteDetailsService: SiteDetailsService, private projectServices: ProjectServicesService , private route: ActivatedRoute, private router: Router) {
     this.specl = new SpecLog();
@@ -58,12 +60,21 @@ export class SpecLogTableComponent implements OnInit {
       startWith(''),
       map(value => this._filter(value))
     );
+    this.filteredOptions2 = this.myControl1.valueChanges.pipe(
+      startWith(''),
+      map(value => this._filter1(value))
+    );
   }
 
   private _filter(value: string): string[] {
     const filterValue = value.toLowerCase();
 
     return this.siteid.filter(option => option.toLowerCase().includes(filterValue));
+  }
+
+  private _filter1(value: any) {
+    const filterValue = value.toLowerCase();
+    return this.projectId.filter(option => option.toLowerCase().includes(filterValue));
   }
 
   onSubmit() {
@@ -101,10 +112,10 @@ export class SpecLogTableComponent implements OnInit {
       this.getLog();
     }, 2000);
   }
-/*  goToSpecItem() {
-    this.router.navigate(['/uploadRes']);
+  /*  goToSpecItem() {
+      this.router.navigate(['/uploadRes']);
 
-  }*/
+    }*/
   gotoSLogList() {
     this.router.navigate(['/specs']);
   }
