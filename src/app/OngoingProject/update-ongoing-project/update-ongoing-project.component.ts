@@ -14,7 +14,6 @@ export class UpdateOngoingProjectComponent implements OnInit {
   constructor(public dialogRef: MatDialogRef<UpdateOngoingProjectComponent>,
               @Inject(MAT_DIALOG_DATA) public data: IProject,
               private dataService: ProjectServicesService, private route: ActivatedRoute, private router: Router) { }
-  method: string[] = ['In-House', 'By-Contractor'];
   ngOnInit() {
   }
 
