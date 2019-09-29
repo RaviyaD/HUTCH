@@ -11,16 +11,24 @@ export class CalculationComponent implements OnInit {
   sites: SiteDetails[] = [];
   siteTowerHeight: string[] = [];
   options: string[] = [];
+  ID: string;
+  Ms: number;
+  Mz: number;
+  height: number;
 
 
   constructor(private siteDetailsService: SiteDetailsService) {
-    for (let counter = 0; counter < this.sites.length; counter++) {
-      this.options[counter] = this.sites[counter].siteID;
-      this.siteTowerHeight[counter] = this.sites[counter].siteName;
-    }
+    this.Ms = 0;
+    this.Mz = 0;
+    this.height = 0;
+
   }
 
   ngOnInit() {
+  }
+
+  GetMT() {
+    return (1 + (this.height * (this.Ms - 1 / 4 * 315.25) / (3.5 * (this.Mz + 315.25))));
   }
 
 }
