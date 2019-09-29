@@ -1,0 +1,49 @@
+<p [(ngModel)]="data.siteName" ngDefaultControl>Site Name: {{data.siteName}}</p>
+
+<p [(ngModel)]="data.visitorName" ngDefaultControl>Visitor Name : {{data.visitorName}}</p>
+<p [(ngModel)]="data.vistDate" ngDefaultControl>Visit Date : {{data.vistDate}}</p>
+<p [(ngModel)]="data.intime" ngDefaultControl>In Time: {{data.intime}}</p>
+<p [(ngModel)]="data.exitTime" ngDefaultControl>Exit Time:  {{data.exitTime}}</p>
+<p [(ngModel)]="data.description" ngDefaultControl>Description: {{data.description}}</p>
+
+
+<form (ngSubmit)="submitUpdate()" >
+  <div class="row">
+    <div class="form-group col-md-6" >
+      <label for="Pstatus">Visitor Name</label>
+      <input name="Pstatus"
+             [(ngModel)]="data.visitorName"
+             id="Pstatus"
+             type="text"
+             class="form-control" >
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="form-group col-md-6" >
+      <label for="Pdetails">Vsit Date</label>
+      <input name="Pdetails"
+             [(ngModel)]="data.vistDate"
+             id="Pdetails"
+             type="text"
+             class="form-control" >
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="form-group col-md-7">
+      <label for="pteamid">Description</label>
+      <input required ngModel
+             name="pteamid"
+             [(ngModel)]="data.description"
+             id="pteamid"
+             type="text"
+             class="form-control" >
+
+    </div>
+  </div>
+
+  <div class="panel">
+    <button type="submit"   class="btn-success">Submit</button>
+  </div>
+</form>
