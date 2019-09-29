@@ -75,7 +75,7 @@ export class AddSiteSecurityPersonComponent implements OnInit {
   public validcomplete(key: string) {
     let j;
     for (let i = 0; i < this.optionssitename.length; i++) {
-      console.log(this.optionssitename[i]);
+
       if (key !== this.optionssitename[i]) {
         j = 0;
       } else {
@@ -92,11 +92,10 @@ export class AddSiteSecurityPersonComponent implements OnInit {
       startWith(''),
       map(value => this._filter(value))
     );
-
   }
 
-  gotoViewProject() {
-    this.router.navigate([]);
+  gotoViewSecurity() {
+    this.router.navigate(['Security/view-site-security-person']);
   }
 
   public  showsiteid(key: string) {
@@ -107,22 +106,20 @@ export class AddSiteSecurityPersonComponent implements OnInit {
     }
   }
   onSubmit() {
-   // this.insert.siteName = this.siteForm.value.SiteName;
-   // this.insert.securityName = this.siteForm.value.SecurityName;
-   // this.insert.workTime = this.siteForm.value.WorkTime;
-   // this.insert.phoneNumber = this.siteForm.value.PhoneNumber;
-    this.security.addSecurity(this.se).subscribe();
-    window.location.reload();
-    this.gotoViewProject();
+    console.log(this.se.siteName);
+    console.log(this.se.phoneNumber);
+    console.log(this.se.securityName);
+    console.log(this.se.workTime);
+    this.security.addSecurity(this.se).subscribe(result => this.gotoViewSecurity());
   }
 
   private _filter(value: string): string[] {
     const filterValue = value.toLowerCase();
 
     return this.optionssitename.filter(option => option.toLowerCase().indexOf(filterValue) === 0);
-
-
   }
-  log(x) { console.log(x); }
-}
 
+  log(x) { console.log(x); }
+
+
+}

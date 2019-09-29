@@ -79,18 +79,19 @@ export class ViewVisitorsComponent implements OnInit, AfterViewInit {
   }
 
 
-  startEdit(visitorId: number, siteName: string, visitorName: string, visitDate: string,
-            intime: string, exitTime: string, description: string) {
+  startEdit(vsiteName: string, vvisitorId: number, vvisitorName: string, vvisitDate: string,
+            vintime: string, vexitTime: string, vdescription: string) {
 
-    this.visitorId = visitorId;
+    this.visitorId = vvisitorId;
     console.log(this.index);
     const dialogRef = this.dialog.open(UpdateVisitorsComponent, {
-     data: {visitorId: visitorId,visitorName: visitorName, visitDate: visitDate, intime: intime,exitTime: exitTime,description: description}
+      width: '600px',
+     data: {siteName: vsiteName, visitorId: vvisitorId, visitorName: vvisitorName, visitDate: vvisitDate, intime: vintime, exitTime: vexitTime, description: vdescription}
     });
     dialogRef.afterClosed().subscribe(result => {
       if (result === 1) {
         // When using an edit things are little different, firstly we find record inside DataService by id
-        const foundIndex = this.exampleDatabase.dataChange.value.findIndex(x => x.visitorId = visitorId);
+        const foundIndex = this.exampleDatabase.dataChange.value.findIndex(x => x.visitorId === this.visitorId);
         // Then you update that record using data from dialogData (values you enetered)
         this.exampleDatabase.dataChange.value[foundIndex] = this.visitorservice.getDialogData();
         // And lastly refresh table

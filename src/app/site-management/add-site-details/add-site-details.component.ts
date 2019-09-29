@@ -1,9 +1,11 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
-import {NgForm} from '@angular/forms';
+import {FormControl, NgForm} from '@angular/forms';
 import {SiteDetails} from '../site-details';
 import {SiteDetailsService} from '../site-details.service';
 import {MatSnackBar} from '@angular/material';
 import {Router} from '@angular/router';
+import {map, startWith} from 'rxjs/operators';
+import {Observable} from 'rxjs';
 
 @Component({
   selector: 'app-add-site-details',
@@ -16,6 +18,16 @@ export class AddSiteDetailsComponent implements OnInit {
   sites: SiteDetails[] = [];
   insert: SiteDetails;
   step = -1;
+  typeOptions: string[] = ['COW', 'GM', 'GP', 'RTP', 'RTT', 'SS'];
+  filteredOptionsTowerType: Observable<string[]>;
+  myControl1 = new FormControl();
+  myControl2 = new FormControl();
+  bandOptions: string[] = ['Single', 'Dual', 'Dual/Single'];
+  btsOptions: string[] = ['Indoor', 'Outdoor', 'Indoor/Outdoor'];
+  trxOptions: string[] = ['DTRUG', 'ETRMG', 'MRFU', 'RRU', 'RSU', 'TRMG'];
+  filteredOptionsTRX: Observable<string[]>;
+  tt: string;
+  trx: string;
 
   onSubmit(insert: string) {
     if (insert === 'insert') {
@@ -105,14 +117,30 @@ export class AddSiteDetailsComponent implements OnInit {
     this.siteService.findAll().subscribe(data => {
       this.sites = data;
     });
+    this.filteredOptionsTowerType = this.myControl1.valueChanges
+      .pipe(
+        startWith(''),
+        map(value => this._filter1(value))
+      );
+    this.filteredOptionsTRX = this.myControl2.valueChanges
+      .pipe(
+        startWith(''),
+        map(value => this._filter2(value))
+      );
+  }
+
+  private _filter1(value: string): string[] {
+    const filterValue = value.toLowerCase();
+    return this.typeOptions.filter(option => option.toLowerCase().includes(filterValue));
+  }
+
+  private _filter2(value: string): string[] {
+    const filterValue = value.toLowerCase();
+    return this.trxOptions.filter(option => option.toLowerCase().includes(filterValue));
   }
 
   validate(siteID: string) {
     return (this.sites.some((el) =>  el.siteID === siteID ));
-  }
-
-  validateName(siteName: string) {
-    return (this.sites.some((el) =>  el.siteName === siteName ));
   }
 
   openSnackBar(message: string) {
@@ -176,4 +204,9 @@ export class AddSiteDetailsComponent implements OnInit {
     this.siteForm.controls.shelterSize.setValue('10mx4mx3.5m');
     this.siteForm.controls.accessoriesInShelter.setValue('2 fans, 2 A/C');
   }
+
+  validateName(siteName: string) {
+    return (this.sites.some((el) =>  el.siteName === siteName ));
+  }
+
 }

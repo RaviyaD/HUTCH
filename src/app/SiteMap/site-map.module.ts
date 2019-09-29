@@ -17,6 +17,7 @@ import { UpsitesMapComponent } from './status-map/upsites-map/upsites-map.compon
 import { DownsitesMapComponent } from './status-map/downsites-map/downsites-map.component';
 import { MaintainsitesMapComponent } from './status-map/maintainsites-map/maintainsites-map.component';
 import { DirectionMapComponent } from './direction-map/direction-map.component';
+import {AgmDirectionModule} from 'agm-direction';
 
 
 
@@ -34,7 +35,7 @@ import { DirectionMapComponent } from './direction-map/direction-map.component';
     UpsitesMapComponent,
     DownsitesMapComponent,
     MaintainsitesMapComponent,
-    DirectionMapComponent
+    DirectionMapComponent,
   ],
   imports: [
     CommonModule,
@@ -42,7 +43,8 @@ import { DirectionMapComponent } from './direction-map/direction-map.component';
     FormsModule,
     ReactiveFormsModule,
     AgmCoreModule.forRoot({apiKey: 'AIzaSyDiC1SSoFYcBl_SRPWnvKCVhfUfAmdHWn4'}),
-    SiteMapRoutingModule
+    SiteMapRoutingModule,
+    AgmDirectionModule
   ],
   entryComponents: [RemarkDialogComponent]
 })

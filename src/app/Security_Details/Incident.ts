@@ -1,6 +1,5 @@
 export class Incident {
 
-  siteId: string;
   incidentId: number;
   siteName: string;
   incidentDate: string;
@@ -11,11 +10,7 @@ export class Incident {
   provideAbansSecurity: string;
   dateOfEntry: string;
   nameOfThePoliceStation: string;
-  ObtainPoliceReport: string;
-  Remarks: string;
-
+  obtainPoliceReport: string;
+  remarks: string;
 
 }
-
-
-
