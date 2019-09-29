@@ -31,6 +31,7 @@ export class AddSiteDetailsComponent implements OnInit {
   filteredOptionsTRX: Observable<string[]>;
   tt: string;
   trx: string;
+  subR: string;
   regions: Region[];
   regionOptions: string[] = [];
   filteredRegionOptions: Observable<string[]>;
@@ -53,10 +54,13 @@ export class AddSiteDetailsComponent implements OnInit {
         // Site Location Details
         this.insert.latitude = Number(this.siteForm.value.latitude);
         this.insert.longitude = Number(this.siteForm.value.longitude);
-        this.insert.subRegion = this.siteForm.value.subRegion;
+        // this.insert.subRegion = this.siteForm.value.subRegion;
+        this.insert.subRegion = this.subR;
+        console.log(this.insert.subRegion + ' ' + this.subR);
         this.insert.address = this.siteForm.value.address;
         this.insert.altitude = Number(this.siteForm.value.altitude);
-        this.insert.towerType = this.siteForm.value.towerType;
+        // this.insert.towerType = this.siteForm.value.towerType;
+        this.insert.towerType = this.tt;
         this.insert.towerHeight = Number(this.siteForm.value.towerHeight);
         this.insert.buildingHeight = Number(this.siteForm.value.buildingHeight);
         // Cellular Antenna Location Details
@@ -90,7 +94,8 @@ export class AddSiteDetailsComponent implements OnInit {
         this.insert.rnc = Number(this.siteForm.value.rnc);
         this.insert.btsType = this.siteForm.value.btsType;
         this.insert.btsModel = this.siteForm.value.btsModel;
-        this.insert.trxType2g = this.siteForm.value.trxType2g;
+        // this.insert.trxType2g = this.siteForm.value.trxType2g;
+        this.insert.trxType2g = this.trx;
         // Cabin Details
         this.insert.equipmentType = this.siteForm.value.equipmentType;
         this.insert.shelterType = this.siteForm.value.shelterType;
@@ -184,7 +189,8 @@ export class AddSiteDetailsComponent implements OnInit {
     // Site Location Details
     this.siteForm.controls.latitude.setValue('6.436389');
     this.siteForm.controls.longitude.setValue('80.016667');
-    this.siteForm.controls.subRegion.setValue('Kalutara');
+    // this.siteForm.controls.subRegion.setValue('Kalutara');
+    this.subR = 'Kalutara';
     this.siteForm.controls.address.setValue('llangakanda watta, Dharga Town, Aluthgama.\n');
     this.siteForm.controls.altitude.setValue('20');
     this.siteForm.controls.towerType.setValue('SS');
@@ -221,7 +227,8 @@ export class AddSiteDetailsComponent implements OnInit {
     this.siteForm.controls.rnc.setValue('1');
     this.siteForm.controls.btsType.setValue('Indoor');
     this.siteForm.controls.btsModel.setValue('MBTS');
-    this.siteForm.controls.trxType2g.setValue('MRFU');
+    // this.siteForm.controls.trxType2g.setValue('MRFU');
+    this.trx = 'MRFU';
     // Cabin Details
     this.siteForm.controls.equipmentType.setValue('Indoor');
     this.siteForm.controls.shelterType.setValue('Brick Cabin');
