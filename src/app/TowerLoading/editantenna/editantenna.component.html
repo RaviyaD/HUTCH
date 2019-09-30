@@ -36,7 +36,7 @@
            [(ngModel)]="data.azimuth"
            required
            #azimuth="ngModel">
-    <small><p *ngIf="!validateAzimuth() && !azimuth.untouched" style="color: #ca2819">Height should be between 5 and 10!</p></small>
+    <small><p *ngIf="!validateAzimuth() && !azimuth.untouched" style="color: #ca2819">Azimuth should be between 0 and 360!</p></small>
   </div>
 
   <div class="form-group">
@@ -47,14 +47,14 @@
            placeholder="Area m^2"
            [(ngModel)]="data.area"
            #area="ngModel">
-    <small><p *ngIf="!validateArea() && !area.untouched" style="color: #ca2819">Height should be between 5 and 10!</p></small>
+    <small><p *ngIf="!validateArea() && !area.untouched" style="color: #ca2819">Area should be between 2 and 15!</p></small>
   </div>
 
   <mat-form-field>
     <mat-label>Type of Antenna</mat-label>
     <mat-select
       [(ngModel)]="data.type" name="TypeAntenna">
-      <mat-option *ngFor="let op of Type" [value]="op">
+      <mat-option *ngFor="let op of Type" [value]="data.type">
         {{op}}
       </mat-option>
     </mat-select>
@@ -65,7 +65,7 @@
     <mat-label>Network Operator</mat-label>
     <mat-select
       [(ngModel)]="data.owner" name="ownerShip">
-      <mat-option *ngFor="let op of operators" [value]="op">
+      <mat-option *ngFor="let op of operators" [value]="data.owner">
         {{op}}
       </mat-option>
     </mat-select>

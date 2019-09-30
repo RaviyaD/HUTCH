@@ -1,14 +1,14 @@
 <h2>Site ID:{{ID}}</h2>
 <br>
-<h4>Summary of Site Tower</h4><!--
-Remaining percentage: <p>{{(Owned.remaining/Owned.totalArea)*100}}%</p>
-GSM Antenna: <p>{{Owned.gsm}}</p>
-Micro Antenna<p>{{Owned.micro}}</p>
--->
+<h4>Summary of Site Tower</h4>
+Remaining percentage: <label>{{(Owned.remaining/Owned.totalArea)*100}}%</label><br>
+GSM Antenna: <label>{{Owned.gsm}}</label><br>
+Micro Antenna<label>{{Owned.micro}}</label>
+
 <br>
 <h4>Summary of Network Operators</h4>
 <div *ngFor="let s of sort">
-  {{ s.name }}:{{s.count}}
+  {{ s.name }}: {{s.count}} antennas
   <br>
 </div>
 <!--
