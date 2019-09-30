@@ -36,12 +36,12 @@ export class EditantennaComponent implements OnInit {
   }
 
   validateArea() {
-    return (this.data.diameter > 2 && this.data.diameter < 15);
+    return (this.data.area > 2 && this.data.area < 15);
 
   }
 
   validateAzimuth() {
-    return (this.data.diameter > 0 && this.data.diameter <= 360);
+    return (this.data.azimuth > 0 && this.data.azimuth <= 360);
   }
 
 

@@ -6,6 +6,7 @@ import {Isort} from '../physical-measurement/sort';
 import {ITower} from '../physical-measurement/Tower';
 import {OwnedService} from '../owned-towers/Owned.service';
 import {IOwned} from '../owned-towers/Owned';
+import {ActivatedRoute} from '@angular/router';
 
 @Component({
   selector: 'app-summary',
@@ -22,20 +23,25 @@ export class SummaryComponent implements OnInit {
   id: string;
   public sort: Isort[] = [];
   exampleDatabase: TowerService | null;
+  cname: string;
 
-  constructor(private TS: TowerService, public dialog: MatDialog, private OS: OwnedService) {
+
+  constructor(private TS: TowerService, public dialog: MatDialog, private OS: OwnedService,private route: ActivatedRoute) {
+    this.cname = this.route.snapshot.params.cname;
+
+    this.TS.listbyID(this.cname)
+      .subscribe(data1 => this.Tower1 = data1);
+    this.TS.sort(this.cname).subscribe(data => this.sort = data);
+    this.OS.getTowerbyID(this.cname).subscribe(data3 => this.Owned = data3);
+
+    //console.log(this.cname+'===============');
+
 
   }
 
   ngOnInit() {
     this.dataSource = new TowerDataSource(this.TS);
     this.dataSource.loadTower();
-    this.TS.listbyID('COL001')
-      .subscribe(data1 => this.Tower1 = data1);
-    this.TS.sort('COL001').subscribe(data => this.sort = data);
-    this.ID = this.Tower1[1].siteID;
-    this.OS.getTowerbyID('COL001').subscribe(data3 => this.Owned = data3);
-
 
   }
 
