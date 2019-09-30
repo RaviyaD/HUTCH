@@ -23,7 +23,7 @@ export class OwnedService {
     return this.http.post<IOwned>(this.url, ot);
   }
 
-   deleteOwnedTower(siteID: string) {
+  deleteOwnedTower(siteID: string) {
     console.log(this.url);
     return this.http.delete(this.url + '/' + siteID).subscribe(data => {
 
@@ -37,13 +37,17 @@ export class OwnedService {
 
   updateOwned(ob: IOwned) {
     this.http.put(this.url + '/' + ob.siteID, ob).subscribe(data => {
-      this.dialogdata = ob;
-      console.log('hari bn ela');
-    },
+        this.dialogdata = ob;
+        console.log('hari bn ela');
+      },
       (err: HttpErrorResponse) => {
-      console.log('kela uan');
+        console.log('kela uan');
       }
-  );
+    );
+  }
+
+  getTowerbyID(ID: string) {
+    return this.http.get<IOwned>(this.url + '/' + ID);
   }
 
 
