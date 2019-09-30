@@ -24,7 +24,7 @@ export class SpecUploadFormComponent implements OnInit {
   specList: Spec [];
   specUp: Spec;
   ELEMENT_DATA: Spec[];
-  displayedColumns: string[] = ['specId', 'name', 'category', 'description', 'url', 'actions'];
+  displayedColumns: string[] = ['specId', 'name', 'category', 'description', 'actions'];
   categoryList: string[] = ['Tower', 'Shelter', 'Earthing/Electrical',
     'Fence', 'Brackets', 'Grounding', 'Concrete'];
   dataSource = this.ELEMENT_DATA;
