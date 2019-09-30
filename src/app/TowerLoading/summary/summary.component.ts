@@ -6,6 +6,7 @@ import {Isort} from '../physical-measurement/sort';
 import {ITower} from '../physical-measurement/Tower';
 import {OwnedService} from '../owned-towers/Owned.service';
 import {IOwned} from '../owned-towers/Owned';
+import * as jsPDF from 'jspdf';
 
 @Component({
   selector: 'app-summary',
