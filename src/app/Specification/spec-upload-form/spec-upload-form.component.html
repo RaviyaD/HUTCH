@@ -18,7 +18,7 @@
 <div>
   <form (ngSubmit) ="onSubmitUpload(UploadSpecForm)" #UploadSpecForm = "ngForm" >
     <li> <div class="form-group">
-      <label for="specID">Select Specification ID</label>
+      <label for="specID">Specification ID</label>
       <input type="text" [(ngModel)]="specUp.specId"
              class="form-control" id="specID" name="specID"
              placeholder="Enter spec id "
@@ -121,10 +121,10 @@
     <th mat-header-cell *matHeaderCellDef> description </th>
     <td mat-cell *matCellDef="let element"> {{element.description}} </td>
   </ng-container>
-  <ng-container matColumnDef="url">
+<!--  <ng-container matColumnDef="url">
     <th mat-header-cell *matHeaderCellDef> url </th>
     <td mat-cell *matCellDef="let element"> {{element.url}} </td>
-  </ng-container>
+  </ng-container>-->
   <ng-container matColumnDef="actions">
     <th mat-header-cell *matHeaderCellDef> Actions </th>
     <mat-cell *matCellDef="let element">

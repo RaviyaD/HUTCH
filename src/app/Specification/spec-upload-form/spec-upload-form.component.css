@@ -36,7 +36,7 @@ button {
 }
 
 div.card{
-  margin: 20px;
+  margin: 50px;
 }
 input{
   width: 70%;
@@ -54,7 +54,7 @@ button{
 
 button.uploadbtn {
   margin: 20px;
-  float:left
+  float:right;
 }
 
 
@@ -62,9 +62,6 @@ button.form-control {
   width: 150px;
 }
 
-input.ng-invalid.ng-touched {
-  border: 1px solid red;
-}
 table {
   width: 100%;
 }
@@ -78,30 +75,6 @@ table {
   width: 100%;
 }
 
-
-.drop-box {
-  cursor: pointer;
-  background: #F8F8F8;
-  border: 5px dashed #DDD;
-  text-align: center;
-  padding: 40px;
-}
-
-.drag-over-title {
-  display: none;
-}
-
-.drop-box.dragover {
-  opacity: 0.6;
-}
-
-.drop-box.dragover .drag-over-title {
-  display: block;
-}
-
-.drop-box.dragover .drag-in-title {
-  display: none;
-}
 
 input.file {
   position: relative;
