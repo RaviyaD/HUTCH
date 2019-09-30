@@ -261,11 +261,11 @@ export class ViewMaintenanceComponent implements OnInit, AfterViewInit {
       const pageHeight = pdf.internal.pageSize.height || pdf.internal.pageSize.getHeight();
       pdf.text(str, data.settings.margin.left, pageHeight - 10); // showing current page number
     };
-    // pdf.autoTable(col, rowD,
-    //  {
-    //     addPageContent: pageContent,
-    //     margin: {top: 160},
-    //    });
+     pdf.autoTable(col, rowD,
+      {
+         addPageContent: pageContent,
+         margin: {top: 160},
+       });
 
     // for adding total number of pages // i.e 10 etc
     if (typeof pdf.putTotalPages === 'function') {
