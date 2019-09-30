@@ -28,20 +28,20 @@ export class EditantennaComponent implements OnInit {
   }
 
   validateHeight() {
-    return (this.data.height > 5 && this.data.height < 15);
+    return (this.data.height >= 5 && this.data.height <= 15);
   }
 
   validateDiameter() {
-    return (this.data.diameter > 0.5 && this.data.diameter < 5);
+    return (this.data.diameter >= 0.5 && this.data.diameter <= 5);
   }
 
   validateArea() {
-    return (this.data.area > 2 && this.data.area < 15);
+    return (this.data.area >= 2 && this.data.area <= 15);
 
   }
 
   validateAzimuth() {
-    return (this.data.azimuth > 0 && this.data.azimuth <= 360);
+    return (this.data.azimuth >= 0 && this.data.azimuth <= 360);
   }
 
 

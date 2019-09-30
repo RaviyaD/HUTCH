@@ -24,7 +24,7 @@
            [(ngModel)]="data.diameter"
            required
            #diameter="ngModel">
-    <small><p *ngIf="!validateDiameter() && !diameter.untouched" style="color: #ca2819">Height should be between 5 and 10!</p></small>
+    <small><p *ngIf="!validateDiameter() && !diameter.untouched" style="color: #ca2819">Diameter should be between 0.5 and 5!</p></small>
   </div>
 
   <div class="form-group">
