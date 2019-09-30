@@ -9,6 +9,8 @@ import {TowerService} from '../physical-measurement/Tower.service';
   styleUrls: ['./editantenna.component.css']
 })
 export class EditantennaComponent implements OnInit {
+  operators: string[] = ['Hutch', 'Etisalat', 'Mobitel', 'SLT', 'LANKA BELL'];
+  Type: string[] = ['GSM', 'MICRO'];
 
   constructor(public dialogRef: MatDialogRef<EditantennaComponent>,
               @Inject(MAT_DIALOG_DATA) public data: ITower,

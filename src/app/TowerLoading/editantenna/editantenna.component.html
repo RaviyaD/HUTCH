@@ -54,7 +54,7 @@
     <mat-label>Type of Antenna</mat-label>
     <mat-select
       [(ngModel)]="data.type" name="TypeAntenna">
-      <mat-option *ngFor="let op of Type" [value]="data.type">
+      <mat-option *ngFor="let op of Type" [value]="op">
         {{op}}
       </mat-option>
     </mat-select>
@@ -65,7 +65,7 @@
     <mat-label>Network Operator</mat-label>
     <mat-select
       [(ngModel)]="data.owner" name="ownerShip">
-      <mat-option *ngFor="let op of operators" [value]="data.owner">
+      <mat-option *ngFor="let op of operators" [value]="op">
         {{op}}
       </mat-option>
     </mat-select>
