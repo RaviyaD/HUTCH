@@ -33,7 +33,7 @@ import 'jspdf-autotable';
 
 export class ViewMaintenanceComponent implements OnInit, AfterViewInit {
   constructor(private route: ActivatedRoute, private router: Router,
-              private maintenanceservice: MaintenanceServicesService, public dialog: MatDialog) {
+              private maintenanceservice: MaintenanceServicesService, public dialog: MatDialog,) {
   }
 
 
@@ -328,6 +328,8 @@ export class ViewMaintenanceComponent implements OnInit, AfterViewInit {
     pdf.save('Maintenance' + id + '.pdf');
 
   }
+
+
 
 }
 

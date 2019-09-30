@@ -103,6 +103,10 @@
       <button mat-icon-button color="accent"  >
         <mat-icon aria-label="location_searching" (click)="SearchDirection(m.sname)">location_searching</mat-icon></button>
 
+      <button mat-button color="accent"  (click)="getreporttoeach(m.id,m.sid,m.sname,m.category,m.issue,m.piority,m.status,m.idate,m.conname,m.cost,m.rdate,m.cdate)">
+        <mat-icon class="mat-24" aria-label="Example icon-button with a heart icon">print</mat-icon></button>
+
+
       <button mat-icon-button color="accent" (click)="startEdit(m.id, m.sname, m.category, m.issue, m.piority, m.idate, m.sid)" [hidden]="(m.status == 'Complete' || m.status == 'In-Progressing')? true:false" >
         <mat-icon aria-label="Build">build</mat-icon>
       </button>
@@ -118,8 +122,6 @@
       <button mat-icon-button color="accent"  (click)="viewcondetails(m.conname)" [hidden]="(m.status == 'Pending')? true:false">
         <mat-icon aria-label="perm_identity">perm_identity</mat-icon></button>
 
-      <button mat-button color="accent"  (click)="getreporttoeach(m.id,m.sid,m.sname,m.category,m.issue,m.piority,m.status,m.idate,m.conname,m.cost,m.rdate,m.cdate)">
-      <mat-icon class="mat-24" aria-label="Example icon-button with a heart icon">print</mat-icon></button>
 
 
     </mat-cell>
@@ -157,4 +159,3 @@
   <button mat-button color="accent" (click)="GenerateReport()">
     <mat-icon class="mat-24" aria-label="Example icon-button with a heart icon">print</mat-icon></button>
 </div>
-
